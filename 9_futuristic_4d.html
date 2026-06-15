@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spatial Matrix | AXIS:04</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/geist-mono.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed-variant": "#454747",
+                        "tertiary": "#ffffff",
+                        "on-primary": "#2f3131",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface": "#131313",
+                        "primary-container": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "outline": "#8e9192",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "tertiary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#636565",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#b5b5b5",
+                        "on-primary-fixed": "#1a1c1c",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "primary-fixed": "#e2e2e2",
+                        "secondary-container": "#464747",
+                        "background": "#131313",
+                        "on-tertiary": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#303031",
+                        "on-background": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-tint": "#c6c6c7",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "outline-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "on-tertiary-container": "#656464",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-bright": "#3a3939",
+                        "secondary-fixed": "#e3e2e2",
+                        "tertiary-container": "#e5e2e1",
+                        "secondary": "#c7c6c6",
+                        "primary": "#ffffff",
+                        "inverse-on-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "z-gap-sm": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "z-gap-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Geist Mono"],
+                        "code-mono": ["Geist Mono"],
+                        "body-md": ["Geist Mono"],
+                        "label-sm": ["Geist Mono"],
+                        "headline-lg": ["Geist Mono"],
+                        "display-xl": ["Geist Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "200"}],
+                        "code-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "300"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "200"}],
+                        "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "100"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e0e;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .inner-glow-tl {
+            box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.1);
+        }
+        .grid-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .holographic-edge {
+            position: relative;
+            overflow: hidden;
+        }
+        .holographic-edge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+            transform: rotate(30deg);
+            pointer-events: none;
+            transition: transform 0.6s ease;
+        }
+        .holographic-edge:hover::after {
+            transform: rotate(30deg) translate(20%, 20%);
+        }
+        .wireframe-cube {
+            perspective: 1000px;
+        }
+        .cube-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 20s infinite linear;
+        }
+        @keyframes rotateCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .cube-face {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .front  { transform: translateZ(150px); }
+        .back   { transform: rotateY(180deg) translateZ(150px); }
+        .right  { transform: rotateY(90deg) translateZ(150px); }
+        .left   { transform: rotateY(-90deg) translateZ(150px); }
+        .top    { transform: rotateX(90deg) translateZ(150px); }
+        .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+        .scan-line {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md selection:bg-white selection:text-black">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full bg-transparent backdrop-blur-xl text-primary font-label-sm text-label-sm z-50 flex justify-between items-center px-margin-desktop h-16 border-b border-white/10 inner-glow-tl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
+<h1 class="font-code-mono text-label-sm tracking-widest text-primary">AXIS:04</h1>
+</div>
+<nav class="hidden md:flex gap-gutter">
+<a class="text-primary font-bold hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">MATRIX</a>
+<a class="text-on-surface-variant hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">COORDINATES</a>
+<a class="text-on-surface-variant hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">LAYERS</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="location_searching">location_searching</span>
+<span class="font-code-mono opacity-50">[0.0, 0.0, 0.0]</span>
+</div>
+</header>
+<main class="grid-bg min-h-screen pt-32">
+<!-- Hero Section -->
+<section class="px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center min-h-[707px] mb-32">
+<div class="lg:col-span-6 space-y-z-gap-lg">
+<div class="inline-block border border-white/20 px-3 py-1 font-code-mono text-[10px] uppercase tracking-widest text-on-surface-variant">
+                    Protocol: Spatial_Matrix_Initiated
+                </div>
+<h2 class="font-display-xl text-display-xl text-primary uppercase">Spatial Matrix</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                    Interfacing with high-dimensional data volumes. A refractive architectural exploration of depth, Z-axis motion, and spectral luminosity within the 4D coordinate system.
+                </p>
+<div class="flex gap-gutter pt-8">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-tertiary-fixed-dim transition-all active:scale-95">
+                        Initialize Demo
+                    </button>
+<button class="border border-primary text-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95">
+                        Documentation
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-6 flex justify-center items-center relative py-20 overflow-visible">
+<div class="wireframe-cube">
+<div class="cube-container">
+<div class="cube-face front"></div>
+<div class="cube-face back"></div>
+<div class="cube-face right"></div>
+<div class="cube-face left"></div>
+<div class="cube-face top"></div>
+<div class="cube-face bottom"></div>
+<!-- Inner detail -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-md"></div>
+</div>
+</div>
+</div>
+<!-- HUD elements -->
+<div class="absolute top-0 right-0 font-code-mono text-[10px] text-white/30 space-y-1 text-right">
+<div>ROT_X: <span id="rotX">0.00</span></div>
+<div>ROT_Y: <span id="rotY">0.00</span></div>
+<div>Z_DPT: 104.22</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<section class="px-margin-desktop mb-32">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter h-auto md:h-[600px]">
+<!-- Refractive Volume Card -->
+<div class="md:col-span-2 glass-panel p-8 flex flex-col justify-between group cursor-crosshair holographic-edge relative overflow-hidden">
+<div class="scan-line"></div>
+<div class="space-y-4">
+<span class="font-code-mono text-label-sm text-on-primary-container bg-primary/10 px-2 py-1">CORE:01</span>
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase">Refractive Volume</h3>
+<p class="font-body-md text-on-surface-variant max-w-sm">
+                            Simulation of optical density across multiple Z-layers. Calculating light refraction through virtual glass surfaces in real-time.
+                        </p>
+</div>
+<div class="mt-8 overflow-hidden relative h-48 border border-white/10">
+<img class="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-1000" data-alt="A macro photograph of high-tech circuit boards and optical glass prisms. The lighting is cold and architectural, featuring charcoal and deep silver tones with sharp white light highlights. The composition is focused on mathematical precision and technical elegance, with a shallow depth of field creating a sense of three-dimensional volume." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFtXBiPYc3jMiTje-ZB4Gb5c3TPuntm4JL4kfwbMS2Kz12lbBgiFC2r6LAIxLDH4DP4NNWWjnwWF0Wycfu77Ng_OTnIuWjUrAAsP7dIr3FClqOJhTSBd7o0skXqrWnmM7p6rZTNZA4m2255Os_0jUylIrmUyCyEKizZgBYx79L7YBOlEqdC78O0yR4SwqmfDgTlojKr15lBDqG6y-MjakF5iFoPm_JisryKJcr1tNoJ4Rs8xij1S2vOY2WEgQrzawG1fE6bPKP_TGb"/>
+</div>
+</div>
+<!-- Small Grid Items -->
+<div class="space-y-gutter flex flex-col h-full">
+<div class="glass-panel p-6 flex-1 flex flex-col justify-between border-l-4 border-primary">
+<h4 class="font-code-mono text-label-sm text-primary uppercase">Dynamic Flow</h4>
+<p class="font-label-sm text-on-surface-variant">Z-axis motion vectors mapping user focus within the spatial environment.</p>
+<div class="w-full h-1 bg-white/5 mt-4 overflow-hidden">
+<div class="w-1/3 h-full bg-white animate-[slide_2s_infinite]"></div>
+</div>
+</div>
+<div class="glass-panel p-6 flex-1 flex flex-col justify-between group">
+<h4 class="font-code-mono text-label-sm text-primary uppercase">Spectral Highlights</h4>
+<p class="font-label-sm text-on-surface-variant">Holographic light leaks at intersection points of the coordinate grid.</p>
+<div class="flex justify-end mt-4">
+<span class="material-symbols-outlined text-4xl text-white/20 group-hover:text-white transition-colors" data-icon="blur_on">blur_on</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specification Section -->
+<section class="px-margin-desktop mb-32 border-t border-white/5 pt-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="space-y-4">
+<h5 class="font-code-mono text-label-sm text-primary">VECTOR.ARCH</h5>
+<ul class="text-[10px] font-code-mono text-on-surface-variant space-y-1">
+<li>SYS.KERNEL_VER: 0.9.1</li>
+<li>DIM_RES: 4096 x 2160</li>
+<li>FPS_LOCK: 120.0</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-code-mono text-label-sm text-primary">GEOMETRY.X</h5>
+<ul class="text-[10px] font-code-mono text-on-surface-variant space-y-1">
+<li>VERT_COUNT: 1,024,541</li>
+<li>FACE_REFL: 0.85</li>
+<li>ALPHA_D: 0.02</li>
+</ul>
+</div>
+<div class="md:col-span-2 glass-panel p-6 relative">
+<div class="flex justify-between items-center mb-4">
+<span class="font-code-mono text-[10px] text-primary">SYSTEM_DIAGNOSTICS</span>
+<div class="flex gap-1">
+<div class="w-1 h-1 bg-white"></div>
+<div class="w-1 h-1 bg-white/30"></div>
+<div class="w-1 h-1 bg-white/30"></div>
+</div>
+</div>
+<div class="h-16 w-full flex items-end gap-1">
+<div class="bg-white/10 w-full h-[20%]"></div>
+<div class="bg-white/20 w-full h-[45%]"></div>
+<div class="bg-white/10 w-full h-[30%]"></div>
+<div class="bg-white/40 w-full h-[80%] animate-pulse"></div>
+<div class="bg-white/20 w-full h-[50%]"></div>
+<div class="bg-white/10 w-full h-[35%]"></div>
+<div class="bg-white/30 w-full h-[60%]"></div>
+<div class="bg-white/10 w-full h-[25%]"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 bg-surface-container-lowest text-primary font-code-mono text-label-sm border-t border-outline-variant px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-6">
+<h2 class="font-headline-lg text-primary uppercase">SPATIAL_CORE</h2>
+<p class="text-on-surface-variant max-w-sm">© 2024 SPATIAL_CORE. COORDINATES [0,0,0]</p>
+</div>
+<div class="flex flex-col md:items-end justify-between">
+<nav class="flex gap-8 mb-8 md:mb-0">
+<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">VECTORS</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">DIMENSIONS</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">TERMINAL</a>
+</nav>
+<div class="text-[10px] text-on-surface-variant flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                SYSTEM_STABLE // NO_ERRORS_DETECTED
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for HUD coordinates
+        const rotXEl = document.getElementById('rotX');
+        const rotYEl = document.getElementById('rotY');
+        let angle = 0;
+
+        function updateHUD() {
+            angle += 0.018;
+            rotXEl.textContent = (Math.sin(angle) * 360).toFixed(2);
+            rotYEl.textContent = (Math.cos(angle) * 360).toFixed(2);
+            requestAnimationFrame(updateHUD);
+        }
+        updateHUD();
+
+        // Mouse move parallax for glass cards
+        document.querySelectorAll('.glass-panel').forEach(panel => {
+            panel.addEventListener('mousemove', e => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const xPercent = (x / rect.width - 0.5) * 10;
+                const yPercent = (y / rect.height - 0.5) * 10;
+                
+                panel.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg)`;
+            });
+            
+            panel.addEventListener('mouseleave', () => {
+                panel.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+<style>
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
+    </style>
+</body></html>

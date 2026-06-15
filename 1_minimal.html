@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCHIVE — Minimalist Design Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Geist';
+            src: url('https://cdn.jsdelivr.net/gh/vercel/geist-font@main/packages/next/dist/fonts/geist-sans/Geist-Black.woff2') format('woff2');
+            font-weight: 900;
+        }
+
+        body {
+            font-family: 'Geist', sans-serif;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* Extreme Negative Space Utility */
+        .void-xl { height: 160px; }
+        @media (min-width: 1280px) { .void-xl { height: 320px; } }
+
+        /* Smooth reveal for minimalist entrance */
+        .reveal {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#1b1b1b",
+                      "on-tertiary-container": "#83838c",
+                      "primary-container": "#1b1b1b",
+                      "surface": "#f9f9fa",
+                      "background": "#f9f9fa",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e2e2e3",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "outline-variant": "#cfc4c5",
+                      "surface-container": "#eeeeef",
+                      "on-primary-fixed-variant": "#474747",
+                      "primary-fixed": "#e2e2e2",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#1a1b22",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#646464",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "error-container": "#ffdad6",
+                      "primary": "#000000",
+                      "inverse-on-surface": "#f0f1f2",
+                      "surface-dim": "#dadadb",
+                      "secondary-container": "#e3e2e2",
+                      "surface-bright": "#f9f9fa",
+                      "on-secondary-fixed-variant": "#464747",
+                      "secondary": "#5e5e5e",
+                      "surface-container-high": "#e8e8e9",
+                      "surface-tint": "#5e5e5e",
+                      "tertiary-fixed-dim": "#c6c6cf",
+                      "inverse-primary": "#c6c6c6",
+                      "secondary-fixed": "#e3e2e2",
+                      "tertiary-fixed": "#e2e1eb",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#4c4546",
+                      "outline": "#7e7576",
+                      "surface-container-highest": "#e2e2e3",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#1a1b22",
+                      "on-surface": "#1a1c1d",
+                      "inverse-surface": "#2f3132",
+                      "on-primary-container": "#848484",
+                      "surface-container-low": "#f3f3f4",
+                      "on-background": "#1a1c1d",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#45464e",
+                      "tertiary": "#000000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "unit": "4px",
+                      "lg": "64px",
+                      "xl": "128px",
+                      "xs": "8px",
+                      "md": "32px",
+                      "sm": "16px",
+                      "margin-desktop": "80px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Geist"],
+                      "label-sm": ["Geist"],
+                      "headline-lg-mobile": ["Geist"],
+                      "body-md": ["Geist"],
+                      "display": ["Geist"],
+                      "label-md": ["Geist"],
+                      "body-lg": ["Geist"],
+                      "headline-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "display": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-background border-b border-primary flex justify-between items-center px-margin-mobile md:px-margin-desktop py-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md tracking-tighter text-primary">ARCHIVE</span>
+</div>
+<div class="hidden md:flex gap-md">
+<a class="font-bold text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">INDEX</a>
+<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">WORKS</a>
+<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">ABOUT</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-xl overflow-x-hidden">
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop min-h-[618px] flex flex-col justify-end">
+<div class="reveal max-w-4xl">
+<p class="font-label-sm text-label-sm tracking-widest text-secondary mb-sm">VOLUME 01 / 2024</p>
+<h1 class="font-display text-display leading-tight tracking-tighter">
+                    THE ARCHITECTURE <br/>OF SILENCE.
+                </h1>
+</div>
+<div class="void-xl"></div>
+</section>
+<!-- Negative Space Study Section -->
+<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-start-3 md:col-span-8 reveal">
+<div class="aspect-[16/9] bg-surface-container overflow-hidden group">
+<img alt="Minimalist Architecture" class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105" data-alt="A hyper-minimalist architectural photograph of a stark white concrete corner meeting a pale gray ceiling under soft, diffused natural light. The composition emphasizes clean lines and geometric shadows in a monochrome palette of whites and deep grays. The overall mood is clinical, serene, and intellectually focused, embodying high-end museum aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRDUuryqTh5UAOiHzyxwtgCbGGzCxtRkc8fXVIxt-s2oEAqJT_A4t29AHnZYyYHlTBMaSxKrKfnBvdxtRcaqkjxqPUfkvB-Kr7CkRSuidxHD5ryiNRoX9umdL4652EJ1KLSsOVXZfK_huL-rwcQfEvJ8YbG5D48qzdV46oNlRJ23PL2MtIFKr8-0x-BtYBv9o8UiRtl19NnF7musab2ii1wP9HtM-zQ93yuhFxRYFmK3uKGu0-p6D-j8CZS6GeFwumsXZFluodmgmx"/>
+</div>
+<div class="mt-md flex justify-between items-start border-t border-primary pt-sm">
+<span class="font-label-sm text-label-sm text-secondary">FIGURE 0.1</span>
+<p class="max-w-xs font-body-md text-body-md text-on-surface-variant">
+                        Study of light refraction on non-textured surfaces. Observation of the void as a structural necessity.
+                    </p>
+</div>
+</div>
+</section>
+<div class="void-xl"></div>
+<!-- Precision Typography Content Section -->
+<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 reveal">
+<h2 class="font-headline-lg text-headline-lg leading-none border-l-2 border-primary pl-md">PRECISION<br/>OVER<br/>ORNAMENT.</h2>
+</div>
+<div class="col-span-12 md:col-start-6 md:col-span-6 flex flex-col gap-lg reveal">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                    Functionalist utility is not the absence of beauty, but the purification of it. By stripping away the tertiary, we expose the primary intent of the information architecture.
+                </p>
+<div class="grid grid-cols-2 gap-md">
+<div class="border border-outline-variant p-md">
+<span class="font-label-sm text-label-sm text-secondary block mb-xs">AXIS A</span>
+<span class="font-headline-md text-headline-md">GRID SYSTEM</span>
+</div>
+<div class="border border-outline-variant p-md">
+<span class="font-label-sm text-label-sm text-secondary block mb-xs">AXIS B</span>
+<span class="font-headline-md text-headline-md">VOID DENSITY</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+                    Every element snaps to a mathematical baseline, ensuring visual rhythm even in the absence of explicit borders. We define space by what we choose not to include.
+                </p>
+</div>
+</section>
+<div class="void-xl"></div>
+<!-- Call to Action -->
+<section class="bg-primary text-on-primary py-xl px-margin-mobile md:px-margin-desktop text-center">
+<div class="reveal py-lg">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-md">JOIN THE ARCHIVE</h3>
+<p class="font-body-md text-body-md text-on-primary-container mb-lg opacity-80">Subscribe for the quarterly journal of minimal aesthetics.</p>
+<form class="max-w-md mx-auto flex flex-col md:flex-row gap-unit">
+<input class="bg-transparent border-white border-b-2 text-white font-label-md px-sm py-md focus:outline-none focus:border-primary-fixed w-full placeholder:text-surface-variant/50" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-white text-black font-label-md px-lg py-md hover:bg-surface-variant transition-colors duration-300 uppercase">
+                        SUBMIT
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-primary px-margin-mobile md:px-margin-desktop py-lg flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="font-label-sm text-label-sm text-primary tracking-tight">
+            © 2024 DESIGN GALLERY. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300" href="#">PRIVACY</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300" href="#">TERMS</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300 font-bold" href="#">INDEX</a>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Interaction logic for buttons
+        document.querySelectorAll('button, a').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.style.opacity = '0.7';
+            });
+            item.addEventListener('mouseup', () => {
+                item.style.opacity = '1';
+            });
+        });
+    </script>
+</body></html>

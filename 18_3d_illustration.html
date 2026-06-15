@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3D Illustration Demo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .clay-card {
+            background: #ffffff;
+            box-shadow: 
+                8px 8px 16px rgba(73, 75, 212, 0.08),
+                -8px -8px 16px rgba(255, 255, 255, 0.8),
+                inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 5px rgba(73, 75, 212, 0.05);
+            border-radius: 32px;
+        }
+        .clay-button {
+            background: #4648d4;
+            box-shadow: 
+                0 6px 0px #2f2ebe,
+                0 10px 20px rgba(70, 72, 212, 0.3);
+            transition: all 0.1s ease;
+        }
+        .clay-button:active {
+            transform: translateY(4px);
+            box-shadow: 
+                0 2px 0px #2f2ebe,
+                0 4px 10px rgba(70, 72, 212, 0.2);
+        }
+        .clay-inset {
+            box-shadow: 
+                inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+        }
+        .floating-object {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .custom-gradient-bg {
+            background: radial-gradient(circle at top right, #e1e0ff 0%, #f8f9ff 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#0b1c30",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "secondary-fixed-dim": "#ffb2b7",
+                      "surface-dim": "#cbdbf5",
+                      "inverse-primary": "#c0c1ff",
+                      "primary-fixed": "#e1e0ff",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-secondary-fixed": "#40000d",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary-fixed": "#6ffbbe",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#006c49",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-tint": "#494bd6",
+                      "on-tertiary-container": "#000703",
+                      "on-primary-container": "#fffbff",
+                      "on-secondary-container": "#fffbff",
+                      "on-secondary-fixed-variant": "#92002a",
+                      "surface-container-high": "#dce9ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c7c4d7",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-container": "#00885d",
+                      "on-background": "#0b1c30",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#dc2c4f",
+                      "outline": "#767586",
+                      "on-tertiary-fixed": "#002113",
+                      "surface-container": "#e5eeff",
+                      "inverse-surface": "#213145",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "on-surface-variant": "#464554",
+                      "surface-container-low": "#eff4ff",
+                      "secondary-fixed": "#ffdadb",
+                      "surface": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "primary": "#4648d4",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#07006c",
+                      "primary-container": "#6063ee",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f8f9ff",
+                      "secondary": "#b90538",
+                      "surface-variant": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "stack-md": "24px",
+                      "stack-lg": "48px",
+                      "stack-sm": "12px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "label-sm": ["Hanken Grotesk"],
+                      "body-md": ["Hanken Grotesk"],
+                      "display-lg-mobile": ["Hanken Grotesk"],
+                      "label-md": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface custom-gradient-bg min-h-screen">
+<!-- Top Navigation -->
+<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm px-margin-mobile py-stack-sm flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">ClayHub</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full clay-button font-label-md text-label-md">
+            Get Started
+        </button>
+</nav>
+<main class="max-w-md mx-auto px-margin-mobile pb-stack-lg">
+<!-- Hero Section -->
+<section class="pt-stack-lg relative">
+<div class="flex flex-col items-center text-center space-y-4">
+<div class="relative w-full aspect-square max-w-[320px] mb-stack-md">
+<!-- Background Glow -->
+<div class="absolute inset-0 bg-primary-container/20 blur-[60px] rounded-full scale-110"></div>
+<!-- 3D Character Illustration -->
+<div class="floating-object relative z-10 w-full h-full flex items-center justify-center">
+<img alt="3D Character" class="w-full h-full object-contain drop-shadow-2xl" data-alt="A friendly, high-fidelity 3D character with a soft claymorphic finish, sitting on a floating cloud. The character features rounded shapes and a warm, optimistic expression, styled in vibrant pastel blues and purples. The lighting is soft and diffused, creating subtle highlights and deep, velvety shadows typical of high-end plasticine renders. The background is a minimalist, airy space with subtle floating geometric bubbles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4Eha3ui_DtTvclPq7_dYJA_xaOfov7UbVSSfqahnAmmYibUyT8egTl_dWDLx_Tf0ElD1xnom95Hu9W8TM-gw2hzEITrZFskqtvlkmkPSpl4BC5hDSV-hFkXJ5scdrWLjYNIfku7eREIOu05pknjWxrqsjk95zfshEaUCFBwN2l1s9ycDsAQarioJMTBoT8D3crzt3KTI6dGYgJG7WX9xzz7WNQHU-KVlWEcxjD9PMKbQx6MtSGtWQh61K9gyX1HtcB97mOPLStk9"/>
+</div>
+<!-- Floor Shadow -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-2/3 h-6 bg-primary/10 blur-xl rounded-[100%]"></div>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
+                    Sculpted with Care
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant px-4">
+                    Experience a interface that feels as good as it looks. Depth, volume, and tactility reimagined.
+                </p>
+<div class="w-full pt-4">
+<button class="w-full clay-button py-5 rounded-[24px] text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-3">
+                        Join the Beta
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Feature Section: Soft Shapes -->
+<section class="mt-stack-lg space-y-gutter">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Soft Shapes</h2>
+<span class="text-primary font-label-md text-label-md">View All</span>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Bento Card 1 -->
+<div class="clay-card p-6 relative overflow-hidden group">
+<div class="relative z-10 space-y-2">
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-label-sm font-label-sm">New</span>
+<h3 class="font-headline-md text-headline-md">Organic Curves</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Designed with hyper-rounded corners for a friendly feel.</p>
+</div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 opacity-20 group-hover:scale-110 transition-transform duration-500">
+<img alt="Soft Geometry" class="w-full h-full object-contain" data-alt="A collection of soft, rounded 3D geometric shapes including spheres and tori with a matte plastic finish. The colors are vibrant pastel mint and coral, showing high-fidelity claymorphic depth with gentle inner shadows and soft ambient occlusion. The objects are arranged in a dynamic, overlapping composition against a clean, off-white background with professional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmZfFPdpM7Vmf0UKZQobD3kQdTBHPTsQuYdOy05M_TCBxra2qblkYF8JM1PhAsEQ75hGH3n1hqhairQaPQxbNW5oHxsptlRWXMxW2DuoH_rIJo0S_KZlPMZKFU1VQpTHoPcD68ljW6l6lEiFi0X17pgV78sV4FYQeN3KbLjmqnF_JnDfbt1Tk-vZIO3iJTIEYJ3qYNK6PRgU8Oz5N0KbxxfeitA7Juz57sm2LfHQJvI2PLUebunjNcoJWN0jZa1cLVrP2I4Sp37rwg"/>
+</div>
+</div>
+<!-- Bento Card 2 -->
+<div class="clay-card p-6 bg-secondary-fixed/30 border-none">
+<div class="flex items-start gap-4">
+<div class="w-16 h-16 rounded-3xl bg-white clay-inset flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Tactile Feedback</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Every element reacts with a satisfying physical bounce.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Section: Tactile Buttons -->
+<section class="mt-stack-lg space-y-gutter">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Tactile Buttons</h2>
+<div class="flex flex-col gap-4">
+<button class="clay-button bg-surface py-6 rounded-[28px] flex items-center justify-between px-8 text-primary border-none">
+<span class="font-headline-md text-headline-md">Primary Action</span>
+<span class="material-symbols-outlined text-primary">touch_app</span>
+</button>
+<div class="grid grid-cols-2 gap-4">
+<button class="clay-button bg-tertiary py-5 rounded-[24px] flex flex-col items-center justify-center gap-2 text-on-primary">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Save</span>
+</button>
+<button class="clay-button bg-secondary-container py-5 rounded-[24px] flex flex-col items-center justify-center gap-2 text-on-secondary-container">
+<span class="material-symbols-outlined">share</span>
+<span class="font-label-md text-label-md">Share</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Feature Section: Interactive Objects -->
+<section class="mt-stack-lg space-y-gutter">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Interactive Objects</h2>
+<div class="space-y-6">
+<!-- Interactive Stage -->
+<div class="clay-card aspect-video relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/50 to-transparent"></div>
+<img alt="3D Interaction" class="relative z-10 w-3/4 h-3/4 object-contain floating-object" data-alt="A stylized 3D render of a smartphone with a soft, clay-like texture floating in a digital void. The screen displays vibrant, rounded UI components that seem to pop out of the surface. Surrounding the phone are 3D icons like hearts and stars, all following the claymorphic aesthetic with soft pastel colors, deep inner shadows, and a matte finish. High-end studio lighting creates a professional and playful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcS-ruLrOlkLuUZNj4a8JtQ_d73wMhix-eaFcjUdBCDAU1e0RtGeSQA3F9i83r0-YBlfj8q1uWtnjeI-lArxjJDje37iukGuOmdBMcLU-X6IsZs8B--Lv7TrWips8UXnQ3LHzNGod3T1PbhcQSHNTzuTsLjskCHE0P2RqGJ87MwE7PwjENo_SeHIEZqaob9zx8UG5jbU4owD0SGwfyn56sRbQHrryHJ25SIG_8AkNCbYiPuaPhiDTxFXVsq334NEtqTr6XKwfOJr_b"/>
+<div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-2xl flex justify-between items-center">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Interactive Layer</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Tap to rotate object</p>
+</div>
+<span class="material-symbols-outlined text-primary">view_in_ar</span>
+</div>
+</div>
+<!-- Custom Progress -->
+<div class="clay-card p-6 space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface">Complexity Score</span>
+<span class="font-headline-md text-headline-md text-primary">84%</span>
+</div>
+<div class="h-6 w-full bg-surface-container clay-inset rounded-full overflow-hidden p-1">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-[84%] relative shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)]">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-white/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote/Social Proof -->
+<section class="mt-stack-lg">
+<div class="glass-panel p-8 rounded-[40px] text-center space-y-4 relative overflow-hidden">
+<div class="absolute -top-10 -left-10 w-24 h-24 bg-tertiary-fixed-dim/20 blur-3xl rounded-full"></div>
+<div class="material-symbols-outlined text-primary text-5xl opacity-20">format_quote</div>
+<p class="font-headline-md text-headline-md text-on-surface italic leading-snug">
+                    "This system brings a level of playfulness back to digital products."
+                </p>
+<div class="flex items-center justify-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-primary-fixed border-2 border-white shadow-sm"></div>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">Alex Rivera</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Lead Designer</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-[32px] mt-stack-lg bg-surface-container-low dark:bg-inverse-surface shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.05)] pt-stack-lg pb-10">
+<div class="max-w-md mx-auto px-margin-mobile flex flex-col items-center gap-gutter text-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-headline-sm" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="font-headline-sm text-headline-sm text-primary">ClayHub</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Showcase</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tutorials</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">License</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<p class="font-body-md text-body-md text-outline py-4">
+                © 2024 Claymorphic Illustrations. Built with depth.
+            </p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">language</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the cards
+        document.querySelectorAll('.clay-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+                card.style.transition = 'transform 0.1s ease';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Ambient shadow following for the mouse (if using on desktop simulator)
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.bg-primary-container\\/20');
+            if (glow) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                glow.style.transform = `translate(${x}px, ${y}px) scale(1.1)`;
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEON_FLUID | Liquid Glass Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=JetBrains+Mono:wght@100..900&family=Sora:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#39393b",
+                    "secondary-container": "#7000ff",
+                    "surface-dim": "#131315",
+                    "inverse-on-surface": "#313032",
+                    "primary": "#dbfcff",
+                    "secondary-fixed-dim": "#d1bcff",
+                    "error-container": "#93000a",
+                    "surface-tint": "#00dbe9",
+                    "surface-container-high": "#2a2a2c",
+                    "secondary": "#d1bcff",
+                    "on-secondary-fixed-variant": "#5700c9",
+                    "background": "#131315",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-primary": "#00363a",
+                    "surface": "#131315",
+                    "primary-container": "#00f0ff",
+                    "on-primary-fixed": "#002022",
+                    "on-tertiary-container": "#bb0058",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-error": "#690005",
+                    "tertiary-container": "#ffccd6",
+                    "on-secondary": "#3c0090",
+                    "on-secondary-container": "#ddcdff",
+                    "primary-fixed": "#7df4ff",
+                    "outline-variant": "#3b494b",
+                    "surface-container": "#201f21",
+                    "on-primary-fixed-variant": "#004f54",
+                    "on-secondary-fixed": "#23005b",
+                    "surface-variant": "#353437",
+                    "on-primary-container": "#006970",
+                    "inverse-surface": "#e5e1e4",
+                    "on-surface": "#e5e1e4",
+                    "tertiary": "#fff3f4",
+                    "on-tertiary-fixed-variant": "#8f0041",
+                    "error": "#ffb4ab",
+                    "on-background": "#e5e1e4",
+                    "surface-container-low": "#1c1b1d",
+                    "inverse-primary": "#006970",
+                    "secondary-fixed": "#e9ddff",
+                    "tertiary-fixed": "#ffd9e0",
+                    "tertiary-fixed-dim": "#ffb1c3",
+                    "on-tertiary-fixed": "#3f0019",
+                    "outline": "#849495",
+                    "surface-container-highest": "#353437",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#b9cacb",
+                    "on-tertiary": "#66002c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Sora"],
+                    "label-sm": ["JetBrains Mono"],
+                    "body-md": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Sora"],
+                    "headline-md": ["Sora"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131315;
+            color: #e5e1e4;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-slab {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .glass-slab::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        .liquid-glow {
+            box-shadow: 0 0 40px -10px rgba(0, 219, 233, 0.3);
+        }
+        .refractive-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-gradient-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 219, 233, 0.1) 0%, transparent 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-[40px] border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+<nav class="sticky top-0 z-50 flex items-center justify-between px-margin-desktop py-unit max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">bubble_chart</span>
+<span class="font-display-lg text-primary tracking-tighter text-[24px]">NEON_FLUID</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">ARCHIVE</a>
+<a class="text-on-surface-variant font-medium hover:backdrop-blur-[60px] hover:text-primary transition-all duration-300 font-label-sm text-label-sm" href="#">PROCESS</a>
+<a class="text-on-surface-variant font-medium hover:backdrop-blur-[60px] hover:text-primary transition-all duration-300 font-label-sm text-label-sm" href="#">PHYSICS</a>
+<a class="text-on-surface-variant font-medium hover:backdrop-blur-[60px] hover:text-primary transition-all duration-300 font-label-sm text-label-sm" href="#">COLLECT</a>
+</div>
+<button class="bg-primary/10 text-primary px-6 py-2 rounded-full font-label-sm text-label-sm border border-primary/20 hover:bg-primary/20 transition-all active:scale-95 duration-200">
+                GET ACCESS
+            </button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop text-center overflow-hidden">
+<!-- Atmospheric Glow Orbs -->
+<div class="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] bg-secondary-container/20 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute -bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-primary-container/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">System v2.0 Live</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6">
+                    Bending Light Through <br/> <span class="text-primary italic">Liquid Geometry</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    Experience the future of interface design where every pixel is a refractive volume. Deep blurs, organic transitions, and high-fidelity glass surfaces.
+                </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="px-10 py-5 bg-primary text-on-primary rounded-full font-headline-md text-body-md flex items-center justify-center gap-2 hover:shadow-[0_0_30px_rgba(219,252,255,0.4)] transition-all">
+                        Launch Lab <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-10 py-5 glass-panel text-white rounded-full font-headline-md text-body-md border border-white/20 hover:bg-white/10 transition-all">
+                        Documentation
+                    </button>
+</div>
+</div>
+<!-- Floating UI Elements Simulation -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="absolute top-[20%] right-[10%] w-32 h-32 glass-slab rounded-xl animate-bounce" style="animation-duration: 4s;"></div>
+<div class="absolute bottom-[30%] left-[5%] w-48 h-12 glass-slab rounded-full animate-pulse" style="animation-duration: 6s;"></div>
+</div>
+</section>
+<!-- Refractive Cards Section (Bento Grid) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 glass-slab p-12 rounded-lg flex flex-col justify-end min-h-[400px] overflow-hidden group">
+<div class="absolute top-0 right-0 w-full h-full -z-10 group-hover:scale-105 transition-transform duration-700">
+<img class="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-700" data-alt="A macro shot of a complex glass sculpture with light refracting through its sharp and curved edges, creating a spectrum of neon cyan and violet colors. The background is a pitch black void, making the glowing glass the focal point. The lighting is moody and cinematic, highlighting the thick material properties of the liquid glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC70aLDNQNajZXZ_q56Sna0gtZTOdL576YJ5G5MaRt_K7QW82LvPghdzq-YO_CpBb0KzMKsS-BEkKTTyUBwiLpniL2kEryHUgEM_VlBzvd1SwcxelWsDzv47-5njs2LyAUwKffUGN6kGNQkNB2hnHWYpN5q-kpC0nshRRQkxcOf1Uj7zVkrn0aP1r8eGDFql3C1QwQ4wmXghWNkflr8yP-vzwakM5BNOIknbl-so-kREtaSSo4rqZXlDXsDi-uCUz9VihtNrTUb5NiO"/>
+</div>
+<span class="font-label-sm text-label-sm text-primary mb-4">VOLUME ARCHIVE</span>
+<h2 class="font-display-lg text-headline-md text-white mb-4">Deep Refractive Surfaces</h2>
+<p class="font-body-md text-on-surface-variant max-w-md">Our engine calculates real-time light physics to simulate the thickness of virtual glass slabs.</p>
+</div>
+<div class="md:col-span-4 glass-slab p-12 rounded-lg flex flex-col justify-between bg-secondary-container/5 border-secondary-container/20">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center liquid-glow">
+<span class="material-symbols-outlined text-white text-3xl">blur_on</span>
+</div>
+<div>
+<h3 class="font-display-lg text-headline-md text-white mb-2">40px Gaussian</h3>
+<p class="font-body-md text-on-surface-variant">The optimal blur density for premium legibility.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-slab p-8 rounded-lg flex flex-col gap-6">
+<div class="refractive-divider"></div>
+<h3 class="font-display-lg text-headline-md text-white">Dynamic Flow</h3>
+<p class="font-body-md text-on-surface-variant">Organic motion pathing that mimics liquid surface tension during layout shifts.</p>
+<div class="mt-auto flex -space-x-4">
+<div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-primary"></div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-secondary"></div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-container-lowest bg-tertiary"></div>
+</div>
+</div>
+<div class="md:col-span-8 glass-slab p-0 rounded-lg overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 p-12 flex flex-col justify-center">
+<h3 class="font-display-lg text-headline-md text-white mb-4">Spectral Highlights</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Simulated 45-degree light source providing 1px crisp edge definitions to every UI container.</p>
+<a class="text-primary font-label-sm flex items-center gap-2 group" href="#">
+                            Explore Specs <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+</a>
+</div>
+<div class="md:w-1/2 bg-surface-container h-64 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A futuristic dark architectural space with smooth, flowing black metallic curves and glowing cyan light strips. The composition is abstract and focused on the interplay of light and shadow on organic, liquid-like surfaces. The atmosphere is high-tech, premium, and mysterious, reflecting the core brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXpopxJOfnMYg3AGwg98FnGPc-Fh41ovXrQQ6tQmqdyEtjD8XkOf9FB9o2OQ9xnO7A40IxGze8AIvrHbCtflrEQnoibSUjKaq-dqOwK0F8i0OWoijxfxArWLSbDT81QsHJkpDzoWiz_cbKxmFLlRoitnPPkFdJ_trVDcf3NGZMlGszajAhwBFJ0Uh3br9uzZfiTs7sLZO7xFxaITIDFevKl312yLHWt_h8sP6hs6fa4KGTJAB6cYY_jXRRLf32WMIKg7ve0XaUGOpk"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Physics Section -->
+<section class="py-24 relative overflow-hidden">
+<div class="absolute inset-0 -z-10 liquid-gradient-bg"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="flex flex-col items-center gap-6 mb-16">
+<span class="font-label-sm text-label-sm tracking-[0.2em] text-primary">CORE TECHNOLOGY</span>
+<h2 class="font-display-lg text-headline-md md:text-5xl text-white">Refractive Render Engine</h2>
+</div>
+<div class="flex flex-col md:flex-row gap-12 items-center justify-between">
+<div class="md:w-1/2 text-left space-y-12">
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 glass-slab rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">waves</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-white mb-2">Organic Curvature</h4>
+<p class="font-body-md text-on-surface-variant">Non-linear radius calculations that adapt based on the container's proximity to other objects.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 glass-slab rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lens_blur</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-white mb-2">Depth Perception</h4>
+<p class="font-body-md text-on-surface-variant">Multi-layered backdrop filtering creates a true sense of vertical space in a flat screen.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="shrink-0 w-12 h-12 glass-slab rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">flare</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] text-white mb-2">Light Dispersion</h4>
+<p class="font-body-md text-on-surface-variant">Edges catch virtual light, throwing subtle spectral glows onto the background layers.</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative group">
+<div class="w-full aspect-square glass-slab rounded-xl flex items-center justify-center p-8 overflow-hidden">
+<div class="w-full h-full relative rounded-lg overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="An ultra-high-definition abstract render of flowing, iridescent liquid mercury. The surface of the liquid ripples and reflects vibrant cyan and magenta lights in a dark, moody environment. The textures are incredibly detailed, showing micro-reflections and high-gloss specular highlights that evoke a premium tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZjQhNYc8MoKjEQhCCNxhBee4K5smh-hG_1CVR8VrqgYowfmRmH_pob223DwAO-p2A5mhDNShzUwAT-HAG9SyUw80cVWOBa3ypErM8d0KD70pu_owk_On-7ypih1mxFUyrRORIvwUKOomf2weWooiBF5nWzjQwB_Gu_0DmQQWPnVFvBopXtj-4bNCKZdNDurgjNmtjMid4NDEBUKK8OQcOVWBEr3xTInOid4teJeut-QOqbevsj7UnTXH2SRlIY2WqjICBMvV_EO1T"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 glass-panel rounded-lg">
+<div class="flex justify-between items-center">
+<div>
+<p class="font-label-sm text-[10px] text-primary">REFRACTION_TEST_04</p>
+<p class="font-body-md text-white font-bold">Active Simulation</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-[10px] text-on-surface-variant">FPS</p>
+<p class="font-body-md text-primary font-bold">120.0</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating accents -->
+<div class="absolute -top-6 -right-6 w-24 h-24 glass-slab rounded-full border-primary/30 animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto glass-slab rounded-xl p-16 text-center overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-full bg-primary/5 -z-10 blur-3xl"></div>
+<h2 class="font-display-lg text-headline-md md:text-5xl text-white mb-8">Ready to step into the <span class="text-primary italic">Fluid Void?</span></h2>
+<p class="font-body-lg text-on-surface-variant mb-12 max-w-xl mx-auto">Join the early access archive and start building with the most advanced glassmorphism system ever engineered.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<input class="bg-white/5 border border-white/10 rounded-full px-8 py-4 text-white focus:outline-none focus:border-primary transition-all w-full sm:w-80" placeholder="archive@neon-fluid.io" type="email"/>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-headline-md text-body-md liquid-glow hover:scale-105 transition-transform">
+                        Secure Access
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-gutter px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-unit bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5 w-full rounded-t-xl">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="text-headline-md font-display-lg text-primary tracking-tighter">NEON_FLUID</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">© 2024 LIQUID GLASS ARCHIVE. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm link-hover: opacity-80" href="#">Design</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm link-hover: opacity-80" href="#">Technology</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm link-hover: opacity-80" href="#">Motion</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm link-hover: opacity-80" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 glass-slab rounded-full flex items-center justify-center hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-10 h-10 glass-slab rounded-full flex items-center justify-center hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</button>
+</div>
+</footer>
+<script>
+        // Subtle micro-interaction for mouse following glow
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.body.style.setProperty('--mouse-x', `${x}%`);
+            document.body.style.setProperty('--mouse-y', `${y}%`);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modernist Precision | International Typographic Style</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#e4e7ff",
+                    "tertiary-fixed-dim": "#f1c100",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-tint": "#c00100",
+                    "secondary": "#0041c9",
+                    "on-secondary-fixed": "#001551",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-highest": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "outline": "#956d67",
+                    "surface-dim": "#dcd9d9",
+                    "tertiary-fixed": "#ffe08b",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#241a00",
+                    "tertiary": "#745b00",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#ffb4a8",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#313030",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#930100",
+                    "primary-container": "#eb0000",
+                    "surface-variant": "#e5e2e1",
+                    "background": "#fcf9f8",
+                    "primary": "#bc0100",
+                    "secondary-fixed": "#dce1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "on-primary-fixed": "#410000",
+                    "on-surface-variant": "#603e39",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#0356ff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "surface-container-high": "#eae7e7",
+                    "primary-fixed": "#ffdad4",
+                    "outline-variant": "#ebbbb4",
+                    "on-tertiary-container": "#4f3d00",
+                    "surface-bright": "#fcf9f8",
+                    "on-primary-container": "#fffbff",
+                    "tertiary-container": "#d0a600",
+                    "surface": "#fcf9f8",
+                    "on-secondary-fixed-variant": "#0039b3",
+                    "on-background": "#1c1b1b",
+                    "secondary-fixed-dim": "#b6c4ff",
+                    "on-surface": "#1c1b1b",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "column_count_desktop": "12",
+                    "margin": "32px",
+                    "column_count_tablet": "8",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "column_count_mobile": "4"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-xl-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "display-xl": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "title-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-xl-mobile": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1c1b1b;
+            cursor: crosshair;
+        }
+        .grid-line-v {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(28, 27, 27, 0.05);
+            z-index: -1;
+        }
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(28, 27, 27, 0.05);
+            z-index: -1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md selection:bg-primary selection:text-white overflow-x-hidden">
+<!-- Background Grid Lines -->
+<div class="grid-line-v left-[32px]"></div>
+<div class="grid-line-v left-[calc(32px+1*(100%-64px-11*24px)/12+24px)]"></div>
+<div class="grid-line-v left-[50%]"></div>
+<div class="grid-line-v right-[32px]"></div>
+<!-- Top Navigation Shell -->
+<header class="w-full border-b-2 border-on-background dark:border-on-surface bg-background sticky top-0 z-50">
+<div class="grid grid-cols-12 gap-gutter px-margin py-unit w-full items-end">
+<div class="col-span-6 md:col-span-4">
+<h1 class="font-headline-lg text-headline-lg uppercase tracking-tighter font-black text-primary">DESIGN.SYSTEM</h1>
+</div>
+<nav class="hidden md:flex col-span-6 justify-end items-end space-x-gutter mb-1">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-primary border-b-2 border-primary" href="#">Principles</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-background hover:bg-on-background hover:text-background transition-colors duration-100" href="#">Grid</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-background hover:bg-on-background hover:text-background transition-colors duration-100" href="#">Typography</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-background hover:bg-on-background hover:text-background transition-colors duration-100" href="#">Modules</a>
+</nav>
+<div class="col-span-6 md:col-span-2 flex justify-end items-center space-x-4 mb-1">
+<span class="material-symbols-outlined text-primary cursor-pointer">grid_view</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">search</span>
+</div>
+</div>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="grid grid-cols-12 gap-gutter px-margin pt-24 pb-12 border-b-2 border-on-background relative overflow-hidden">
+<div class="col-span-12 md:col-start-4 md:col-span-9">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4 block">Manifesto 01.A</span>
+<h2 class="font-display-xl text-display-xl uppercase leading-none mb-8 tracking-tighter">
+                    Modernist<br/>
+<span class="text-secondary">Precision</span><br/>
+<span class="text-tertiary-container">Logic</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<p class="font-body-lg text-body-lg max-w-lg">
+                        The objective of typography is the clear communication of information. Following the Swiss Style principles, we eliminate the decorative to emphasize the structural.
+                    </p>
+<div class="flex items-end justify-end">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-background transition-all active:scale-95">
+                            Explore The Grid
+                        </button>
+</div>
+</div>
+</div>
+<!-- Decorative Block -->
+<div class="absolute top-0 left-0 w-24 h-full bg-primary-container -z-10 opacity-10"></div>
+</section>
+<!-- Grid Logic Section -->
+<section class="grid grid-cols-12 gap-gutter px-margin py-24 border-b-2 border-on-background">
+<div class="col-span-12 md:col-span-3">
+<div class="sticky top-32">
+<h3 class="font-headline-lg text-headline-lg uppercase mb-4 leading-tight">Grid<br/>Logic</h3>
+<div class="w-16 h-2 bg-secondary mb-8"></div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest opacity-60">Mathematical order as the foundation of visual balance.</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bento Card 1 -->
+<div class="border-2 border-on-background p-0 group">
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="A meticulously organized architectural blueprint of a modernist building in Zurich, featuring clean black lines on a pristine white background. The composition follows a strict mathematical grid, with bold red and yellow annotations marking structural points. The lighting is bright and even, highlighting the flat, anti-illusionist aesthetic of the International Typographic Style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaWqj-nW4E8LBYw5PCv7hc32KmsJAOTINSVkgEwjJNIsN6yBk6-MDiFqBRUY41GNRfKMFFIyhsozNqqwxga_7GgkPBnpjeDIhyGUoeEkN9OUicEERKBDnUAD809CEIZ1PaZPkS3K7qQh5ERe4upipZtsnuU5EZsy-b6WoVFehWoHKeQ2ooZu3IvFbXiS2ib6iP5X-o_X57EM-uVbKEmb_AIrVM5FFyQh2epl-G7BFVCftQeN_GC6LARdVh39NGyGikS65gZr4CCF4g"/>
+</div>
+<div class="p-gutter border-t-2 border-on-background">
+<h4 class="font-title-md text-title-md uppercase mb-2">Structural Unity</h4>
+<p class="font-body-md text-body-md opacity-80">Every element is anchored to a vertical axis, ensuring a hierarchy that is felt before it is read.</p>
+</div>
+</div>
+<!-- Bento Card 2: Interactive Modules -->
+<div class="bg-on-background text-background p-gutter flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-tertiary-fixed-dim">Module 02</span>
+<div class="my-12">
+<h4 class="font-display-xl-mobile text-display-xl-mobile uppercase leading-tight mb-4">8PX<br/>Spacing</h4>
+<p class="font-body-md text-body-md opacity-70">Strict adherence to the 8px unit creates a rhythm that feels inherently correct.</p>
+</div>
+<div class="grid grid-cols-4 h-12 gap-2">
+<div class="bg-primary h-full"></div>
+<div class="bg-secondary h-full"></div>
+<div class="bg-tertiary-container h-full"></div>
+<div class="bg-surface-variant h-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Color Theory Section -->
+<section class="bg-surface-container-low border-b-2 border-on-background">
+<div class="grid grid-cols-12 gap-0">
+<div class="col-span-12 md:col-span-6 border-r-2 border-on-background p-margin">
+<div class="max-w-md">
+<h3 class="font-headline-lg text-headline-lg uppercase mb-8">Color Theory</h3>
+<p class="font-body-lg text-body-lg mb-12">We use color not as decoration, but as a functional tool for navigation and emphasis. Primary hues are assigned to specific actions and data types.</p>
+<div class="space-y-gutter">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary shrink-0"></div>
+<div>
+<span class="font-label-sm text-label-sm uppercase block">Primary Red</span>
+<p class="font-body-md text-body-md opacity-70">Used for critical calls to action and structural anchors.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-secondary shrink-0"></div>
+<div>
+<span class="font-label-sm text-label-sm uppercase block">Secondary Blue</span>
+<p class="font-body-md text-body-md opacity-70">Indicates interactive elements and secondary data layers.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-tertiary-container shrink-0"></div>
+<div>
+<span class="font-label-sm text-label-sm uppercase block">Tertiary Yellow</span>
+<p class="font-body-md text-body-md opacity-70">Highlights and non-critical informative modules.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 relative h-[500px] md:h-auto">
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-64 h-64 border-4 border-on-background flex items-center justify-center">
+<span class="font-display-xl text-display-xl text-on-background">50%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Table Module -->
+<section class="grid grid-cols-12 gap-gutter px-margin py-24">
+<div class="col-span-12">
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest mb-8 text-primary">System Metadata_</h3>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse border-t-2 border-on-background">
+<thead>
+<tr class="bg-secondary text-white font-label-sm text-label-sm uppercase">
+<th class="p-4 border-r border-on-background/20">Metric</th>
+<th class="p-4 border-r border-on-background/20">Value</th>
+<th class="p-4 border-r border-on-background/20">Status</th>
+<th class="p-4 text-right">Identifier</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-on-background/10 hover:bg-primary-container/10 transition-colors">
+<td class="p-4 border-r border-on-background/10 uppercase">Grid Columns</td>
+<td class="p-4 border-r border-on-background/10">12 Unit Desktop</td>
+<td class="p-4 border-r border-on-background/10"><span class="bg-on-background text-background px-2 py-1 text-xs">ACTIVE</span></td>
+<td class="p-4 text-right font-mono">#001-X</td>
+</tr>
+<tr class="border-b border-on-background/10 hover:bg-secondary-container/10 transition-colors">
+<td class="p-4 border-r border-on-background/10 uppercase">Gutter Width</td>
+<td class="p-4 border-r border-on-background/10">24 Pixels Constant</td>
+<td class="p-4 border-r border-on-background/10"><span class="bg-on-background text-background px-2 py-1 text-xs">LOCKED</span></td>
+<td class="p-4 text-right font-mono">#002-G</td>
+</tr>
+<tr class="border-b border-on-background/10 hover:bg-tertiary-container/10 transition-colors">
+<td class="p-4 border-r border-on-background/10 uppercase">Type Scale</td>
+<td class="p-4 border-r border-on-background/10">Golden Ratio Based</td>
+<td class="p-4 border-r border-on-background/10"><span class="bg-on-background text-background px-2 py-1 text-xs">DYNAMIC</span></td>
+<td class="p-4 text-right font-mono">#003-T</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Final CTA: Asymmetric Layout -->
+<section class="grid grid-cols-12 gap-gutter px-margin py-32 bg-primary text-on-primary">
+<div class="col-span-12 md:col-start-3 md:col-span-8">
+<h3 class="font-display-xl text-display-xl-mobile md:text-display-xl uppercase mb-8 leading-none tracking-tighter">Ready for<br/>The System?</h3>
+<div class="flex flex-col md:flex-row items-start gap-gutter">
+<button class="bg-background text-on-background px-12 py-6 font-headline-lg text-headline-lg uppercase hover:bg-on-background hover:text-background transition-all">Join Labs</button>
+<p class="font-body-lg text-body-lg md:pt-4">Apply for access to the core grid management tools and typography engine.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-on-background dark:bg-inverse-surface w-full mt-auto border-t-2 border-on-background">
+<div class="grid grid-cols-12 gap-gutter px-margin py-12 w-full">
+<div class="col-span-12 md:col-span-4 mb-8 md:mb-0">
+<span class="font-title-md text-title-md font-bold text-background block mb-4">DESIGN.SYSTEM</span>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-surface-variant max-w-xs">
+                    Rooted in the International Typographic Style. Built for the modern web.
+                </p>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h5 class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-4">Principles</h5>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Clarity</a></li>
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Order</a></li>
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Logic</a></li>
+</ul>
+</div>
+<div class="col-span-6 md:col-span-2">
+<h5 class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed mb-4">Modules</h5>
+<ul class="space-y-2">
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Grid</a></li>
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Color</a></li>
+<li><a class="font-label-sm text-label-sm uppercase text-surface-variant hover:text-primary-fixed-dim underline underline-offset-4" href="#">Type</a></li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-4 flex flex-col justify-between items-end">
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-background">language</span>
+<span class="material-symbols-outlined text-background">share</span>
+</div>
+<div class="text-right mt-12 md:mt-0">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-background">© 2024 INTERNATIONAL TYPOGRAPHIC STYLE</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for scroll reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('transition-all', 'duration-700', 'ease-out');
+            });
+        });
+        
+        // Dynamic Grid Lines Generator
+        const body = document.body;
+        for (let i = 0; i < 20; i++) {
+            const line = document.createElement('div');
+            line.className = 'grid-line-h';
+            line.style.top = `${i * 400}px`;
+            body.appendChild(line);
+        }
+    </script>
+</body></html>

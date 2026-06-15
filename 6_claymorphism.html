@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Tactile Web | ClayUI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --clay-shadow-outer: 0px 20px 40px rgba(0, 0, 0, 0.3);
+            --clay-inset-light: inset 6px 6px 12px rgba(255, 255, 255, 0.15);
+            --clay-inset-dark: inset -6px -6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .clay-card {
+            box-shadow: var(--clay-shadow-outer), var(--clay-inset-light), var(--clay-inset-dark);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .clay-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .clay-button {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2), 
+                        inset 3px 3px 6px rgba(255, 255, 255, 0.4), 
+                        inset -3px -3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .clay-button:active {
+            transform: scale(0.95);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 
+                        inset 6px 6px 12px rgba(0, 0, 0, 0.2), 
+                        inset -2px -2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .clay-input {
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+        }
+
+        .inner-shadow-highlight {
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#9dd1bf",
+                    "on-tertiary-container": "#515870",
+                    "outline-variant": "#4f4448",
+                    "on-tertiary-fixed-variant": "#3f465d",
+                    "secondary": "#9dd1bf",
+                    "tertiary-container": "#c8cfeb",
+                    "inverse-on-surface": "#283044",
+                    "primary": "#ffe5ee",
+                    "secondary-fixed": "#b9eedb",
+                    "surface-container-low": "#131b2e",
+                    "surface-bright": "#31394d",
+                    "surface-dim": "#0b1326",
+                    "on-background": "#dae2fd",
+                    "on-secondary": "#00382c",
+                    "surface-variant": "#2d3449",
+                    "tertiary-fixed-dim": "#bfc6e1",
+                    "on-surface": "#dae2fd",
+                    "on-tertiary": "#283045",
+                    "surface-container-high": "#222a3d",
+                    "surface-tint": "#eab9ce",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#d2c2c7",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#dbe2fe",
+                    "surface-container-highest": "#2d3449",
+                    "on-primary-container": "#734d5f",
+                    "secondary-container": "#1e5244",
+                    "primary-fixed": "#ffd8e7",
+                    "background": "#0b1326",
+                    "on-secondary-container": "#8fc3b1",
+                    "primary-fixed-dim": "#eab9ce",
+                    "on-primary-fixed": "#2f1121",
+                    "on-primary": "#472636",
+                    "surface-container-lowest": "#060e20",
+                    "tertiary": "#e8ebff",
+                    "on-primary-fixed-variant": "#603c4d",
+                    "inverse-primary": "#7a5365",
+                    "on-tertiary-fixed": "#131b2f",
+                    "primary-container": "#f4c2d7",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#171f33",
+                    "outline": "#9b8d92",
+                    "on-secondary-fixed": "#002018",
+                    "on-secondary-fixed-variant": "#1c4f41",
+                    "inverse-surface": "#dae2fd",
+                    "surface": "#0b1326"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "stack-sm": "12px",
+                    "gutter": "16px",
+                    "stack-lg": "48px",
+                    "container-padding": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Sora"],
+                    "label-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Sora"],
+                    "headline-xl": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-md no-border shadow-[0px_10px_30px_rgba(0,0,0,0.1)] inner-shadow-highlight">
+<nav class="flex justify-between items-center px-container-padding py-base max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="bubble_chart">bubble_chart</span>
+<span class="font-headline-lg text-headline-lg text-primary font-black">ClayUI</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold hover:scale-105 transition-transform duration-300" href="#">Features</a>
+<a class="text-on-surface-variant hover:scale-105 transition-transform duration-300" href="#">Showcase</a>
+<a class="text-on-surface-variant hover:scale-105 transition-transform duration-300" href="#">Docs</a>
+</div>
+<button class="clay-button bg-primary text-on-primary-fixed px-6 py-3 rounded-full font-label-md text-label-md active:scale-95 cursor-pointer">
+                Get Started
+            </button>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-container-padding py-stack-lg relative overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-stack-lg items-center">
+<div class="space-y-stack-md z-10">
+<h1 class="font-headline-xl text-headline-xl md:text-6xl text-on-background">
+                        The <span class="text-primary">Tactile</span> Web
+                    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                        Experience a digital interface that feels soft to the touch. Our claymorphism design system brings depth, volume, and organic curves to your modern web applications.
+                    </p>
+<div class="flex flex-wrap gap-stack-sm pt-base">
+<button class="clay-button bg-secondary-fixed text-on-secondary-fixed px-8 py-4 rounded-xl font-label-md text-label-md active:scale-95">
+                            Explore Shapes
+                        </button>
+<button class="clay-button bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-label-md text-label-md active:scale-95 border-2 border-primary/10">
+                            View Documentation
+                        </button>
+</div>
+</div>
+<div class="relative flex justify-center items-center py-10">
+<!-- 3D Clay Objects Simulation -->
+<div class="w-full h-[400px] relative">
+<div class="absolute top-10 left-10 w-48 h-48 bg-primary rounded-full clay-card animate-float" style="animation-delay: 0s"></div>
+<div class="absolute bottom-10 right-10 w-64 h-32 bg-secondary rounded-xl clay-card animate-float" style="animation-delay: 1s"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-tertiary-container rounded-[3rem] clay-card animate-float" style="animation-delay: 2s"></div>
+<!-- Floating Glass Element -->
+<div class="absolute top-1/4 right-0 w-32 h-32 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl z-20 animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="bg-surface-container-low py-stack-lg">
+<div class="max-w-7xl mx-auto px-container-padding">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Sculpted Features</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Designed for the next generation of human-centric interfaces.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<!-- Feature 1: Elastic Containers -->
+<div class="clay-card bg-surface-container-high p-stack-md rounded-lg flex flex-col gap-4 group">
+<div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center clay-button group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-primary-fixed text-3xl" data-icon="layers">layers</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary">Elastic Containers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Experience tactile depth with containers that look like thick slabs of material, using multi-layered shadows to define volume.
+                        </p>
+</div>
+<!-- Feature 2: Soft Feedback -->
+<div class="clay-card bg-surface-container-high p-stack-md rounded-lg flex flex-col gap-4 group">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center clay-button group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-fixed text-3xl" data-icon="rebase_edit">rebase_edit</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-secondary">Soft Feedback</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Interactions feel bouncy and responsive. Rounded, bubbly UI elements provide a friendly, non-corporate aesthetic.
+                        </p>
+</div>
+<!-- Feature 3: Pastel Precision -->
+<div class="clay-card bg-surface-container-high p-stack-md rounded-lg flex flex-col gap-4 group">
+<div class="w-16 h-16 bg-tertiary-fixed-dim rounded-xl flex items-center justify-center clay-button group-hover:-rotate-12 transition-transform">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-3xl" data-icon="palette">palette</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-tertiary">Pastel Precision</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            A curated palette of soft pinks, mints, and lavenders set against deep, velvety backgrounds for maximum visual comfort.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Demo Section -->
+<section class="max-w-7xl mx-auto px-container-padding py-stack-lg">
+<div class="clay-card bg-surface-container-high rounded-xl overflow-hidden p-stack-lg flex flex-col md:flex-row gap-stack-lg items-center">
+<div class="flex-1 space-y-base">
+<h2 class="font-headline-xl text-headline-lg text-secondary">Try the Squishiness</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Interact with our clay-morphed components to feel the 3D depth. Click the buttons or hover over the input fields to see the lighting react.</p>
+<div class="space-y-stack-sm pt-stack-md">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-2">Sample Input</label>
+<input class="clay-input bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary text-on-surface w-full max-w-md" placeholder="Type something..." type="text"/>
+</div>
+<div class="flex gap-stack-sm pt-base">
+<button class="clay-button bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold">Primary Action</button>
+<button class="clay-button bg-secondary-container text-on-secondary-container px-6 py-3 rounded-full font-bold">Secondary Action</button>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="relative w-full aspect-square bg-surface-container-lowest rounded-xl clay-input flex items-center justify-center p-stack-md">
+<div class="w-full h-full rounded-lg bg-surface-container-high clay-card flex items-center justify-center overflow-hidden">
+<img alt="Tactile 3D Shapes" class="w-full h-full object-cover" data-alt="A macro photography shot of colorful 3D abstract shapes with a soft, matte clay texture. The shapes include rounded spheres and elongated tubes in pastel pink, mint green, and pale blue. The lighting is soft and directional, casting gentle shadows that emphasize the volume and tactile quality of the materials. The background is a dark, smooth navy gradient that makes the pastel colors pop with a professional, creative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0lEM_21Iofz7DE-FjHLdrOC7Y5h_Sedap-PlJbgMBey-mueX-Yb4yoN6gIRbe4JwV_6w34VmYbPgTgX1JC7grm8Wv5VRDBnUhOMRAbkWqnGLj1F-1AknT7z4FYBxbxKfFIF2uHR9QeDsKOjfD3_DF-wbZUDFQChw6zqqqhBn_9pmW6iVycRau5ddr_nhWJWD6Jk3Mqb1mR3pJYOqS6A6OK16T7x5o7vKDsQUl3Fy1REFZsSWd2cHmXqOma_BE3yS6QWg0DQeA61gb"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="max-w-4xl mx-auto px-container-padding py-stack-lg text-center">
+<div class="clay-card bg-primary-container/10 p-stack-lg rounded-[3rem] border border-primary/5">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-stack-sm">Ready to build?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Join over 10,000 designers sculpting the future of the web with ClayUI.</p>
+<div class="flex flex-col sm:flex-row gap-stack-sm justify-center">
+<input class="clay-input bg-surface-container-lowest border-none rounded-full px-6 py-4 text-on-surface w-full sm:w-64 focus:ring-2 focus:ring-primary" placeholder="email@example.com" type="email"/>
+<button class="clay-button bg-primary text-on-primary-fixed px-10 py-4 rounded-full font-bold active:scale-95">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container rounded-t-xl w-full shadow-[0px_-20px_40px_rgba(0,0,0,0.05)] no-border">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-padding py-stack-md gap-stack-sm max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="bubble_chart">bubble_chart</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">ClayUI</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Features</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Showcase</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer text-secondary font-semibold" href="#">Docs</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">Twitter</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">GitHub</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">
+                © 2024 Claymorphism Labs
+            </p>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for clay cards to track mouse movement
+        document.querySelectorAll('.clay-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body></html>

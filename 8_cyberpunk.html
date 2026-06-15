@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SYSTEM OVERRIDE // NEURAL_LINK_CORP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#39393b",
+                    "surface-container-low": "#1b1b1d",
+                    "secondary-fixed": "#ffd7f5",
+                    "tertiary-container": "#a2ef00",
+                    "secondary": "#ffabf3",
+                    "primary": "#dbfcff",
+                    "inverse-on-surface": "#313032",
+                    "outline-variant": "#3b494b",
+                    "on-tertiary-fixed-variant": "#334f00",
+                    "on-tertiary-container": "#456900",
+                    "secondary-fixed-dim": "#ffabf3",
+                    "on-surface-variant": "#b9cacb",
+                    "surface-tint": "#00dbe9",
+                    "surface-container-high": "#2a2a2c",
+                    "on-error": "#690005",
+                    "on-tertiary": "#223600",
+                    "surface-variant": "#353437",
+                    "tertiary-fixed-dim": "#94db00",
+                    "on-surface": "#e5e1e4",
+                    "surface-dim": "#131315",
+                    "on-background": "#e5e1e4",
+                    "on-secondary": "#5b005b",
+                    "on-secondary-container": "#500050",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-primary-fixed": "#002022",
+                    "secondary-container": "#fe00fe",
+                    "primary-fixed": "#7df4ff",
+                    "background": "#131315",
+                    "surface-container-highest": "#353437",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#a9f900",
+                    "on-primary-container": "#006970",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#e5e1e4",
+                    "on-secondary-fixed": "#380038",
+                    "on-secondary-fixed-variant": "#810081",
+                    "surface": "#131315",
+                    "primary-container": "#00f0ff",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#006970",
+                    "on-tertiary-fixed": "#121f00",
+                    "outline": "#849495",
+                    "surface-container": "#201f21",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-primary-fixed-variant": "#004f54",
+                    "tertiary": "#e5ffba",
+                    "on-primary": "#00363a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-md": "32px",
+                    "container-max": "1440px",
+                    "margin-sm": "16px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "margin-lg": "64px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Space Grotesk"],
+                    "data-table": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"],
+                    "code-label": ["JetBrains Mono"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "data-table": ["12px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "code-label": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-md": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            5% { opacity: 0.5; }
+            10% { opacity: 0.9; }
+            15% { opacity: 1; }
+            20% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        @keyframes glitch-text {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .scanline-bar {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 219, 233, 0.05), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+            z-index: 101;
+        }
+        .glitch-hover:hover {
+            animation: glitch-text 0.2s infinite;
+            text-shadow: 2px 0 #fe00fe, -2px 0 #00dbe9;
+        }
+        .crt-flicker {
+            animation: flicker 0.15s infinite;
+        }
+        .bracket::before { content: '['; margin-right: 4px; }
+        .bracket::after { content: ']'; margin-left: 4px; }
+        
+        .corner-bracket {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: #00dbe9;
+        }
+        .corner-tl { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden font-body-md text-body-md">
+<div class="scanlines"></div>
+<div class="scanline-bar"></div>
+<!-- Top Navigation Shell -->
+<header class="w-full top-0 sticky z-50 bg-background dark:bg-background border-b-2 border-primary dark:border-primary-fixed-dim shadow-[0_0_15px_rgba(0,219,233,0.3)]">
+<nav class="flex justify-between items-center px-margin-sm md:px-margin-lg py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+<h1 class="font-display-md text-display-md uppercase tracking-tighter text-primary dark:text-primary-fixed-dim drop-shadow-[0_0_8px_rgba(0,219,233,0.8)]">SYSTEM OVERRIDE</h1>
+</div>
+<div class="hidden md:flex items-center gap-gutter font-code-label text-code-label uppercase">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary active:skew-x-12 transition-transform" href="#">NETWORK</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:bg-surface-bright dark:hover:bg-surface-bright transition-all duration-75" href="#">NODES</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:bg-surface-bright dark:hover:bg-surface-bright transition-all duration-75" href="#">ENCRYPT</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:bg-surface-bright dark:hover:bg-surface-bright transition-all duration-75" href="#">LOGOUT</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-bright p-2" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</nav>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex flex-col items-center justify-center overflow-hidden px-margin-sm md:px-margin-lg border-b-2 border-outline-variant">
+
+<div class="relative z-10 max-w-4xl text-center">
+<div class="mb-8 inline-block">
+<span class="font-code-label text-code-label text-secondary bracket uppercase tracking-widest bg-secondary-container/10 px-4 py-1">AUTH_LEVEL_OMEGA</span>
+</div>
+<h2 class="font-display-lg text-display-lg md:text-[84px] uppercase mb-6 leading-none tracking-tighter text-primary glitch-hover">
+                    NEURAL <br/> UPLINK <br/> <span class="text-secondary drop-shadow-[0_0_10px_rgba(255,0,255,0.5)]">ESTABLISHED</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    Direct cerebral interface activated. Bypass all conventional security protocols and synchronize with the global mainframe. The digital frontier is yours to command.
+                </p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center items-center">
+<button class="group relative px-12 py-4 bg-primary text-on-primary font-code-label text-code-label uppercase font-bold transition-all hover:translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0px_#fe00fe] active:translate-x-0 active:translate-y-0">
+                        SECURE ACCESS
+                        <span class="material-symbols-outlined align-middle ml-2 group-hover:animate-pulse" data-icon="fingerprint">fingerprint</span>
+</button>
+<button class="px-12 py-4 border-2 border-primary text-primary font-code-label text-code-label uppercase font-bold hover:bg-primary/10 transition-all">
+                        VIEW PROTOCOLS
+                    </button>
+</div>
+</div>
+<!-- Decorative HUD Elements -->
+<div class="absolute top-20 left-10 hidden lg:block opacity-60">
+<div class="border-l-2 border-primary pl-4 py-2">
+<div class="font-code-label text-code-label text-primary uppercase mb-1">LOCAL_TIME</div>
+<div class="font-code-label text-headline-lg text-secondary" id="clock">00:00:00:00</div>
+</div>
+</div>
+<div class="absolute bottom-20 right-10 hidden lg:block opacity-60">
+<div class="border-r-2 border-secondary pr-4 py-2 text-right">
+<div class="font-code-label text-code-label text-secondary uppercase mb-1">SYSTEM_LOAD</div>
+<div class="w-48 h-2 bg-surface-variant overflow-hidden">
+<div class="h-full bg-secondary w-3/4 animate-pulse"></div>
+</div>
+<div class="font-code-label text-data-table text-on-surface-variant mt-1">78.4% CAP_REACHED</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="py-margin-lg px-margin-sm md:px-margin-lg max-w-container-max mx-auto">
+<div class="mb-margin-md flex items-end justify-between border-b-2 border-surface-variant pb-4">
+<div>
+<span class="font-code-label text-code-label text-tertiary uppercase">[ CORE_MODULES ]</span>
+<h3 class="font-headline-lg text-headline-lg uppercase text-on-surface mt-2">SYSTEM_CAPABILITIES</h3>
+</div>
+<div class="font-code-label text-data-table text-on-surface-variant">V.2.184.X</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Neural Overlay -->
+<div class="md:col-span-8 group relative bg-surface-container-low border border-outline-variant p-margin-md overflow-hidden hover:border-primary transition-colors duration-300">
+<div class="corner-bracket corner-tl"></div>
+<div class="corner-bracket corner-tr"></div>
+<div class="corner-bracket corner-bl"></div>
+<div class="corner-bracket corner-br"></div>
+<div class="flex flex-col md:flex-row gap-gutter relative z-10">
+<div class="w-full md:w-1/2">
+<h4 class="font-headline-lg text-headline-lg text-primary uppercase mb-4">Neural Overlay</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Enhanced sensory perception layers that map real-time data onto your visual field. Experience 10ms latency updates across 10,000 parallel streams.
+                            </p>
+<ul class="space-y-2 font-code-label text-code-label text-secondary uppercase">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                                    Retinal Projection Tech
+                                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                                    Haptic Feedback Loop
+                                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                                    Bio-Sync Integration
+                                </li>
+</ul>
+</div>
+<div class="w-full md:w-1/2 aspect-video bg-surface-variant border border-outline-variant relative overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-screen opacity-70 group-hover:scale-110 transition-transform duration-700" data-alt="A futuristic cybernetic interface visualization with glowing cyan circuitry lines, digital data points, and complex abstract geometric patterns over a deep black tech background. High contrast electric neon lighting creates a sophisticated technical atmosphere with a cyberpunk aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEyVvVtSgT_iiKnUOZmmzDwL9tknoN2Z8N_SxVfz8UN9cBJCkVa-M3m-qk9S4ofdYkkRXiQMJkSFosXRJrn52ItFDi84F4ZOLE3w34roASYXT6SJ8DpJSb8o2NHkdEsxJCWsY58mSGBXoaQ-K6vg0xAbhcf0O21-uBnTUvb3wmh1TyJGAtEt8XZmnJld4fqGI-pADZUD56EBLgsPrznYmpuAdgMSYSwcVuTjJCt8_4QRtLlOcJeEjVaoLFpApad3aKQKPvZQ99VxzK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-2 left-2 font-code-label text-data-table bg-background px-2">IMG_0991_FEED</div>
+</div>
+</div>
+</div>
+<!-- Quantum Shell -->
+<div class="md:col-span-4 bg-surface-container-high border-2 border-secondary p-margin-md flex flex-col justify-between group">
+<div>
+<div class="flex justify-between mb-4">
+<span class="material-symbols-outlined text-secondary text-display-md" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-code-label text-data-table text-on-surface-variant">ENC_MODE: ACTIVE</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Quantum Shell</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Infinite cryptographic redundancy. Your data is fragmented across 4,000 sub-nodes, making extraction impossible for non-authorized entities.
+                        </p>
+</div>
+<div class="mt-8 border-t border-secondary/20 pt-4">
+<div class="flex justify-between font-code-label text-data-table mb-2">
+<span>UPTIME</span>
+<span>99.999%</span>
+</div>
+<div class="grid grid-cols-10 gap-1">
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-secondary"></div>
+<div class="h-4 bg-surface-variant"></div>
+<div class="h-4 bg-surface-variant animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Sync Protocol -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant p-margin-md hover:bg-surface-bright transition-all group">
+<h4 class="font-headline-lg text-headline-lg text-tertiary uppercase mb-4">Sync Protocol</h4>
+<div class="font-code-label text-data-table text-tertiary-fixed-dim bg-background p-4 mb-4 font-mono overflow-hidden">
+<div class="group-hover:translate-y-[-100%] transition-transform duration-1000">
+                            &gt; INIT_SYNC... <br/>
+                            &gt; ADDR: 0x88F1... <br/>
+                            &gt; BYPASSING_FIREWALL... <br/>
+                            &gt; SUCCESS. <br/>
+                            &gt; MAPPING_DENSITY: 98% <br/>
+                            &gt; RUNNING_DIAGNOSTICS...
+                        </div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Unified communication between biological and synthetic components. Zero-latency feedback for seamless operation.
+                    </p>
+</div>
+<!-- Visual Asset / Ambient Block -->
+<div class="md:col-span-8 bg-background border border-outline-variant relative h-64 md:h-auto overflow-hidden">
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="text-center">
+<div class="font-display-md text-display-md text-primary opacity-20 uppercase tracking-[1em] crt-flicker">NET_SYNC</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-margin-lg bg-surface-container-lowest border-y-2 border-primary">
+<div class="max-w-container-max mx-auto px-margin-sm md:px-margin-lg text-center">
+<h3 class="font-display-md text-display-md uppercase text-primary mb-8 tracking-tighter">READY TO OVERRIDE?</h3>
+<div class="flex flex-col md:flex-row justify-center items-center gap-margin-md">
+<div class="relative w-full max-w-md">
+<input class="w-full bg-background border-2 border-primary text-primary font-code-label text-code-label p-4 focus:ring-2 focus:ring-secondary focus:outline-none placeholder:text-primary/30 uppercase" placeholder="ENTER_ACCESS_CODE" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 font-code-label text-secondary animate-pulse">|</span>
+</div>
+<button class="w-full md:w-auto px-12 py-4 bg-secondary text-on-secondary font-code-label text-code-label uppercase font-bold hover:bg-on-secondary-container transition-colors">
+                        INITIATE_HANDSHAKE
+                    </button>
+</div>
+<div class="mt-8 font-code-label text-data-table text-on-surface-variant uppercase">
+                    Unauthorized access will result in immediate neural feedback. [ 00:00:15 ] UNTIL LOCKDOWN.
+                </div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full bottom-0 bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-surface-variant dark:border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-sm md:px-margin-lg py-margin-md gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-gutter">
+<span class="font-code-label text-code-label text-secondary uppercase">SYSTEM OVERRIDE</span>
+<span class="font-code-label text-code-label uppercase text-on-surface-variant">© 2184 NEURAL_LINK_CORP // OVERRIDE_INITIATED</span>
+</div>
+<div class="flex gap-gutter font-code-label text-code-label uppercase">
+<a class="text-tertiary dark:text-tertiary-fixed font-bold hover:text-tertiary-container hover:underline decoration-double hover:animate-pulse" href="#">NET_STATUS</a>
+<a class="text-on-surface-variant hover:text-tertiary-container hover:underline decoration-double hover:animate-pulse" href="#">DECRYPT_PROTOCOL</a>
+<a class="text-on-surface-variant hover:text-tertiary-container hover:underline decoration-double hover:animate-pulse" href="#">RESOURCES</a>
+<a class="text-on-surface-variant hover:text-tertiary-container hover:underline decoration-double hover:animate-pulse" href="#">TERMINATE</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the clock
+        function updateClock() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            const ms = Math.floor(Math.random() * 99).toString().padStart(2, '0');
+            const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}:${ms}`;
+            document.getElementById('clock').textContent = timeStr;
+        }
+        setInterval(updateClock, 50);
+
+        // Random glitch effect on buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                setTimeout(() => btn.style.filter = '', 150);
+            });
+        });
+
+        // Hover effect for feature cards
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

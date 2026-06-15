@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OBSIDIAN PRIVATE | The Apex of Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&amp;family=Hanken+Grotesk:wght@300;400;600&amp;family=Geist:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+        }
+        .metallic-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+                        linear-gradient(45deg, #E5E4E2, transparent, #333333) border-box;
+        }
+        .glass-card {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .cta-glow:hover {
+            box-shadow: 0 0 20px rgba(229, 228, 226, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "surface-container-highest": "#353534",
+                      "on-secondary-fixed": "#241a00",
+                      "secondary": "#e9c349",
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-dim": "#131313",
+                      "outline": "#8e918e",
+                      "primary-fixed-dim": "#c7c6c4",
+                      "on-secondary-container": "#342800",
+                      "surface-tint": "#c7c6c4",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "on-tertiary": "#313030",
+                      "on-error-container": "#ffdad6",
+                      "error": "#ffb4ab",
+                      "inverse-surface": "#e5e2e1",
+                      "inverse-primary": "#5e5e5d",
+                      "surface-variant": "#353534",
+                      "on-primary-fixed-variant": "#464746",
+                      "primary-container": "#e3e2e0",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "tertiary": "#ffffff",
+                      "on-primary": "#303130",
+                      "on-error": "#690005",
+                      "on-secondary": "#3c2f00",
+                      "on-surface-variant": "#c4c7c4",
+                      "secondary-fixed": "#ffe088",
+                      "primary": "#ffffff",
+                      "background": "#131313",
+                      "on-primary-fixed": "#1b1c1b",
+                      "surface-container": "#201f1f",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#574500",
+                      "on-primary-container": "#646463",
+                      "tertiary-container": "#e5e2e1",
+                      "surface-bright": "#3a3939",
+                      "on-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-background": "#e5e2e1",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-fixed": "#e3e2e0",
+                      "secondary-container": "#af8d11",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "outline-variant": "#444845",
+                      "on-tertiary-container": "#656464"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "element-gap": "24px",
+                      "margin-desktop": "80px",
+                      "container-max": "1440px",
+                      "section-gap": "120px",
+                      "gutter": "32px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "label-caps": ["Geist"],
+                      "headline-lg": ["Syne"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Syne"],
+                      "mono-sm": ["Geist"],
+                      "headline-md": ["Syne"],
+                      "body-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                      "headline-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["36px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "mono-sm": ["13px", {"lineHeight": "1.5", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background">
+<div class="grain-overlay"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto bg-background/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md font-extrabold text-primary tracking-widest">EXECUTIVE</span>
+</div>
+<nav class="hidden md:flex gap-gutter">
+<a class="text-primary font-bold border-b-2 border-primary font-label-caps text-label-caps transition-colors duration-300" href="#">COLLECTION</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">HERITAGE</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-secondary transition-colors duration-300" href="#">CONCIERGE</a>
+</nav>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-caps text-label-caps tracking-widest cursor-pointer active:opacity-70 transition-all duration-300 hover:bg-secondary">RESERVE</button>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col justify-end pt-32 pb-section-gap overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover filter brightness-[0.4] contrast-125" data-alt="A cinematic macro shot of a sleek black luxury supercar chassis with dramatic high-contrast lighting. The focus is on the intricate carbon fiber weave and a single polished chrome highlight reflecting a deep, dark luxury garage setting. The overall mood is stealthy, ultra-premium, and monochromatic with deep shadows and sharp highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Hl20tnlFjKPZZr0aAxc9cdmt-rSCUv4HFyu1uxVfLcIJIakUjsMtrC_XMRdY32k7_klwKneBZxIMRvIsXyoFNPCX2s9bW9Qn4DBt5dPro5sqytNCu8gWgYvsOTQLulcXKNax00WwtDUotv-yzTonI3vblKJkO54dMhsXSVDjJnkay0t_7faFQKKG-xb2jPoGtAHI36ar2IPcLjpbLlRWK0q8rg0T6orI_XsX5fBGls6oqNXCLB6pU2QTGfLd4Pi38Kks80Qn7CFz"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-6 md:w-2/3">
+<span class="font-label-caps text-label-caps text-secondary uppercase">The Pinnacle of Access</span>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase">Obsidian Private</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Unrivaled discretion for the global elite. We operate in the shadows to provide a lifestyle defined by precision, tactile luxury, and the absolute power of silence.
+                    </p>
+<div class="flex flex-wrap gap-element-gap mt-8">
+<button class="px-10 py-5 bg-primary text-on-primary font-label-caps text-label-caps tracking-[0.3em] cta-glow transition-all duration-500">APPLY FOR ACCESS</button>
+<button class="px-10 py-5 border border-outline text-primary font-label-caps text-label-caps tracking-[0.3em] hover:border-secondary transition-all">VIEW COLLECTION</button>
+</div>
+</div>
+</div>
+<!-- Atmospheric micro-interaction -->
+<div class="absolute bottom-10 right-margin-desktop hidden lg:block opacity-40">
+<div class="flex flex-col items-end">
+<span class="font-mono-sm text-mono-sm text-on-surface-variant mb-2">COORD: 51.5074° N, 0.1278° W</span>
+<div class="h-px w-64 bg-gradient-to-l from-secondary to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- Exclusive Access (Bento Grid Style) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-section-gap text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-primary uppercase mb-4 tracking-tighter">Exclusive Access</h2>
+<div class="h-0.5 w-24 bg-secondary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group relative overflow-hidden h-[600px] border border-outline-variant hover:border-primary transition-all duration-700">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-80" data-alt="A top-down view of an ultra-luxury mechanical watch movement showing intricate gold and platinum gears. The lighting is moody and focused, highlighting the precision engineering against a deep black velvet background. The aesthetic is extremely detailed, technical, and expensive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwZLRKkGyDygTBHY9B8V66R9Qk8MplnWBhIdixgbrMdRX2rMBRRPQDEcp9MMdJQ4ndWzhry7_-HN-UCKV2FbdiXLXbkFd0MtTVpqR_ZFrflZwexM92BX4pyoMD8ICmw_RoBPyV647in_CMq4BxUj8XtUeKHfmaUiTTjWiPe3VWaZnHFcN4rYR3VLfY2H-h6pJjsg7cSVmVTqB_syBkdf75M56LzEUcz9liDiY9dmYq0xFJ5oNHxCXzkQhKjdk7tsUQdwW0oHGtfGA"/>
+<div class="absolute bottom-0 left-0 p-gutter w-full bg-gradient-to-t from-background to-transparent">
+<span class="font-label-caps text-label-caps text-secondary mb-2 block">HOROLOGY</span>
+<h3 class="font-headline-md text-headline-md text-primary">The Obsidian Reserve</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-4">Rare timepieces curated for the few. Private acquisitions that never reach the public market.</p>
+</div>
+</div>
+<!-- Secondary Cards -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 glass-card p-gutter flex flex-col justify-between border-t-2 border-t-secondary/30">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="lock_open">lock_open</span>
+<h4 class="font-headline-md text-headline-md text-primary tracking-tight">Stealth Concierge</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">24/7 hyper-personalized support for global travel and security transitions.</p>
+</div>
+<div class="flex-1 border border-outline-variant p-gutter flex flex-col justify-between hover:bg-surface-container-low transition-colors group">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="diamond">diamond</span>
+<h4 class="font-headline-md text-headline-md text-primary tracking-tight">The Heritage Vault</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Access to historical estates and off-market real estate assets globally.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Fleet (Asymmetric Carousel Content) -->
+<section class="bg-surface-container-lowest py-section-gap relative overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-section-gap items-center">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase mb-8">The Fleet</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        Our mobility options range from armored sedans to long-range private jets, all unified by a single aesthetic: total visual discretion and maximum internal comfort.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start gap-6 border-b border-outline-variant pb-8">
+<span class="font-mono-sm text-mono-sm text-secondary">01</span>
+<div>
+<h4 class="font-headline-md text-[24px] text-primary mb-2 uppercase">Airborne Sovereignty</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Modified G650ERs with silent-cabin technology and custom matte obsidian liveries.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 border-b border-outline-variant pb-8">
+<span class="font-mono-sm text-mono-sm text-secondary">02</span>
+<div>
+<h4 class="font-headline-md text-[24px] text-primary mb-2 uppercase">The Surface Guard</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Armored SUVs and performance vehicles optimized for high-threat urban environments.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="metallic-border p-2">
+<img class="w-full aspect-[4/5] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000" data-alt="A profile shot of a matte-black luxury jet parked on a darkened tarmac during the blue hour. The aircraft is illuminated by ground floodlights that create long, sharp shadows and highlight the sleek aerodynamic curves. The sky is a deep twilight navy, contributing to an atmosphere of quiet, high-stakes travel and exclusive privacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_X165MQ4IwJvFg7RkYrrOt0YR8PYrml3FK9WqxDjE1ZDtWs5hkVweo8gpJJ5k0ioIa2_l7kqNa6Ln_tdhmclp4MF4kt1MT0xeDE1QrCmT3Cp6Yr2Ir8hb4tHy4He5aNH9TuLrTTGBZWSp5jJRhGKPomRex7ajyYy_p8xG_Ue9B5a3nSD-P1slbM4ZKflXG_s9-1Pa5NrCyMxLikEkn4butl-GdXPjlLGPvx6l_vGNQhvjD41aT0h2eZITjVwJISRIpH-Hf06uRqI"/>
+</div>
+<!-- Accent Element -->
+<div class="absolute -bottom-10 -left-10 w-40 h-40 border border-secondary/20 hidden md:block"></div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop text-center bg-background relative overflow-hidden">
+
+<div class="relative z-10 max-w-4xl mx-auto">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary uppercase mb-8">Elevate Your Existence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Membership is strictly by invitation or verified application. In the world of Obsidian, visibility is earned, not given.</p>
+<div class="flex justify-center">
+<div class="group relative p-[1px] bg-gradient-to-r from-secondary to-transparent">
+<button class="bg-background px-16 py-6 font-label-caps text-label-caps text-primary tracking-[0.5em] transition-all hover:bg-primary hover:text-on-primary">
+                            BEGIN AUTHENTICATION
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between items-center gap-element-gap bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tighter">EXECUTIVE</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant text-[10px] tracking-[0.3em]">© 2024 EXECUTIVE PRIVÉ. ALL RIGHTS RESERVED.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 underline-offset-8 hover:underline" href="#">COLLECTION</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 underline-offset-8 hover:underline" href="#">HERITAGE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 underline-offset-8 hover:underline" href="#">CONCIERGE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 underline-offset-8 hover:underline" href="#">PRIVACY</a>
+</nav>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="language">language</span>
+</div>
+</footer>
+<script>
+        // Micro-interaction for smooth scrolling and header fade
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-4');
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('py-4');
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Simple mouse move parallax for hero background
+        const hero = document.querySelector('section');
+        hero.addEventListener('mousemove', (e) => {
+            const img = hero.querySelector('img');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            img.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body></html>
