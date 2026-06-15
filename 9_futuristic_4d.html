@@ -5,10 +5,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Spatial Matrix | AXIS:04</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/geist-mono.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -102,6 +101,7 @@
             background-color: #0e0e0e;
             color: #e5e2e1;
             overflow-x: hidden;
+            min-height: max(884px, 100dvh);
         }
         .inner-glow-tl {
             box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.1);
@@ -114,6 +114,7 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(255, 255, 255, 0.02);
+            transition: transform 0.3s ease-out;
         }
         .holographic-edge {
             position: relative;
@@ -138,8 +139,8 @@
             perspective: 1000px;
         }
         .cube-container {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             position: relative;
             transform-style: preserve-3d;
             animation: rotateCube 20s infinite linear;
@@ -150,75 +151,92 @@
         }
         .cube-face {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 400px;
+            height: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             background: rgba(255, 255, 255, 0.01);
         }
-        .front  { transform: translateZ(150px); }
-        .back   { transform: rotateY(180deg) translateZ(150px); }
-        .right  { transform: rotateY(90deg) translateZ(150px); }
-        .left   { transform: rotateY(-90deg) translateZ(150px); }
-        .top    { transform: rotateX(90deg) translateZ(150px); }
-        .bottom { transform: rotateX(-90deg) translateZ(150px); }
+        .front  { transform: translateZ(200px); }
+        .back   { transform: rotateY(180deg) translateZ(200px); }
+        .right  { transform: rotateY(90deg) translateZ(200px); }
+        .left   { transform: rotateY(-90deg) translateZ(200px); }
+        .top    { transform: rotateX(90deg) translateZ(200px); }
+        .bottom { transform: rotateX(-90deg) translateZ(200px); }
 
         .scan-line {
             height: 1px;
             width: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             position: absolute;
-            animation: scan 4s linear infinite;
+            animation: scan 6s linear infinite;
         }
         @keyframes scan {
             0% { top: 0%; }
             100% { top: 100%; }
         }
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="font-body-md text-body-md selection:bg-white selection:text-black">
-<!-- Top Navigation -->
-<header class="fixed top-0 w-full bg-transparent backdrop-blur-xl text-primary font-label-sm text-label-sm z-50 flex justify-between items-center px-margin-desktop h-16 border-b border-white/10 inner-glow-tl">
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
-<h1 class="font-code-mono text-label-sm tracking-widest text-primary">AXIS:04</h1>
+<!-- Desktop Navigation -->
+<header class="fixed top-0 w-full bg-surface-container/60 backdrop-blur-2xl text-primary font-label-sm text-label-sm z-50 flex justify-between items-center px-margin-desktop h-20 border-b border-white/5 inner-glow-tl">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="grid_view">grid_view</span>
+<h1 class="font-code-mono text-label-sm tracking-[0.3em] font-bold text-primary">AXIS:04</h1>
 </div>
-<nav class="hidden md:flex gap-gutter">
-<a class="text-primary font-bold hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">MATRIX</a>
-<a class="text-on-surface-variant hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">COORDINATES</a>
-<a class="text-on-surface-variant hover:bg-white/10 transition-colors px-4 py-2 rounded scale-95 active:duration-75" href="#">LAYERS</a>
+<div class="h-4 w-px bg-white/20 mx-2"></div>
+<div class="flex items-center gap-4 text-on-surface-variant font-code-mono text-[10px]">
+<span class="animate-pulse">●</span>
+<span>NODE_ID: SF_HUB_01</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center">
+<ul class="flex gap-2">
+<li><a class="text-primary hover:bg-white/10 transition-all px-6 py-2 rounded-full border border-white/10" href="#">MATRIX</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all px-6 py-2 rounded-full" href="#">COORDINATES</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all px-6 py-2 rounded-full" href="#">LAYERS</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all px-6 py-2 rounded-full" href="#">ARCHIVE</a></li>
+</ul>
 </nav>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="location_searching">location_searching</span>
-<span class="font-code-mono opacity-50">[0.0, 0.0, 0.0]</span>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="font-code-mono text-[10px] opacity-40">COORD_REF</span>
+<span class="font-code-mono text-[11px] text-primary tracking-tighter">[0.000, 0.000, 0.000]</span>
+</div>
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="location_searching">location_searching</span>
+</button>
 </div>
 </header>
-<main class="grid-bg min-h-screen pt-32">
-<!-- Hero Section -->
-<section class="px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center min-h-[707px] mb-32">
-<div class="lg:col-span-6 space-y-z-gap-lg">
-<div class="inline-block border border-white/20 px-3 py-1 font-code-mono text-[10px] uppercase tracking-widest text-on-surface-variant">
+<main class="grid-bg pt-20">
+<!-- Hero Section - Desktop Optimized -->
+<section class="px-margin-desktop grid grid-cols-12 gap-gutter items-center min-h-[calc(100vh-80px)] py-16">
+<div class="col-span-12 lg:col-span-6 space-y-z-gap-lg">
+<div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 px-4 py-1.5 font-code-mono text-[11px] uppercase tracking-[0.2em] text-primary/80">
+<span class="w-2 h-2 bg-primary animate-pulse"></span>
                     Protocol: Spatial_Matrix_Initiated
                 </div>
-<h2 class="font-display-xl text-display-xl text-primary uppercase">Spatial Matrix</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
-                    Interfacing with high-dimensional data volumes. A refractive architectural exploration of depth, Z-axis motion, and spectral luminosity within the 4D coordinate system.
-                </p>
+<h2 class="font-display-xl text-[84px] leading-[0.95] text-primary uppercase">Spatial<br/>Matrix</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl leading-relaxed">
+                    Interfacing with high-dimensional data volumes. A refractive architectural exploration of depth, Z-axis motion, and spectral luminosity within the 4D coordinate system. 
+                    <span class="block mt-4 text-white/40">Optimized for high-density neural rendering and spatial coherence.</span>
+</p>
 <div class="flex gap-gutter pt-8">
-<button class="bg-primary text-on-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-tertiary-fixed-dim transition-all active:scale-95">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-sm text-label-sm uppercase tracking-[0.2em] font-bold hover:bg-white/90 transition-all active:scale-95">
                         Initialize Demo
                     </button>
-<button class="border border-primary text-primary px-8 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95">
+<button class="border border-white/20 text-primary px-10 py-5 font-label-sm text-label-sm uppercase tracking-[0.2em] hover:bg-white/5 transition-all active:scale-95 flex items-center gap-2">
                         Documentation
-                    </button>
+                        <span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</button>
 </div>
 </div>
-<div class="lg:col-span-6 flex justify-center items-center relative py-20 overflow-visible">
-<div class="wireframe-cube">
+<div class="col-span-12 lg:col-span-6 flex justify-center items-center relative py-20">
+<div class="wireframe-cube scale-110 lg:scale-125">
 <div class="cube-container">
 <div class="cube-face front"></div>
 <div class="cube-face back"></div>
@@ -228,112 +246,181 @@
 <div class="cube-face bottom"></div>
 <!-- Inner detail -->
 <div class="absolute inset-0 flex items-center justify-center">
-<div class="w-16 h-16 bg-white/20 backdrop-blur-md"></div>
+<div class="w-24 h-24 bg-white/10 backdrop-blur-xl border border-white/20 animate-pulse"></div>
 </div>
 </div>
 </div>
-<!-- HUD elements -->
-<div class="absolute top-0 right-0 font-code-mono text-[10px] text-white/30 space-y-1 text-right">
-<div>ROT_X: <span id="rotX">0.00</span></div>
-<div>ROT_Y: <span id="rotY">0.00</span></div>
-<div>Z_DPT: 104.22</div>
+<!-- HUD elements - Persistent Desktop Overlay -->
+<div class="absolute bottom-0 right-0 font-code-mono text-[11px] text-primary/30 p-8 space-y-2 text-right border-r border-b border-white/5">
+<div class="flex justify-end gap-4"><span>ROT_X:</span> <span class="text-primary/60" id="rotX">0.00</span></div>
+<div class="flex justify-end gap-4"><span>ROT_Y:</span> <span class="text-primary/60" id="rotY">0.00</span></div>
+<div class="flex justify-end gap-4"><span>Z_DPT:</span> <span class="text-primary/60">104.22</span></div>
+<div class="pt-4 flex justify-end gap-1">
+<div class="w-8 h-1 bg-primary/20"></div>
+<div class="w-8 h-1 bg-primary/20"></div>
+<div class="w-8 h-1 bg-primary"></div>
+</div>
 </div>
 </div>
 </section>
-<!-- Bento Grid Content -->
-<section class="px-margin-desktop mb-32">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter h-auto md:h-[600px]">
-<!-- Refractive Volume Card -->
-<div class="md:col-span-2 glass-panel p-8 flex flex-col justify-between group cursor-crosshair holographic-edge relative overflow-hidden">
+<!-- Bento Grid Content - Desktop Multi-column -->
+<section class="px-margin-desktop py-32 border-t border-white/5">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Large Feature Card -->
+<div class="lg:col-span-8 glass-panel p-12 flex flex-col justify-between group cursor-crosshair holographic-edge relative overflow-hidden min-h-[600px]">
 <div class="scan-line"></div>
-<div class="space-y-4">
-<span class="font-code-mono text-label-sm text-on-primary-container bg-primary/10 px-2 py-1">CORE:01</span>
-<h3 class="font-headline-lg text-headline-lg text-primary uppercase">Refractive Volume</h3>
-<p class="font-body-md text-on-surface-variant max-w-sm">
-                            Simulation of optical density across multiple Z-layers. Calculating light refraction through virtual glass surfaces in real-time.
+<div class="max-w-xl space-y-6">
+<div class="flex items-center gap-4">
+<span class="font-code-mono text-label-sm text-primary border border-primary/20 px-3 py-1 bg-primary/5">CORE:01</span>
+<span class="font-code-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Spectral Analysis Active</span>
+</div>
+<h3 class="font-headline-lg text-[48px] leading-tight text-primary uppercase">Refractive<br/>Volume</h3>
+<p class="font-body-md text-on-surface-variant text-lg">
+                            Simulation of optical density across multiple Z-layers. Calculating light refraction through virtual glass surfaces in real-time. Experience depth through procedural translucency.
                         </p>
 </div>
-<div class="mt-8 overflow-hidden relative h-48 border border-white/10">
-<img class="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-1000" data-alt="A macro photograph of high-tech circuit boards and optical glass prisms. The lighting is cold and architectural, featuring charcoal and deep silver tones with sharp white light highlights. The composition is focused on mathematical precision and technical elegance, with a shallow depth of field creating a sense of three-dimensional volume." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFtXBiPYc3jMiTje-ZB4Gb5c3TPuntm4JL4kfwbMS2Kz12lbBgiFC2r6LAIxLDH4DP4NNWWjnwWF0Wycfu77Ng_OTnIuWjUrAAsP7dIr3FClqOJhTSBd7o0skXqrWnmM7p6rZTNZA4m2255Os_0jUylIrmUyCyEKizZgBYx79L7YBOlEqdC78O0yR4SwqmfDgTlojKr15lBDqG6y-MjakF5iFoPm_JisryKJcr1tNoJ4Rs8xij1S2vOY2WEgQrzawG1fE6bPKP_TGb"/>
+<div class="mt-12 overflow-hidden relative h-[320px] border border-white/10 bg-black/40">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-80 group-hover:scale-[1.02] transition-all duration-1000 ease-out" data-alt="A macro photograph of high-tech circuit boards and optical glass prisms. The lighting is cold and architectural, featuring charcoal and deep silver tones with sharp white light highlights. The composition is focused on mathematical precision and technical elegance, with a shallow depth of field creating a sense of three-dimensional volume." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFtXBiPYc3jMiTje-ZB4Gb5c3TPuntm4JL4kfwbMS2Kz12lbBgiFC2r6LAIxLDH4DP4NNWWjnwWF0Wycfu77Ng_OTnIuWjUrAAsP7dIr3FClqOJhTSBd7o0skXqrWnmM7p6rZTNZA4m2255Os_0jUylIrmUyCyEKizZgBYx79L7YBOlEqdC78O0yR4SwqmfDgTlojKr15lBDqG6y-MjakF5iFoPm_JisryKJcr1tNoJ4Rs8xij1S2vOY2WEgQrzawG1fE6bPKP_TGb"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 </div>
 </div>
-<!-- Small Grid Items -->
-<div class="space-y-gutter flex flex-col h-full">
-<div class="glass-panel p-6 flex-1 flex flex-col justify-between border-l-4 border-primary">
-<h4 class="font-code-mono text-label-sm text-primary uppercase">Dynamic Flow</h4>
-<p class="font-label-sm text-on-surface-variant">Z-axis motion vectors mapping user focus within the spatial environment.</p>
-<div class="w-full h-1 bg-white/5 mt-4 overflow-hidden">
-<div class="w-1/3 h-full bg-white animate-[slide_2s_infinite]"></div>
+<!-- Side Sidebar Content -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-panel p-8 flex-1 flex flex-col justify-between border-l-[3px] border-primary group">
+<div class="space-y-4">
+<h4 class="font-code-mono text-label-sm text-primary uppercase tracking-widest">Dynamic Flow</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Z-axis motion vectors mapping user focus within the spatial environment. Real-time telemetry monitoring input velocity.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between font-code-mono text-[10px] text-primary/40">
+<span>THROUGHPUT</span>
+<span>84%</span>
+</div>
+<div class="w-full h-[2px] bg-white/5 overflow-hidden">
+<div class="w-1/3 h-full bg-primary animate-[slide_3s_infinite]"></div>
 </div>
 </div>
-<div class="glass-panel p-6 flex-1 flex flex-col justify-between group">
-<h4 class="font-code-mono text-label-sm text-primary uppercase">Spectral Highlights</h4>
-<p class="font-label-sm text-on-surface-variant">Holographic light leaks at intersection points of the coordinate grid.</p>
-<div class="flex justify-end mt-4">
-<span class="material-symbols-outlined text-4xl text-white/20 group-hover:text-white transition-colors" data-icon="blur_on">blur_on</span>
+</div>
+<div class="glass-panel p-8 flex-1 flex flex-col justify-between group hover:bg-white/5 transition-colors">
+<div class="space-y-4">
+<div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="blur_on">blur_on</span>
+</div>
+<h4 class="font-code-mono text-label-sm text-primary uppercase tracking-widest">Spectral Highlights</h4>
+<p class="font-body-md text-sm text-on-surface-variant leading-relaxed">Holographic light leaks at intersection points of the coordinate grid, calculated via ray-tracing algorithms.</p>
+</div>
+<div class="flex justify-between items-center mt-6">
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 bg-primary"></div>
+<div class="w-1.5 h-1.5 bg-primary/40"></div>
+<div class="w-1.5 h-1.5 bg-primary/10"></div>
+</div>
+<span class="font-code-mono text-[10px] text-primary/40">0X_FF_00_AA</span>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Technical Specification Section -->
-<section class="px-margin-desktop mb-32 border-t border-white/5 pt-16">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Technical Specification Section - Detailed Desktop View -->
+<section class="px-margin-desktop py-32 border-t border-white/5 bg-black/20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-3 space-y-8">
 <div class="space-y-4">
-<h5 class="font-code-mono text-label-sm text-primary">VECTOR.ARCH</h5>
-<ul class="text-[10px] font-code-mono text-on-surface-variant space-y-1">
-<li>SYS.KERNEL_VER: 0.9.1</li>
-<li>DIM_RES: 4096 x 2160</li>
-<li>FPS_LOCK: 120.0</li>
+<h5 class="font-code-mono text-label-sm text-primary tracking-[0.2em]">VECTOR.ARCH</h5>
+<ul class="text-[11px] font-code-mono text-on-surface-variant space-y-3">
+<li class="flex justify-between border-b border-white/5 pb-2"><span>SYS.KERNEL_VER</span> <span>0.9.1</span></li>
+<li class="flex justify-between border-b border-white/5 pb-2"><span>DIM_RES</span> <span>4096 x 2160</span></li>
+<li class="flex justify-between border-b border-white/5 pb-2"><span>FPS_LOCK</span> <span>120.0</span></li>
 </ul>
 </div>
 <div class="space-y-4">
-<h5 class="font-code-mono text-label-sm text-primary">GEOMETRY.X</h5>
-<ul class="text-[10px] font-code-mono text-on-surface-variant space-y-1">
-<li>VERT_COUNT: 1,024,541</li>
-<li>FACE_REFL: 0.85</li>
-<li>ALPHA_D: 0.02</li>
+<h5 class="font-code-mono text-label-sm text-primary tracking-[0.2em]">GEOMETRY.X</h5>
+<ul class="text-[11px] font-code-mono text-on-surface-variant space-y-3">
+<li class="flex justify-between border-b border-white/5 pb-2"><span>VERT_COUNT</span> <span>1,024,541</span></li>
+<li class="flex justify-between border-b border-white/5 pb-2"><span>FACE_REFL</span> <span>0.85</span></li>
+<li class="flex justify-between border-b border-white/5 pb-2"><span>ALPHA_D</span> <span>0.02</span></li>
 </ul>
 </div>
-<div class="md:col-span-2 glass-panel p-6 relative">
-<div class="flex justify-between items-center mb-4">
-<span class="font-code-mono text-[10px] text-primary">SYSTEM_DIAGNOSTICS</span>
-<div class="flex gap-1">
-<div class="w-1 h-1 bg-white"></div>
-<div class="w-1 h-1 bg-white/30"></div>
-<div class="w-1 h-1 bg-white/30"></div>
+</div>
+<div class="lg:col-span-9 glass-panel p-10 relative overflow-hidden">
+<div class="flex justify-between items-center mb-10 pb-6 border-b border-white/10">
+<div class="flex items-center gap-4">
+<span class="w-3 h-3 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+<span class="font-code-mono text-xs text-primary uppercase tracking-[0.3em]">System Diagnostics // Live Telemetry</span>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-1 text-[10px] font-code-mono border border-white/20 text-white/40 hover:text-white transition-colors">EXPORT_LOGS</button>
+<button class="px-4 py-1 text-[10px] font-code-mono bg-white text-black">RESET_BUFFER</button>
 </div>
 </div>
-<div class="h-16 w-full flex items-end gap-1">
-<div class="bg-white/10 w-full h-[20%]"></div>
-<div class="bg-white/20 w-full h-[45%]"></div>
-<div class="bg-white/10 w-full h-[30%]"></div>
-<div class="bg-white/40 w-full h-[80%] animate-pulse"></div>
-<div class="bg-white/20 w-full h-[50%]"></div>
-<div class="bg-white/10 w-full h-[35%]"></div>
-<div class="bg-white/30 w-full h-[60%]"></div>
-<div class="bg-white/10 w-full h-[25%]"></div>
+<div class="h-48 w-full flex items-end gap-2 group/viz">
+<div class="bg-white/5 w-full h-[20%] group-hover/viz:h-[40%] transition-all duration-700"></div>
+<div class="bg-white/10 w-full h-[45%] group-hover/viz:h-[25%] transition-all duration-700"></div>
+<div class="bg-white/5 w-full h-[30%] group-hover/viz:h-[60%] transition-all duration-700"></div>
+<div class="bg-primary/40 w-full h-[80%] animate-pulse group-hover/viz:h-[90%] transition-all duration-700"></div>
+<div class="bg-white/10 w-full h-[50%] group-hover/viz:h-[70%] transition-all duration-700"></div>
+<div class="bg-white/5 w-full h-[35%] group-hover/viz:h-[15%] transition-all duration-700"></div>
+<div class="bg-white/20 w-full h-[60%] group-hover/viz:h-[40%] transition-all duration-700"></div>
+<div class="bg-white/5 w-full h-[25%] group-hover/viz:h-[55%] transition-all duration-700"></div>
+<div class="bg-white/15 w-full h-[70%] group-hover/viz:h-[85%] transition-all duration-700"></div>
+<div class="bg-primary/20 w-full h-[40%] group-hover/viz:h-[20%] transition-all duration-700"></div>
+</div>
+<div class="mt-8 flex justify-between font-code-mono text-[9px] text-white/20 uppercase">
+<span>0ms</span>
+<span>250ms</span>
+<span>500ms</span>
+<span>750ms</span>
+<span>1000ms</span>
+<span>1250ms</span>
+<span>1500ms</span>
 </div>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="w-full py-16 bg-surface-container-lowest text-primary font-code-mono text-label-sm border-t border-outline-variant px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<div class="space-y-6">
-<h2 class="font-headline-lg text-primary uppercase">SPATIAL_CORE</h2>
-<p class="text-on-surface-variant max-w-sm">© 2024 SPATIAL_CORE. COORDINATES [0,0,0]</p>
+<!-- Footer - Desktop Wide -->
+<footer class="w-full py-20 bg-surface-container-lowest text-primary font-code-mono text-label-sm border-t border-white/5 px-margin-desktop">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<h2 class="font-headline-lg text-2xl text-primary uppercase tracking-tighter">SPATIAL_CORE</h2>
 </div>
-<div class="flex flex-col md:items-end justify-between">
-<nav class="flex gap-8 mb-8 md:mb-0">
-<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">VECTORS</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">DIMENSIONS</a>
-<a class="text-on-surface-variant hover:text-tertiary transition-all" href="#">TERMINAL</a>
-</nav>
-<div class="text-[10px] text-on-surface-variant flex items-center gap-2">
+<p class="text-on-surface-variant max-w-sm text-xs leading-relaxed opacity-60">
+                    Proprietary rendering engine for four-dimensional coordinate systems. Licensed under AXIS_PROTOCOL v4.0.
+                </p>
+<div class="text-[10px] text-on-surface-variant flex items-center gap-3">
 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                SYSTEM_STABLE // NO_ERRORS_DETECTED
-            </div>
+                    SYSTEM_STABLE // NO_ERRORS_DETECTED
+                </div>
+</div>
+<div class="col-span-12 lg:col-span-8 flex flex-col md:flex-row justify-end gap-16 lg:gap-32">
+<div class="space-y-6">
+<h6 class="text-[11px] text-primary/40 uppercase tracking-widest font-bold">DIRECTORY</h6>
+<nav class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">VECTORS</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">DIMENSIONS</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">TERMINAL</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">REGISTRY</a>
+</nav>
+</div>
+<div class="space-y-6">
+<h6 class="text-[11px] text-primary/40 uppercase tracking-widest font-bold">SOCIALS</h6>
+<nav class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">X / TWITTER</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">GITHUB</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">DISCORD</a>
+</nav>
+</div>
+<div class="space-y-6">
+<h6 class="text-[11px] text-primary/40 uppercase tracking-widest font-bold">LOCATION</h6>
+<div class="text-sm text-on-surface-variant space-y-1">
+<p>COORDINATES [0,0,0]</p>
+<p>TIMESTAMP: 2024.11.21</p>
+<p>© 2024 SPATIAL_CORE</p>
+</div>
+</div>
+</div>
 </div>
 </footer>
 <script>
@@ -343,35 +430,31 @@
         let angle = 0;
 
         function updateHUD() {
-            angle += 0.018;
+            angle += 0.012;
             rotXEl.textContent = (Math.sin(angle) * 360).toFixed(2);
-            rotYEl.textContent = (Math.cos(angle) * 360).toFixed(2);
+            rotYEl.textContent = (Math.cos(angle * 0.8) * 360).toFixed(2);
             requestAnimationFrame(updateHUD);
         }
         updateHUD();
 
-        // Mouse move parallax for glass cards
+        // Mouse move parallax for glass cards with smoother desktop feel
         document.querySelectorAll('.glass-panel').forEach(panel => {
             panel.addEventListener('mousemove', e => {
                 const rect = panel.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                const xPercent = (x / rect.width - 0.5) * 10;
-                const yPercent = (y / rect.height - 0.5) * 10;
+                const xPercent = (x / rect.width - 0.5) * 8;
+                const yPercent = (y / rect.height - 0.5) * 8;
                 
-                panel.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg)`;
+                panel.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) translateY(-4px)`;
+                panel.style.borderColor = 'rgba(255, 255, 255, 0.3)';
             });
             
             panel.addEventListener('mouseleave', () => {
-                panel.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                panel.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                panel.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             });
         });
     </script>
-<style>
-        @keyframes slide {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(300%); }
-        }
-    </style>
 </body></html>

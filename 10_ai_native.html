@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -128,186 +127,231 @@
             overflow-x: hidden;
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
 </head>
 <body class="font-body-md text-body-md antialiased">
 <!-- Top Navigation Shell -->
-<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-lg py-md rounded-full mt-lg mx-auto w-[calc(100%-48px)] max-w-container-max bg-surface/80 backdrop-blur-xl border border-white/10 shadow-2xl animate-shimmer transition-all duration-300 hover:scale-[1.02]">
-<div class="flex items-center gap-sm">
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-lg py-md rounded-full mt-lg mx-auto w-[calc(100%-48px)] max-w-container-max bg-surface/80 backdrop-blur-xl border border-white/10 shadow-2xl animate-shimmer transition-all duration-300 hover:scale-[1.01]">
+<div class="flex items-center gap-sm pl-md">
 <span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
 <span class="font-display-lg text-headline-md tracking-tighter text-primary">Lumina AI</span>
 </div>
-<nav class="hidden md:flex items-center gap-lg">
+<nav class="hidden lg:flex items-center gap-xl">
 <a class="font-label-md text-label-md text-primary font-bold hover:text-primary transition-all duration-300" href="#">Home</a>
 <a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Neural Engine</a>
 <a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Models</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">Solutions</a>
 <a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all duration-300" href="#">API</a>
 </nav>
-<button class="px-md py-sm rounded-full border border-primary/30 text-primary font-label-md text-label-md hover:bg-primary/10 transition-all active:scale-95">
-            Get Access
-        </button>
+<div class="flex items-center gap-md pr-md">
+<button class="hidden md:block font-label-md text-label-md text-on-surface-variant font-medium hover:text-primary transition-all px-md">Log In</button>
+<button class="px-lg py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-fixed transition-all active:scale-95">
+                Get Access
+            </button>
+</div>
 </header>
 <main class="relative pt-2xl">
 <!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col items-center justify-center px-gutter text-center overflow-hidden">
-<!-- Neural Core Animation -->
-<div class="absolute inset-0 z-0 flex items-center justify-center opacity-40">
-
-</div>
-<div class="relative z-10 max-w-4xl mx-auto space-y-xl">
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center px-gutter text-center overflow-hidden">
+<div class="relative z-10 max-w-5xl mx-auto space-y-xl">
 <div class="inline-flex items-center gap-sm px-md py-xs rounded-xl bg-primary/10 border border-primary/20 animate-pulse">
 <span class="w-2 h-2 rounded-full bg-tertiary"></span>
 <span class="font-label-md text-label-md text-primary">v4.0 Neural Core Live</span>
 </div>
-<h1 class="font-display-lg text-display-lg text-on-surface">
+<h1 class="font-display-lg text-[64px] leading-[1.1] text-on-surface lg:px-xl">
                     Intelligence that <br/>
 <span class="bg-gradient-to-r from-primary via-tertiary to-secondary bg-clip-text text-transparent">breathes with you.</span>
 </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+<p class="font-body-lg text-headline-md text-on-surface-variant max-w-3xl mx-auto opacity-80">
                     Experience the first generative partner that mirrors human intuition. Lumina is more than a tool; it's a living architecture for your cognitive workflow.
                 </p>
-<div class="flex flex-col md:flex-row items-center justify-center gap-md pt-lg">
+<div class="flex flex-col md:flex-row items-center justify-center gap-lg pt-lg">
 <button class="group relative px-xl py-md rounded-full bg-primary-container text-on-primary-container font-headline-md text-headline-md flex items-center gap-sm overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl">
 <span>Initialize Engine</span>
 <span class="material-symbols-outlined">arrow_forward</span>
-<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
 </button>
 <button class="px-xl py-md rounded-full border border-outline/30 text-on-surface font-headline-md text-headline-md hover:bg-surface-container-high transition-all">
                         View Documentation
                     </button>
 </div>
 </div>
-<!-- Floating Nexus Input -->
-<div class="absolute bottom-xl left-1/2 -translate-x-1/2 w-full max-w-2xl px-gutter z-20">
-<div class="nexus-input glass-card rounded-xl p-sm flex items-center gap-md shadow-2xl transition-all duration-500 border border-white/5">
+<!-- Floating Nexus Input (Desktop Optimized) -->
+<div class="mt-2xl w-full max-w-3xl px-gutter z-20">
+<div class="nexus-input glass-card rounded-2xl p-sm flex items-center gap-md shadow-2xl transition-all duration-500 border border-white/10">
 <span class="material-symbols-outlined text-on-surface-variant ml-md">temp_preferences_custom</span>
-<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 font-body-md py-md" placeholder="Ask Lumina anything..." type="text"/>
-<button class="bg-primary text-on-primary p-md rounded-lg flex items-center justify-center hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-</button>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 font-body-lg py-md px-md" placeholder="Ask Lumina anything..." type="text"/>
+<button class="bg-primary text-on-primary px-xl py-md rounded-xl flex items-center justify-center hover:bg-primary-fixed transition-colors font-label-md">
+<span class="material-symbols-outlined mr-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        Ask
+                    </button>
 </div>
 </div>
 </section>
-<!-- Feature Bento Grid -->
+<!-- Feature Bento Grid (Desktop Layout) -->
 <section class="py-2xl px-gutter max-w-container-max mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-lg h-auto">
-<!-- Thought Card: Cognitive Engine -->
-<div class="md:col-span-8 group glass-card rounded-xl p-xl flex flex-col justify-between overflow-hidden relative min-h-[400px]">
-<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors"></div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg lg:grid-rows-2">
+<!-- Thought Card: Cognitive Engine (Wide Desktop) -->
+<div class="md:col-span-8 group glass-card rounded-2xl p-2xl flex flex-col justify-between overflow-hidden relative min-h-[450px]">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
 <div class="relative z-10 space-y-md">
 <div class="flex items-center gap-sm">
 <span class="material-symbols-outlined text-tertiary">psychology</span>
-<span class="font-label-md text-label-md text-tertiary">Cognitive Engine</span>
+<span class="font-label-md text-label-md text-tertiary tracking-widest uppercase">Cognitive Engine</span>
 </div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Shimmering logic flows.</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Our neural pathways prioritize low-latency thought streaming, allowing Lumina to assist in real-time as you formulate ideas.</p>
+<h2 class="font-display-lg text-headline-lg lg:text-[40px] text-on-surface">Shimmering logic flows.</h2>
+<p class="font-body-md text-body-lg text-on-surface-variant max-w-lg">Our neural pathways prioritize low-latency thought streaming, allowing Lumina to assist in real-time as you formulate ideas.</p>
 </div>
-<div class="mt-xl space-y-sm">
-<div class="h-12 w-full rounded-lg animate-shimmer glass-card border border-white/5"></div>
-<div class="h-12 w-3/4 rounded-lg animate-shimmer glass-card border border-white/5 opacity-60"></div>
-<div class="h-12 w-1/2 rounded-lg animate-shimmer glass-card border border-white/5 opacity-30"></div>
+<div class="mt-xl space-y-md max-w-md">
+<div class="h-14 w-full rounded-xl animate-shimmer glass-card border border-white/5"></div>
+<div class="h-14 w-[85%] rounded-xl animate-shimmer glass-card border border-white/5 opacity-60"></div>
+<div class="h-14 w-[60%] rounded-xl animate-shimmer glass-card border border-white/5 opacity-30"></div>
 </div>
 </div>
-<!-- Fluid Generation -->
-<div class="md:col-span-4 glass-card rounded-xl p-xl flex flex-col justify-between items-start border border-white/5 group">
-<div class="space-y-md">
-<div class="p-sm bg-secondary-container rounded-lg">
+<!-- Fluid Generation (Vertical Stack) -->
+<div class="md:col-span-4 glass-card rounded-2xl p-xl flex flex-col justify-between items-start border border-white/5 group relative overflow-hidden">
+<div class="space-y-md relative z-10">
+<div class="w-12 h-12 bg-secondary-container rounded-xl flex items-center justify-center">
 <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">fluid</span>
 </div>
-<h3 class="font-headline-md text-headline-md text-on-surface">Fluid Generation</h3>
-<p class="font-label-md text-label-md text-on-surface-variant">Interfaces that adapt to the context of the output, growing as data streams in.</p>
+<h3 class="font-headline-lg text-headline-md lg:text-[28px] text-on-surface">Fluid Generation</h3>
+<p class="font-body-md text-on-surface-variant">Interfaces that adapt to the context of the output, growing dynamically as data streams in.</p>
 </div>
-<div class="w-full h-32 rounded-xl mt-lg relative overflow-hidden bg-surface-container-high border border-white/5">
-<div class="absolute inset-0 opacity-50">
-
-</div>
+<div class="w-full h-48 rounded-xl mt-lg relative overflow-hidden bg-surface-container-high border border-white/5">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent"></div>
 </div>
 </div>
-<!-- Neural Architecture -->
-<div class="md:col-span-4 glass-card rounded-xl p-xl flex flex-col justify-between border border-white/5 group">
+<!-- Neural Architecture (Bottom Left) -->
+<div class="md:col-span-4 glass-card rounded-2xl p-xl flex flex-col justify-between border border-white/5 group lg:order-last">
 <div class="space-y-md">
-<span class="material-symbols-outlined text-primary">hub</span>
-<h3 class="font-headline-md text-headline-md text-on-surface">Neural Architecture</h3>
-<p class="font-label-md text-label-md text-on-surface-variant">Minimal nodes designed for peak efficiency and interpretability.</p>
+<span class="material-symbols-outlined text-primary text-headline-lg">hub</span>
+<h3 class="font-headline-lg text-headline-md lg:text-[28px] text-on-surface">Neural Architecture</h3>
+<p class="font-body-md text-on-surface-variant">Minimal nodes designed for peak efficiency and interpretability across distributed networks.</p>
 </div>
 <div class="mt-lg flex flex-wrap gap-sm">
-<span class="px-sm py-xs rounded-xl bg-primary/10 text-primary font-label-md text-label-md">0.4ms Latency</span>
-<span class="px-sm py-xs rounded-xl bg-tertiary/10 text-tertiary font-label-md text-label-md">1.2T Params</span>
-<span class="px-sm py-xs rounded-xl bg-secondary/10 text-secondary font-label-md text-label-md">Edge Optimized</span>
+<span class="px-md py-sm rounded-xl bg-primary/10 text-primary font-label-md">0.4ms Latency</span>
+<span class="px-md py-sm rounded-xl bg-tertiary/10 text-tertiary font-label-md">1.2T Params</span>
+<span class="px-md py-sm rounded-xl bg-secondary/10 text-secondary font-label-md">Edge Optimized</span>
 </div>
 </div>
-<!-- Main Intelligence Visual -->
-<div class="md:col-span-8 glass-card rounded-xl overflow-hidden relative min-h-[400px] border border-white/5">
-<img class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-lighten" data-alt="A cinematic, high-detail macro shot of a complex neural network made of glowing fibers and pulses of light. The scene is set in a deep obsidian void with soft indigo and cyan light emanating from the connections. Each node is a tiny, crystalline orb reflecting the intelligent shimmer of data flowing through the system. The aesthetic is ultra-modern, clean, and futuristic, embodying a sense of silent, immense power and cognitive depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5xlK1iZ7uutE4M76UZmxiusFxhLL5NVnSp21JEbwpFr8UjRu4HCRrrQFH23Vo-V2U-F7xSAs1eFSR3m_1mlDOmF89Yh4616E3xmRdY4YY8pHG7_GLSYQS384HdBoJ3LqnxpQxBDOP2IQTUOg_URz_lxZnvy84u-4sgVG7Ll5zIBJAaNHs4TKGpKGcpzNJsz-pkaFAKjnnFoE2c0cQvVkz_-8-BIRUiVpkc9s2NIwPnn6NiVsnCsmpbZ-KyOGVKem4oQvodAD7VDPD"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
-<div class="relative z-10 p-xl h-full flex flex-col justify-end">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Visual Reasoning</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Lumina interprets visual data with the same nuance as natural language, creating a unified multimodal experience.</p>
+<!-- Main Intelligence Visual (Wide Desktop Bottom) -->
+<div class="md:col-span-8 glass-card rounded-2xl overflow-hidden relative min-h-[450px] border border-white/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-lighten transition-transform duration-1000 group-hover:scale-105" data-alt="A cinematic, high-detail macro shot of a complex neural network" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5xlK1iZ7uutE4M76UZmxiusFxhLL5NVnSp21JEbwpFr8UjRu4HCRrrQFH23Vo-V2U-F7xSAs1eFSR3m_1mlDOmF89Yh4616E3xmRdY4YY8pHG7_GLSYQS384HdBoJ3LqnxpQxBDOP2IQTUOg_URz_lxZnvy84u-4sgVG7Ll5zIBJAaNHs4TKGpKGcpzNJsz-pkaFAKjnnFoE2c0cQvVkz_-8-BIRUiVpkc9s2NIwPnn6NiVsnCsmpbZ-KyOGVKem4oQvodAD7VDPD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<div class="relative z-10 p-2xl h-full flex flex-col justify-end max-w-2xl">
+<h2 class="font-display-lg text-headline-lg lg:text-[40px] text-on-surface mb-md">Visual Reasoning</h2>
+<p class="font-body-lg text-on-surface-variant">Lumina interprets visual data with the same nuance as natural language, creating a unified multimodal experience for complex analysis.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Dynamic Process Flow -->
-<section class="py-2xl px-gutter">
-<div class="max-w-4xl mx-auto space-y-xl text-center">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">The Intelligence Workflow</h2>
+<!-- Dynamic Process Flow (Horizontal for Desktop) -->
+<section class="py-2xl px-gutter bg-surface-container-low/30">
+<div class="max-w-6xl mx-auto space-y-2xl text-center">
+<div class="space-y-md">
+<h2 class="font-display-lg text-headline-lg lg:text-[48px] text-on-surface">The Intelligence Workflow</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Seamless movement from raw data to actionable insight.</p>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-xl relative">
-<!-- Connector lines (Desktop) -->
-<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent -z-10"></div>
-<div class="flex flex-col items-center gap-md">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center intelligence-glow border border-primary/20">
-<span class="material-symbols-outlined text-primary">input</span>
+<!-- Connector lines (Desktop Only) -->
+<div class="hidden md:block absolute top-[40px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-primary/10 via-tertiary/40 to-secondary/10 -z-0"></div>
+<div class="flex flex-col items-center gap-lg relative z-10">
+<div class="w-20 h-20 rounded-2xl glass-card flex items-center justify-center intelligence-glow border border-primary/20 bg-surface">
+<span class="material-symbols-outlined text-primary text-[32px]">input</span>
 </div>
-<h4 class="font-headline-md text-headline-md">Ingest</h4>
-<p class="font-label-md text-on-surface-variant">Context-aware data ingestion across all your platforms.</p>
+<div class="space-y-sm">
+<h4 class="font-headline-lg text-headline-md">Ingest</h4>
+<p class="font-body-md text-on-surface-variant">Context-aware data ingestion across all your platforms and cloud ecosystems.</p>
 </div>
-<div class="flex flex-col items-center gap-md">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center intelligence-glow border border-tertiary/20">
-<span class="material-symbols-outlined text-tertiary">model_training</span>
 </div>
-<h4 class="font-headline-md text-headline-md">Synthesize</h4>
-<p class="font-label-md text-on-surface-variant">Real-time cross-referencing and logic validation.</p>
+<div class="flex flex-col items-center gap-lg relative z-10">
+<div class="w-20 h-20 rounded-2xl glass-card flex items-center justify-center intelligence-glow border border-tertiary/20 bg-surface">
+<span class="material-symbols-outlined text-tertiary text-[32px]">model_training</span>
 </div>
-<div class="flex flex-col items-center gap-md">
-<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center intelligence-glow border border-secondary/20">
-<span class="material-symbols-outlined text-secondary">output</span>
+<div class="space-y-sm">
+<h4 class="font-headline-lg text-headline-md">Synthesize</h4>
+<p class="font-body-md text-on-surface-variant">Real-time cross-referencing and logic validation across multiple knowledge vectors.</p>
 </div>
-<h4 class="font-headline-md text-headline-md">Generate</h4>
-<p class="font-label-md text-on-surface-variant">Human-centric outputs tailored to your specific intent.</p>
+</div>
+<div class="flex flex-col items-center gap-lg relative z-10">
+<div class="w-20 h-20 rounded-2xl glass-card flex items-center justify-center intelligence-glow border border-secondary/20 bg-surface">
+<span class="material-symbols-outlined text-secondary text-[32px]">output</span>
+</div>
+<div class="space-y-sm">
+<h4 class="font-headline-lg text-headline-md">Generate</h4>
+<p class="font-body-md text-on-surface-variant">Human-centric outputs tailored precisely to your specific intent and brand voice.</p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA Canvas -->
+<!-- CTA Canvas (Wide Desktop) -->
 <section class="py-2xl px-gutter text-center">
-<div class="max-w-3xl mx-auto glass-card rounded-2xl p-2xl border border-white/5 relative overflow-hidden">
-
-<div class="relative z-10 space-y-lg">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Ready to upgrade your mind?</h2>
-<p class="font-body-md text-on-surface-variant">Join the waitlist for Lumina Pro and be the first to experience the Neural Core 4.0 architecture.</p>
-<div class="flex flex-col sm:flex-row gap-md justify-center pt-md">
-<button class="px-xl py-md rounded-full bg-primary text-on-primary font-headline-md text-headline-md shadow-xl hover:scale-105 transition-all">Join Early Access</button>
-<button class="px-xl py-md rounded-full border border-primary/20 text-primary font-headline-md text-headline-md hover:bg-primary/5 transition-all">Contact Enterprise</button>
+<div class="max-w-6xl mx-auto glass-card rounded-[32px] p-2xl lg:py-2xl border border-white/5 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-50"></div>
+<div class="relative z-10 space-y-xl max-w-3xl mx-auto">
+<h2 class="font-display-lg text-[48px] text-on-surface">Ready to upgrade your mind?</h2>
+<p class="font-body-lg text-headline-md text-on-surface-variant leading-relaxed">Join the waitlist for Lumina Pro and be the first to experience the Neural Core 4.0 architecture.</p>
+<div class="flex flex-col sm:flex-row gap-lg justify-center pt-md">
+<button class="px-xl py-md rounded-full bg-primary text-on-primary font-headline-md text-headline-md shadow-2xl hover:scale-105 hover:bg-primary-fixed transition-all min-w-[240px]">Join Early Access</button>
+<button class="px-xl py-md rounded-full border border-primary/20 text-primary font-headline-md text-headline-md hover:bg-primary/5 transition-all min-w-[240px]">Contact Enterprise</button>
 </div>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer Shell -->
-<footer class="w-full py-xl px-gutter flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-lowest border-t border-outline-variant/20">
-<div class="flex flex-col md:flex-row items-center gap-lg">
-<span class="font-headline-md text-headline-md text-on-surface">Lumina</span>
-<span class="font-label-md text-label-md text-tertiary">© 2024 Lumina Intelligence. All rights reserved.</span>
+<footer class="w-full py-2xl px-gutter bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-2xl">
+<div class="flex flex-col gap-lg max-w-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
+<span class="font-display-lg text-headline-md tracking-tighter text-on-surface">Lumina</span>
 </div>
-<div class="flex items-center gap-xl">
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Architecture</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Neural Engine</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-tertiary transition-colors" href="#">API</a>
+<p class="text-on-surface-variant text-body-md">Building the neural foundation for the next generation of cognitive workflows. Empowering humanity through intuitive intelligence.</p>
+<div class="flex gap-md mt-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">𝕏</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">in</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors cursor-pointer">gh</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-xl">
+<div class="space-y-lg">
+<h5 class="font-label-md text-on-surface uppercase tracking-widest text-[12px]">Product</h5>
+<ul class="space-y-md">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Neural Engine</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Models</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">API Access</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Pricing</a></li>
+</ul>
+</div>
+<div class="space-y-lg">
+<h5 class="font-label-md text-on-surface uppercase tracking-widest text-[12px]">Resources</h5>
+<ul class="space-y-md">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Documentation</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Architecture</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Community</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Blog</a></li>
+</ul>
+</div>
+<div class="space-y-lg">
+<h5 class="font-label-md text-on-surface uppercase tracking-widest text-[12px]">Company</h5>
+<ul class="space-y-md">
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy</a></li>
+<li><a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-2xl pt-xl border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-md">
+<span class="font-label-md text-on-surface-variant opacity-60">© 2024 Lumina Intelligence. All rights reserved.</span>
+<div class="flex gap-xl">
+<span class="flex items-center gap-xs font-label-md text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    All Systems Operational
+                </span>
+</div>
 </div>
 </footer>
 <script>

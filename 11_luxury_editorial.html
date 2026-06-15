@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind Config -->
 <script id="tailwind-config">
       tailwind.config = {
@@ -115,26 +114,32 @@
         .image-zoom:hover img {
             transform: scale(1.03);
         }
+        body {
+            min-height: max(884px, 100dvh);
+        }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-outline/10">
+<header class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-outline/10 transition-transform duration-500">
 <div class="flex justify-between items-center px-margin-desktop py-unit w-full max-w-container-max mx-auto h-20">
-<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-label-caps text-label-caps hover:opacity-70 transition-opacity" href="#">COLLECTIONS</a>
+<a class="font-label-caps text-label-caps hover:opacity-70 transition-opacity" href="#">EDITORIAL</a>
+<a class="font-label-caps text-label-caps hover:opacity-70 transition-opacity" href="#">STORES</a>
+</nav>
+<div class="flex md:hidden items-center">
 <button class="hover:opacity-70 transition-opacity duration-300">
 <span class="material-symbols-outlined text-primary">menu</span>
 </button>
 </div>
-<a class="absolute left-1/2 -translate-x-1/2 font-display-xl text-headline-md md:text-display-xl tracking-tighter text-primary" href="#">
+<a class="absolute left-1/2 -translate-x-1/2 font-display-xl text-headline-md md:text-[32px] tracking-tighter text-primary font-bold" href="#">
                 MONOLITH
             </a>
 <div class="flex items-center gap-6">
+<button class="hidden md:block hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
 <button class="hover:opacity-70 transition-opacity duration-300">
 <span class="material-symbols-outlined text-primary">shopping_bag</span>
 </button>
@@ -143,18 +148,18 @@
 </header>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-[795px] flex flex-col justify-end pt-32 pb-margin-desktop px-margin-desktop overflow-hidden">
+<section class="relative min-h-screen flex flex-col justify-end pt-32 pb-margin-desktop px-margin-desktop overflow-hidden">
 <div class="absolute inset-0 z-0 overflow-hidden">
-<img alt="" class="w-full h-full object-cover" data-alt="A high-fashion editorial portrait of a woman in a structured charcoal wool coat, standing against a minimalist architectural background of smooth cream-colored concrete. The lighting is dramatic and soft, emphasizing textures and clean lines. The overall aesthetic is serene, sophisticated, and rooted in a luxury light-mode palette with subtle deep black accents. The composition is balanced and elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9-oZMUcSDjAtGboz_R1759CaYKcp3jw7l-62cowOWgH8eoa31SWcSZB18Meh3L2AEYI8hWUbOeEZJoMaxjFCFJpSW6JJ2DeK3WFkBfDAJF0RQygTAtUVImY-0ha_7DrZDuQwnaOAYPeVK29RiL0YrUg9-EDyCNiLL34gJQlS07z8Gr1Iz737PqM7xQ9VkaXBw18fT0Xg3XbPvUpb91lm0Gvl6dJ472HP6sYcGbAjIPaB7jg1qcQoEHCGvJAAHTUlJVbkQkMSn8Hge"/>
+<img alt="Hero background" class="w-full h-full object-cover" data-alt="A high-fashion editorial portrait of a woman in a structured charcoal wool coat, standing against a minimalist architectural background of smooth cream-colored concrete. The lighting is dramatic and soft, emphasizing textures and clean lines. The overall aesthetic is serene, sophisticated, and rooted in a luxury light-mode palette with subtle deep black accents. The composition is balanced and elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9-oZMUcSDjAtGboz_R1759CaYKcp3jw7l-62cowOWgH8eoa31SWcSZB18Meh3L2AEYI8hWUbOeEZJoMaxjFCFJpSW6JJ2DeK3WFkBfDAJF0RQygTAtUVImY-0ha_7DrZDuQwnaOAYPeVK29RiL0YrUg9-EDyCNiLL34gJQlS07z8Gr1Iz737PqM7xQ9VkaXBw18fT0Xg3XbPvUpb91lm0Gvl6dJ472HP6sYcGbAjIPaB7jg1qcQoEHCGvJAAHTUlJVbkQkMSn8Hge"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
 </div>
-<div class="relative z-10 max-w-4xl">
+<div class="relative z-10 max-w-4xl mx-auto w-full text-center md:text-left">
 <p class="font-label-caps text-label-caps text-primary tracking-widest mb-6 opacity-80 uppercase">The Winter Issue 2024</p>
 <h1 class="font-headline-lg md:font-display-xl text-headline-lg-mobile md:text-display-xl text-primary leading-tight mb-8">
                     The Art of <br/><span class="italic font-normal">Refinement</span>
 </h1>
-<div class="flex items-center gap-8">
-<button class="bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps tracking-widest transition-transform duration-500 hover:scale-[1.02]">
+<div class="flex flex-col md:flex-row items-center gap-8 justify-center md:justify-start">
+<button class="bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps tracking-widest transition-transform duration-500 hover:scale-[1.02] w-full md:w-auto">
                         EXPLORE EDITORIAL
                     </button>
 <a class="font-label-caps text-label-caps border-b border-primary/20 hover:border-primary transition-colors pb-1" href="#collections">
@@ -165,25 +170,25 @@
 </section>
 <!-- Collections Section -->
 <section class="py-section-gap px-margin-desktop max-w-container-max mx-auto" id="collections">
-<div class="flex flex-col md:flex-row justify-between items-baseline mb-16">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Curated Collections</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mt-4 md:mt-0">
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
                     A selection of archival pieces and modern essentials designed for the discerning individual.
                 </p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
 <!-- Item 1 -->
 <div class="group cursor-pointer image-zoom overflow-hidden">
 <div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 transition-all duration-700">
-<img alt="" class="w-full h-full object-cover transition-transform duration-700" data-alt="Close-up of a premium leather handbag in a deep espresso brown, resting on a minimalist stone surface. The lighting creates subtle highlights on the fine grain of the leather. The background is a soft, out-of-focus ivory gallery wall. High-end luxury photography style with professional lighting and extreme detail focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7KUTH7WoauwmQ4gPIdTvIwF0npL8pcnzVWLIwvOwkT-ZQGOw0RwFfNRGHG8VmzA1kbfFNqWp228I8t179LEpKuSHm4-muP5viRncTTwSr6xhsaEG7_KglvbfpOHm2CvUv9IxX_6jtzm7m0mE5_iAf7-ecGZg3OlpGDUAsR9yDecTxfe5CCTzDzDjhlXyptniMI4K8a_9JWApcAMdjS3xmeoDBZ6rkBzuHtOwl4lVaOaFceOKvG4KRVGJHORZt6KQZeHs_LBg-_TTg"/>
+<img alt="Accessories collection" class="w-full h-full object-cover transition-transform duration-700" data-alt="Close-up of a premium leather handbag in a deep espresso brown, resting on a minimalist stone surface. The lighting creates subtle highlights on the fine grain of the leather. The background is a soft, out-of-focus ivory gallery wall. High-end luxury photography style with professional lighting and extreme detail focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7KUTH7WoauwmQ4gPIdTvIwF0npL8pcnzVWLIwvOwkT-ZQGOw0RwFfNRGHG8VmzA1kbfFNqWp228I8t179LEpKuSHm4-muP5viRncTTwSr6xhsaEG7_KglvbfpOHm2CvUv9IxX_6jtzm7m0mE5_iAf7-ecGZg3OlpGDUAsR9yDecTxfe5CCTzDzDjhlXyptniMI4K8a_9JWApcAMdjS3xmeoDBZ6rkBzuHtOwl4lVaOaFceOKvG4KRVGJHORZt6KQZeHs_LBg-_TTg"/>
 </div>
 <p class="font-label-caps text-label-caps mb-1 opacity-60">ACCESSORIES</p>
 <h3 class="font-headline-md text-headline-md text-primary">Obsidian Series</h3>
 </div>
 <!-- Item 2 -->
-<div class="group cursor-pointer image-zoom overflow-hidden md:translate-y-12">
+<div class="group cursor-pointer image-zoom overflow-hidden md:mt-24">
 <div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 transition-all duration-700">
-<img alt="" class="w-full h-full object-cover transition-transform duration-700" data-alt="Full-length shot of a designer silk dress in a neutral stone hue, captured in motion within a stark, minimalist interior space. The lighting is ethereal and high-key, highlighting the fluid drape of the fabric. The composition uses a narrow color palette of creams, whites, and blacks to create a serene luxury atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY-DFYCaNjv05riq4HUaH-LMBHAfXOVSFZc6YBvLclyUwmzvFWeUrjt0P5_Wu_oKn98YiOMH2ojg9vhP046S8aanJVGa9TsNuxPbF82_dHxzD_KzM-osAuiRnFvnrPLoYx2NFtCV1TOKa782xCcVI4IVdvWf8BaGWyqL5QQBzPfKi8y0-oQCzUcWvPW2zkd03Dn0xo4Kf36LsnpElGDnIeG3XMheYRbFysTre_Pk8JI2CTUR1MndEUAN0T88OXHvoDwu3Or45QlRO6"/>
+<img alt="Ready-to-wear collection" class="w-full h-full object-cover transition-transform duration-700" data-alt="Full-length shot of a designer silk dress in a neutral stone hue, captured in motion within a stark, minimalist interior space. The lighting is ethereal and high-key, highlighting the fluid drape of the fabric. The composition uses a narrow color palette of creams, whites, and blacks to create a serene luxury atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY-DFYCaNjv05riq4HUaH-LMBHAfXOVSFZc6YBvLclyUwmzvFWeUrjt0P5_Wu_oKn98YiOMH2ojg9vhP046S8aanJVGa9TsNuxPbF82_dHxzD_KzM-osAuiRnFvnrPLoYx2NFtCV1TOKa782xCcVI4IVdvWf8BaGWyqL5QQBzPfKi8y0-oQCzUcWvPW2zkd03Dn0xo4Kf36LsnpElGDnIeG3XMheYRbFysTre_Pk8JI2CTUR1MndEUAN0T88OXHvoDwu3Or45QlRO6"/>
 </div>
 <p class="font-label-caps text-label-caps mb-1 opacity-60">READY-TO-WEAR</p>
 <h3 class="font-headline-md text-headline-md text-primary">The Solstice Drape</h3>
@@ -191,7 +196,7 @@
 <!-- Item 3 -->
 <div class="group cursor-pointer image-zoom overflow-hidden">
 <div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 transition-all duration-700">
-<img alt="" class="w-full h-full object-cover transition-transform duration-700" data-alt="A pair of hand-crafted artisan footwear displayed as an art piece in a high-end boutique. The shoes are made of premium black suede with subtle gold detailing. The environment is minimalist with sharp architectural lines and soft global illumination that enhances the textures of the materials. Sophisticated, intellectual, and expensive visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXsR0NGUXGSUCKZ5oslJe6WXN8L_aPccp6NI_7LKfgfm5WNLuIMpIm0QfdYy8Ce1s3oJU2zsWBlWBw0X0baXasPEaLMUPCT9BTTn_x3fju6C1nFR8Joqsk5ZvxspXeoPKwzr6HP_l7z0kZyTm7mIGULT7s7K0hEYyy1euiLi-om-eVikTaZLFXC5d9rP5lPNJ8wOkroJkK8lZuqQjrZ9bF3OtxMtmZnMSpBn_dlVsplLPI41-mWX5izB0bUie9yRQmGNOKruPQrbD4"/>
+<img alt="Footwear collection" class="w-full h-full object-cover transition-transform duration-700" data-alt="A pair of hand-crafted artisan footwear displayed as an art piece in a high-end boutique. The shoes are made of premium black suede with subtle gold detailing. The environment is minimalist with sharp architectural lines and soft global illumination that enhances the textures of the materials. Sophisticated, intellectual, and expensive visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXsR0NGUXGSUCKZ5oslJe6WXN8L_aPccp6NI_7LKfgfm5WNLuIMpIm0QfdYy8Ce1s3oJU2zsWBlWBw0X0baXasPEaLMUPCT9BTTn_x3fju6C1nFR8Joqsk5ZvxspXeoPKwzr6HP_l7z0kZyTm7mIGULT7s7K0hEYyy1euiLi-om-eVikTaZLFXC5d9rP5lPNJ8wOkroJkK8lZuqQjrZ9bF3OtxMtmZnMSpBn_dlVsplLPI41-mWX5izB0bUie9yRQmGNOKruPQrbD4"/>
 </div>
 <p class="font-label-caps text-label-caps mb-1 opacity-60">FOOTWEAR</p>
 <h3 class="font-headline-md text-headline-md text-primary">Architectural Sole</h3>
@@ -200,48 +205,50 @@
 </section>
 <!-- Heritage Section -->
 <section class="py-section-gap bg-surface-container-low overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-margin-desktop items-center">
 <div class="relative">
 <div class="aspect-square bg-surface-container overflow-hidden">
-<img alt="" class="w-full h-full object-cover opacity-90" data-alt="Interior of a high-end heritage fashion atelier in Paris. Old-world wooden cutting tables are paired with modern minimalist shelving. Large industrial windows let in soft northern light that illuminates rolls of premium cashmere and silk. The atmosphere is one of timeless craftsmanship, intellectual rigor, and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzUO9nQUBk0Ki0CbBlldejMp2oTol43oFhisr2IwbTChCHmk7Xv1KCZC822ROx45JP89tfbUPCPzfC9g0FyRxmfl4JdncWtheNlfhmUrnFnyuv27zBWkaG9fOND5dQcO_NJtjy_2PsMAn2PU0RuotWjCY-jVSc91_DZOtDGaKJLPraeZuwYXd4tS4eJXWU20KT_sRZaCq4RANSho2F8nhXosoA17VzzqlvHrZgJHrABn6-mt3Ml5y8RlHtl36zrHm2ld9T3yhVn8Xx"/>
+<img alt="Heritage atelier" class="w-full h-full object-cover opacity-90" data-alt="Interior of a high-end heritage fashion atelier in Paris. Old-world wooden cutting tables are paired with modern minimalist shelving. Large industrial windows let in soft northern light that illuminates rolls of premium cashmere and silk. The atmosphere is one of timeless craftsmanship, intellectual rigor, and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzUO9nQUBk0Ki0CbBlldejMp2oTol43oFhisr2IwbTChCHmk7Xv1KCZC822ROx45JP89tfbUPCPzfC9g0FyRxmfl4JdncWtheNlfhmUrnFnyuv27zBWkaG9fOND5dQcO_NJtjy_2PsMAn2PU0RuotWjCY-jVSc91_DZOtDGaKJLPraeZuwYXd4tS4eJXWU20KT_sRZaCq4RANSho2F8nhXosoA17VzzqlvHrZgJHrABn6-mt3Ml5y8RlHtl36zrHm2ld9T3yhVn8Xx"/>
 </div>
 <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary p-8 hidden md:flex items-center justify-center">
 <span class="font-display-xl text-on-primary text-5xl italic font-light">M</span>
 </div>
 </div>
-<div class="space-y-12">
-<div class="space-y-6">
+<div class="lg:pl-12">
+<div class="space-y-8">
 <p class="font-label-caps text-label-caps text-secondary tracking-[0.3em] uppercase">Est. 1994</p>
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">
                             A Legacy of Silence <br/>and Precise Form.
                         </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-                            At MONOLITH, we believe true luxury is felt, not heard. Our heritage is rooted in the meticulous selection of raw materials and the celebration of architectural silhouettes that stand the test of time.
-                        </p>
-</div>
-<div class="pt-8 border-t border-outline/10 max-w-md">
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                                At MONOLITH, we believe true luxury is felt, not heard. Our heritage is rooted in the meticulous selection of raw materials and the celebration of architectural silhouettes that stand the test of time.
+                            </p>
+<div class="pt-8 border-t border-outline/10 max-w-lg">
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            Each garment is a dialogue between the artisan and the fabric, crafted over hundreds of hours in our quiet atelier to ensure an uncompromising standard of excellence.
-                        </p>
+                                    Each garment is a dialogue between the artisan and the fabric, crafted over hundreds of hours in our quiet atelier to ensure an uncompromising standard of excellence.
+                                </p>
 <button class="mt-8 border border-primary px-10 py-4 font-label-caps text-label-caps text-primary hover:bg-primary hover:text-on-primary transition-all duration-500">
-                            OUR STORY
-                        </button>
+                                    OUR STORY
+                                </button>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 <!-- Newsletter CTA -->
-<section class="py-section-gap px-margin-desktop text-center max-w-3xl mx-auto">
+<section class="py-section-gap px-margin-desktop text-center max-w-4xl mx-auto">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-6 italic font-light">Join the Circle</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-12">
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 max-w-2xl mx-auto">
                 Receive exclusive updates on new arrivals, archival releases, and editorial stories from the Monolith journal.
             </p>
-<form class="flex flex-col md:flex-row gap-4 items-end">
+<form class="flex flex-col md:flex-row gap-8 items-end max-w-2xl mx-auto">
 <div class="flex-1 w-full text-left">
 <label class="font-label-caps text-[10px] tracking-widest text-on-surface-variant mb-2 block uppercase">Email Address</label>
 <input class="w-full bg-transparent border-b border-primary/20 py-3 focus:border-primary focus:ring-0 transition-colors placeholder:text-primary/20 text-primary font-body-md" placeholder="YOUR@EMAIL.COM" type="email"/>
 </div>
-<button class="w-full md:w-auto bg-primary text-on-primary px-12 py-4 font-label-caps text-label-caps tracking-widest hover:opacity-90 transition-opacity" type="submit">
+<button class="w-full md:w-auto bg-primary text-on-primary px-16 py-4 font-label-caps text-label-caps tracking-widest hover:opacity-90 transition-opacity" type="submit">
                     SUBSCRIBE
                 </button>
 </form>
@@ -249,32 +256,42 @@
 </main>
 <!-- Footer -->
 <footer class="border-t border-outline/10 bg-background">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap w-full max-w-container-max mx-auto gap-12 md:gap-0">
-<div class="flex flex-col gap-6 items-center md:items-start">
-<span class="font-display-xl-mobile text-display-xl-mobile text-primary">MONOLITH</span>
-<p class="font-label-caps text-[10px] text-on-surface-variant tracking-[0.2em]">© 2024 MONOLITH EDITORIAL. ALL RIGHTS RESERVED.</p>
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 items-start">
+<div class="md:col-span-2">
+<span class="font-display-xl-mobile text-display-xl-mobile text-primary leading-none block mb-6">MONOLITH</span>
+<p class="font-body-md text-on-surface-variant max-w-xs">Crafting quiet luxury through architectural form and precise craftsmanship since 1994.</p>
 </div>
-<div class="flex flex-wrap justify-center gap-x-12 gap-y-6">
+<div class="flex flex-col gap-4">
+<p class="font-label-caps text-label-caps text-primary mb-2">EXPLORE</p>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">COLLECTIONS</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">EDITORIAL</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">ARCHIVE</a>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-label-caps text-label-caps text-primary mb-2">SUPPORT</p>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SHIPPING</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">RETURNS</a>
 <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">LEGAL</a>
 </div>
-<div class="flex gap-8">
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-outline/10 gap-8">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-[0.2em]">© 2024 MONOLITH EDITORIAL. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-12">
 <a class="hover:opacity-50 transition-opacity" href="#">
-<span class="font-label-caps text-label-caps text-primary">IG</span>
+<span class="font-label-caps text-label-caps text-primary">INSTAGRAM</span>
 </a>
 <a class="hover:opacity-50 transition-opacity" href="#">
-<span class="font-label-caps text-label-caps text-primary">TW</span>
+<span class="font-label-caps text-label-caps text-primary">TWITTER</span>
 </a>
 <a class="hover:opacity-50 transition-opacity" href="#">
-<span class="font-label-caps text-label-caps text-primary">FB</span>
+<span class="font-label-caps text-label-caps text-primary">FACEBOOK</span>
 </a>
+</div>
 </div>
 </div>
 </footer>
 <script>
-        // Micro-interactions for luxury feel
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
                 threshold: 0.1,
@@ -290,23 +307,27 @@
                 });
             }, observerOptions);
 
-            // Apply fade-in to major sections
             const animateElements = document.querySelectorAll('section > div');
             animateElements.forEach(el => {
                 el.classList.add('transition-all', 'duration-[1200ms]', 'ease-out', 'opacity-0', 'translate-y-8');
                 observer.observe(el);
             });
 
-            // Smooth header hide/show on scroll
             let lastScroll = 0;
             const header = document.querySelector('header');
             
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset;
-                if (currentScroll <= 0) {
+                if (currentScroll <= 100) {
                     header.classList.remove('-translate-y-full');
+                    header.classList.remove('bg-background/95');
+                    header.classList.add('bg-transparent');
                     return;
                 }
+                
+                header.classList.add('bg-background/95');
+                header.classList.remove('bg-transparent');
+
                 if (currentScroll > lastScroll && !header.classList.contains('-translate-y-full')) {
                     header.classList.add('-translate-y-full');
                 } else if (currentScroll < lastScroll && header.classList.contains('-translate-y-full')) {

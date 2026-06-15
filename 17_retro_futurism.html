@@ -3,11 +3,9 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Retro Futurism Demo</title>
+<title>Retro Futurism - Astro-Dyne Desktop</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Syne:wght@600;700;800&family=Space+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Space+Mono:wght@100..900&family=Syne:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&amp;family=Syne:wght@600;700;800&amp;family=Space+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -128,7 +126,7 @@
             background-image: url("https://www.transparenttextures.com/patterns/felt.png");
         }
         .hard-shadow {
-            box-shadow: 6px 6px 0px 0px rgba(45,99,115,1);
+            box-shadow: 8px 8px 0px 0px rgba(45,99,115,1);
         }
         .porthole {
             clip-path: ellipse(50% 50% at 50% 50%);
@@ -137,222 +135,270 @@
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
         .cockpit-glass {
-            backdrop-filter: blur(8px);
-            background: rgba(45, 99, 115, 0.2);
+            backdrop-filter: blur(12px);
+            background: rgba(45, 99, 115, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
         .floating-rocket {
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="font-body-md text-on-background selection:bg-secondary-container">
 <div class="scanlines"></div>
 <div class="grain"></div>
-<!-- Navigation Shell (TopAppBar) -->
-<header class="fixed top-0 left-0 right-0 z-40 bg-surface dark:bg-surface-dim shadow-[4px_4px_0px_0px_rgba(45,99,115,1)]">
-<nav class="flex justify-between items-center px-margin-mobile py-sm w-full max-w-7xl mx-auto">
-<div class="flex items-center gap-xs">
-<span class="material-symbols-outlined text-primary font-headline-lg text-headline-lg" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter uppercase leading-none">ASTRO-DYNE</h1>
+<!-- Navigation Shell (Desktop Header) -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-surface dark:bg-surface-dim shadow-[6px_6px_0px_0px_rgba(45,99,115,1)] border-b-2 border-outline-variant">
+<nav class="flex justify-between items-center px-margin-desktop py-base w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<h1 class="font-display-lg text-headline-md lg:text-headline-lg text-primary tracking-tighter uppercase leading-none">ASTRO-DYNE</h1>
 </div>
-<button class="p-xs bg-tertiary-container text-on-tertiary-container rounded-full active:scale-95 transition-all">
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-primary hover:text-secondary transition-colors uppercase" href="#">Missions</a>
+<a class="font-label-md text-primary hover:text-secondary transition-colors uppercase" href="#">Technology</a>
+<a class="font-label-md text-primary hover:text-secondary transition-colors uppercase" href="#">Habitation</a>
+<a class="font-label-md text-primary hover:text-secondary transition-colors uppercase" href="#">Logistics</a>
+<button class="px-md py-sm bg-tertiary text-on-tertiary font-label-md rounded-full hover:bg-tertiary-container transition-all uppercase">Inquire</button>
+</div>
+<button class="md:hidden p-xs bg-tertiary-container text-on-tertiary-container rounded-full active:scale-95 transition-all">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </nav>
 </header>
-<main class="pt-[80px] pb-lg">
-<!-- Hero Section -->
-<section class="relative px-margin-mobile pt-lg pb-xl flex flex-col items-center text-center overflow-hidden">
-<div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary opacity-20 starburst rotate-12"></div>
-<div class="absolute top-40 -left-20 w-64 h-64 bg-tertiary opacity-10 rounded-full"></div>
-<div class="relative z-10 space-y-md">
-<div class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-full uppercase tracking-widest border-2 border-primary">
-                    Now Launching
-                </div>
-<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary leading-tight uppercase max-w-sm mx-auto">
-                    The Atomic <span class="text-tertiary italic">Future</span>
+<main class="pt-[100px] pb-xl">
+<!-- Hero Section (Desktop Grid) -->
+<section class="relative px-margin-desktop py-xl max-w-[1440px] mx-auto overflow-hidden">
+<div class="grid md:grid-cols-2 gap-xl items-center">
+<div class="relative z-10 space-y-lg">
+<div class="inline-block px-md py-xs bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-full uppercase tracking-widest border-2 border-primary">
+                Now Launching: Earth-Moon Pipeline
+            </div>
+<h2 class="font-display-lg text-headline-lg md:text-[80px] text-primary leading-tight uppercase">
+                The Atomic <br/><span class="text-tertiary italic">Future</span>
 </h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xs mx-auto">
-                    Experience the dawn of a new civilization among the stars. Utopian living awaits.
-                </p>
-</div>
-<div class="mt-lg relative">
-<div class="absolute inset-0 bg-secondary rounded-full blur-3xl opacity-20"></div>
-<img alt="Retro Rocket" class="floating-rocket relative z-10 w-full max-w-[280px] drop-shadow-[0_20px_50px_rgba(156,63,0,0.3)]" data-alt="A stylized 1950s retro-futuristic rocket ship with chrome fins and a pointed nose, soaring through a stylized orange and teal cosmos filled with starburst motifs and circular planet shapes. The lighting is dramatic and high-contrast, mimicking vintage pulp sci-fi cover art with a warm, grainy film texture and a vibrant color palette of burnt orange and teal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY5KiSHljkDTNVgD9gi-zDT5lu5CrRmsimC1oubrQ57YV8M9zZFyoHgkWaQaoM7f2led21IFkuW2qw94u5miYd2mNwB1RqKoKX_Y78gDXnx2NApQwEf_AfiEwDlhlMHZoxGwE26dX_fBwB4rsyaYdV7Lwzbbt5necCd3dxkMbVXnytWWENOOsFGC77Z8IIJGK_m8gZDOHlDmv2Fufjs21zntcQ0HRX-Qlh8NKGpS81Ht78Pe8GEM9uofKS83l4oNg9w68CWpiXPysT"/>
-</div>
-<div class="mt-lg">
-<button class="px-xl py-md bg-primary text-on-primary font-headline-md text-headline-md rounded-full hard-shadow hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all relative overflow-hidden group">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                Experience the dawn of a new civilization among the stars. Utopian living awaits those bold enough to leave the gravity well behind.
+            </p>
+<div class="pt-md">
+<button class="px-xl py-lg bg-primary text-on-primary font-headline-md text-headline-md rounded-full hard-shadow hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all relative overflow-hidden group">
 <span class="relative z-10">BOOK YOUR FLIGHT</span>
-<div class="absolute bottom-0 left-0 w-full h-[6px] bg-secondary-container opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-full h-[8px] bg-secondary-container opacity-50"></div>
 </button>
 </div>
+</div>
+<div class="relative flex justify-center lg:justify-end">
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-secondary opacity-10 starburst rotate-12"></div>
+<div class="absolute bottom-0 -left-20 w-80 h-80 bg-tertiary opacity-5 rounded-full"></div>
+<div class="relative">
+<div class="absolute inset-0 bg-secondary rounded-full blur-[100px] opacity-20"></div>
+<img alt="Retro Rocket" class="floating-rocket relative z-10 w-full max-w-[500px] drop-shadow-[0_40px_80px_rgba(156,63,0,0.4)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY5KiSHljkDTNVgD9gi-zDT5lu5CrRmsimC1oubrQ57YV8M9zZFyoHgkWaQaoM7f2led21IFkuW2qw94u5miYd2mNwB1RqKoKX_Y78gDXnx2NApQwEf_AfiEwDlhlMHZoxGwE26dX_fBwB4rsyaYdV7Lwzbbt5necCd3dxkMbVXnytWWENOOsFGC77Z8IIJGK_m8gZDOHlDmv2Fufjs21zntcQ0HRX-Qlh8NKGpS81Ht78Pe8GEM9uofKS83l4oNg9w68CWpiXPysT"/>
+</div>
+</div>
+</div>
 </section>
-<!-- Space Age Tech (Bento-ish Layout) -->
-<section class="px-margin-mobile py-lg space-y-lg">
-<div class="flex items-center gap-sm">
+<!-- Space Age Tech (Horizontal Desktop Layout) -->
+<section class="px-margin-desktop py-xl max-w-[1440px] mx-auto space-y-xl">
+<div class="flex items-center gap-md">
 <div class="h-[4px] flex-grow bg-outline-variant"></div>
-<h3 class="font-headline-md text-headline-md text-tertiary whitespace-nowrap uppercase">Space Age Tech</h3>
+<h3 class="font-headline-lg text-headline-lg text-tertiary whitespace-nowrap uppercase tracking-tighter">Space Age Tech</h3>
 <div class="h-[4px] flex-grow bg-outline-variant"></div>
 </div>
-<div class="grid grid-cols-1 gap-gutter">
-<!-- Main Tech Card -->
-<div class="p-md bg-surface-container rounded-lg border-2 border-tertiary hard-shadow flex flex-col gap-md">
-<div class="w-16 h-16 bg-tertiary-fixed rounded-full flex items-center justify-center border-2 border-tertiary">
-<span class="material-symbols-outlined text-on-tertiary-fixed text-4xl">settings_input_component</span>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Tech Card 1 -->
+<div class="lg:col-span-2 p-xl bg-surface-container rounded-lg border-2 border-tertiary hard-shadow flex flex-col md:flex-row gap-lg items-center">
+<div class="w-32 h-32 shrink-0 bg-tertiary-fixed rounded-full flex items-center justify-center border-4 border-tertiary shadow-lg">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-6xl">settings_input_component</span>
 </div>
+<div class="space-y-md">
 <div>
-<h4 class="font-headline-md text-headline-md text-primary mb-xs">Magnetic Propulsors</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Harness the power of the planet's magnetic core for silent, friction-less travel across the stratosphere.</p>
+<h4 class="font-display-lg text-headline-md text-primary mb-xs">Magnetic Propulsors</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Harness the power of the planet's magnetic core for silent, friction-less travel across the stratosphere. The future of commuting is weightless.</p>
 </div>
-<div class="flex gap-xs">
-<span class="px-sm py-[2px] border border-tertiary rounded-full font-label-sm text-label-sm text-tertiary uppercase">Phase IV</span>
-<span class="px-sm py-[2px] border border-tertiary rounded-full font-label-sm text-label-sm text-tertiary uppercase">Atomic</span>
+<div class="flex gap-sm">
+<span class="px-md py-1 border-2 border-tertiary rounded-full font-label-md text-label-sm text-tertiary uppercase">Phase IV Deployment</span>
+<span class="px-md py-1 border-2 border-tertiary rounded-full font-label-md text-label-sm text-tertiary uppercase">Atomic Certified</span>
+</div>
 </div>
 </div>
 <!-- Secondary Grid -->
-<div class="grid grid-cols-2 gap-gutter">
-<div class="aspect-square bg-secondary rounded-xl p-sm flex flex-col items-center justify-center text-center gap-xs">
-<span class="material-symbols-outlined text-on-secondary text-5xl">radar</span>
-<span class="font-label-md text-label-md text-on-secondary uppercase">Radar Eye</span>
+<div class="grid grid-rows-2 gap-gutter">
+<div class="bg-secondary rounded-xl p-lg flex flex-col items-center justify-center text-center gap-md hard-shadow transition-transform hover:-translate-y-1">
+<span class="material-symbols-outlined text-on-secondary text-7xl">radar</span>
+<span class="font-display-lg text-headline-md text-on-secondary uppercase">Radar Eye</span>
 </div>
-<div class="aspect-square bg-surface-container-highest rounded-xl border-4 border-dashed border-outline-variant flex flex-col items-center justify-center text-center p-sm">
-<span class="material-symbols-outlined text-primary text-5xl">bolt</span>
-<span class="font-label-md text-label-md text-primary uppercase">Nu-Energy</span>
+<div class="bg-surface-container-highest rounded-xl border-4 border-dashed border-outline-variant flex flex-col items-center justify-center text-center p-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-7xl">bolt</span>
+<span class="font-display-lg text-headline-md text-primary uppercase">Nu-Energy</span>
 </div>
 </div>
 </div>
 </section>
-<!-- Jetpack Era (Asymmetric Section) -->
-<section class="py-lg relative">
-<div class="bg-surface-container-low py-xl px-margin-mobile relative overflow-hidden">
-<div class="absolute right-0 top-0 bottom-0 w-1/3 bg-secondary-container opacity-10 -skew-x-12"></div>
-<div class="relative z-10 flex flex-col gap-lg">
-<div class="space-y-sm">
-<h3 class="font-display-lg text-headline-lg-mobile text-primary uppercase leading-tight italic">Jetpack Era Arrives</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Commute vertically. Say goodbye to traffic grids and hello to the azure infinity.</p>
+<!-- Jetpack Era (Expanded Asymmetric Section) -->
+<section class="py-xl relative">
+<div class="bg-surface-container-low py-xl px-margin-desktop relative overflow-hidden">
+<div class="absolute right-0 top-0 bottom-0 w-1/4 bg-secondary-container opacity-10 -skew-x-12"></div>
+<div class="max-w-[1440px] mx-auto relative z-10 grid lg:grid-cols-5 gap-xl items-center">
+<div class="lg:col-span-2 space-y-md">
+<h3 class="font-display-lg text-headline-lg lg:text-[64px] text-primary uppercase leading-[0.9] italic">Jetpack Era <br/>Arrives</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                Commute vertically. Say goodbye to traffic grids and hello to the azure infinity. The model '62 JetSuit features dual-redundant fission packs for the safest flight in history.
+            </p>
+<div class="flex gap-md py-md">
+<div class="w-12 h-2 bg-primary"></div>
+<div class="w-12 h-2 bg-secondary"></div>
+<div class="w-12 h-2 bg-tertiary"></div>
 </div>
-<div class="relative w-full aspect-video rounded-xl overflow-hidden hard-shadow group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vintage 1960s advertisement style scene featuring a man in a sleek chrome jetpack flying gracefully over a futuristic suburban landscape. The houses have circular windows and bubble domes, surrounded by manicured teal lawns and orange trees. The atmosphere is optimistic and sunny, with soft lens flares and a vibrant, warm vintage color correction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrr8d6cafcEESq_CCICHuMPTfSBZpqPzW3zIN2UtHJDaV0Q6s6CU4L5sXlqaIGuXbAXRFneGZ_ThVyIit_zXQ0sFBGj6y325vnJ_lZi1876VgYtheNOoodCsgjJc5D59gwC2epaTeltNA-DUmjzblng01o621vvUtEroVPlD4gCDlplPnjo0znV3aDoVbG4i37eXltzU7kNl1W3qhcwvxJ94nLaHce3G5e3O9ky_0YYb-IaDJPn3LYB1LCketS5fcJNK8NgpCShUzR"/>
+</div>
+<div class="lg:col-span-3 relative w-full aspect-[16/9] rounded-xl overflow-hidden hard-shadow group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A vintage 1960s advertisement style scene featuring a man in a sleek chrome jetpack flying gracefully over a futuristic suburban landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrr8d6cafcEESq_CCICHuMPTfSBZpqPzW3zIN2UtHJDaV0Q6s6CU4L5sXlqaIGuXbAXRFneGZ_ThVyIit_zXQ0sFBGj6y325vnJ_lZi1876VgYtheNOoodCsgjJc5D59gwC2epaTeltNA-DUmjzblng01o621vvUtEroVPlD4gCDlplPnjo0znV3aDoVbG4i37eXltzU7kNl1W3qhcwvxJ94nLaHce3G5e3O9ky_0YYb-IaDJPn3LYB1LCketS5fcJNK8NgpCShUzR"/>
 <div class="absolute inset-0 cockpit-glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="px-lg py-md bg-white text-primary font-headline-md rounded-full uppercase tracking-tighter">View Specs</span>
+<button class="px-xl py-lg bg-white text-primary font-display-lg text-headline-md rounded-full uppercase tracking-tighter shadow-2xl hover:scale-105 transition-transform">Explore Specifications</button>
 </div>
-</div>
-<div class="grid grid-cols-3 gap-xs">
-<div class="h-1 bg-primary"></div>
-<div class="h-1 bg-secondary"></div>
-<div class="h-1 bg-tertiary"></div>
 </div>
 </div>
 </div>
 </section>
-<!-- Cosmic Living (Porthole Cards) -->
-<section class="px-margin-mobile py-lg">
-<div class="text-center mb-lg">
-<h3 class="font-headline-lg text-headline-lg-mobile text-tertiary uppercase">Cosmic Living</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Your modular dome in the clouds.</p>
+<!-- Cosmic Living (Desktop 3-Column Grid) -->
+<section class="px-margin-desktop py-xl max-w-[1440px] mx-auto">
+<div class="text-center mb-xl">
+<h3 class="font-display-lg text-headline-lg lg:text-[56px] text-tertiary uppercase">Cosmic Living</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">Your modular dome in the clouds. Precision engineered for luxury, durability, and a breathtaking view of the cosmos.</p>
 </div>
-<div class="space-y-xl">
+<div class="grid md:grid-cols-3 gap-xl">
 <!-- Porthole Item 1 -->
-<div class="flex flex-col items-center gap-md">
-<div class="w-64 h-64 porthole border-8 border-tertiary overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover" data-alt="The interior of a retro-futuristic space apartment with a curved glass wall overlooking the moon's surface. The room features bubble-shaped orange chairs, a minimalist white console table, and a starburst-patterned rug. Soft teal and gold accent lighting illuminates the space, creating a cozy and luxurious mid-century modern atmosphere in outer space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgkbA5qbo-bJtVsrA1fyAvDjbqMxZ1fnWc-899klDQ1idW7j0pyW0MuQ9oRGO3zLCLrEpC-fnoENR63dCbV_LHbpCLyBzVrmyg2bwyQI2d6cSYS5Y4VHT2zTeZr364As08RmlV3ofivdILRuPS4Zx4V00xW6dttvFNqF9DoN9GuKRun3GDsNOp1-deLUey4uiprEjoSECx7P35JIsHF-ovL-QEI89dsJhA2-26ip1r-9BKoWbA9ZLM55ThPGbTEVAeVXNmrmJY1hcF"/>
+<div class="flex flex-col items-center gap-lg group cursor-pointer">
+<div class="w-full aspect-square porthole border-8 border-tertiary overflow-hidden shadow-2xl transition-all group-hover:border-primary group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="The interior of a retro-futuristic space apartment with a curved glass wall overlooking the moon's surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgkbA5qbo-bJtVsrA1fyAvDjbqMxZ1fnWc-899klDQ1idW7j0pyW0MuQ9oRGO3zLCLrEpC-fnoENR63dCbV_LHbpCLyBzVrmyg2bwyQI2d6cSYS5Y4VHT2zTeZr364As08RmlV3ofivdILRuPS4Zx4V00xW6dttvFNqF9DoN9GuKRun3GDsNOp1-deLUey4uiprEjoSECx7P35JIsHF-ovL-QEI89dsJhA2-26ip1r-9BKoWbA9ZLM55ThPGbTEVAeVXNmrmJY1hcF"/>
 </div>
 <div class="text-center">
-<h4 class="font-headline-md text-headline-md text-primary uppercase">The Lunar Suite</h4>
-<p class="font-label-md text-label-md text-outline italic">Starting at 5,000 Credits</p>
+<h4 class="font-display-lg text-headline-md text-primary uppercase">The Lunar Suite</h4>
+<p class="font-label-md text-label-md text-outline italic">Starting at 5,000 Credits / Moon Cycle</p>
 </div>
 </div>
 <!-- Porthole Item 2 -->
-<div class="flex flex-col items-center gap-md">
-<div class="w-64 h-64 porthole border-8 border-secondary overflow-hidden shadow-xl">
-<img class="w-full h-full object-cover" data-alt="A lush hydroponic garden inside a massive transparent glass dome on Mars, with rows of vibrant green space-crops and glowing purple nutrient tubes. In the background, the dusty red Martian horizon is visible under a salmon-colored sky. The visual style is crisp and detailed, blending industrial space-tech with organic nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu19xW96ulDTLYxQs5EhgH2V2QxqOTvHHHHGekXI52YON6-6C1IL80V2MjqMT2exbMDs2H38UBXBZhBlx6-M9NTK_MuXbybxXQ4pmlKPuGBEyXfzfzmf8yzsnbSUxCwDAc_m_vfXoha6xia1i6oVwaED0zWjypF3SWG5p-VqP-bN57ld5Q5arafJ_azl3x_DR7elS3LZ-HtCPzji11fd_6TtbvyxL-GyzBRPyss5iLByoxsy9o8HpmZfo7IwU951y3Sx8v0BTR-Kv5"/>
+<div class="flex flex-col items-center gap-lg group cursor-pointer">
+<div class="w-full aspect-square porthole border-8 border-secondary overflow-hidden shadow-2xl transition-all group-hover:border-primary group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A lush hydroponic garden inside a massive transparent glass dome on Mars." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu19xW96ulDTLYxQs5EhgH2V2QxqOTvHHHHGekXI52YON6-6C1IL80V2MjqMT2exbMDs2H38UBXBZhBlx6-M9NTK_MuXbybxXQ4pmlKPuGBEyXfzfzmf8yzsnbSUxCwDAc_m_vfXoha6xia1i6oVwaED0zWjypF3SWG5p-VqP-bN57ld5Q5arafJ_azl3x_DR7elS3LZ-HtCPzji11fd_6TtbvyxL-GyzBRPyss5iLByoxsy9o8HpmZfo7IwU951y3Sx8v0BTR-Kv5"/>
 </div>
 <div class="text-center">
-<h4 class="font-headline-md text-headline-md text-primary uppercase">The Bio-Dome</h4>
-<p class="font-label-md text-label-md text-outline italic">Eco-friendly habitation</p>
+<h4 class="font-display-lg text-headline-md text-primary uppercase">The Bio-Dome</h4>
+<p class="font-label-md text-label-md text-outline italic">Eco-friendly habitation on Mars</p>
+</div>
+</div>
+<!-- Porthole Item 3 (New for Desktop) -->
+<div class="flex flex-col items-center gap-lg group cursor-pointer">
+<div class="w-full aspect-square porthole border-8 border-tertiary-container overflow-hidden shadow-2xl transition-all group-hover:border-primary group-hover:scale-[1.02]">
+<img alt="Saturn Ring Station" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrr8d6cafcEESq_CCICHuMPTfSBZpqPzW3zIN2UtHJDaV0Q6s6CU4L5sXlqaIGuXbAXRFneGZ_ThVyIit_zXQ0sFBGj6y325vnJ_lZi1876VgYtheNOoodCsgjJc5D59gwC2epaTeltNA-DUmjzblng01o621vvUtEroVPlD4gCDlplPnjo0znV3aDoVbG4i37eXltzU7kNl1W3qhcwvxJ94nLaHce3G5e3O9ky_0YYb-IaDJPn3LYB1LCketS5fcJNK8NgpCShUzR"/>
+</div>
+<div class="text-center">
+<h4 class="font-display-lg text-headline-md text-primary uppercase">The Saturn Spire</h4>
+<p class="font-label-md text-label-md text-outline italic">Deep Space Exclusive Living</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Newsletter / CTA -->
-<section class="px-margin-mobile py-xl">
-<div class="bg-surface-container-highest p-lg rounded-xl border-4 border-primary relative overflow-hidden">
-<div class="relative z-10 space-y-md">
-<h3 class="font-headline-md text-headline-md text-primary uppercase leading-none">Get the Telemetry</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Stay updated with the latest breakthroughs in inter-planetary transit.</p>
-<div class="space-y-sm">
-<input class="w-full bg-surface-container-low border-b-4 border-primary p-md font-label-md focus:ring-0 focus:border-secondary transition-colors placeholder:opacity-50" placeholder="Enter your Frequency" type="email"/>
-<button class="w-full py-md bg-secondary text-on-secondary font-headline-md uppercase rounded-full hard-shadow active:translate-y-1 transition-all">Connect</button>
+<!-- Newsletter / CTA (Desktop Horizontal) -->
+<section class="px-margin-desktop py-xl max-w-[1440px] mx-auto">
+<div class="bg-surface-container-highest p-xl rounded-xl border-4 border-primary relative overflow-hidden shadow-2xl">
+<div class="relative z-10 grid lg:grid-cols-2 gap-xl items-center">
+<div class="space-y-md">
+<h3 class="font-display-lg text-headline-lg text-primary uppercase leading-none">Get the Telemetry</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Stay updated with the latest breakthroughs in inter-planetary transit and celestial real estate.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-md">
+<input class="flex-grow bg-surface-container-low border-b-4 border-primary p-lg font-display-lg text-headline-md focus:ring-0 focus:border-secondary transition-colors placeholder:opacity-50" placeholder="Your Frequency (Email)" type="email"/>
+<button class="px-xl py-lg bg-secondary text-on-secondary font-display-lg text-headline-md uppercase rounded-full hard-shadow active:translate-y-2 transition-all">Connect</button>
 </div>
 </div>
-<span class="absolute -bottom-10 -right-10 material-symbols-outlined text-outline-variant opacity-20 text-[200px]" style="font-variation-settings: 'FILL' 1;">broadcast_on_home</span>
+<span class="absolute -bottom-20 -right-20 material-symbols-outlined text-outline-variant opacity-10 text-[350px]" style="font-variation-settings: 'FILL' 1;">broadcast_on_home</span>
 </div>
 </section>
 </main>
-<!-- Footer Shell -->
-<footer class="w-full rounded-t-xl bg-surface-container-highest dark:bg-inverse-surface border-t-4 border-outline-variant">
-<div class="flex flex-col items-center px-margin-mobile py-xl gap-gutter text-center">
-<h1 class="font-headline-md text-headline-md text-secondary uppercase">ASTRO-DYNE</h1>
-<p class="font-label-md text-label-md text-tertiary dark:text-tertiary-fixed">© 1962 ASTRO-DYNE INDUSTRIES. BEYOND THE STRATOSPHERE.</p>
-<div class="flex flex-wrap justify-center gap-md">
-<a class="font-label-md text-label-md text-on-surface-variant opacity-80 hover:text-primary hover:opacity-100 transition-opacity" href="#">Galactic Charter</a>
-<a class="font-label-md text-label-md text-on-surface-variant opacity-80 hover:text-primary hover:opacity-100 transition-opacity" href="#">Telemetry Support</a>
-<a class="font-label-md text-label-md text-on-surface-variant opacity-80 hover:text-primary hover:opacity-100 transition-opacity" href="#">Privacy Logs</a>
+<!-- Footer Shell (Desktop Layout) -->
+<footer class="w-full bg-surface-container-highest dark:bg-inverse-surface border-t-8 border-outline-variant">
+<div class="max-w-[1440px] mx-auto px-margin-desktop py-xl">
+<div class="grid md:grid-cols-4 gap-xl">
+<div class="md:col-span-1 flex flex-col gap-md">
+<h1 class="font-display-lg text-headline-md text-secondary uppercase">ASTRO-DYNE</h1>
+<p class="font-label-md text-label-sm text-tertiary">© 1962 ASTRO-DYNE INDUSTRIES.<br/> BEYOND THE STRATOSPHERE.</p>
 </div>
-<div class="flex gap-md mt-md">
-<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-colors cursor-pointer">
+<div class="flex flex-col gap-sm">
+<h5 class="font-display-lg text-label-md text-primary uppercase mb-base">The Mission</h5>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Galactic Charter</a>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Manifest Destiny</a>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ethics Logs</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-display-lg text-label-md text-primary uppercase mb-base">Operations</h5>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Telemetry Support</a>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Transit Schedules</a>
+<a class="font-label-md text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Logistics Core</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-display-lg text-label-md text-primary uppercase mb-base">Connect</h5>
+<div class="flex gap-md">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-all cursor-pointer border-2 border-outline-variant">
 <span class="material-symbols-outlined text-primary">public</span>
 </div>
-<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-all cursor-pointer border-2 border-outline-variant">
 <span class="material-symbols-outlined text-primary">share</span>
 </div>
-<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-colors cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-container transition-all cursor-pointer border-2 border-outline-variant">
 <span class="material-symbols-outlined text-primary">hub</span>
 </div>
 </div>
 </div>
+</div>
+</div>
 </footer>
-<!-- Bottom Command Bar -->
-<nav class="fixed bottom-margin-mobile left-margin-mobile right-margin-mobile h-16 cockpit-glass rounded-full z-50 flex items-center justify-around px-md">
-<button class="flex flex-col items-center text-primary font-bold">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<!-- Bottom Control Bar (Optimized for Floating Bar) -->
+<nav class="hidden lg:flex fixed bottom-8 left-1/2 -translate-x-1/2 w-[600px] h-20 cockpit-glass rounded-full z-50 items-center justify-around px-xl shadow-2xl border-2 border-white/20">
+<button class="flex flex-col items-center text-primary group transition-all">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-[10px] uppercase">Nexus</span>
 </button>
-<button class="flex flex-col items-center text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">explore</span>
+<button class="flex flex-col items-center text-on-surface-variant/60 hover:text-primary group transition-all">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110">explore</span>
+<span class="font-label-sm text-[10px] uppercase">Galaxy</span>
 </button>
-<div class="relative -top-6">
-<button class="w-16 h-16 bg-primary text-on-primary rounded-full hard-shadow flex items-center justify-center active:scale-90 transition-all">
-<span class="material-symbols-outlined text-3xl">add</span>
+<div class="relative -top-10">
+<button class="w-20 h-20 bg-primary text-on-primary rounded-full hard-shadow flex items-center justify-center active:scale-90 transition-all hover:rotate-90">
+<span class="material-symbols-outlined text-4xl">add</span>
 </button>
 </div>
-<button class="flex flex-col items-center text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">rocket</span>
+<button class="flex flex-col items-center text-on-surface-variant/60 hover:text-primary group transition-all">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110">rocket</span>
+<span class="font-label-sm text-[10px] uppercase">Fleet</span>
 </button>
-<button class="flex flex-col items-center text-on-surface-variant opacity-60">
-<span class="material-symbols-outlined">person</span>
+<button class="flex flex-col items-center text-on-surface-variant/60 hover:text-primary group transition-all">
+<span class="material-symbols-outlined text-3xl group-hover:scale-110">person</span>
+<span class="font-label-sm text-[10px] uppercase">Citizen</span>
 </button>
 </nav>
 <script>
-        // Subtle Parallax / Interaction Script
-        document.addEventListener('mousemove', (e) => {
-            const starbursts = document.querySelectorAll('.starburst');
-            const x = (window.innerWidth - e.pageX) / 50;
-            const y = (window.innerHeight - e.pageY) / 50;
-            
-            starbursts.forEach(star => {
-                star.style.transform = `translate(${x}px, ${y}px) rotate(12deg)`;
-            });
+    // Subtle Parallax / Interaction Script for Desktop
+    document.addEventListener('mousemove', (e) => {
+        const starbursts = document.querySelectorAll('.starburst');
+        const x = (window.innerWidth / 2 - e.pageX) / 40;
+        const y = (window.innerHeight / 2 - e.pageY) / 40;
+        
+        starbursts.forEach(star => {
+            star.style.transform = `translate(${x}px, ${y}px) rotate(12deg)`;
         });
-    </script>
+
+        // Add subtle tilt to images
+        const floatingImgs = document.querySelectorAll('.floating-rocket');
+        floatingImgs.forEach(img => {
+            const ix = (window.innerWidth / 2 - e.pageX) / 100;
+            const iy = (window.innerHeight / 2 - e.pageY) / 100;
+            img.style.transform = `translate(${ix}px, ${iy}px)`;
+        });
+    });
+</script>
 </body></html>

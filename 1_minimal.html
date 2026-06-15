@@ -5,9 +5,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ARCHIVE — Minimalist Design Study</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
 <style>
         @font-face {
             font-family: 'Geist';
@@ -43,7 +42,7 @@
 
         /* Extreme Negative Space Utility */
         .void-xl { height: 160px; }
-        @media (min-width: 1280px) { .void-xl { height: 320px; } }
+        @media (min-width: 1024px) { .void-xl { height: 320px; } }
 
         /* Smooth reveal for minimalist entrance */
         .reveal {
@@ -152,125 +151,133 @@
         }
     </script>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
 <body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
-<!-- TopAppBar -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-background border-b border-primary flex justify-between items-center px-margin-mobile md:px-margin-desktop py-md">
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<!-- TopAppBar (Expanded for Desktop) -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary flex justify-between items-center px-margin-mobile lg:px-margin-desktop py-sm lg:py-md">
+<div class="flex items-center gap-sm lg:gap-md">
+<span class="material-symbols-outlined text-primary lg:hidden" data-icon="menu">menu</span>
 <span class="font-headline-md text-headline-md tracking-tighter text-primary">ARCHIVE</span>
 </div>
-<div class="hidden md:flex gap-md">
-<a class="font-bold text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">INDEX</a>
-<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">WORKS</a>
-<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-colors duration-200 px-xs py-unit" href="#">ABOUT</a>
+<div class="hidden lg:flex gap-lg">
+<a class="font-bold text-primary hover:bg-primary hover:text-on-primary transition-all duration-200 px-xs py-unit" href="#">INDEX</a>
+<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-all duration-200 px-xs py-unit" href="#">WORKS</a>
+<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-all duration-200 px-xs py-unit" href="#">ABOUT</a>
+<a class="font-normal text-secondary hover:bg-primary hover:text-on-primary transition-all duration-200 px-xs py-unit border-l border-outline-variant pl-lg ml-md" href="#">JOURNAL</a>
 </div>
 </nav>
 <!-- Main Content Canvas -->
-<main class="pt-xl overflow-x-hidden">
-<!-- Hero Section -->
-<section class="px-margin-mobile md:px-margin-desktop min-h-[618px] flex flex-col justify-end">
-<div class="reveal max-w-4xl">
-<p class="font-label-sm text-label-sm tracking-widest text-secondary mb-sm">VOLUME 01 / 2024</p>
-<h1 class="font-display text-display leading-tight tracking-tighter">
-                    THE ARCHITECTURE <br/>OF SILENCE.
-                </h1>
+<main class="pt-[80px] lg:pt-[120px] overflow-x-hidden">
+<!-- Hero Section (Optimized for Desktop) -->
+<section class="px-margin-mobile lg:px-margin-desktop min-h-[70vh] flex flex-col justify-end pb-lg">
+<div class="reveal max-w-6xl">
+<p class="font-label-sm text-label-sm tracking-[0.25em] text-secondary mb-md">VOLUME 01 / 2024</p>
+<h1 class="font-display text-headline-lg-mobile lg:text-display leading-[0.95] tracking-tighter uppercase">
+                THE ARCHITECTURE <br class="hidden lg:block"/>OF SILENCE.
+            </h1>
 </div>
-<div class="void-xl"></div>
+<div class="void-xl lg:hidden"></div>
 </section>
-<!-- Negative Space Study Section -->
-<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter items-center">
-<div class="col-span-12 md:col-start-3 md:col-span-8 reveal">
-<div class="aspect-[16/9] bg-surface-container overflow-hidden group">
-<img alt="Minimalist Architecture" class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105" data-alt="A hyper-minimalist architectural photograph of a stark white concrete corner meeting a pale gray ceiling under soft, diffused natural light. The composition emphasizes clean lines and geometric shadows in a monochrome palette of whites and deep grays. The overall mood is clinical, serene, and intellectually focused, embodying high-end museum aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRDUuryqTh5UAOiHzyxwtgCbGGzCxtRkc8fXVIxt-s2oEAqJT_A4t29AHnZYyYHlTBMaSxKrKfnBvdxtRcaqkjxqPUfkvB-Kr7CkRSuidxHD5ryiNRoX9umdL4652EJ1KLSsOVXZfK_huL-rwcQfEvJ8YbG5D48qzdV46oNlRJ23PL2MtIFKr8-0x-BtYBv9o8UiRtl19NnF7musab2ii1wP9HtM-zQ93yuhFxRYFmK3uKGu0-p6D-j8CZS6GeFwumsXZFluodmgmx"/>
-</div>
-<div class="mt-md flex justify-between items-start border-t border-primary pt-sm">
-<span class="font-label-sm text-label-sm text-secondary">FIGURE 0.1</span>
-<p class="max-w-xs font-body-md text-body-md text-on-surface-variant">
-                        Study of light refraction on non-textured surfaces. Observation of the void as a structural necessity.
-                    </p>
+<!-- Multi-Column Grid Section -->
+<section class="px-margin-mobile lg:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Visual Column -->
+<div class="col-span-1 lg:col-span-8 reveal">
+<div class="aspect-[16/9] lg:aspect-[3/2] bg-surface-container overflow-hidden group">
+<img alt="Minimalist Architecture" class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRDUuryqTh5UAOiHzyxwtgCbGGzCxtRkc8fXVIxt-s2oEAqJT_A4t29AHnZYyYHlTBMaSxKrKfnBvdxtRcaqkjxqPUfkvB-Kr7CkRSuidxHD5ryiNRoX9umdL4652EJ1KLSsOVXZfK_huL-rwcQfEvJ8YbG5D48qzdV46oNlRJ23PL2MtIFKr8-0x-BtYBv9o8UiRtl19NnF7musab2ii1wP9HtM-zQ93yuhFxRYFmK3uKGu0-p6D-j8CZS6GeFwumsXZFluodmgmx"/>
 </div>
 </div>
-</section>
-<div class="void-xl"></div>
-<!-- Precision Typography Content Section -->
-<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter">
-<div class="col-span-12 md:col-span-4 reveal">
-<h2 class="font-headline-lg text-headline-lg leading-none border-l-2 border-primary pl-md">PRECISION<br/>OVER<br/>ORNAMENT.</h2>
-</div>
-<div class="col-span-12 md:col-start-6 md:col-span-6 flex flex-col gap-lg reveal">
-<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
-                    Functionalist utility is not the absence of beauty, but the purification of it. By stripping away the tertiary, we expose the primary intent of the information architecture.
+<!-- Annotation Column (Desktop specific layout) -->
+<div class="col-span-1 lg:col-span-4 reveal pt-md lg:pt-0 lg:sticky lg:top-[160px]">
+<div class="border-t lg:border-t-0 lg:border-l border-primary pt-sm lg:pt-0 lg:pl-lg">
+<span class="font-label-sm text-label-sm text-secondary block mb-sm">FIGURE 0.1</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    Study of light refraction on non-textured surfaces. Observation of the void as a structural necessity in modern minimalist practice.
                 </p>
-<div class="grid grid-cols-2 gap-md">
-<div class="border border-outline-variant p-md">
-<span class="font-label-sm text-label-sm text-secondary block mb-xs">AXIS A</span>
+</div>
+</div>
+</section>
+<div class="void-xl"></div>
+<!-- Precision Typography Section (Multi-Column) -->
+<section class="px-margin-mobile lg:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="col-span-1 lg:col-span-4 reveal mb-lg lg:mb-0">
+<h2 class="font-headline-lg text-headline-lg lg:text-[48px] leading-none border-l-2 lg:border-l-4 border-primary pl-md lg:pl-lg uppercase">
+                PRECISION<br/>OVER<br/>ORNAMENT.
+            </h2>
+</div>
+<div class="col-span-1 lg:col-start-6 lg:col-span-6 flex flex-col gap-lg reveal">
+<p class="font-body-lg text-body-lg lg:text-[22px] text-on-surface leading-relaxed">
+                Functionalist utility is not the absence of beauty, but the purification of it. By stripping away the tertiary, we expose the primary intent of the information architecture.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="border border-outline-variant p-md lg:p-lg hover:bg-surface-container transition-colors duration-300">
+<span class="font-label-sm text-label-sm text-secondary block mb-xs uppercase">AXIS A</span>
 <span class="font-headline-md text-headline-md">GRID SYSTEM</span>
 </div>
-<div class="border border-outline-variant p-md">
-<span class="font-label-sm text-label-sm text-secondary block mb-xs">AXIS B</span>
+<div class="border border-outline-variant p-md lg:p-lg hover:bg-surface-container transition-colors duration-300">
+<span class="font-label-sm text-label-sm text-secondary block mb-xs uppercase">AXIS B</span>
 <span class="font-headline-md text-headline-md">VOID DENSITY</span>
 </div>
 </div>
-<p class="font-body-md text-body-md text-secondary">
-                    Every element snaps to a mathematical baseline, ensuring visual rhythm even in the absence of explicit borders. We define space by what we choose not to include.
-                </p>
+<p class="font-body-md text-body-md text-secondary max-w-lg">
+                Every element snaps to a mathematical baseline, ensuring visual rhythm even in the absence of explicit borders. We define space by what we choose not to include in the visual field.
+            </p>
 </div>
 </section>
 <div class="void-xl"></div>
-<!-- Call to Action -->
-<section class="bg-primary text-on-primary py-xl px-margin-mobile md:px-margin-desktop text-center">
-<div class="reveal py-lg">
-<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-md">JOIN THE ARCHIVE</h3>
-<p class="font-body-md text-body-md text-on-primary-container mb-lg opacity-80">Subscribe for the quarterly journal of minimal aesthetics.</p>
-<form class="max-w-md mx-auto flex flex-col md:flex-row gap-unit">
-<input class="bg-transparent border-white border-b-2 text-white font-label-md px-sm py-md focus:outline-none focus:border-primary-fixed w-full placeholder:text-surface-variant/50" placeholder="EMAIL ADDRESS" type="email"/>
-<button class="bg-white text-black font-label-md px-lg py-md hover:bg-surface-variant transition-colors duration-300 uppercase">
-                        SUBMIT
-                    </button>
+<!-- Call to Action (Optimized for Desktop Width) -->
+<section class="bg-primary text-on-primary py-xl lg:py-[160px] px-margin-mobile lg:px-margin-desktop text-center">
+<div class="reveal max-w-3xl mx-auto">
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-display mb-md uppercase tracking-tight">JOIN THE ARCHIVE</h3>
+<p class="font-body-md text-body-lg text-on-primary-container mb-xl opacity-80">Subscribe for the quarterly journal of minimal aesthetics and architectural studies.</p>
+<form class="flex flex-col lg:flex-row gap-unit lg:gap-0 lg:border-b-2 lg:border-white/30 focus-within:border-white transition-colors duration-300">
+<input class="bg-transparent border-white/30 border-b-2 lg:border-none text-white font-label-md px-sm py-md lg:py-lg focus:outline-none w-full placeholder:text-surface-variant/50 text-center lg:text-left" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-white text-black font-label-md px-xl py-md lg:py-lg hover:bg-surface-variant transition-colors duration-300 uppercase whitespace-nowrap">
+                    SUBMIT
+                </button>
 </form>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="bg-background border-t border-primary px-margin-mobile md:px-margin-desktop py-lg flex flex-col md:flex-row justify-between items-center gap-md">
-<div class="font-label-sm text-label-sm text-primary tracking-tight">
-            © 2024 DESIGN GALLERY. ALL RIGHTS RESERVED.
-        </div>
-<div class="flex gap-md">
+<!-- Footer (Optimized for Desktop) -->
+<footer class="bg-background border-t border-primary px-margin-mobile lg:px-margin-desktop py-lg lg:py-xl flex flex-col lg:flex-row justify-between items-center gap-md lg:gap-xl">
+<div class="font-label-sm text-label-sm text-primary tracking-tight order-2 lg:order-1">
+        © 2024 ARCHIVE DESIGN GALLERY. ALL RIGHTS RESERVED.
+    </div>
+<div class="flex flex-wrap justify-center gap-md lg:gap-lg order-1 lg:order-2">
 <a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300" href="#">PRIVACY</a>
 <a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300" href="#">TERMS</a>
 <a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300 font-bold" href="#">INDEX</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-all duration-300" href="#">INSTAGRAM</a>
 </div>
 </footer>
 <script>
-        // Simple Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1
-        };
+    // Simple Intersection Observer for reveal animations
+    const observerOptions = {
+        threshold: 0.1
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Interaction logic for buttons
-        document.querySelectorAll('button, a').forEach(item => {
-            item.addEventListener('mousedown', () => {
-                item.style.opacity = '0.7';
-            });
-            item.addEventListener('mouseup', () => {
-                item.style.opacity = '1';
-            });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
         });
-    </script>
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Interaction logic for buttons
+    document.querySelectorAll('button, a').forEach(item => {
+        item.addEventListener('mousedown', () => {
+            item.style.opacity = '0.7';
+        });
+        item.addEventListener('mouseup', () => {
+            item.style.opacity = '1';
+        });
+    });
+</script>
 </body></html>

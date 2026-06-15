@@ -3,12 +3,11 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Playful Style Demo</title>
+<title>Playful Style Demo - Desktop</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
@@ -19,11 +18,13 @@
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(3deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
         }
-        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
         .sticker-shadow { filter: drop-shadow(4px 4px 0px rgba(0,0,0,1)); }
         .active-shadow { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -120,132 +121,154 @@
         }
       </script>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+</head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
 <!-- Top Navigation Bar -->
 <header class="fixed top-0 w-full z-50 px-margin-mobile md:px-margin-desktop bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md border-b-4 border-on-surface dark:border-outline-variant shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] h-20 flex justify-between items-center max-w-full mx-auto">
+<div class="flex items-center gap-md">
 <div class="flex items-center gap-sm">
 <span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
-<h1 class="font-display-lg text-headline-md-mobile md:text-headline-lg text-primary dark:text-primary-fixed italic tracking-tighter">GLITCHY</h1>
+<h1 class="font-display-lg text-headline-md md:text-headline-lg text-primary dark:text-primary-fixed italic tracking-tighter">GLITCHY</h1>
 </div>
+<!-- Expanded Desktop Nav -->
+<nav class="hidden md:flex ml-xl gap-lg">
+<a class="font-label-bold hover:text-primary transition-colors" href="#">VIBES</a>
+<a class="font-label-bold hover:text-primary transition-colors" href="#">THE LAB</a>
+<a class="font-label-bold hover:text-primary transition-colors" href="#">MANIFESTO</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
 <button class="bg-primary text-on-primary font-label-bold px-lg py-sm rounded-full border-2 border-on-surface active:scale-95 transition-all hover:-translate-y-1 hover:translate-x-1 hover:shadow-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            JOIN NOW
-        </button>
+                JOIN NOW
+            </button>
+</div>
 </header>
 <main class="mt-20">
 <!-- Hero Section -->
-<section class="relative min-h-[707px] flex flex-col justify-center px-margin-mobile pt-xxl overflow-hidden">
+<section class="relative min-h-[80vh] flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden max-w-[1440px] mx-auto">
 <!-- Background Decorative Squiggle -->
-<div class="absolute top-20 right-0 -z-10 opacity-20 pointer-events-none">
-<svg height="300" viewbox="0 0 200 200" width="300" xmlns="http://www.w3.org/2000/svg">
+<div class="absolute top-20 right-0 -z-10 opacity-20 pointer-events-none md:scale-150">
+<svg height="400" viewbox="0 0 200 200" width="400" xmlns="http://www.w3.org/2000/svg">
 <path d="M 20 100 Q 50 10 80 100 T 140 100 T 200 100" fill="none" stroke="#7015e2" stroke-linecap="round" stroke-width="10"></path>
 </svg>
 </div>
-<div class="z-10 flex flex-col items-start gap-md">
+<div class="z-10 grid md:grid-cols-2 gap-xl items-center w-full">
+<div class="flex flex-col items-start gap-md">
 <div class="inline-block bg-secondary-container text-on-secondary-container px-md py-xs rounded-full border-2 border-on-surface sticker-shadow rotate-[-2deg] font-label-bold animate-float">
-                    FRESH VIBES ONLY
-                </div>
-<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface leading-tight">
-                    Bouncy <br/>
+                        FRESH VIBES ONLY
+                    </div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface leading-[1.1]">
+                        Bouncy <br/>
 <span class="text-primary underline decoration-secondary-fixed decoration-8 underline-offset-8">Designs</span>
 </h2>
-<p class="font-body-lg text-on-surface-variant max-w-xs mt-sm">
-                    Reimagining the digital canvas with high-energy motion and Gen-Z aesthetics. No corporate boringness allowed.
-                </p>
+<p class="font-body-lg text-on-surface-variant max-w-md mt-sm">
+                        Reimagining the digital canvas with high-energy motion and Gen-Z aesthetics. No corporate boringness allowed.
+                    </p>
 <div class="mt-lg flex flex-wrap gap-md">
-<button class="bg-secondary-fixed text-on-secondary-fixed font-label-bold text-headline-md-mobile px-xl py-md rounded-xl border-4 border-on-surface shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all">
-                        START CREATING
-                    </button>
+<button class="bg-secondary-fixed text-on-secondary-fixed font-label-bold text-headline-md-mobile md:text-[24px] px-xl py-lg rounded-xl border-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all">
+                            START CREATING
+                        </button>
 </div>
 </div>
-<!-- Stickers/Badges -->
-<div class="absolute bottom-10 right-4 flex flex-col gap-sm items-end pointer-events-none">
-<div class="bg-tertiary-fixed text-on-tertiary-fixed p-sm border-2 border-on-surface rounded-lg sticker-shadow rotate-[12deg] animate-bounce">
-<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<!-- Desktop Decorative Elements -->
+<div class="hidden md:flex relative h-[500px] items-center justify-center">
+<div class="absolute top-0 right-0 bg-tertiary-fixed text-on-tertiary-fixed p-lg border-4 border-on-surface rounded-2xl sticker-shadow rotate-[15deg] animate-float">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'FILL' 1;">star</span>
 </div>
-<div class="bg-primary-fixed text-on-primary-fixed px-md py-sm border-2 border-on-surface rounded-full sticker-shadow rotate-[-8deg]">
-<span class="font-label-bold">STICKY!</span>
+<div class="absolute bottom-10 left-10 bg-primary-fixed text-on-primary-fixed px-xl py-md border-4 border-on-surface rounded-full sticker-shadow rotate-[-12deg]">
+<span class="font-display-lg text-headline-md tracking-widest">STICKY!</span>
+</div>
+<!-- Central visual placeholder -->
+<div class="w-64 h-64 bg-surface-container-highest border-4 border-on-surface rounded-3xl rotate-3 shadow-[12px_12px_0px_0px_rgba(112,21,226,1)] flex items-center justify-center overflow-hidden">
+<img alt="Vibrant abstract" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtPiQjqk0Qxcs6sOhJIgQqiSty4UbYfmTT0hc2DN1PuIlS2tx1e4u6DRHpdqvK6IGOF9C4WOe2UA7K68WAP-P1XC-XA1JnG-IcAbv2ibobfq5uk5zj_q8FpP1WhV1tooh3YTwXGTxOrqjcxNmPwm93igIgYG6hPkvAvb1ldzpJ1N44HEc5C1RB-QREceogHZOUzKuybIU1ai7QtTPT_TY6up1f6c0McCaMrl6qpVPOd6d0dzbW2_P8NXZ37NxbHGREMmd_CXnMD8pJ"/>
+</div>
 </div>
 </div>
 </section>
-<!-- Expressive Motion Section (Bento Grid Style) -->
-<section class="px-margin-mobile py-xxl bg-surface-container-low border-t-4 border-on-surface relative">
-<h3 class="font-headline-lg text-headline-lg-mobile mb-xl flex items-center gap-sm">
+<!-- Expressive Motion Section (Desktop Grid) -->
+<section class="px-margin-mobile md:px-margin-desktop py-xxl bg-surface-container-low border-y-4 border-on-surface relative">
+<div class="max-w-[1440px] mx-auto">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-xl flex items-center gap-sm">
 <span class="material-symbols-outlined text-primary text-headline-lg">bolt</span>
-                Expressive Motion
-            </h3>
-<div class="grid grid-cols-1 gap-lg">
+                    Expressive Motion
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
 <!-- Motion Card 1 -->
-<div class="bg-surface-container-highest border-4 border-on-surface p-lg rounded-xl shadow-[8px_8px_0px_0px_rgba(112,21,226,1)] hover:-translate-y-1 transition-all">
-<div class="h-48 bg-outline-variant rounded-lg mb-md overflow-hidden relative border-2 border-on-surface">
-<img class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80" data-alt="A vibrant, high-energy digital collage featuring neon purple and electric yellow abstract shapes. The composition includes floating 3D geometric elements, retro computer hardware, and hand-drawn squiggles, creating a chaotic yet stylish Gen-Z aesthetic. The lighting is punchy and high-contrast, perfectly capturing a playful, tech-forward vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtPiQjqk0Qxcs6sOhJIgQqiSty4UbYfmTT0hc2DN1PuIlS2tx1e4u6DRHpdqvK6IGOF9C4WOe2UA7K68WAP-P1XC-XA1JnG-IcAbv2ibobfq5uk5zj_q8FpP1WhV1tooh3YTwXGTxOrqjcxNmPwm93igIgYG6hPkvAvb1ldzpJ1N44HEc5C1RB-QREceogHZOUzKuybIU1ai7QtTPT_TY6up1f6c0McCaMrl6qpVPOd6d0dzbW2_P8NXZ37NxbHGREMmd_CXnMD8pJ"/>
+<div class="bg-surface-container-highest border-4 border-on-surface p-lg rounded-2xl shadow-[12px_12px_0px_0px_rgba(112,21,226,1)] hover:-translate-y-2 transition-all flex flex-col">
+<div class="aspect-video bg-outline-variant rounded-xl mb-md overflow-hidden relative border-2 border-on-surface">
+<img class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80" data-alt="Vibrant tech collage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtPiQjqk0Qxcs6sOhJIgQqiSty4UbYfmTT0hc2DN1PuIlS2tx1e4u6DRHpdqvK6IGOF9C4WOe2UA7K68WAP-P1XC-XA1JnG-IcAbv2ibobfq5uk5zj_q8FpP1WhV1tooh3YTwXGTxOrqjcxNmPwm93igIgYG6hPkvAvb1ldzpJ1N44HEc5C1RB-QREceogHZOUzKuybIU1ai7QtTPT_TY6up1f6c0McCaMrl6qpVPOd6d0dzbW2_P8NXZ37NxbHGREMmd_CXnMD8pJ"/>
 <div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-primary p-md rounded-full border-2 border-on-surface sticker-shadow">
-<span class="material-symbols-outlined text-on-primary text-[40px]">play_arrow</span>
+<div class="bg-primary p-lg rounded-full border-4 border-on-surface sticker-shadow cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary text-[56px]">play_arrow</span>
 </div>
 </div>
 </div>
-<h4 class="font-headline-md text-on-surface">Bouncy Interactions</h4>
-<p class="font-body-md text-on-surface-variant">Every tap feels physical. We use spring-loaded physics for a tactile digital feel.</p>
+<h4 class="font-headline-md text-on-surface mt-auto">Bouncy Interactions</h4>
+<p class="font-body-lg text-on-surface-variant mt-sm">Every tap feels physical. We use spring-loaded physics for a tactile digital feel that stays responsive across all devices.</p>
 </div>
 <!-- Motion Card 2 -->
-<div class="bg-secondary-container border-4 border-on-surface p-lg rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:rotate-1 transition-all">
-<div class="flex items-center justify-between mb-md">
-<span class="material-symbols-outlined text-on-secondary-container text-[48px]">auto_awesome</span>
-<div class="px-md py-xs bg-on-secondary-container text-secondary-container rounded-full font-label-bold">NEW</div>
+<div class="bg-secondary-container border-4 border-on-surface p-lg rounded-2xl shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:rotate-1 transition-all flex flex-col justify-center">
+<div class="flex items-center justify-between mb-lg">
+<span class="material-symbols-outlined text-on-secondary-container text-[80px]">auto_awesome</span>
+<div class="px-lg py-sm bg-on-secondary-container text-secondary-container rounded-full font-label-bold text-headline-md">NEW</div>
 </div>
 <h4 class="font-headline-md text-on-secondary-container">Fluid Transitions</h4>
-<p class="font-body-md text-on-secondary-container/80">Seamless flows that bridge the gap between static pages and live experiences.</p>
+<p class="font-body-lg text-on-secondary-container/80 mt-sm">Seamless flows that bridge the gap between static pages and live experiences. Optimized for high-refresh desktop monitors.</p>
+<div class="mt-xl h-2 w-full bg-on-secondary-container/10 rounded-full overflow-hidden">
+<div class="h-full bg-on-secondary-container w-2/3"></div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<!-- High Energy Colors Section -->
-<section class="py-xxl px-margin-mobile overflow-hidden">
-<div class="flex flex-col items-center text-center mb-xl">
-<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface italic">High Energy Colors</h3>
-<div class="h-2 w-32 bg-primary mt-xs"></div>
+<!-- High Energy Colors Section (Desktop Gallery) -->
+<section class="py-xxl px-margin-mobile md:px-margin-desktop overflow-hidden max-w-[1440px] mx-auto">
+<div class="flex flex-col items-start mb-xl">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface italic">High Energy Colors</h3>
+<div class="h-3 w-48 bg-primary mt-xs"></div>
 </div>
-<div class="flex overflow-x-auto gap-md pb-lg snap-x no-scrollbar">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
 <!-- Color Swatch 1 -->
-<div class="min-w-[200px] flex-shrink-0 snap-center bg-primary p-lg rounded-2xl border-4 border-on-surface active-shadow flex flex-col justify-between h-64">
-<span class="text-on-primary font-display-lg opacity-20">P1</span>
-<div class="text-on-primary font-label-bold">ELECTRIC PURPLE</div>
+<div class="bg-primary p-xl rounded-3xl border-4 border-on-surface shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between h-80 hover:-translate-y-2 transition-all">
+<span class="text-on-primary font-display-lg opacity-20 text-[100px]">P1</span>
+<div class="text-on-primary font-label-bold text-headline-md">ELECTRIC PURPLE</div>
 </div>
 <!-- Color Swatch 2 -->
-<div class="min-w-[200px] flex-shrink-0 snap-center bg-secondary-fixed p-lg rounded-2xl border-4 border-on-surface active-shadow flex flex-col justify-between h-64">
-<span class="text-on-secondary-fixed font-display-lg opacity-20">Y2</span>
-<div class="text-on-secondary-fixed font-label-bold">NEON LIME</div>
+<div class="bg-secondary-fixed p-xl rounded-3xl border-4 border-on-surface shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between h-80 hover:-translate-y-2 transition-all">
+<span class="text-on-secondary-fixed font-display-lg opacity-20 text-[100px]">Y2</span>
+<div class="text-on-secondary-fixed font-label-bold text-headline-md">NEON LIME</div>
 </div>
 <!-- Color Swatch 3 -->
-<div class="min-w-[200px] flex-shrink-0 snap-center bg-tertiary-fixed p-lg rounded-2xl border-4 border-on-surface active-shadow flex flex-col justify-between h-64">
-<span class="text-on-tertiary-fixed font-display-lg opacity-20">S3</span>
-<div class="text-on-tertiary-fixed font-label-bold">SOFT PINK</div>
+<div class="bg-tertiary-fixed p-xl rounded-3xl border-4 border-on-surface shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between h-80 hover:-translate-y-2 transition-all">
+<span class="text-on-tertiary-fixed font-display-lg opacity-20 text-[100px]">S3</span>
+<div class="text-on-tertiary-fixed font-label-bold text-headline-md">SOFT PINK</div>
 </div>
 </div>
 </section>
-<!-- Gen-Z Vibes Section -->
-<section class="bg-on-surface text-background py-xxl px-margin-mobile relative overflow-hidden">
+<!-- Gen-Z Vibes Section (Desktop Columns) -->
+<section class="bg-on-surface text-background py-xxl px-margin-mobile md:px-margin-desktop relative overflow-hidden">
 <!-- Background Grid Pattern -->
-<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 0); background-size: 20px 20px;"></div>
-<div class="relative z-10">
-<h3 class="font-display-lg text-headline-lg-mobile mb-lg leading-none">THE CREW VIBE.</h3>
-<div class="space-y-lg">
-<div class="flex gap-md items-start">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 0); background-size: 30px 30px;"></div>
+<div class="relative z-10 max-w-[1440px] mx-auto grid md:grid-cols-12 gap-xl items-center">
+<div class="md:col-span-7">
+<h3 class="font-display-lg text-headline-lg-mobile md:text-[96px] mb-lg leading-none">THE CREW VIBE.</h3>
+<div class="grid md:grid-cols-2 gap-lg">
+<div class="flex gap-md items-start p-md bg-white/5 rounded-2xl border border-white/10">
 <div class="bg-primary text-on-primary p-sm rounded-lg border-2 border-background sticker-shadow flex-shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mood</span>
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">mood</span>
 </div>
 <div>
 <h5 class="font-headline-md text-background">Pure Chaos</h5>
 <p class="font-body-md text-outline-variant">We embrace the messy, the loud, and the unfiltered beauty of the internet.</p>
 </div>
 </div>
-<div class="flex gap-md items-start">
+<div class="flex gap-md items-start p-md bg-white/5 rounded-2xl border border-white/10">
 <div class="bg-secondary-fixed text-on-secondary-fixed p-sm rounded-lg border-2 border-background sticker-shadow flex-shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">celebration</span>
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">celebration</span>
 </div>
 <div>
 <h5 class="font-headline-md text-background">Radical Fun</h5>
@@ -253,68 +276,60 @@
 </div>
 </div>
 </div>
-<div class="mt-xxl border-4 border-primary p-lg rounded-3xl bg-surface/5 backdrop-blur-sm relative overflow-hidden">
-<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 blur-3xl rounded-full"></div>
-<blockquote class="font-headline-md text-background italic">
-                        "If it doesn't wiggle, does it even exist?"
-                    </blockquote>
-<cite class="block mt-md font-label-bold text-primary">— THE GLITCHY MANIFESTO</cite>
+</div>
+<div class="md:col-span-5">
+<div class="border-4 border-primary p-xl rounded-[40px] bg-surface/5 backdrop-blur-md relative overflow-hidden rotate-2 shadow-[12px_12px_0px_0px_#7015e2]">
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-primary/20 blur-3xl rounded-full"></div>
+<blockquote class="font-headline-md md:text-headline-lg text-background italic leading-tight">
+                            "If it doesn't wiggle, does it even exist?"
+                        </blockquote>
+<cite class="block mt-xl font-label-bold text-primary text-headline-md">— THE GLITCHY MANIFESTO</cite>
+</div>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer -->
 <footer class="relative w-full py-xxl px-margin-mobile md:px-margin-desktop mt-xxl bg-secondary-container dark:bg-secondary border-t-8 border-on-surface dark:border-outline-variant">
-<div class="flex flex-col md:flex-row justify-between items-start gap-lg max-w-full mx-auto">
-<div class="space-y-md">
-<h2 class="font-headline-lg text-headline-lg text-secondary-fixed dark:text-on-secondary-fixed tracking-tighter italic">GLITCHY</h2>
-<p class="font-body-md text-on-secondary-container dark:text-on-secondary max-w-xs">© 2024 GLITCHY CREW. KEEP IT WEIRD.</p>
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-xl">
+<div class="space-y-md text-center md:text-left">
+<h2 class="font-display-lg text-headline-lg text-secondary-fixed dark:text-on-secondary-fixed tracking-tighter italic">GLITCHY</h2>
+<p class="font-body-md text-on-secondary-container dark:text-on-secondary max-w-xs">© 2024 GLITCHY CREW. KEEP IT WEIRD, STAY BOUNCY.</p>
 </div>
-<nav class="flex flex-col gap-md">
-<a class="font-label-bold text-on-secondary-container dark:text-on-secondary hover:skew-x-3 hover:text-primary transition-transform underline decoration-4 decoration-primary" href="#">Vibes</a>
-<a class="font-label-bold text-on-secondary-container dark:text-on-secondary hover:skew-x-3 hover:text-primary transition-transform" href="#">The Lab</a>
-<a class="font-label-bold text-on-secondary-container dark:text-on-secondary hover:skew-x-3 hover:text-primary transition-transform" href="#">Privacy</a>
-<a class="font-label-bold text-on-secondary-container dark:text-on-secondary hover:skew-x-3 hover:text-primary transition-transform" href="#">Chaos</a>
+<nav class="flex flex-wrap justify-center gap-xl">
+<a class="font-label-bold text-headline-md-mobile text-on-secondary-container dark:text-on-secondary hover:scale-110 transition-transform underline decoration-4 decoration-primary" href="#">Vibes</a>
+<a class="font-label-bold text-headline-md-mobile text-on-secondary-container dark:text-on-secondary hover:scale-110 transition-transform" href="#">The Lab</a>
+<a class="font-label-bold text-headline-md-mobile text-on-secondary-container dark:text-on-secondary hover:scale-110 transition-transform" href="#">Privacy</a>
+<a class="font-label-bold text-headline-md-mobile text-on-secondary-container dark:text-on-secondary hover:scale-110 transition-transform" href="#">Chaos</a>
 </nav>
 <div class="flex gap-lg">
-<div class="bg-on-secondary-container p-sm rounded-full cursor-pointer hover:-translate-y-1 transition-all">
-<span class="material-symbols-outlined text-secondary-container">alternate_email</span>
+<div class="bg-on-secondary-container p-md rounded-full cursor-pointer hover:-translate-y-2 hover:rotate-12 transition-all border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<span class="material-symbols-outlined text-secondary-container text-[32px]">alternate_email</span>
 </div>
-<div class="bg-on-secondary-container p-sm rounded-full cursor-pointer hover:-translate-y-1 transition-all">
-<span class="material-symbols-outlined text-secondary-container">language</span>
+<div class="bg-on-secondary-container p-md rounded-full cursor-pointer hover:-translate-y-2 hover:-rotate-12 transition-all border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<span class="material-symbols-outlined text-secondary-container text-[32px]">language</span>
 </div>
 </div>
 </div>
-<!-- Decorative Footer Squiggle (SVG Placeholder logic) -->
-<div class="absolute top-0 left-0 w-full h-8 overflow-hidden -translate-y-full opacity-40">
+<!-- Decorative Footer Squiggle -->
+<div class="absolute top-0 left-0 w-full h-12 overflow-hidden -translate-y-full opacity-60">
 <svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1200 40">
-<path class="text-on-surface" d="M0 30 Q 30 10 60 30 T 120 30 T 180 30 T 240 30 T 300 30 T 360 30 T 420 30 T 480 30 T 540 30 T 600 30 T 660 30 T 720 30 T 780 30 T 840 30 T 900 30 T 960 30 T 1020 30 T 1080 30 T 1140 30 T 1200 30" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-on-surface" d="M0 30 Q 30 10 60 30 T 120 30 T 180 30 T 240 30 T 300 30 T 360 30 T 420 30 T 480 30 T 540 30 T 600 30 T 660 30 T 720 30 T 780 30 T 840 30 T 900 30 T 960 30 T 1020 30 T 1080 30 T 1140 30 T 1200 30" fill="none" stroke="currentColor" stroke-width="6"></path>
 </svg>
 </div>
 </footer>
-<!-- Bottom Action Button (Mobile Contextual FAB Suppressed as per rule on Details/Transactional, but enabled for Home/Landing) -->
-<div class="fixed bottom-8 right-margin-mobile z-40 md:hidden">
-<button class="w-16 h-16 bg-secondary-fixed text-on-secondary-fixed rounded-full border-4 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 flex items-center justify-center transition-all">
-<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">add</span>
-</button>
-</div>
 <script>
         // Micro-interactions for bouncy elements
         document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('touchstart', () => {
+            button.addEventListener('mousedown', () => {
                 button.classList.add('scale-95');
             });
-            button.addEventListener('touchend', () => {
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
                 button.classList.remove('scale-95');
             });
         });
-
-        // Simple horizontal scroll observer for color swatches
-        const swatches = document.querySelector('.flex.overflow-x-auto');
-        if(swatches) {
-            swatches.addEventListener('scroll', () => {
-                // Potential logic for parallax or sound effects
-            });
-        }
     </script>
 </body></html>

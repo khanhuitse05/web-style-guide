@@ -6,7 +6,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=Archivo+Narrow:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -20,13 +19,11 @@
         .editorial-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
+            gap: 48px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .editorial-grid {
-                display: flex;
-                flex-direction: column;
-                gap: 32px;
+                gap: 24px;
             }
         }
     </style>
@@ -121,171 +118,250 @@
         },
       }
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background text-on-background min-h-screen">
-<!-- TopAppBar -->
-<header class="w-full top-0 border-b border-primary dark:border-outline bg-background dark:bg-background z-50 sticky md:static">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-full">
-<div class="flex items-center gap-4 cursor-pointer transition-opacity active:opacity-70">
-<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
-<span class="font-meta text-meta text-secondary hidden md:inline">EDITION: GLOBAL</span>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Desktop TopAppBar -->
+<header class="w-full border-b-2 border-primary bg-background z-50 sticky top-0">
+<div class="max-w-[1440px] mx-auto px-margin-desktop py-6 flex justify-between items-center">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="menu">menu</span>
+<span class="font-label-caps text-label-caps text-primary">SECTIONS</span>
 </div>
-<h1 class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary order-first md:order-none mb-2 md:mb-0">
+<div class="hidden lg:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">POLITICS</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">TECHNOLOGY</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">CULTURE</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">SCIENCE</a>
+</div>
+</div>
+<h1 class="font-headline-lg text-[40px] tracking-tighter text-primary absolute left-1/2 -translate-x-1/2">
                 THE DIGITAL JOURNAL
             </h1>
-<div class="flex items-center gap-6 cursor-pointer transition-opacity active:opacity-70">
-<span class="font-meta text-meta text-primary font-bold">VOL. 24 / ISSUE 08</span>
-<span class="material-symbols-outlined text-primary hidden md:inline" data-icon="search">search</span>
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-end">
+<span class="font-meta text-[12px] font-bold tracking-widest text-primary">VOL. 24 / ISSUE 08</span>
+<span class="font-meta text-[11px] text-secondary">FRIDAY, AUGUST 23, 2024</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70" data-icon="search">search</span>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-caps text-[12px] tracking-widest hover:opacity-90 transition-opacity">SUBSCRIBE</button>
+</div>
 </div>
 </div>
 </header>
 <main class="max-w-[1440px] mx-auto">
-<!-- Hero Section: Breaking News -->
-<section class="px-margin-mobile md:px-margin-desktop py-10 border-b border-primary">
+<!-- Main Content Grid -->
+<section class="px-margin-desktop py-12">
 <div class="editorial-grid">
-<!-- Main Story -->
-<div class="col-span-12 md:col-span-8 md:pr-gutter md:border-r border-outline-variant">
-<span class="font-label-caps text-label-caps text-on-tertiary-container mb-4 block">BREAKING NEWS</span>
-<h2 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl mb-6 hover:text-on-tertiary-container transition-colors cursor-pointer">
-                        The Silent Shift: How Digital Architectures Shape Modern Thought.
-                    </h2>
-<img class="w-full aspect-[16/9] object-cover border border-primary mb-6" data-alt="A high-contrast black and white photograph of a person using a sleek, minimalist laptop in a bright, modern architectural space with sharp geometric shadows. The lighting is crisp and editorial, emphasizing the contrast between the human element and the rigid structural lines of the environment. The mood is intellectual and focused, aligning with a high-end digital publication aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6761qh-YWkmXzCddBwYKBph3vXEQJ8SoGva5pUfOvI1mxQmaeBb3iMCwz7P_F-4E2puntkuyQZmhVDzlLJJVV7CLd3UPWGpyrdt9xuz41fRBWlVlO76vWmxeISDnVTAVVSv4PSbxIg8lSpNekK9bC5rFoKqdtGQC5kCpVKmD3LoTRtx3By3cqcDKcjmDsfBBbgnpeLIHjwWCMfCM-iPqW4shy7DOHAre1hYNTpYXQnxc5Sldyb31SoRdoTn38_-arGVV1ioun9TGz"/>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-content mb-4">
-                        In an era defined by ephemeral feeds, the structural integrity of digital spaces has become the new frontier for cognitive philosophy. Researchers suggest that our environments—both physical and virtual—are no longer just backgrounds but active participants in the formation of human logic.
-                    </p>
-<div class="flex items-center gap-4 py-4 border-t border-outline-variant">
-<span class="font-meta text-meta font-bold">BY ARTHUR VANCE</span>
-<span class="font-meta text-meta text-secondary">12 MIN READ</span>
+<!-- Main Feature Column -->
+<div class="col-span-12 lg:col-span-8">
+<div class="border-b border-outline-variant pb-12 mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-label-caps text-label-caps text-on-tertiary-container bg-tertiary-fixed px-3 py-1">BREAKING NEWS</span>
+<span class="w-full h-px bg-outline-variant"></span>
+</div>
+<h2 class="font-display-xl text-display-xl mb-8 leading-[1.05] hover:text-on-tertiary-container transition-colors cursor-pointer">
+                            The Silent Shift: How Digital Architectures Shape Modern Thought.
+                        </h2>
+<img class="w-full aspect-[21/9] object-cover border border-primary mb-8" data-alt="Minimalist digital architecture visual" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6761qh-YWkmXzCddBwYKBph3vXEQJ8SoGva5pUfOvI1mxQmaeBb3iMCwz7P_F-4E2puntkuyQZmhVDzlLJJVV7CLd3UPWGpyrdt9xuz41fRBWlVlO76vWmxeISDnVTAVVSv4PSbxIg8lSpNekK9bC5rFoKqdtGQC5kCpVKmD3LoTRtx3By3cqcDKcjmDsfBBbgnpeLIHjwWCMfCM-iPqW4shy7DOHAre1hYNTpYXQnxc5Sldyb31SoRdoTn38_-arGVV1ioun9TGz"/>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-3">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                    In an era defined by ephemeral feeds, the structural integrity of digital spaces has become the new frontier for cognitive philosophy. Researchers suggest that our environments—both physical and virtual—are no longer just backgrounds but active participants in the formation of human logic.
+                                </p>
+</div>
+<div class="md:col-span-1 flex flex-col justify-end">
+<div class="font-meta text-meta font-bold uppercase tracking-widest border-t border-primary pt-4">ARTHUR VANCE</div>
+<div class="font-meta text-meta text-secondary">12 MIN READ</div>
 </div>
 </div>
-<!-- Side Stories -->
-<div class="col-span-12 md:col-span-4 flex flex-col gap-8">
+</div>
+<!-- Secondary Features in Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
 <div class="group cursor-pointer">
-<span class="font-label-caps text-label-caps text-secondary mb-2 block">CULTURE</span>
-<h3 class="font-headline-sm text-headline-sm group-hover:underline underline-offset-4 mb-2">The Resurgence of the Printed Word in a Hyper-Link World.</h3>
-<p class="font-meta text-meta text-on-surface-variant">Why tactile experiences are becoming the ultimate luxury in a digital-first economy.</p>
-<div class="mt-4 border-b border-outline-variant pb-4"></div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block border-b border-outline-variant pb-2">CULTURE</span>
+<h3 class="font-headline-lg text-headline-lg group-hover:underline underline-offset-8 mb-4 leading-snug">The Resurgence of the Printed Word in a Hyper-Link World.</h3>
+<p class="font-body-md text-on-surface-variant">Why tactile experiences are becoming the ultimate luxury in a digital-first economy.</p>
 </div>
 <div class="group cursor-pointer">
-<span class="font-label-caps text-label-caps text-secondary mb-2 block">TECHNOLOGY</span>
-<h3 class="font-headline-sm text-headline-sm group-hover:underline underline-offset-4 mb-2">Designing for Longevity: The Minimalist Manifesto.</h3>
-<p class="font-meta text-meta text-on-surface-variant">Breaking down the visual tokens that define 2024's most influential design systems.</p>
-<div class="mt-4 border-b border-outline-variant pb-4"></div>
-</div>
-<div class="group cursor-pointer">
-<span class="font-label-caps text-label-caps text-secondary mb-2 block">POLITICS</span>
-<h3 class="font-headline-sm text-headline-sm group-hover:underline underline-offset-4 mb-2">The Algorithmic Border: Governance in the Cloud.</h3>
-<p class="font-meta text-meta text-on-surface-variant">How sovereignty is being redefined by data centers and cross-border fiber cables.</p>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block border-b border-outline-variant pb-2">TECHNOLOGY</span>
+<h3 class="font-headline-lg text-headline-lg group-hover:underline underline-offset-8 mb-4 leading-snug">Designing for Longevity: The Minimalist Manifesto.</h3>
+<p class="font-body-md text-on-surface-variant">Breaking down the visual tokens that define 2024's most influential design systems.</p>
 </div>
 </div>
+</div>
+<!-- Right Sidebar Column -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-12 lg:pl-12 lg:border-l border-outline-variant">
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-8 tracking-[0.2em] flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span> LATEST UPDATES
+                        </h4>
+<div class="flex flex-col gap-10">
+<article class="group cursor-pointer">
+<span class="font-meta text-meta text-on-tertiary-fixed-variant font-bold mb-2 block">14:20 GMT</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-secondary transition-colors">The Algorithmic Border: Governance in the Cloud.</h5>
+<div class="mt-4 border-b border-outline-variant opacity-30"></div>
+</article>
+<article class="group cursor-pointer">
+<span class="font-meta text-meta text-on-tertiary-fixed-variant font-bold mb-2 block">12:05 GMT</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-secondary transition-colors">Neural Interfaces and the Future of Editorial Curation.</h5>
+<div class="mt-4 border-b border-outline-variant opacity-30"></div>
+</article>
+<article class="group cursor-pointer">
+<span class="font-meta text-meta text-on-tertiary-fixed-variant font-bold mb-2 block">09:45 GMT</span>
+<h5 class="font-headline-sm text-headline-sm group-hover:text-secondary transition-colors">Spatial Computing: A New Canvas for Visual Storytelling.</h5>
+<div class="mt-4 border-b border-outline-variant opacity-30"></div>
+</article>
+</div>
+</div>
+<div class="bg-surface-container p-8 border border-primary">
+<h4 class="font-label-caps text-label-caps text-primary mb-4 tracking-[0.2em]">NEWSLETTER</h4>
+<p class="font-meta text-meta text-on-surface-variant mb-6">Critical analysis delivered weekly to your inbox.</p>
+<input class="w-full bg-background border-outline-variant font-meta text-meta p-3 mb-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none" placeholder="email@address.com" type="email"/>
+<button class="w-full py-3 bg-primary text-on-primary font-label-caps tracking-widest hover:opacity-90 transition-opacity">SIGN UP</button>
+</div>
+</aside>
 </div>
 </section>
-<!-- Longform Section -->
-<section class="bg-surface-container-low px-margin-mobile md:px-margin-desktop py-16">
-<div class="max-w-max-width-content mx-auto">
-<div class="text-center mb-12">
-<span class="font-label-caps text-label-caps border-y border-primary py-2 px-4 inline-block mb-8">LONGFORM SERIES</span>
-<h2 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl mb-6">The Architecture of Attention.</h2>
-<p class="font-meta text-meta text-secondary italic">Part III of a Deep Dive into Modern Cognitive Consumption</p>
-</div>
-<div class="mb-12">
-<blockquote class="font-headline-lg text-headline-lg italic border-l-4 border-primary pl-8 py-4 my-12 text-primary">
-                        "The most scarce resource of the twenty-first century is not data, nor energy, but the quiet moment before a decision is made."
-                    </blockquote>
-<p class="font-body-md text-body-md mb-8">
-                        As we navigate the increasingly complex grid of digital interaction, the 'white space' of our minds is being filled with relentless stimuli. To design a better digital world, we must first learn to respect the void. This essay explores the historical parallels between the broadsheet newspapers of the 19th century and the high-fidelity UI of tomorrow.
-                    </p>
-<div class="flex justify-center">
-<button class="px-8 py-3 border border-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all duration-300">
+<!-- Longform Section: Desktop Optimized -->
+<section class="bg-surface-container-low border-y border-primary py-24">
+<div class="max-w-[1200px] mx-auto px-margin-desktop">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<span class="font-label-caps text-label-caps border-y border-primary py-2 px-6 inline-block mb-8">LONGFORM SERIES: PART III</span>
+<h2 class="font-display-xl text-[72px] leading-none mb-8">The Architecture of Attention.</h2>
+<p class="font-body-lg text-body-lg mb-10 text-secondary leading-relaxed italic">
+                            "The most scarce resource of the twenty-first century is not data, nor energy, but the quiet moment before a decision is made."
+                        </p>
+<button class="px-12 py-4 border-2 border-primary font-label-caps text-label-caps tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-300">
                             READ THE FULL ESSAY
                         </button>
 </div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 pt-16 border-t border-outline">
-<div class="flex flex-col gap-4">
-<img class="w-full aspect-square object-cover border border-primary grayscale hover:grayscale-0 transition-all duration-500" data-alt="A macro photograph of vintage lead type blocks from a printing press, arranged in a grid. The lighting is soft and warm, highlighting the textures of the metal and the reversed letters. The aesthetic is tactile and archival, representing the historical weight of traditional journalism in a modern light-mode context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEMJ7fZQQFKuxxUNQ32aiMivDxUJd-PnpQoSdQBxSOyXSsHxlaiajHXC2Tk4o1V2lhe4TmiDFg_mGXdAILsDs_U9yzAUhlqO4v1K-x0jjG6gZnPa5LAObbHYsdXfmxIJxz2IiCcmlkqvXNoiKgbZZf9IKGtOGLPuanjJ0X6veBoGwzaz6kUQCn65l85zId2uzphbFIOtForKsFJXR4GyijQ507EvVhwGUZFZSM21t20a4Uzb9M055pXec9vnDJnPYbg7BHttaAcbfm"/>
+<div class="lg:w-1/2 grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-6">
+<img class="w-full aspect-square object-cover border border-primary grayscale hover:grayscale-0 transition-all duration-700" data-alt="Vintage lead type" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEMJ7fZQQFKuxxUNQ32aiMivDxUJd-PnpQoSdQBxSOyXSsHxlaiajHXC2Tk4o1V2lhe4TmiDFg_mGXdAILsDs_U9yzAUhlqO4v1K-x0jjG6gZnPa5LAObbHYsdXfmxIJxz2IiCcmlkqvXNoiKgbZZf9IKGtOGLPuanjJ0X6veBoGwzaz6kUQCn65l85zId2uzphbFIOtForKsFJXR4GyijQ507EvVhwGUZFZSM21t20a4Uzb9M055pXec9vnDJnPYbg7BHttaAcbfm"/>
+<div>
 <span class="font-meta text-meta font-bold">I. THE LEADEN ERA</span>
-<p class="font-meta text-meta text-on-surface-variant">Tracing the origins of column-based information hierarchy.</p>
+<p class="font-meta text-meta text-on-surface-variant mt-2">Historical parallel of column hierarchy.</p>
 </div>
-<div class="flex flex-col gap-4">
-<img class="w-full aspect-square object-cover border border-primary grayscale hover:grayscale-0 transition-all duration-500" data-alt="An abstract, high-tech representation of a fiber optic cable network glowing with soft white and light grey light against a dark background. The image uses a minimalist editorial style with clean lines and a sense of vast, interconnected speed. The lighting is futuristic but grounded in a clean, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSfayeNK4JGZ4IcTF1UZeB-1SmT7KFqzX55OJXJRh0lL7y4UG4RooPwNDs41N858rZOXZsvTPIJfbNsX2a7qckBJtN6u57gX3TVcJ3_P_Xt0MAFtK1QkJEMjkMjKcpjAgoh5OzdyTsDP7n21dTPCESzxZFRiQNhlUI-VX3120FbY0oOt4z9b_v79jyYHlm1thm2VxHBBl8BW5kRlXBCnRInsk2X117ePaIfqmC44F9J3cIFTz0xkJSa6B-JPL09kDn3UAxFhtfjt8"/>
+</div>
+<div class="flex flex-col gap-6 mt-12">
+<img class="w-full aspect-square object-cover border border-primary grayscale hover:grayscale-0 transition-all duration-700" data-alt="Fiber optic cables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSfayeNK4JGZ4IcTF1UZeB-1SmT7KFqzX55OJXJRh0lL7y4UG4RooPwNDs41N858rZOXZsvTPIJfbNsX2a7qckBJtN6u57gX3TVcJ3_P_Xt0MAFtK1QkJEMjkMjKcpjAgoh5OzdyTsDP7n21dTPCESzxZFRiQNhlUI-VX3120FbY0oOt4z9b_v79jyYHlm1thm2VxHBBl8BW5kRlXBCnRInsk2X117ePaIfqmC44F9J3cIFTz0xkJSa6B-JPL09kDn3UAxFhtfjt8"/>
+<div>
 <span class="font-meta text-meta font-bold">II. THE FIBER FUTURE</span>
-<p class="font-meta text-meta text-on-surface-variant">The transition from physical ink to speed-of-light rendering.</p>
+<p class="font-meta text-meta text-on-surface-variant mt-2">The transition to speed-of-light rendering.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<!-- Archive Section (Bento style) -->
-<section class="px-margin-mobile md:px-margin-desktop py-16 border-t border-primary">
-<div class="flex justify-between items-end mb-10">
+<!-- Archive Section (Desktop Grid) -->
+<section class="px-margin-desktop py-24">
+<div class="flex justify-between items-end mb-16 border-b border-primary pb-8">
 <div>
-<h2 class="font-headline-lg text-headline-lg">THE ARCHIVE</h2>
-<p class="font-meta text-meta text-secondary">EXPLORE OUR CURATED HISTORY</p>
+<h2 class="font-headline-lg text-[48px] leading-none mb-2">THE ARCHIVE</h2>
+<p class="font-meta text-meta text-secondary tracking-[0.3em]">EXPLORE CURATED HISTORY</p>
 </div>
-<div class="font-meta text-meta underline decoration-1 cursor-pointer">VIEW ALL ISSUES</div>
+<a class="font-label-caps text-label-caps group flex items-center gap-2 hover:text-on-tertiary-container transition-colors" href="#">
+                    VIEW ALL ISSUES
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
 </div>
-<div class="editorial-grid">
-<div class="col-span-12 md:col-span-6 lg:col-span-4 border border-primary p-6 hover:bg-surface-container transition-colors cursor-pointer group">
-<span class="font-label-caps text-label-caps text-secondary mb-4 block">OCTOBER 2023</span>
-<h3 class="font-headline-sm text-headline-sm mb-4">The Ethics of Generative Aesthetics.</h3>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">Can a machine truly replicate the intentionality of a human hand, or are we simply witnessing a new form of high-speed mimicry?</p>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="border border-primary p-10 hover:bg-surface-container transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<span class="font-label-caps text-label-caps text-secondary mb-6 block border-b border-outline-variant pb-2">OCTOBER 2023</span>
+<h3 class="font-headline-sm text-[28px] mb-6 leading-tight">The Ethics of Generative Aesthetics.</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-4 mb-8 flex-grow">Can a machine truly replicate the intentionality of a human hand, or are we simply witnessing a new form of high-speed mimicry?</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform text-[32px]" data-icon="arrow_forward">arrow_forward</span>
 </div>
-<div class="col-span-12 md:col-span-6 lg:col-span-4 border border-primary p-6 hover:bg-surface-container transition-colors cursor-pointer group">
-<span class="font-label-caps text-label-caps text-secondary mb-4 block">AUGUST 2023</span>
-<h3 class="font-headline-sm text-headline-sm mb-4">Urbanism in the Age of Remote Work.</h3>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">How the death of the office is reviving the local neighborhood and the 'Third Space'.</p>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<div class="border border-primary p-10 hover:bg-surface-container transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<span class="font-label-caps text-label-caps text-secondary mb-6 block border-b border-outline-variant pb-2">AUGUST 2023</span>
+<h3 class="font-headline-sm text-[28px] mb-6 leading-tight">Urbanism in the Age of Remote Work.</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-4 mb-8 flex-grow">How the death of the office is reviving the local neighborhood and the 'Third Space'.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform text-[32px]" data-icon="arrow_forward">arrow_forward</span>
 </div>
-<div class="col-span-12 md:col-span-6 lg:col-span-4 border border-primary p-6 hover:bg-surface-container transition-colors cursor-pointer group">
-<span class="font-label-caps text-label-caps text-secondary mb-4 block">MAY 2023</span>
-<h3 class="font-headline-sm text-headline-sm mb-4">Minimalism as a Political Act.</h3>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-6">In a world of constant consumption, the refusal to add more is becoming a radical choice.</p>
-<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<div class="border border-primary p-10 hover:bg-surface-container transition-all duration-300 group cursor-pointer flex flex-col h-full">
+<span class="font-label-caps text-label-caps text-secondary mb-6 block border-b border-outline-variant pb-2">MAY 2023</span>
+<h3 class="font-headline-sm text-[28px] mb-6 leading-tight">Minimalism as a Political Act.</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-4 mb-8 flex-grow">In a world of constant consumption, the refusal to add more is becoming a radical choice.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform text-[32px]" data-icon="arrow_forward">arrow_forward</span>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="w-full bottom-0 border-t-2 border-primary dark:border-outline-variant bg-surface-container dark:bg-surface-container">
-<div class="flex flex-col items-center gap-8 py-12 px-margin-mobile md:px-margin-desktop w-full">
-<div class="font-label-caps text-label-caps font-bold text-primary dark:text-primary tracking-[0.2em] mb-4">
-                THE DIGITAL JOURNAL
-            </div>
-<nav class="flex flex-wrap justify-center gap-x-12 gap-y-4">
-<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-150" href="#">ARCHIVE</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-150" href="#">ABOUT</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-150" href="#">MASTHEAD</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-150" href="#">PRIVACY</a>
-<a class="font-label-caps text-label-caps text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-150" href="#">CONTACT</a>
+<!-- Desktop Footer -->
+<footer class="w-full border-t-4 border-primary bg-surface-container">
+<div class="max-w-[1440px] mx-auto px-margin-desktop py-20">
+<div class="flex flex-col lg:flex-row justify-between items-start gap-16 mb-16">
+<div class="max-w-xs">
+<div class="font-label-caps text-[20px] font-bold text-primary tracking-[0.2em] mb-6">
+                        THE DIGITAL JOURNAL
+                    </div>
+<p class="font-meta text-meta text-on-surface-variant leading-relaxed">
+                        A weekly investigation into the intersections of technology, philosophy, and modern architecture. Est. 2024.
+                    </p>
+</div>
+<nav class="grid grid-cols-2 md:grid-cols-4 gap-x-20 gap-y-6">
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-[12px] text-primary mb-2 opacity-50">PUBLICATION</span>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Archive</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Masthead</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Series</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-[12px] text-primary mb-2 opacity-50">ABOUT</span>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Mission</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Press</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-[12px] text-primary mb-2 opacity-50">LEGAL</span>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-[12px] text-primary mb-2 opacity-50">SOCIAL</span>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">RSS Feed</a>
+<a class="font-meta text-meta text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a>
+</div>
 </nav>
-<div class="w-full max-w-content border-t border-outline-variant mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<span class="font-meta text-meta text-secondary">© 2024 DIGITAL JOURNAL. ALL RIGHTS RESERVED.</span>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity" data-icon="rss_feed">rss_feed</span>
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity" data-icon="mail">mail</span>
+</div>
+<div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-meta text-[12px] text-secondary tracking-widest uppercase">© 2024 DIGITAL JOURNAL. PRODUCED INDEPENDENTLY.</span>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-50 transition-opacity" data-icon="rss_feed">rss_feed</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-50 transition-opacity" data-icon="mail">mail</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-50 transition-opacity" data-icon="share">share</span>
 </div>
 </div>
 </div>
 </footer>
 <script>
-        // Simple micro-interaction for the breaking news banner
         document.addEventListener('DOMContentLoaded', () => {
-            const h2 = document.querySelector('h2');
-            if (h2) {
-                h2.addEventListener('mouseenter', () => {
-                    h2.style.transform = 'translateY(-2px)';
+            // Smooth reveal for images
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 1s ease-in-out';
+                img.onload = () => img.style.opacity = '1';
+                if (img.complete) img.style.opacity = '1';
+            });
+
+            // Heading micro-interaction
+            const headings = document.querySelectorAll('h2, h3');
+            headings.forEach(h => {
+                h.addEventListener('mouseenter', () => {
+                    h.style.transform = 'translateX(4px)';
                 });
-                h2.addEventListener('mouseleave', () => {
-                    h2.style.transform = 'translateY(0)';
+                h.addEventListener('mouseleave', () => {
+                    h.style.transform = 'translateX(0)';
                 });
-                h2.style.transition = 'transform 0.3s ease-out, color 0.3s ease-out';
-            }
+                h.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease';
+            });
         });
     </script>
 </body></html>

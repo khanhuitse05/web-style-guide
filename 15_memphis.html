@@ -3,10 +3,9 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>RADICAL MEMPHIS</title>
+<title>RADICAL MEMPHIS | ARTCORE.LAB</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Space+Grotesk:wght@400;500&amp;family=Syne:wght@800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -142,184 +141,223 @@
             transform: translate(8px, 8px);
             box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
         }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 20s linear infinite;
+        }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background text-on-background overflow-x-hidden selection:bg-secondary-fixed selection:text-on-secondary-fixed">
-<!-- Top Navigation Shell -->
-<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b-[3px] border-on-background dark:border-on-surface-variant shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center px-margin-desktop py-4 z-50">
+</head>
+<body class="bg-background text-on-background overflow-x-hidden selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen">
+<!-- Desktop Navigation Shell -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b-[4px] border-on-background z-50 flex justify-between items-center px-margin-desktop py-6">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary text-3xl">grid_view</span>
-<h1 class="font-display-lg text-headline-md uppercase tracking-tighter text-on-surface dark:text-on-background">ARTCORE.LAB</h1>
+<div class="bg-primary p-2 border-[3px] border-on-background hard-shadow anti-grid-box">
+<span class="material-symbols-outlined text-on-primary text-3xl block">grid_view</span>
 </div>
-<nav class="hidden md:flex gap-gutter items-center">
-<a class="text-primary font-black font-label-caps text-label-caps" href="#">HOME</a>
-<a class="text-on-surface font-medium font-label-caps text-label-caps hover:translate-x-1 hover:translate-y-1 transition-all" href="#">MANIFESTO</a>
-<a class="text-on-surface font-medium font-label-caps text-label-caps hover:translate-x-1 hover:translate-y-1 transition-all" href="#">PROJECTS</a>
-<button class="bg-primary text-on-primary border-[3px] border-on-background px-6 py-2 hard-shadow font-label-caps text-label-caps hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all uppercase">Get Radical</button>
+<h1 class="font-display-lg text-headline-md uppercase tracking-tighter text-on-surface">ARTCORE.LAB</h1>
+</div>
+<nav class="hidden md:flex gap-12 items-center">
+<a class="text-primary font-black font-label-caps text-label-caps border-b-4 border-primary" href="#">HOME</a>
+<a class="text-on-surface font-black font-label-caps text-label-caps hover:text-primary transition-colors" href="#">MANIFESTO</a>
+<a class="text-on-surface font-black font-label-caps text-label-caps hover:text-primary transition-colors" href="#">PROJECTS</a>
+<a class="text-on-surface font-black font-label-caps text-label-caps hover:text-primary transition-colors" href="#">SERVICES</a>
+<button class="bg-secondary-fixed text-on-secondary-fixed border-[3px] border-on-background px-8 py-3 hard-shadow font-label-caps text-label-caps hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all uppercase font-black">
+            Get Radical
+        </button>
 </nav>
 <button class="md:hidden p-2 border-[3px] border-on-background hard-shadow bg-secondary-fixed">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </header>
 <main class="relative">
-<!-- Background Elements -->
+<!-- Background Floating Decorations -->
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-<div class="absolute top-20 left-10 w-48 h-48 rounded-full border-[4px] border-on-background opacity-20 bacterio-pattern"></div>
-<div class="absolute bottom-40 right-[-50px] w-96 h-96 bg-tertiary-fixed opacity-30 rotate-12 anti-grid-box-alt"></div>
-<div class="absolute top-1/2 left-[-20px] w-32 h-64 border-l-[10px] border-primary opacity-20"></div>
+<div class="absolute top-40 left-10 w-64 h-64 rounded-full border-[4px] border-on-background opacity-10 bacterio-pattern animate-pulse"></div>
+<div class="absolute bottom-20 right-[-100px] w-[500px] h-[500px] bg-tertiary-fixed opacity-10 rotate-12 anti-grid-box-alt"></div>
+<div class="absolute top-1/2 right-20 w-16 h-96 border-r-[12px] border-primary opacity-10"></div>
 </div>
 <!-- Hero Section -->
-<section class="relative px-margin-mobile md:px-margin-desktop pt-24 pb-32 flex flex-col md:flex-row items-center gap-16 z-10">
-<div class="w-full md:w-3/5 space-y-8">
-<div class="inline-block bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps px-4 py-2 border-[3px] border-on-background hard-shadow anti-grid-box">
-                    RADICAL MEMPHIS
-                </div>
-<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-none drop-shadow-[4px_4px_0px_#b60074]">
-                    THE <span class="text-primary underline decoration-[8px] underline-offset-[12px]">BOLD</span> <br/>REVOLUTION <br/>IS HERE.
-                </h2>
-<p class="font-body-lg text-body-lg max-w-xl">
-                    Shattering the boring beige of minimalism. We embrace the vibrant chaos of the 80s Memphis Group with neo-brutalism and radical maximalism.
-                </p>
-<div class="flex flex-wrap gap-gutter">
-<button class="bg-primary text-on-primary border-[3px] border-on-background px-10 py-4 hard-shadow font-label-caps text-body-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all uppercase">
-                        Join the Movement
-                    </button>
-<button class="bg-surface-container-highest text-on-surface border-[3px] border-on-background px-10 py-4 hard-shadow font-label-caps text-body-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all uppercase flex items-center gap-2">
-                        View Manifesto <span class="material-symbols-outlined">arrow_forward</span>
+<section class="relative px-margin-mobile md:px-margin-desktop pt-24 pb-32 flex flex-col md:flex-row items-center gap-20 z-10 max-w-[1600px] mx-auto">
+<div class="w-full md:w-3/5 space-y-10">
+<div class="inline-block bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps px-6 py-2 border-[3px] border-on-background hard-shadow anti-grid-box uppercase font-black">
+                Radical Design Movement
+            </div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-[0.9] drop-shadow-[6px_6px_0px_#b60074]">
+                THE <span class="text-primary underline decoration-[12px] underline-offset-[16px]">BOLD</span> <br/>REVOLUTION <br/>IS HERE.
+            </h2>
+<p class="font-body-lg text-body-lg max-w-2xl leading-relaxed">
+                Shattering the boring beige of minimalism. We embrace the vibrant chaos of the 80s Memphis Group with neo-brutalism and radical maximalism. Every pixel is a protest against the ordinary.
+            </p>
+<div class="flex flex-wrap gap-gutter pt-4">
+<button class="bg-primary text-on-primary border-[4px] border-on-background px-12 py-5 hard-shadow font-label-caps text-body-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all uppercase font-black">
+                    Join the Movement
+                </button>
+<button class="bg-surface-container-highest text-on-surface border-[4px] border-on-background px-12 py-5 hard-shadow font-label-caps text-body-lg hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all uppercase flex items-center gap-3 font-black">
+                    View Manifesto <span class="material-symbols-outlined font-black">arrow_forward</span>
 </button>
 </div>
 </div>
 <!-- Geometric Hero Visual -->
 <div class="w-full md:w-2/5 relative">
-<div class="relative w-full aspect-square border-[6px] border-on-background hard-shadow bg-tertiary-fixed-dim anti-grid-box-alt flex items-center justify-center overflow-hidden">
-<img alt="Memphis Art" class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80" data-alt="A vivid abstract 3D composition in the style of Memphis design. Bright pink pyramids, teal cylinders, and yellow spheres are scattered across a black and white polka-dotted surface. The lighting is harsh and direct, creating strong black shadows that emphasize the geometric shapes. The overall mood is energetic, playful, and defiant of traditional architectural norms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt1xUG2CAfZm1xERXEN9xKO-T2uiDe1JpM135ZrU9F77b3BoSkw_paHC9Y7G6nYIFOlumeBfCqkXuuQFZqZs0Bkwb8jKe9RkhmfylIOrGEdOEM2whflEV_QicQgiXSoQ2LqhtCVRFHOeT8pEuuo4Q8_r-yLhhFFqnmJ8NsCJp3w_MIiILcVk_MM3RRIhAs5gfSZWE1_mUwhjWub6sTQodmPoy6v0-_p9TnbS3fHje8gWUwO7i-vnKhJeC5Zo7pV4HnioBckrM9ivlu"/>
-<div class="absolute top-0 right-0 p-8">
-<div class="w-24 h-24 bg-primary border-[4px] border-on-background rounded-full bacterio-pattern hard-shadow"></div>
+<div class="relative w-full aspect-square border-[8px] border-on-background hard-shadow bg-tertiary-fixed-dim anti-grid-box-alt flex items-center justify-center overflow-hidden">
+<img alt="Memphis Art" class="w-full h-full object-cover grayscale mix-blend-multiply opacity-90" data-alt="A vivid abstract 3D composition in the style of Memphis design. Bright pink pyramids, teal cylinders, and yellow spheres are scattered across a black and white polka-dotted surface. The lighting is harsh and direct, creating strong black shadows that emphasize the geometric shapes. The overall mood is energetic, playful, and defiant of traditional architectural norms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt1xUG2CAfZm1xERXEN9xKO-T2uiDe1JpM135ZrU9F77b3BoSkw_paHC9Y7G6nYIFOlumeBfCqkXuuQFZqZs0Bkwb8jKe9RkhmfylIOrGEdOEM2whflEV_QicQgiXSoQ2LqhtCVRFHOeT8pEuuo4Q8_r-yLhhFFqnmJ8NsCJp3w_MIiILcVk_MM3RRIhAs5gfSZWE1_mUwhjWub6sTQodmPoy6v0-_p9TnbS3fHje8gWUwO7i-vnKhJeC5Zo7pV4HnioBckrM9ivlu"/>
+<div class="absolute top-0 right-0 p-10">
+<div class="w-32 h-32 bg-primary border-[4px] border-on-background rounded-full bacterio-pattern hard-shadow animate-spin-slow" style="animation: spin 10s linear infinite;"></div>
 </div>
 </div>
 <!-- Decorative Floaters -->
-<div class="absolute -bottom-10 -left-10 w-40 h-12 bg-secondary-fixed border-[3px] border-on-background stripe-pattern hard-shadow anti-grid-box"></div>
+<div class="absolute -bottom-12 -left-12 w-56 h-16 bg-secondary-fixed border-[4px] border-on-background stripe-pattern hard-shadow anti-grid-box z-20"></div>
+<div class="absolute -top-8 -left-8 w-16 h-16 bg-tertiary-fixed border-[4px] border-on-background rounded-full hard-shadow z-20"></div>
 </div>
 </section>
-<!-- Feature Grid (Anti-Grid Style) -->
-<section class="px-margin-mobile md:px-margin-desktop py-20 relative z-10">
-<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Marquee Banner -->
+<section class="w-full py-16 bg-on-background overflow-hidden relative border-y-[4px] border-on-background">
+<div class="flex whitespace-nowrap animate-scroll">
+<span class="text-surface font-display-lg text-headline-md uppercase mx-12 italic">Neo-Brutalism</span>
+<span class="text-primary font-display-lg text-headline-md uppercase mx-12">Radical Design</span>
+<span class="text-secondary-fixed font-display-lg text-headline-md uppercase mx-12 italic">Maximalist Soul</span>
+<span class="text-tertiary-fixed font-display-lg text-headline-md uppercase mx-12">Artcore Lab</span>
+<span class="text-surface font-display-lg text-headline-md uppercase mx-12 italic">Neo-Brutalism</span>
+<span class="text-primary font-display-lg text-headline-md uppercase mx-12">Radical Design</span>
+<span class="text-secondary-fixed font-display-lg text-headline-md uppercase mx-12 italic">Maximalist Soul</span>
+<span class="text-tertiary-fixed font-display-lg text-headline-md uppercase mx-12">Artcore Lab</span>
+</div>
+</section>
+<!-- Multi-Column Feature Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-32 relative z-10 max-w-[1600px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
 <!-- Feature Card 1: Shape Mastery -->
-<div class="w-full md:w-1/2 flex flex-col items-start gap-6 bg-surface-container p-10 border-[4px] border-on-background hard-shadow anti-grid-box hover:rotate-0 transition-transform cursor-pointer">
-<div class="w-20 h-20 bg-primary border-[3px] border-on-background flex items-center justify-center text-on-primary">
-<span class="material-symbols-outlined text-5xl">architecture</span>
+<div class="flex flex-col items-start gap-8 bg-surface-container p-12 border-[4px] border-on-background hard-shadow anti-grid-box hover:rotate-0 transition-transform cursor-pointer group">
+<div class="w-24 h-24 bg-primary border-[4px] border-on-background flex items-center justify-center text-on-primary hard-shadow group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-6xl">architecture</span>
 </div>
 <h3 class="font-display-lg text-headline-md uppercase">Shape Mastery</h3>
-<div class="w-full h-[4px] bg-on-background"></div>
-<p class="font-body-sm text-body-sm">
-                        Geometries are the DNA of the Radical Memphis style. Triangles, squiggles, and circles collide to create a landscape that defies expectations.
-                    </p>
-<div class="flex gap-2">
-<div class="w-6 h-6 bg-secondary-fixed border-[2px] border-on-background rounded-full"></div>
-<div class="w-6 h-6 bg-tertiary-fixed border-[2px] border-on-background rotate-45"></div>
-<div class="w-12 h-6 bg-primary border-[2px] border-on-background"></div>
+<div class="w-full h-[6px] bg-on-background"></div>
+<p class="font-body-sm text-body-lg">
+                    Geometries are the DNA of the Radical Memphis style. Triangles, squiggles, and circles collide to create a landscape that defies expectations and celebrates architectural chaos.
+                </p>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-secondary-fixed border-[3px] border-on-background rounded-full"></div>
+<div class="w-10 h-10 bg-tertiary-fixed border-[3px] border-on-background rotate-45"></div>
+<div class="w-20 h-10 bg-primary border-[3px] border-on-background"></div>
 </div>
 </div>
 <!-- Feature Card 2: Color Chaos -->
-<div class="w-full md:w-1/2 mt-12 md:mt-24 flex flex-col items-start gap-6 bg-tertiary-fixed-dim p-10 border-[4px] border-on-background hard-shadow anti-grid-box-alt hover:rotate-0 transition-transform cursor-pointer">
-<div class="w-20 h-20 bg-secondary-fixed border-[3px] border-on-background flex items-center justify-center text-on-secondary-fixed">
-<span class="material-symbols-outlined text-5xl">palette</span>
+<div class="flex flex-col items-start gap-8 bg-tertiary-fixed-dim p-12 border-[4px] border-on-background hard-shadow anti-grid-box-alt hover:rotate-0 transition-transform cursor-pointer mt-12 group">
+<div class="w-24 h-24 bg-secondary-fixed border-[4px] border-on-background flex items-center justify-center text-on-secondary-fixed hard-shadow group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-6xl">palette</span>
 </div>
 <h3 class="font-display-lg text-headline-md uppercase">Color Chaos</h3>
-<div class="w-full h-[4px] bg-on-background"></div>
-<p class="font-body-sm text-body-sm">
-                        Neon pink meets electric yellow. We utilize the clashing vibrant hues of the 1980s to stimulate the visual senses and break the monotony of minimalism.
-                    </p>
-<div class="w-full h-12 stripe-pattern border-[2px] border-on-background"></div>
+<div class="w-full h-[6px] bg-on-background"></div>
+<p class="font-body-sm text-body-lg">
+                    Neon pink meets electric yellow. We utilize the clashing vibrant hues of the 1980s to stimulate the visual senses and break the monotony of minimalism forever.
+                </p>
+<div class="w-full h-16 stripe-pattern border-[3px] border-on-background"></div>
+</div>
+<!-- Feature Card 3: Radical Layout -->
+<div class="flex flex-col items-start gap-8 bg-secondary-fixed p-12 border-[4px] border-on-background hard-shadow anti-grid-box hover:rotate-0 transition-transform cursor-pointer group">
+<div class="w-24 h-24 bg-on-background border-[4px] border-on-background flex items-center justify-center text-secondary-fixed hard-shadow group-hover:translate-x-1 group-hover:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-6xl">grid_on</span>
+</div>
+<h3 class="font-display-lg text-headline-md uppercase">Grid Breaking</h3>
+<div class="w-full h-[6px] bg-on-background"></div>
+<p class="font-body-sm text-body-lg">
+                    We don't follow the grid; we weaponize it. Our layouts are designed to feel alive, moving, and intentionally disruptive to the standard web browsing experience.
+                </p>
+<div class="w-full h-16 bacterio-pattern border-[3px] border-on-background bg-surface"></div>
 </div>
 </div>
 </section>
-<!-- Dynamic Banner -->
-<section class="w-full py-12 bg-on-background overflow-hidden relative">
-<div class="flex whitespace-nowrap animate-scroll">
-<span class="text-surface font-display-lg text-headline-md uppercase mx-8 italic">Neo-Brutalism</span>
-<span class="text-primary font-display-lg text-headline-md uppercase mx-8">Radical Design</span>
-<span class="text-secondary-fixed font-display-lg text-headline-md uppercase mx-8 italic">Maximalist Soul</span>
-<span class="text-tertiary-fixed font-display-lg text-headline-md uppercase mx-8">Artcore Lab</span>
-<!-- Duplicate for seamless loop -->
-<span class="text-surface font-display-lg text-headline-md uppercase mx-8 italic">Neo-Brutalism</span>
-<span class="text-primary font-display-lg text-headline-md uppercase mx-8">Radical Design</span>
-<span class="text-secondary-fixed font-display-lg text-headline-md uppercase mx-8 italic">Maximalist Soul</span>
-<span class="text-tertiary-fixed font-display-lg text-headline-md uppercase mx-8">Artcore Lab</span>
-</div>
-<style>
-                @keyframes scroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-                .animate-scroll {
-                    animation: scroll 20s linear infinite;
-                }
-            </style>
-</section>
-<!-- Final CTA / Interactive Zone -->
-<section class="px-margin-mobile md:px-margin-desktop py-32 flex flex-col items-center justify-center text-center relative z-10 overflow-hidden">
+<!-- Final CTA Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-40 flex flex-col items-center justify-center text-center relative z-10 overflow-hidden bg-surface-container-low border-t-[4px] border-on-background">
 <div class="absolute -z-10 w-full h-full flex items-center justify-center">
-<div class="w-[80vw] h-[80vw] border-[10px] border-secondary-fixed opacity-10 rounded-full animate-pulse"></div>
+<div class="w-[60vw] h-[60vw] border-[15px] border-secondary-fixed opacity-10 rounded-full animate-pulse"></div>
+<div class="absolute w-[40vw] h-[40vw] border-[5px] border-primary opacity-5 rounded-full animate-ping"></div>
 </div>
-<div class="max-w-4xl space-y-10">
-<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-tight">
-                    READY TO ESCAPE <br/><span class="bg-primary text-on-primary px-4 border-[4px] border-on-background shadow-[8px_8px_0px_#26fedc]">THE BOREDOM?</span>
+<div class="max-w-5xl space-y-16">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-[0.85]">
+                READY TO ESCAPE <br/><span class="bg-primary text-on-primary px-8 py-2 border-[6px] border-on-background shadow-[12px_12px_0px_#26fedc] inline-block mt-4">THE BOREDOM?</span>
 </h2>
 <div class="relative inline-block">
-<button class="bg-secondary-fixed text-on-secondary-fixed border-[4px] border-on-background px-16 py-6 hard-shadow font-display-lg text-headline-md uppercase hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all active:bg-primary active:text-on-primary">
-                        Launch Project
-                    </button>
+<button class="bg-secondary-fixed text-on-secondary-fixed border-[5px] border-on-background px-20 py-8 hard-shadow font-display-lg text-headline-md uppercase hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all active:bg-primary active:text-on-primary group">
+                    Launch Your Project
+                </button>
 <!-- Floating Sticker -->
-<div class="absolute -top-6 -right-10 bg-tertiary-fixed border-[2px] border-on-background px-3 py-1 font-label-caps text-xs rotate-12 uppercase hard-shadow">Limited Edition</div>
+<div class="absolute -top-10 -right-16 bg-tertiary-fixed border-[3px] border-on-background px-6 py-2 font-label-caps text-sm rotate-12 uppercase hard-shadow font-black">
+                    Limited Edition
+                </div>
 </div>
+<p class="font-body-lg text-body-lg opacity-60">Join over 5,000 radicals defining the new visual frontier.</p>
 </div>
 </section>
 </main>
-<!-- Footer Component -->
-<footer class="w-full relative bg-secondary-fixed dark:bg-secondary-fixed-dim border-t-[4px] border-on-background px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-gutter">
-<div class="flex flex-col gap-4 items-center md:items-start">
-<h2 class="font-display-lg text-headline-md text-on-secondary-fixed uppercase tracking-tighter">ARTCORE</h2>
-<p class="font-label-caps text-label-caps text-on-secondary-fixed max-w-xs text-center md:text-left opacity-80">
-                ©2024 RADICAL MAXIMALISM. ALL RIGHTS RESERVED.
-            </p>
+<!-- Desktop Footer Component -->
+<footer class="w-full relative bg-on-background text-surface px-margin-desktop py-20 flex flex-col md:flex-row justify-between items-start gap-16 border-t-[4px] border-on-background">
+<div class="flex flex-col gap-6 w-full md:w-1/3">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary border-[2px] border-surface"></div>
+<h2 class="font-display-lg text-headline-md text-surface uppercase tracking-tighter">ARTCORE</h2>
 </div>
-<nav class="flex flex-wrap justify-center gap-gutter">
-<a class="font-label-caps text-label-caps underline decoration-[3px] decoration-primary text-on-secondary-fixed hover:skew-x-2 transition-transform" href="#">MANIFESTO</a>
-<a class="font-label-caps text-label-caps text-on-secondary-fixed hover:text-primary transition-colors hover:skew-x-2 transition-transform" href="#">PROJECTS</a>
-<a class="font-label-caps text-label-caps text-on-secondary-fixed hover:text-primary transition-colors hover:skew-x-2 transition-transform" href="#">SERVICES</a>
-<a class="font-label-caps text-label-caps text-on-secondary-fixed hover:text-primary transition-colors hover:skew-x-2 transition-transform" href="#">CONTACT</a>
+<p class="font-body-sm text-body-sm text-surface opacity-70 max-w-sm">
+            We are a collective of designers, artists, and misfits dedicated to the revival of maximalist aesthetics in the digital age.
+        </p>
+<p class="font-label-caps text-xs text-surface opacity-40">
+            ©2024 RADICAL MAXIMALISM. ALL RIGHTS RESERVED.
+        </p>
+</div>
+<div class="grid grid-cols-2 gap-16 w-full md:w-1/3">
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-primary uppercase font-black">Explore</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">MANIFESTO</a>
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">PROJECTS</a>
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">LABS</a>
 </nav>
-<div class="flex gap-4">
-<div class="w-10 h-10 bg-on-secondary-fixed rounded-full flex items-center justify-center text-secondary-fixed hover:scale-110 cursor-pointer transition-transform">
-<span class="material-symbols-outlined">alternate_email</span>
 </div>
-<div class="w-10 h-10 bg-on-secondary-fixed rounded-full flex items-center justify-center text-secondary-fixed hover:scale-110 cursor-pointer transition-transform">
-<span class="material-symbols-outlined">language</span>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-primary uppercase font-black">Connect</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">SERVICES</a>
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">CONTACT</a>
+<a class="font-label-caps text-label-caps text-surface hover:text-secondary-fixed transition-colors" href="#">CAREERS</a>
+</nav>
 </div>
 </div>
-<!-- Decorative Footer Pattern -->
-<div class="absolute top-0 right-0 w-32 h-full bacterio-pattern opacity-10 pointer-events-none"></div>
+<div class="flex flex-col gap-8 items-center md:items-end w-full md:w-1/3">
+<div class="flex gap-6">
+<div class="w-14 h-14 bg-surface rounded-full flex items-center justify-center text-on-background hover:bg-secondary-fixed hover:scale-110 cursor-pointer transition-all hard-shadow">
+<span class="material-symbols-outlined text-2xl font-black">alternate_email</span>
+</div>
+<div class="w-14 h-14 bg-surface rounded-full flex items-center justify-center text-on-background hover:bg-primary hover:text-on-primary hover:scale-110 cursor-pointer transition-all hard-shadow">
+<span class="material-symbols-outlined text-2xl font-black">language</span>
+</div>
+<div class="w-14 h-14 bg-surface rounded-full flex items-center justify-center text-on-background hover:bg-tertiary-fixed hover:scale-110 cursor-pointer transition-all hard-shadow">
+<span class="material-symbols-outlined text-2xl font-black">share</span>
+</div>
+</div>
+<div class="w-full h-12 bacterio-pattern opacity-20 border-[2px] border-surface/20"></div>
+</div>
+<!-- Decorative Footer Shape -->
+<div class="absolute bottom-0 left-0 w-64 h-64 stripe-pattern opacity-5 pointer-events-none"></div>
 </footer>
 <script>
-        // Micro-interactions and parallax-ish effect on hover
-        document.addEventListener('mousemove', (e) => {
-            const boxes = document.querySelectorAll('.anti-grid-box, .anti-grid-box-alt');
-            const x = (window.innerWidth / 2 - e.pageX) / 50;
-            const y = (window.innerHeight / 2 - e.pageY) / 50;
-            
-            boxes.forEach(box => {
-                const rect = box.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    // Subtle tilt on mouse move
-                    box.style.transform = `rotate(${box.classList.contains('anti-grid-box') ? -1.5 : 1.5}deg) translate(${x}px, ${y}px)`;
-                }
-            });
+    // Micro-interactions and parallax-ish effect for desktop
+    document.addEventListener('mousemove', (e) => {
+        const boxes = document.querySelectorAll('.anti-grid-box, .anti-grid-box-alt');
+        const x = (window.innerWidth / 2 - e.pageX) / 100;
+        const y = (window.innerHeight / 2 - e.pageY) / 100;
+        
+        boxes.forEach(box => {
+            const rect = box.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const baseRotation = box.classList.contains('anti-grid-box') ? -1.5 : 1.5;
+                box.style.transform = `rotate(${baseRotation}deg) translate(${x}px, ${y}px)`;
+            }
         });
-    </script>
+    });
+</script>
 </body></html>

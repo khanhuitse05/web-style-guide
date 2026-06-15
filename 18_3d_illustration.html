@@ -3,10 +3,9 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>3D Illustration Demo</title>
+<title>3D Illustration Demo - Desktop</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .clay-card {
@@ -148,195 +147,259 @@
         }
     </script>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background text-on-surface custom-gradient-bg min-h-screen">
+        body {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface custom-gradient-bg">
 <!-- Top Navigation -->
-<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm px-margin-mobile py-stack-sm flex justify-between items-center">
+<nav class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl shadow-sm px-margin-mobile md:px-margin-desktop py-stack-sm">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="flex items-center gap-12">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">model_training</span>
 <span class="font-headline-md text-headline-md font-bold text-primary">ClayHub</span>
 </div>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full clay-button font-label-md text-label-md">
-            Get Started
-        </button>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Showcase</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tutorials</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-label-md text-label-md text-primary px-6">Sign In</button>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full clay-button font-label-md text-label-md">
+                    Get Started
+                </button>
+</div>
+</div>
 </nav>
-<main class="max-w-md mx-auto px-margin-mobile pb-stack-lg">
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-stack-lg">
 <!-- Hero Section -->
-<section class="pt-stack-lg relative">
-<div class="flex flex-col items-center text-center space-y-4">
-<div class="relative w-full aspect-square max-w-[320px] mb-stack-md">
+<section class="pt-16 md:pt-24 mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 order-2 lg:order-1">
+<h1 class="font-display-lg text-4xl md:text-6xl lg:text-display-lg text-primary tracking-tight leading-tight">
+                        Sculpted with <br class="hidden lg:block"/>Careful Precision
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Experience a interface that feels as good as it looks. Depth, volume, and tactility reimagined for the modern web.
+                    </p>
+<div class="w-full md:w-auto pt-4 flex flex-col md:flex-row gap-4">
+<button class="clay-button px-12 py-5 rounded-[24px] text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-3">
+                            Join the Beta
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white/50 backdrop-blur-sm border-2 border-primary/10 px-12 py-5 rounded-[24px] text-primary font-headline-md text-headline-md flex items-center justify-center gap-3">
+                            Watch Demo
+                        </button>
+</div>
+</div>
+<div class="relative flex items-center justify-center order-1 lg:order-2">
 <!-- Background Glow -->
-<div class="absolute inset-0 bg-primary-container/20 blur-[60px] rounded-full scale-110"></div>
+<div class="absolute inset-0 bg-primary-container/20 blur-[100px] rounded-full scale-125"></div>
 <!-- 3D Character Illustration -->
-<div class="floating-object relative z-10 w-full h-full flex items-center justify-center">
+<div class="floating-object relative z-10 w-full max-w-[500px] aspect-square flex items-center justify-center">
 <img alt="3D Character" class="w-full h-full object-contain drop-shadow-2xl" data-alt="A friendly, high-fidelity 3D character with a soft claymorphic finish, sitting on a floating cloud. The character features rounded shapes and a warm, optimistic expression, styled in vibrant pastel blues and purples. The lighting is soft and diffused, creating subtle highlights and deep, velvety shadows typical of high-end plasticine renders. The background is a minimalist, airy space with subtle floating geometric bubbles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ4Eha3ui_DtTvclPq7_dYJA_xaOfov7UbVSSfqahnAmmYibUyT8egTl_dWDLx_Tf0ElD1xnom95Hu9W8TM-gw2hzEITrZFskqtvlkmkPSpl4BC5hDSV-hFkXJ5scdrWLjYNIfku7eREIOu05pknjWxrqsjk95zfshEaUCFBwN2l1s9ycDsAQarioJMTBoT8D3crzt3KTI6dGYgJG7WX9xzz7WNQHU-KVlWEcxjD9PMKbQx6MtSGtWQh61K9gyX1HtcB97mOPLStk9"/>
 </div>
 <!-- Floor Shadow -->
-<div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-2/3 h-6 bg-primary/10 blur-xl rounded-[100%]"></div>
-</div>
-<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">
-                    Sculpted with Care
-                </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant px-4">
-                    Experience a interface that feels as good as it looks. Depth, volume, and tactility reimagined.
-                </p>
-<div class="w-full pt-4">
-<button class="w-full clay-button py-5 rounded-[24px] text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-3">
-                        Join the Beta
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</button>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-2/3 h-12 bg-primary/10 blur-2xl rounded-[100%]"></div>
 </div>
 </div>
 </section>
-<!-- Feature Section: Soft Shapes -->
-<section class="mt-stack-lg space-y-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Soft Shapes & Tactile Buttons -->
+<div class="lg:col-span-7 space-y-16">
+<!-- Soft Shapes -->
+<section class="space-y-gutter">
 <div class="flex items-center justify-between">
 <h2 class="font-headline-lg text-headline-lg text-on-surface">Soft Shapes</h2>
-<span class="text-primary font-label-md text-label-md">View All</span>
+<span class="text-primary font-label-md text-label-md cursor-pointer hover:underline">View All</span>
 </div>
-<div class="grid grid-cols-1 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- Bento Card 1 -->
-<div class="clay-card p-6 relative overflow-hidden group">
-<div class="relative z-10 space-y-2">
-<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-label-sm font-label-sm">New</span>
-<h3 class="font-headline-md text-headline-md">Organic Curves</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Designed with hyper-rounded corners for a friendly feel.</p>
+<div class="clay-card p-8 relative overflow-hidden group min-h-[240px] md:col-span-2">
+<div class="relative z-10 space-y-4 max-w-sm">
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-label-sm font-label-sm">New Update</span>
+<h3 class="font-headline-md text-headline-md text-2xl">Organic Curves</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Designed with hyper-rounded corners for a friendly feel. Every curve is mathematically optimized for visual comfort.</p>
 </div>
-<div class="absolute -right-8 -bottom-8 w-32 h-32 opacity-20 group-hover:scale-110 transition-transform duration-500">
+<div class="absolute -right-12 -bottom-12 w-64 h-64 opacity-40 group-hover:scale-110 transition-transform duration-700">
 <img alt="Soft Geometry" class="w-full h-full object-contain" data-alt="A collection of soft, rounded 3D geometric shapes including spheres and tori with a matte plastic finish. The colors are vibrant pastel mint and coral, showing high-fidelity claymorphic depth with gentle inner shadows and soft ambient occlusion. The objects are arranged in a dynamic, overlapping composition against a clean, off-white background with professional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmZfFPdpM7Vmf0UKZQobD3kQdTBHPTsQuYdOy05M_TCBxra2qblkYF8JM1PhAsEQ75hGH3n1hqhairQaPQxbNW5oHxsptlRWXMxW2DuoH_rIJo0S_KZlPMZKFU1VQpTHoPcD68ljW6l6lEiFi0X17pgV78sV4FYQeN3KbLjmqnF_JnDfbt1Tk-vZIO3iJTIEYJ3qYNK6PRgU8Oz5N0KbxxfeitA7Juz57sm2LfHQJvI2PLUebunjNcoJWN0jZa1cLVrP2I4Sp37rwg"/>
 </div>
 </div>
 <!-- Bento Card 2 -->
-<div class="clay-card p-6 bg-secondary-fixed/30 border-none">
-<div class="flex items-start gap-4">
-<div class="w-16 h-16 rounded-3xl bg-white clay-inset flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
+<div class="clay-card p-8 bg-secondary-fixed/20 border-none flex items-center md:col-span-2">
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-3xl bg-white clay-inset flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md">Tactile Feedback</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Every element reacts with a satisfying physical bounce.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Every element reacts with a satisfying physical bounce and micro-haptics.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Feature Section: Tactile Buttons -->
-<section class="mt-stack-lg space-y-gutter">
-<h2 class="font-headline-lg text-headline-lg text-on-surface">Tactile Buttons</h2>
-<div class="flex flex-col gap-4">
-<button class="clay-button bg-surface py-6 rounded-[28px] flex items-center justify-between px-8 text-primary border-none">
-<span class="font-headline-md text-headline-md">Primary Action</span>
-<span class="material-symbols-outlined text-primary">touch_app</span>
-</button>
-<div class="grid grid-cols-2 gap-4">
-<button class="clay-button bg-tertiary py-5 rounded-[24px] flex flex-col items-center justify-center gap-2 text-on-primary">
-<span class="material-symbols-outlined">favorite</span>
-<span class="font-label-md text-label-md">Save</span>
-</button>
-<button class="clay-button bg-secondary-container py-5 rounded-[24px] flex flex-col items-center justify-center gap-2 text-on-secondary-container">
-<span class="material-symbols-outlined">share</span>
-<span class="font-label-md text-label-md">Share</span>
-</button>
-</div>
-</div>
-</section>
-<!-- Feature Section: Interactive Objects -->
-<section class="mt-stack-lg space-y-gutter">
+<!-- Interactive Objects -->
+<section class="space-y-gutter">
 <h2 class="font-headline-lg text-headline-lg text-on-surface">Interactive Objects</h2>
-<div class="space-y-6">
-<!-- Interactive Stage -->
-<div class="clay-card aspect-video relative flex items-center justify-center overflow-hidden">
+<div class="grid grid-cols-1 gap-6">
+<div class="clay-card aspect-[16/9] relative flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 bg-gradient-to-br from-primary-fixed/50 to-transparent"></div>
-<img alt="3D Interaction" class="relative z-10 w-3/4 h-3/4 object-contain floating-object" data-alt="A stylized 3D render of a smartphone with a soft, clay-like texture floating in a digital void. The screen displays vibrant, rounded UI components that seem to pop out of the surface. Surrounding the phone are 3D icons like hearts and stars, all following the claymorphic aesthetic with soft pastel colors, deep inner shadows, and a matte finish. High-end studio lighting creates a professional and playful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcS-ruLrOlkLuUZNj4a8JtQ_d73wMhix-eaFcjUdBCDAU1e0RtGeSQA3F9i83r0-YBlfj8q1uWtnjeI-lArxjJDje37iukGuOmdBMcLU-X6IsZs8B--Lv7TrWips8UXnQ3LHzNGod3T1PbhcQSHNTzuTsLjskCHE0P2RqGJ87MwE7PwjENo_SeHIEZqaob9zx8UG5jbU4owD0SGwfyn56sRbQHrryHJ25SIG_8AkNCbYiPuaPhiDTxFXVsq334NEtqTr6XKwfOJr_b"/>
-<div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-2xl flex justify-between items-center">
+<img alt="3D Interaction" class="relative z-10 w-2/3 h-2/3 object-contain floating-object" data-alt="A stylized 3D render of a smartphone with a soft, clay-like texture floating in a digital void. The screen displays vibrant, rounded UI components that seem to pop out of the surface. Surrounding the phone are 3D icons like hearts and stars, all following the claymorphic aesthetic with soft pastel colors, deep inner shadows, and a matte finish. High-end studio lighting creates a professional and playful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcS-ruLrOlkLuUZNj4a8JtQ_d73wMhix-eaFcjUdBCDAU1e0RtGeSQA3F9i83r0-YBlfj8q1uWtnjeI-lArxjJDje37iukGuOmdBMcLU-X6IsZs8B--Lv7TrWips8UXnQ3LHzNGod3T1PbhcQSHNTzuTsLjskCHE0P2RqGJ87MwE7PwjENo_SeHIEZqaob9zx8UG5jbU4owD0SGwfyn56sRbQHrryHJ25SIG_8AkNCbYiPuaPhiDTxFXVsq334NEtqTr6XKwfOJr_b"/>
+<div class="absolute bottom-6 left-6 right-6 glass-panel p-6 rounded-2xl flex justify-between items-center">
 <div>
 <p class="font-label-md text-label-md text-on-surface">Interactive Layer</p>
-<p class="text-label-sm font-label-sm text-on-surface-variant">Tap to rotate object</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Click to drag and explore details</p>
 </div>
+<div class="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
 <span class="material-symbols-outlined text-primary">view_in_ar</span>
+<span class="text-label-sm font-bold text-primary">3D VIEW</span>
 </div>
 </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Tactile Buttons, Progress & Social -->
+<div class="lg:col-span-5 space-y-16">
+<!-- Tactile Buttons -->
+<section class="space-y-gutter">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Components</h2>
+<div class="flex flex-col gap-6">
+<button class="clay-button bg-surface py-8 rounded-[32px] flex items-center justify-between px-10 text-primary border-none">
+<span class="font-headline-md text-headline-md">Primary Action</span>
+<span class="material-symbols-outlined text-primary text-3xl">touch_app</span>
+</button>
+<div class="grid grid-cols-2 gap-6">
+<button class="clay-button bg-tertiary py-6 rounded-[28px] flex flex-col items-center justify-center gap-3 text-on-primary">
+<span class="material-symbols-outlined text-3xl">favorite</span>
+<span class="font-label-md text-label-md">Save Project</span>
+</button>
+<button class="clay-button bg-secondary-container py-6 rounded-[28px] flex flex-col items-center justify-center gap-3 text-on-secondary-container">
+<span class="material-symbols-outlined text-3xl">share</span>
+<span class="font-label-md text-label-md">Share Assets</span>
+</button>
+</div>
+</div>
+</section>
 <!-- Custom Progress -->
-<div class="clay-card p-6 space-y-4">
-<div class="flex justify-between items-center">
-<span class="font-label-md text-label-md text-on-surface">Complexity Score</span>
-<span class="font-headline-md text-headline-md text-primary">84%</span>
+<section class="space-y-gutter">
+<div class="clay-card p-8 space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md">Visual Balance</h3>
+<p class="text-body-md text-on-surface-variant">System-wide consistency</p>
 </div>
-<div class="h-6 w-full bg-surface-container clay-inset rounded-full overflow-hidden p-1">
+<span class="font-display-lg text-display-lg text-primary">84%</span>
+</div>
+<div class="h-8 w-full bg-surface-container clay-inset rounded-full overflow-hidden p-1.5">
 <div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-[84%] relative shadow-[inset_0_2px_4px_rgba(255,255,255,0.4)]">
 <div class="absolute top-0 left-0 w-full h-1/2 bg-white/20 rounded-full"></div>
 </div>
 </div>
 </div>
-</div>
 </section>
-<!-- Quote/Social Proof -->
-<section class="mt-stack-lg">
-<div class="glass-panel p-8 rounded-[40px] text-center space-y-4 relative overflow-hidden">
-<div class="absolute -top-10 -left-10 w-24 h-24 bg-tertiary-fixed-dim/20 blur-3xl rounded-full"></div>
-<div class="material-symbols-outlined text-primary text-5xl opacity-20">format_quote</div>
-<p class="font-headline-md text-headline-md text-on-surface italic leading-snug">
-                    "This system brings a level of playfulness back to digital products."
-                </p>
-<div class="flex items-center justify-center gap-3 pt-2">
-<div class="w-10 h-10 rounded-full bg-primary-fixed border-2 border-white shadow-sm"></div>
+<!-- Social Proof -->
+<section>
+<div class="glass-panel p-10 rounded-[48px] text-center space-y-6 relative overflow-hidden border-2 border-white">
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-tertiary-fixed-dim/20 blur-3xl rounded-full"></div>
+<div class="material-symbols-outlined text-primary text-6xl opacity-10">format_quote</div>
+<p class="font-headline-md text-headline-md text-on-surface italic leading-snug text-2xl">
+                            "This system brings a level of playfulness back to digital products that we haven't seen since the early days."
+                        </p>
+<div class="flex items-center justify-center gap-4 pt-4">
+<div class="w-14 h-14 rounded-full bg-primary-fixed border-4 border-white shadow-md"></div>
 <div class="text-left">
-<p class="font-label-md text-label-md text-on-surface">Alex Rivera</p>
-<p class="text-label-sm font-label-sm text-on-surface-variant">Lead Designer</p>
+<p class="font-label-md text-body-lg font-bold text-on-surface">Alex Rivera</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Lead Designer @ CreativeFlow</p>
 </div>
 </div>
 </div>
 </section>
+</div>
+</div>
 </main>
 <!-- Footer -->
-<footer class="w-full rounded-t-[32px] mt-stack-lg bg-surface-container-low dark:bg-inverse-surface shadow-[inset_0_2px_4px_rgba(255,255,255,0.8),inset_0_-2px_4px_rgba(0,0,0,0.05)] pt-stack-lg pb-10">
-<div class="max-w-md mx-auto px-margin-mobile flex flex-col items-center gap-gutter text-center">
+<footer class="w-full rounded-t-[64px] mt-24 bg-surface-container-low dark:bg-inverse-surface shadow-[inset_0_4px_12px_rgba(255,255,255,0.8)] pt-20 pb-16">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 lg:col-span-1 flex flex-col gap-6">
 <div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-headline-sm" style="font-variation-settings: 'FILL' 1;">model_training</span>
-<span class="font-headline-sm text-headline-sm text-primary">ClayHub</span>
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">model_training</span>
+<span class="font-headline-md text-headline-md text-primary">ClayHub</span>
 </div>
-<nav class="flex flex-wrap justify-center gap-4">
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Showcase</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tutorials</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">License</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
-</nav>
-<p class="font-body-md text-body-md text-outline py-4">
-                © 2024 Claymorphic Illustrations. Built with depth.
-            </p>
+<p class="text-on-surface-variant max-w-xs">Building the future of tactile interfaces with love and soft shadows.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">Product</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary" href="#">Showcase</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="#">Components</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">Resources</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary" href="#">Tutorials</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="#">License</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="#">Documentation</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">Connect</h4>
 <div class="flex gap-4">
-<div class="w-10 h-10 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<div class="w-12 h-12 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
 <span class="material-symbols-outlined text-primary">language</span>
 </div>
-<div class="w-10 h-10 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<div class="w-12 h-12 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
 <span class="material-symbols-outlined text-primary">alternate_email</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-white clay-card flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary">campaign</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-outline/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-md text-body-md text-outline">
+                    © 2024 Claymorphic Illustrations. All rights reserved.
+                </p>
+<div class="flex gap-8">
+<a class="text-label-sm text-outline hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-label-sm text-outline hover:text-primary" href="#">Terms of Service</a>
 </div>
 </div>
 </div>
 </footer>
 <script>
-        // Simple micro-interaction for the cards
-        document.querySelectorAll('.clay-card').forEach(card => {
-            card.addEventListener('touchstart', () => {
-                card.style.transform = 'scale(0.98)';
-                card.style.transition = 'transform 0.1s ease';
+        // Micro-interactions for the cards
+        document.querySelectorAll('.clay-card, .clay-button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if(!el.classList.contains('clay-button')) {
+                    el.style.transform = 'translateY(-4px)';
+                    el.style.transition = 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                }
             });
-            card.addEventListener('touchend', () => {
-                card.style.transform = 'scale(1)';
+            el.addEventListener('mouseleave', () => {
+                if(!el.classList.contains('clay-button')) {
+                    el.style.transform = 'translateY(0)';
+                }
             });
         });
 
-        // Ambient shadow following for the mouse (if using on desktop simulator)
+        // Ambient shadow following for the mouse
         document.addEventListener('mousemove', (e) => {
             const glow = document.querySelector('.bg-primary-container\\/20');
             if (glow) {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
-                glow.style.transform = `translate(${x}px, ${y}px) scale(1.1)`;
+                const x = (e.clientX / window.innerWidth - 0.5) * 40;
+                const y = (e.clientY / window.innerHeight - 0.5) * 40;
+                glow.style.transform = `translate(${x}px, ${y}px) scale(1.25)`;
             }
         });
     </script>

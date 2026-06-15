@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         :root {
             --glass-bg: rgba(15, 23, 42, 0.6);
@@ -144,152 +143,155 @@
           },
         }
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="bg-background text-on-surface">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20">
-<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<!-- TopAppBar: Expanded for Desktop -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20">
+<div class="flex justify-between items-center px-margin-desktop py-5 max-w-container-max mx-auto">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">blur_on</span>
-<span class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary">LUMINA</span>
+<span class="font-headline-lg text-headline-lg tracking-tighter text-primary">LUMINA</span>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Home</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Experience</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Stack</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Contact</a>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm uppercase tracking-widest" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Experience</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Stack</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Contact</a>
 </nav>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block border border-outline-variant/30 px-6 py-2 rounded-full font-mono-label text-mono-label uppercase tracking-widest hover:bg-white/5 transition-all">Sign In</button>
 <button class="material-symbols-outlined text-primary p-2 md:hidden">menu</button>
 </div>
+</div>
 </header>
-<main class="relative pt-24 overflow-hidden">
+<main class="relative pt-32 overflow-hidden">
 <!-- Atmospheric Background Elements -->
 <div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
-<div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-secondary-container/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob"></div>
-<div class="absolute top-[20%] right-[-5%] w-[600px] h-[600px] bg-tertiary-container/10 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000"></div>
-<div class="absolute bottom-[-10%] left-[20%] w-[450px] h-[450px] bg-primary-container/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+<div class="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-secondary-container/20 rounded-full mix-blend-screen filter blur-[150px] animate-blob"></div>
+<div class="absolute top-[10%] right-[-10%] w-[900px] h-[900px] bg-tertiary-container/10 rounded-full mix-blend-screen filter blur-[200px] animate-blob animation-delay-2000"></div>
+<div class="absolute bottom-[-10%] left-[20%] w-[750px] h-[750px] bg-primary-container/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-4000"></div>
 </div>
-<!-- Hero Section: Translucent Future -->
-<section class="px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col items-center text-center max-w-container-max mx-auto">
-<div class="glass-panel px-6 py-2 rounded-full mb-8 inline-flex items-center gap-2">
+<!-- Hero Section: Desktop Layout Optimization -->
+<section class="px-margin-desktop py-section-gap flex flex-col items-center text-center max-w-container-max mx-auto">
+<div class="glass-panel px-8 py-3 rounded-full mb-10 inline-flex items-center gap-3">
 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="font-mono-label text-mono-label text-primary uppercase tracking-[0.2em]">Next Generation UI</span>
+<span class="font-mono-label text-mono-label text-primary uppercase tracking-[0.3em]">Next Generation UI</span>
 </div>
-<h1 class="font-display-xl-mobile md:font-display-xl text-display-xl-mobile md:text-display-xl mb-6 text-white leading-none">
+<h1 class="font-display-xl text-display-xl mb-8 text-white leading-[1.1]">
                 Clarity through <br/> <span class="text-secondary">Translucence.</span>
 </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-14 leading-relaxed">
                 Experience the depth of multi-layered interfaces where every container breathes. Our curatorial approach to Glassmorphism creates a modern, invisible foundation for your content.
             </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-primary text-background font-mono-label text-mono-label px-10 py-4 font-bold uppercase tracking-widest hover:bg-on-surface transition-all active:opacity-70">
+<div class="flex flex-row gap-6">
+<button class="bg-primary text-background font-mono-label text-mono-label px-12 py-5 font-bold uppercase tracking-[0.2em] hover:bg-on-surface transition-all active:scale-95 shadow-xl shadow-primary/10">
                     Explore Gallery
                 </button>
-<button class="glass-panel text-white font-mono-label text-mono-label px-10 py-4 font-bold uppercase tracking-widest hover:bg-white/10 transition-all border border-white/20 active:opacity-70">
+<button class="glass-panel text-white font-mono-label text-mono-label px-12 py-5 font-bold uppercase tracking-[0.2em] hover:bg-white/10 transition-all border border-white/20 active:scale-95">
                     Learn Tech
                 </button>
 </div>
 </section>
-<!-- Multi-stack cards Section -->
-<section class="px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
-<div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
-<div class="max-w-xl">
-<h2 class="font-headline-lg text-headline-lg text-white mb-4">Multi-Layer Depth</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
+<!-- Multi-stack cards Section: Enhanced Desktop Grid -->
+<section class="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="flex flex-row items-end justify-between mb-20">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">Multi-Layer Depth</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
                         Our layout uses Tonal Layering rather than heavy shadows. Each "exhibit" card sits on a unique Z-axis, creating a museum-like experience for your visual assets.
                     </p>
 </div>
-<div class="flex gap-2">
-<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/10 transition-all">
-<span class="material-symbols-outlined">arrow_back</span>
+<div class="flex gap-4">
+<button class="w-14 h-14 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/10 transition-all border border-white/10 group">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
 </button>
-<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/10 transition-all">
-<span class="material-symbols-outlined">arrow_forward</span>
+<button class="w-14 h-14 rounded-full glass-panel flex items-center justify-center text-white hover:bg-white/10 transition-all border border-white/10 group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 <!-- Card 1 -->
-<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer stack-item">
-<div class="h-64 relative overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-definition abstract 3D render of flowing silk-like translucent materials in deep midnight blue and soft silver tones. The lighting is ethereal and directional, highlighting the frosted textures and sharp geometric folds. The overall mood is luxurious, minimalist, and serene, fitting a high-end gallery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGCFVjN_kCFmVLtiYnmmmgwoCgg6y6G1EqDP_mxYcj43z7IiSbzObLw035RumY9kmm_PKc_n2CuHI4Gf-c4Oe-hchnrIeq0sYBDPnknefuzI29xyU80B1kJYvN4yhVhvbsNrsFfjM0A8byy_BkvdEmYzBLfDayv9VEmDNKHHQNk0T5DOPVIGqCJungMmObsLP2LUY97CSoi16hkwoHfQ8k_LLlvFEGUIf2GIaWwoFU_jy5MWzu6tu-BW1lJppfwwEJFogcM4-FyWrt"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-<div class="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">
+<div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer stack-item flex flex-col h-full">
+<div class="h-[400px] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A high-definition abstract 3D render of flowing silk-like translucent materials in deep midnight blue and soft silver tones. The lighting is ethereal and directional, highlighting the frosted textures and sharp geometric folds. The overall mood is luxurious, minimalist, and serene, fitting a high-end gallery aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGCFVjN_kCFmVLtiYnmmmgwoCgg6y6G1EqDP_mxYcj43z7IiSbzObLw035RumY9kmm_PKc_n2CuHI4Gf-c4Oe-hchnrIeq0sYBDPnknefuzI29xyU80B1kJYvN4yhVhvbsNrsFfjM0A8byy_BkvdEmYzBLfDayv9VEmDNKHHQNk0T5DOPVIGqCJungMmObsLP2LUY97CSoi16hkwoHfQ8k_LLlvFEGUIf2GIaWwoFU_jy5MWzu6tu-BW1lJppfwwEJFogcM4-FyWrt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute top-6 right-6 glass-panel px-4 py-1.5 rounded-full text-[11px] font-bold text-white uppercase tracking-[0.2em] bg-white/5 border border-white/20">
                             Editorial
                         </div>
 </div>
-<div class="p-6">
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Complexity: High</span>
-<h3 class="font-headline-md text-headline-md text-white mb-2">Nebula Glass</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Focusing on high-contrast backgrounds with 40px blur effects.</p>
+<div class="p-8">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-4">Complexity: High</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Nebula Glass</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Focusing on high-contrast backgrounds with 40px blur effects and cinematic lighting profiles.</p>
 </div>
 </div>
-<!-- Card 2 -->
-<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer stack-item md:mt-12">
-<div class="h-64 relative overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A futuristic digital interface visualization featuring layered translucent windows floating over a glowing magenta and deep purple organic background. The scene showcases soft bokeh lights and crisp glass edges with subtle refractive light dispersion. The visual style is technologically advanced and vibrant yet clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6D0_CdFji3ggHTU3zUMnmtRpinoyVPz5Gn1KAbjloBD-k6rF4c8NqELtIYx6nVVe_Ja22Dhhs4A1hAugYCae-kZYYDS_Z-qmemM_osjJr82FpZne6ZiRmDur8DIRzV2xxrzVsd8voUSQSWP34LD-IJAhgC7nfy2IYKNE0rPW-R1-j41VT8GjvAKxxgVhViq4jNz0k83zyuJNqHUynRZpZeVZIXD7nQdUeJAEiSYi-N_2twF1E5A07Yfs8iYLqHhgBSPkR3KpxrQ6h"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-<div class="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">
+<!-- Card 2: Desktop Offset for Dynamic Layout -->
+<div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer stack-item flex flex-col h-full md:translate-y-16">
+<div class="h-[400px] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A futuristic digital interface visualization featuring layered translucent windows floating over a glowing magenta and deep purple organic background. The scene showcases soft bokeh lights and crisp glass edges with subtle refractive light dispersion. The visual style is technologically advanced and vibrant yet clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6D0_CdFji3ggHTU3zUMnmtRpinoyVPz5Gn1KAbjloBD-k6rF4c8NqELtIYx6nVVe_Ja22Dhhs4A1hAugYCae-kZYYDS_Z-qmemM_osjJr82FpZne6ZiRmDur8DIRzV2xxrzVsd8voUSQSWP34LD-IJAhgC7nfy2IYKNE0rPW-R1-j41VT8GjvAKxxgVhViq4jNz0k83zyuJNqHUynRZpZeVZIXD7nQdUeJAEiSYi-N_2twF1E5A07Yfs8iYLqHhgBSPkR3KpxrQ6h"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute top-6 right-6 glass-panel px-4 py-1.5 rounded-full text-[11px] font-bold text-white uppercase tracking-[0.2em] bg-white/5 border border-white/20">
                             Modern
                         </div>
 </div>
-<div class="p-6">
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Complexity: Medium</span>
-<h3 class="font-headline-md text-headline-md text-white mb-2">Layered Prism</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Refractive surfaces that bend light and color from below.</p>
+<div class="p-8">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-4">Complexity: Medium</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Layered Prism</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Refractive surfaces that bend light and color from below, creating interactive color shifts.</p>
 </div>
 </div>
 <!-- Card 3 -->
-<div class="glass-panel rounded-xl overflow-hidden group cursor-pointer stack-item">
-<div class="h-64 relative overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist abstract art depicting soft white geometric shapes floating in a vast, dark slate grey void. The shapes have a frosted glass texture with gentle glow-y edges and sharp shadows. The aesthetic is clean, professional, and curatorial, emphasizing negative space and precision-oriented design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMhpRn5sc8W7pj6l4pEaUcnvSGTrbUzNOaDTdkzrwPYvEPnb6ldogJloY_F0G9DMLdFC8DI-ou4xVJcBo_affjKJijU9wchPuOwMjEd8HtQktonxyBHATSk_gBNrABTEaJdKliQdt_HSfagLfFt2T7TbPMCtZ7Cp4Gk1TXbnSMg7KG7wDrqZxW4B5s0awUBI-hmjrwqhXhcogkGKXBLynTeyuScRwsLwN4C90WE0UqjvV4Ovz0CR6IlMIIjxl-AMB_o2jbizgGe_UZ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-<div class="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase tracking-widest">
+<div class="glass-panel rounded-2xl overflow-hidden group cursor-pointer stack-item flex flex-col h-full">
+<div class="h-[400px] relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Minimalist abstract art depicting soft white geometric shapes floating in a vast, dark slate grey void. The shapes have a frosted glass texture with gentle glow-y edges and sharp shadows. The aesthetic is clean, professional, and curatorial, emphasizing negative space and precision-oriented design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMhpRn5sc8W7pj6l4pEaUcnvSGTrbUzNOaDTdkzrwPYvEPnb6ldogJloY_F0G9DMLdFC8DI-ou4xVJcBo_affjKJijU9wchPuOwMjEd8HtQktonxyBHATSk_gBNrABTEaJdKliQdt_HSfagLfFt2T7TbPMCtZ7Cp4Gk1TXbnSMg7KG7wDrqZxW4B5s0awUBI-hmjrwqhXhcogkGKXBLynTeyuScRwsLwN4C90WE0UqjvV4Ovz0CR6IlMIIjxl-AMB_o2jbizgGe_UZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute top-6 right-6 glass-panel px-4 py-1.5 rounded-full text-[11px] font-bold text-white uppercase tracking-[0.2em] bg-white/5 border border-white/20">
                             Minimal
                         </div>
 </div>
-<div class="p-6">
-<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Complexity: Low</span>
-<h3 class="font-headline-md text-headline-md text-white mb-2">Ghost Shell</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Invisible UI principles where content remains the hero.</p>
+<div class="p-8">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-[0.2em] block mb-4">Complexity: Low</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Ghost Shell</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Invisible UI principles where content remains the hero, using subtle boundary definitions.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA Section -->
-<section class="px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
-<div class="glass-panel rounded-3xl p-8 md:p-16 relative overflow-hidden">
-<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -mr-48 -mt-48"></div>
-<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-<div class="max-w-xl text-center md:text-left">
-<h2 class="font-display-xl-mobile md:font-headline-lg text-display-xl-mobile md:text-headline-lg text-white mb-6">Build the Invisible.</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+<!-- CTA Section: Expanded for Desktop -->
+<section class="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="glass-panel rounded-[2rem] p-16 md:p-24 relative overflow-hidden border border-white/10">
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] -mr-64 -mt-64"></div>
+<div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-20">
+<div class="max-w-2xl text-center lg:text-left">
+<h2 class="font-display-xl text-headline-lg lg:text-display-xl text-white mb-8 leading-tight">Build the <br/>Invisible.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed">
                             Ready to transform your interface into a high-fidelity museum of digital experiences? Download our curated glass component library today.
                         </p>
-<form class="flex flex-col sm:flex-row gap-4">
-<input class="bg-surface-container/50 border border-outline-variant/30 text-white px-6 py-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary w-full md:w-80" placeholder="Enter your email" type="email"/>
-<button class="bg-white text-black font-mono-label text-mono-label px-8 py-4 font-bold uppercase tracking-widest whitespace-nowrap hover:bg-primary transition-all">
+<form class="flex flex-col sm:flex-row gap-5 max-w-lg mx-auto lg:mx-0">
+<input class="bg-white/5 border border-white/10 text-white px-8 py-5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary w-full backdrop-blur-md" placeholder="Enter your email" type="email"/>
+<button class="bg-white text-black font-mono-label text-mono-label px-10 py-5 font-bold uppercase tracking-[0.2em] whitespace-nowrap hover:bg-primary transition-all shadow-xl">
                                 Get Access
                             </button>
 </form>
 </div>
-<div class="hidden md:block w-full max-w-md">
-<div class="relative h-64 w-full">
-<div class="glass-panel absolute inset-0 rounded-2xl transform rotate-3 shadow-2xl flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-white/20">auto_awesome</span>
+<div class="hidden lg:block w-full max-w-lg">
+<div class="relative h-[450px] w-full glass-card-stack">
+<div class="glass-panel absolute inset-0 rounded-3xl transform rotate-6 shadow-2xl flex items-center justify-center opacity-40 border border-white/20">
+<span class="material-symbols-outlined text-8xl text-white/10">auto_awesome</span>
 </div>
-<div class="glass-panel absolute inset-0 rounded-2xl transform -rotate-3 translate-x-4 translate-y-4 shadow-2xl flex items-center justify-center">
-<span class="material-symbols-outlined text-6xl text-white/40" style="font-variation-settings: 'FILL' 1;">blur_circular</span>
+<div class="glass-panel absolute inset-0 rounded-3xl transform -rotate-3 translate-x-12 translate-y-8 shadow-2xl flex items-center justify-center opacity-60 border border-white/20">
+<span class="material-symbols-outlined text-8xl text-white/20" style="font-variation-settings: 'FILL' 1;">blur_circular</span>
 </div>
-<div class="glass-panel absolute inset-0 rounded-2xl shadow-2xl flex flex-col p-8 justify-center">
-<div class="w-12 h-12 bg-primary rounded-full mb-4"></div>
-<div class="h-4 w-3/4 bg-white/20 rounded mb-2"></div>
-<div class="h-4 w-1/2 bg-white/10 rounded"></div>
+<div class="glass-panel absolute inset-0 rounded-3xl shadow-2xl flex flex-col p-12 justify-center border border-white/30 bg-white/5">
+<div class="w-16 h-16 bg-primary rounded-full mb-8 shadow-lg shadow-primary/20"></div>
+<div class="h-6 w-3/4 bg-white/20 rounded-full mb-4"></div>
+<div class="h-6 w-1/2 bg-white/10 rounded-full"></div>
+<div class="mt-12 flex gap-4">
+<div class="h-3 w-3 rounded-full bg-secondary"></div>
+<div class="h-3 w-3 rounded-full bg-secondary/50"></div>
+<div class="h-3 w-3 rounded-full bg-secondary/20"></div>
+</div>
 </div>
 </div>
 </div>
@@ -297,24 +299,46 @@
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="w-full mt-section-gap bg-surface-container-lowest/50 dark:bg-surface-container-lowest/50 backdrop-blur-md border-t border-outline-variant/10">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 gap-8 max-w-container-max mx-auto">
-<div class="flex flex-col items-center md:items-start gap-4">
-<span class="font-mono-label text-mono-label uppercase tracking-widest text-primary">LUMINA AESTHETICS</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 LUMINA AESTHETICS</p>
+<!-- Footer: Desktop Horizontal Layout -->
+<footer class="w-full mt-32 bg-surface-container-lowest/50 backdrop-blur-md border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-16 gap-12 max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">blur_on</span>
+<span class="font-mono-label text-mono-label uppercase tracking-[0.3em] text-primary">LUMINA AESTHETICS</span>
 </div>
-<div class="flex gap-8">
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs text-center md:text-left">
+                    Crafting the future of translucent digital experiences. Curating light and space in every pixel.
+                </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60">© 2024 LUMINA AESTHETICS</p>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20">
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-mono-label uppercase tracking-widest text-white text-[11px]">Explore</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Gallery</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Experience</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-mono-label uppercase tracking-widest text-white text-[11px]">Resources</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Stack</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Docs</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-mono-label uppercase tracking-widest text-white text-[11px]">Legal</span>
 <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy</a>
 <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Terms</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Gallery</a>
-<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Contact</a>
 </div>
-<div class="flex gap-4">
-<a class="w-10 h-10 glass-panel rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
+<div class="flex flex-col gap-4">
+<span class="font-mono-label text-mono-label uppercase tracking-widest text-white text-[11px]">Contact</span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Email</a>
+</div>
+</div>
+<div class="flex gap-5">
+<a class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-white/10 hover:border-white/30" href="#">
 <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
 </a>
-<a class="w-10 h-10 glass-panel rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="#">
+<a class="w-12 h-12 glass-panel rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-all border border-white/10 hover:border-white/30" href="#">
 <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
 </a>
 </div>
@@ -324,33 +348,36 @@
         // Micro-interaction for mouse follow glow effect
         document.addEventListener('mousemove', (e) => {
             const blobs = document.querySelectorAll('.animate-blob');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
+            const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+            const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
             
             blobs.forEach((blob, index) => {
-                const speed = (index + 1) * 20;
+                const speed = (index + 1) * 30;
                 blob.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
             });
         });
 
         // Intersection Observer for scroll reveal
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transform = entry.target.classList.contains('md:translate-y-16') 
+                        ? 'translateY(64px)' 
+                        : 'translateY(0)';
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.stack-item').forEach(item => {
             item.style.opacity = '0';
-            item.style.transform = 'translateY(40px)';
-            item.style.transition = 'all 0.8s cubic-bezier(0.22, 1, 0.36, 1)';
+            item.style.transform = 'translateY(60px)';
+            item.style.transition = 'opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1)';
             observer.observe(item);
         });
     </script>

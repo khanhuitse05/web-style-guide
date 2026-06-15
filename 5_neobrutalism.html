@@ -1,300 +1,321 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="en"><head>
+<html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>NEO_DRIVE | Bold Neobrutalism</title>
+<title>NEO_DRIVE | RETHINK THE INTERFACE</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Archivo+Narrow:wght@500;700&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;600;800&amp;family=Archivo+Narrow:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        /* Custom scrollbar to match neobrutalist vibe */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f9f9f9;
-            border-left: 4px solid #1b1b1b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6a5f00;
-            border: 2px solid #1b1b1b;
-        }
-    </style>
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary": "#006d37",
-                        "surface-container-high": "#e8e8e8",
-                        "surface-tint": "#6a5f00",
-                        "on-secondary-fixed-variant": "#005228",
-                        "surface-dim": "#dadada",
-                        "secondary-container": "#33ff8d",
-                        "surface-bright": "#f9f9f9",
-                        "error-container": "#ffdad6",
-                        "secondary-fixed-dim": "#00e479",
-                        "primary": "#6a5f00",
-                        "inverse-on-surface": "#f1f1f1",
-                        "primary-fixed": "#fde400",
-                        "on-error": "#ffffff",
-                        "tertiary-container": "#ffdbee",
-                        "on-secondary": "#ffffff",
-                        "on-secondary-container": "#007239",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-variant": "#e2e2e2",
-                        "on-secondary-fixed": "#00210c",
-                        "on-primary-fixed-variant": "#504700",
-                        "surface-container": "#eeeeee",
-                        "outline-variant": "#cdc7aa",
-                        "surface": "#f9f9f9",
-                        "on-primary": "#ffffff",
-                        "primary-fixed-dim": "#dec800",
-                        "background": "#f9f9f9",
-                        "on-tertiary-container": "#b71e94",
-                        "on-primary-fixed": "#201c00",
-                        "primary-container": "#ffe600",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed-variant": "#87006c",
-                        "tertiary": "#ae118c",
-                        "surface-container-low": "#f3f3f3",
-                        "on-background": "#1b1b1b",
-                        "inverse-surface": "#303030",
-                        "on-primary-container": "#726600",
-                        "on-surface": "#1b1b1b",
-                        "on-surface-variant": "#4b4731",
-                        "outline": "#7c775f",
-                        "surface-container-highest": "#e2e2e2",
-                        "on-error-container": "#93000a",
-                        "on-tertiary-fixed": "#3b002e",
-                        "on-tertiary": "#ffffff",
-                        "inverse-primary": "#dec800",
-                        "secondary-fixed": "#60ff99",
-                        "tertiary-fixed": "#ffd8ec",
-                        "tertiary-fixed-dim": "#ffaddf"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "base": "4px",
-                        "xl": "64px",
-                        "border-width": "4px",
-                        "shadow-offset": "6px",
-                        "sm": "16px",
-                        "lg": "40px",
-                        "xs": "8px",
-                        "md": "24px"
-                    },
-                    "fontFamily": {
-                        "body-lg": ["Archivo Narrow"],
-                        "headline-lg": ["Space Grotesk"],
-                        "label-md": ["JetBrains Mono"],
-                        "headline-xl": ["Space Grotesk"],
-                        "display-lg": ["Space Grotesk"],
-                        "body-md": ["Archivo Narrow"],
-                        "display-lg-mobile": ["Space Grotesk"]
-                    },
-                    "fontSize": {
-                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "label-md": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
-                        "headline-xl": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "500" }],
-                        "display-lg-mobile": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
-                    }
-                },
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#006d37",
+                    "inverse-surface": "#303030",
+                    "on-tertiary-container": "#b71e94",
+                    "tertiary-container": "#ffdbee",
+                    "tertiary-fixed": "#ffd8ec",
+                    "surface-bright": "#f9f9f9",
+                    "outline": "#7c775f",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#504700",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1b1b1b",
+                    "on-tertiary-fixed-variant": "#87006c",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "on-secondary-fixed": "#00210c",
+                    "secondary-fixed-dim": "#00e479",
+                    "primary-fixed-dim": "#dec800",
+                    "on-tertiary-fixed": "#3b002e",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1b1b",
+                    "surface-container-low": "#f3f3f3",
+                    "primary": "#6a5f00",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#60ff99",
+                    "on-surface-variant": "#4b4731",
+                    "on-primary-fixed": "#201c00",
+                    "on-secondary-container": "#007239",
+                    "secondary-container": "#33ff8d",
+                    "on-primary-container": "#726600",
+                    "surface-tint": "#6a5f00",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "background": "#f9f9f9",
+                    "primary-container": "#ffe600",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "inverse-primary": "#dec800",
+                    "primary-fixed": "#fde400",
+                    "tertiary-fixed-dim": "#ffaddf",
+                    "outline-variant": "#cdc7aa",
+                    "surface": "#f9f9f9",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-secondary-fixed-variant": "#005228",
+                    "tertiary": "#ae118c",
+                    "on-error": "#ffffff"
             },
-        }
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "16px",
+                    "xs": "8px",
+                    "xl": "64px",
+                    "md": "24px",
+                    "shadow-offset": "6px",
+                    "lg": "40px",
+                    "border-width": "4px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Space Grotesk"],
+                    "label-md": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-md": ["Archivo Narrow"],
+                    "body-lg": ["Archivo Narrow"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-lg-mobile": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "body-lg": ["20px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
     </script>
 <style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
+        body {
+            background-color: #f9f9f9;
+            color: #1b1b1b;
+            font-family: 'Archivo Narrow', sans-serif;
+            overflow-x: hidden;
+        }
+        .neobrutal-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .neobrutal-shadow-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .neobrutal-shadow-active:active {
+            transform: translate(4px, 4px);
+            box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+        }
+        .strike-magenta {
+            position: relative;
+            z-index: 1;
+        }
+        .strike-magenta::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 20%;
+            width: 100%;
+            height: 40%;
+            background-color: #ae118c;
+            z-index: -1;
+            transform: skew(-10deg);
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
 </head>
-<body class="bg-background text-on-background font-body-md overflow-x-hidden">
-<!-- TopAppBar -->
-<header class="w-full top-0 sticky z-50 bg-surface border-b-border-width border-on-background shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center px-sm md:px-lg h-20">
-<div class="flex items-center gap-xs">
-<span class="material-symbols-outlined text-primary text-headline-lg" data-icon="bolt">bolt</span>
-<span class="font-headline-lg text-headline-lg font-bold text-on-surface uppercase tracking-tighter">NEO_DRIVE</span>
+<body class="antialiased">
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-xl py-md max-w-full bg-surface border-b-4 border-on-background sticky top-0 z-50">
+<div class="font-headline-xl text-headline-xl font-black text-on-surface tracking-tighter">
+            NEO_DRIVE
+        </div>
+<div class="hidden md:flex gap-md">
+<a class="font-headline-lg text-headline-lg uppercase text-on-surface border-b-4 border-primary-container pb-1 transition-all duration-100" href="#">MANIFESTO</a>
+<a class="font-headline-lg text-headline-lg uppercase text-on-surface-variant hover:text-primary transition-all duration-100" href="#">DRIVE</a>
+<a class="font-headline-lg text-headline-lg uppercase text-on-surface-variant hover:text-primary transition-all duration-100" href="#">GEAR</a>
+<a class="font-headline-lg text-headline-lg uppercase text-on-surface-variant hover:text-primary transition-all duration-100" href="#">JOIN_THE_REBELLION</a>
 </div>
-<nav class="hidden md:flex gap-lg items-center">
-<a class="font-label-md text-label-md uppercase text-primary underline decoration-4 hover:translate-x-[2px] hover:translate-y-[2px] transition-all" href="#">MANIFESTO</a>
-<a class="font-label-md text-label-md uppercase text-on-surface hover:text-primary transition-colors" href="#">COMPONENTS</a>
-<a class="font-label-md text-label-md uppercase text-on-surface hover:text-primary transition-colors" href="#">SUPPORT</a>
-</nav>
-<button class="bg-primary-container border-border-width border-on-background px-md py-xs font-label-md text-label-md uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all">
-            JOIN NOW
+<button class="font-label-md text-label-md uppercase bg-primary-container text-on-surface px-md py-xs border-4 border-on-background neobrutal-shadow neobrutal-shadow-active transition-all font-bold">
+            SYSTEM_ACCESS
         </button>
-</header>
-<main>
+</nav>
 <!-- Hero Section -->
-<section class="relative min-h-[707px] flex flex-col justify-center px-sm md:px-xl py-xl overflow-hidden">
-<!-- Background WebGL/Animation Placeholder (using shader for brutalist vibes) -->
-
-<div class="relative z-10 max-w-5xl">
-<div class="inline-block bg-tertiary text-on-tertiary px-sm py-1 border-border-width border-on-background mb-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-label-md uppercase">
-                    Version 2.0.4 Released
-                </div>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-tight mb-md">
-                    Rethink the <span class="bg-primary-container px-2">Interface</span>.<br/>Reject the <span class="text-tertiary line-through decoration-8">Minimal</span>.
-                </h1>
-<p class="font-body-lg text-body-lg max-w-2xl mb-lg bg-surface/80 p-md border-l-border-width border-on-background">
-                    NEO_DRIVE is a functional rebellion. We trade soft shadows for hard truths and pastel gradients for saturated impact. Built for those who build the future, not just observe it.
-                </p>
+<header class="relative px-xl py-xl md:py-32 flex flex-col items-start gap-lg overflow-hidden">
+<div class="z-10 max-w-5xl">
+<h1 class="font-display-lg text-display-lg mb-md leading-none">
+                RETHINK THE <span class="bg-primary-container px-2">INTERFACE.</span><br/>
+                REJECT THE <span class="strike-magenta text-on-tertiary px-2">MINIMAL.</span>
+</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mb-lg border-l-8 border-on-background pl-md italic">
+                "NEO_DRIVE is a functional rebellion. We trade subtle gradients for raw structure. Built for those who build the future, not just observe it."
+            </p>
 <div class="flex flex-wrap gap-md">
-<button class="bg-primary-container border-border-width border-on-background px-lg py-md font-headline-lg text-headline-lg uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all">
-                        DEPLOY NOW
-                    </button>
-<button class="bg-surface border-border-width border-on-background px-lg py-md font-headline-lg text-headline-lg uppercase shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all">
-                        VIEW DOCS
-                    </button>
+<button class="bg-primary-container text-on-surface font-headline-lg text-headline-lg px-xl py-md border-4 border-on-background neobrutal-shadow neobrutal-shadow-hover neobrutal-shadow-active uppercase">
+                    DEPLOY NOW
+                </button>
+<button class="bg-surface text-on-surface font-headline-lg text-headline-lg px-xl py-md border-4 border-on-background neobrutal-shadow neobrutal-shadow-hover neobrutal-shadow-active uppercase">
+                    VIEW DOCS
+                </button>
 </div>
 </div>
-</section>
-<!-- Feature Cards (Bento Style) -->
-<section class="px-sm md:px-xl py-xl bg-surface-container">
-<h2 class="font-headline-xl text-headline-xl uppercase mb-lg border-b-border-width border-on-background inline-block">SYSTEM CORE</h2>
+<!-- Background Animation/Decoration -->
+<div class="absolute right-0 top-0 w-1/3 h-full hidden lg:block opacity-20 pointer-events-none">
+<div class="grid grid-cols-4 gap-4 transform rotate-12 -translate-y-24">
+<div class="h-64 bg-primary-container border-4 border-on-background"></div>
+<div class="h-96 bg-tertiary border-4 border-on-background"></div>
+<div class="h-64 bg-secondary-container border-4 border-on-background"></div>
+<div class="h-80 bg-on-background border-4 border-on-background"></div>
+<div class="h-64 bg-primary-container border-4 border-on-background"></div>
+<div class="h-96 bg-tertiary border-4 border-on-background"></div>
+<div class="h-64 bg-secondary-container border-4 border-on-background"></div>
+</div>
+</div>
+</header>
+<!-- Marquee -->
+<div class="bg-on-background py-sm overflow-hidden border-t-4 border-b-4 border-on-background">
+<div class="marquee font-label-md text-label-md text-surface uppercase font-black">
+            STAY BRUTAL // NO BORDERS // FULL VELOCITY // BREAK THE GRID // REDEFINE FUNCTION // 0% ROUNDNESS // STAY BRUTAL // NO BORDERS // FULL VELOCITY // BREAK THE GRID // REDEFINE FUNCTION // 0% ROUNDNESS // STAY BRUTAL // NO BORDERS // FULL VELOCITY // BREAK THE GRID // REDEFINE FUNCTION // 0% ROUNDNESS
+        </div>
+</div>
+<!-- System Core Grid -->
+<section class="px-xl py-xl bg-surface">
+<h2 class="font-headline-xl text-headline-xl mb-xl border-b-8 border-on-background inline-block uppercase">SYSTEM_CORE.EXE</h2>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-md">
-<!-- Large Feature Card -->
-<div class="md:col-span-8 bg-surface border-border-width border-on-background p-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col justify-between min-h-[400px]">
-<div class="relative z-10">
-<span class="material-symbols-outlined text-display-lg text-primary" data-icon="grid_view">grid_view</span>
-<h3 class="font-headline-xl text-headline-xl uppercase mt-md mb-sm">Modular Chaos</h3>
-<p class="font-body-lg text-body-lg max-w-lg">Every component is a standalone object. Snap them together, break them apart, and rebuild without losing structural integrity or visual weight.</p>
+<!-- Modular Chaos -->
+<div class="md:col-span-4 p-md border-4 border-on-background neobrutal-shadow bg-surface-container-low flex flex-col gap-sm">
+<div class="w-16 h-16 bg-on-background flex items-center justify-center">
+<span class="material-symbols-outlined text-surface text-4xl" data-icon="settings">settings</span>
 </div>
-<div class="mt-lg">
-<button class="bg-secondary text-on-secondary px-md py-sm border-border-width border-on-background font-label-md uppercase">EXPLORE MODULES</button>
+<h3 class="font-headline-lg text-headline-lg uppercase">MODULAR CHAOS</h3>
+<p class="font-body-md text-body-md">Dynamic layout management that refuses to be contained. Drag, drop, and break the expected flow of information with our chaotic grid engine.</p>
 </div>
-<!-- Decorative Graphic -->
-<div class="absolute right-[-40px] bottom-[-40px] opacity-10 rotate-12">
-<span class="material-symbols-outlined text-[300px]" data-icon="settings">settings</span>
+<!-- Extreme Velocity -->
+<div class="md:col-span-4 p-md border-4 border-on-background neobrutal-shadow bg-primary-container flex flex-col gap-sm">
+<div class="w-16 h-16 bg-on-background flex items-center justify-center">
+<span class="material-symbols-outlined text-surface text-4xl" data-icon="bolt">bolt</span>
 </div>
+<h3 class="font-headline-lg text-headline-lg uppercase">EXTREME VELOCITY</h3>
+<p class="font-body-md text-body-md text-on-surface">Zero-latency interaction framework. Optimized for instant response times and high-frequency data streaming across multiple rebellion nodes.</p>
 </div>
-<!-- Small Feature Card 1 -->
-<div class="md:col-span-4 bg-primary-container border-border-width border-on-background p-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
-<div class="w-24 h-24 bg-surface border-border-width border-on-background rotate-3 flex items-center justify-center mb-md">
-<span class="material-symbols-outlined text-headline-xl" data-icon="speed">speed</span>
-</div>
-<h3 class="font-headline-lg text-headline-lg uppercase mb-sm">EXTREME VELOCITY</h3>
-<p class="font-body-md text-body-md">Zero bloat. Optimized shadows. Hard-coded for performance and maximum frame rates in the browser.</p>
-</div>
-<!-- Small Feature Card 2 -->
-<div class="md:col-span-4 bg-tertiary-container border-border-width border-on-background p-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-center">
-<h3 class="font-headline-lg text-headline-lg uppercase mb-sm">HIGH CONTRAST</h3>
-<p class="font-body-md text-body-md mb-md">Our color logic prioritize readability over aesthetics. If it doesn't pop, it doesn't belong.</p>
-<div class="flex gap-xs">
-<div class="w-8 h-8 bg-primary border-2 border-on-background"></div>
-<div class="w-8 h-8 bg-secondary border-2 border-on-background"></div>
-<div class="w-8 h-8 bg-tertiary border-2 border-on-background"></div>
-<div class="w-8 h-8 bg-on-background border-2 border-on-background"></div>
+<!-- Hardware Integrated -->
+<div class="md:col-span-8 md:row-span-2 relative border-4 border-on-background neobrutal-shadow min-h-[400px] overflow-hidden group">
+<img alt="Retro Computer" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" data-alt="A vintage, high-contrast photograph of a 1980s retro desktop computer sitting on a minimalist black desk. The image has a grainy texture and sharp focus, highlighting the blocky CRT monitor and mechanical keyboard. The lighting is dramatic and side-lit, emphasizing the hardware's structural honesty. The overall mood is nostalgic yet technologically aggressive, fitting the neobrutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPZjjsh5wRXasz43oCmJuSTeGVqZMhPJa2DyYU7e-50rqZXresUOYGjS6--kNXoaqQTrqUarFtYEeQfylfL9sencqALUuVb5NNiHJhxnt_xDxEW74zKGy07XslVRN9gIkzs0tMZD1x8OO6nvTDYy-C0JyXoNOjxKhHYkJD7_wVQLrRJ1aLHGunNNSySrybSz1eWoHkQ1_tg9LomX1lf8OKV4c-47xmGGpiTxFCP1MPzuWBIHavZ7FEVM1YFL2tst4ib-Zv8bPiJnsF"/>
+<div class="absolute bottom-0 left-0 bg-secondary-container p-md border-t-4 border-r-4 border-on-background max-w-sm">
+<h3 class="font-headline-lg text-headline-lg uppercase mb-xs">HARDWARE INTEGRATED</h3>
+<p class="font-body-md text-body-md">Direct machine-level communication. No abstraction. No fluff. Just pure signal output.</p>
 </div>
 </div>
-<!-- Wide Image Card -->
-<div class="md:col-span-8 border-border-width border-on-background shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative h-[300px] bg-on-background group overflow-hidden">
-<img alt="Retro hardware" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A high-contrast photograph of retro computing hardware including a classic beige mechanical keyboard and a glowing green CRT monitor. The lighting is harsh and dramatic, casting long dark shadows that emphasize the physical texture of the plastic and glass. The composition is tight and geometric, shot in a dark studio setting with a futuristic industrial aesthetic. Deep blacks and vibrant green terminal text create a powerful neobrutalist vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLAm7vnOCepMOhbVDQ-Y5EbxV198536NhUToDrUWrO-BQcYN3Bcb7cpq4QSp6A3OFkpJsBkTYlpFc1zT-igArD-K0-2thEKEu_lsA31SyI73HdIkVRIIA8s0zcNTSpAABv7ez6FlwC7EO5KPcueK9rZ50DykoGnBGCVDA72-0pdKoN8tdMv-Q-Nm1E9wlADK0IoRsaiZmmV-pdgHIMfQrXOMkdAGuJoOcElJlg1xsfCrX6bJocdka90ehJtDErB8wAzra5Z2TPAgga"/>
-<div class="absolute inset-0 p-lg flex items-end">
-<h3 class="font-headline-xl text-headline-xl text-surface uppercase bg-on-background/80 px-md py-xs">Hardware Integrated</h3>
+<!-- High Contrast -->
+<div class="md:col-span-4 p-md border-4 border-on-background neobrutal-shadow bg-tertiary-container flex flex-col gap-sm">
+<h3 class="font-headline-lg text-headline-lg uppercase">HIGH CONTRAST</h3>
+<div class="grid grid-cols-2 gap-xs">
+<div class="h-12 bg-primary-container border-2 border-on-background flex items-center justify-center font-label-md text-label-md">#FFE600</div>
+<div class="h-12 bg-secondary-container border-2 border-on-background flex items-center justify-center font-label-md text-label-md">#33FF8D</div>
+<div class="h-12 bg-tertiary border-2 border-on-background text-on-tertiary flex items-center justify-center font-label-md text-label-md">#AE118C</div>
+<div class="h-12 bg-on-background text-surface border-2 border-on-background flex items-center justify-center font-label-md text-label-md">#1B1B1B</div>
 </div>
+<p class="font-body-md text-body-md">Vision through friction. Our palette is designed to wake the senses and demand full attention to the data being presented.</p>
 </div>
 </div>
 </section>
-<!-- Manifesto Section -->
-<section class="px-sm md:px-xl py-xl bg-on-background text-surface">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
-<div class="order-2 md:order-1">
-<div class="border-border-width border-surface p-lg rotate-[-2deg] bg-surface text-on-background shadow-[8px_8px_0px_0px_#ae118c]">
-<h4 class="font-label-md text-label-md uppercase text-tertiary mb-sm">The Philosophy</h4>
-<p class="font-headline-lg text-headline-lg uppercase italic mb-md">"POLISH IS THE ENEMY OF TRUTH."</p>
-<ul class="space-y-sm font-body-lg">
-<li class="flex items-center gap-sm">
-<span class="w-4 h-4 bg-tertiary"></span>
-                                RAW OVER REFINED
-                            </li>
-<li class="flex items-center gap-sm">
-<span class="w-4 h-4 bg-primary-container"></span>
-                                STRUCTURE OVER DECORATION
-                            </li>
-<li class="flex items-center gap-sm">
-<span class="w-4 h-4 bg-secondary"></span>
-                                CLARITY OVER CONVENIENCE
-                            </li>
+<!-- The Manifesto Section -->
+<section class="bg-on-background text-surface py-xl px-xl">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-xl items-center">
+<div class="md:w-1/2">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-tight mb-md">
+                    POLISH IS THE <span class="text-tertiary-fixed italic">ENEMY</span> OF TRUTH.
+                </h2>
+<div class="h-4 bg-primary-container w-full mb-md"></div>
+</div>
+<div class="md:w-1/2">
+<ul class="flex flex-col gap-md">
+<li class="flex items-center gap-md p-md border-4 border-surface neobrutal-shadow transition-transform hover:-translate-x-2">
+<div class="w-12 h-12 bg-secondary-fixed border-4 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-on-background font-bold" data-icon="close">close</span>
+</div>
+<span class="font-headline-lg text-headline-lg uppercase">RAW OVER REFINED</span>
+</li>
+<li class="flex items-center gap-md p-md border-4 border-surface neobrutal-shadow transition-transform hover:-translate-x-2">
+<div class="w-12 h-12 bg-primary-container border-4 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-on-background font-bold" data-icon="close">close</span>
+</div>
+<span class="font-headline-lg text-headline-lg uppercase">STRUCTURE OVER DECORATION</span>
+</li>
+<li class="flex items-center gap-md p-md border-4 border-surface neobrutal-shadow transition-transform hover:-translate-x-2">
+<div class="w-12 h-12 bg-tertiary border-4 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface font-bold" data-icon="close">close</span>
+</div>
+<span class="font-headline-lg text-headline-lg uppercase">CLARITY OVER CONVENIENCE</span>
+</li>
 </ul>
-</div>
-</div>
-<div class="order-1 md:order-2">
-<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg uppercase leading-none mb-md text-primary-fixed">THE<br/>MANIFESTO</h2>
-<p class="font-body-lg text-body-lg text-surface-variant">
-                        We reject the homogenization of the modern web. The rounded corners, the safe blues, the invisible borders—they are designed to make you feel nothing. NEO_DRIVE is designed to make you feel the weight of every click.
-                    </p>
 </div>
 </div>
 </section>
 <!-- CTA Section -->
-<section class="px-sm md:px-xl py-xl text-center bg-primary-container border-y-border-width border-on-background">
-<div class="max-w-3xl mx-auto">
-<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg uppercase mb-lg">READY TO BREAK<br/>THE GRID?</h2>
-<div class="flex flex-col md:flex-row justify-center gap-md">
-<div class="flex flex-col gap-xs flex-1">
-<input class="bg-surface border-border-width border-on-background p-md font-label-md uppercase text-center focus:ring-0 focus:border-tertiary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" placeholder="YOUR_EMAIL@DRIVE.LABS" type="email"/>
+<section class="px-xl py-32 bg-primary-container border-t-8 border-on-background border-b-8">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-display-lg text-display-lg uppercase mb-xl">READY TO BREAK THE GRID?</h2>
+<div class="flex flex-col md:flex-row gap-0 items-stretch neobrutal-shadow border-4 border-on-background bg-surface">
+<input class="flex-grow p-lg font-label-md text-label-md border-none focus:ring-0 uppercase placeholder:text-on-surface-variant bg-transparent" placeholder="YOUR_CORE_ADDRESS@SYSTEM.COM" type="email"/>
+<button class="bg-on-background text-surface font-headline-lg text-headline-lg px-xl py-lg uppercase transition-all active:scale-95 hover:bg-tertiary">
+                    INITIALIZE_
+                </button>
 </div>
-<button class="bg-on-background text-surface border-border-width border-on-background px-lg py-md font-headline-lg uppercase shadow-[8px_8px_0px_0px_#ae118c] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_0px_#ae118c] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none transition-all">
-                        INITIALIZE_
-                    </button>
-</div>
-<p class="mt-md font-label-md text-label-md uppercase text-on-primary-container">Secure protocol. No spam. Only impact.</p>
+<p class="mt-md font-label-md text-label-md uppercase opacity-80">Join 4,209+ rebels deploying today.</p>
 </div>
 </section>
-</main>
 <!-- Footer -->
-<footer class="bg-on-background text-surface border-t-border-width border-on-background w-full mt-auto flex flex-col md:flex-row justify-between items-center p-md md:p-lg gap-md">
-<div class="flex flex-col items-center md:items-start gap-xs">
-<span class="font-headline-lg text-headline-lg uppercase font-bold text-surface">NEO_DRIVE</span>
-<p class="font-label-md text-label-md text-secondary uppercase">© 2024 NEO_DRIVE LABS. ALL RIGHTS RESERVED.</p>
+<footer class="bg-on-background text-surface-bright border-t-4 border-on-background">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-xl py-lg bg-on-background">
+<div class="font-headline-lg text-headline-lg text-primary uppercase mb-md md:mb-0">
+                NEO_DRIVE
+            </div>
+<div class="flex gap-md mb-md md:mb-0">
+<a class="font-label-md text-label-md uppercase text-surface-variant hover:text-primary-fixed transition-colors" href="#">TERMINAL</a>
+<a class="font-label-md text-label-md uppercase text-surface-variant hover:text-primary-fixed transition-colors" href="#">ENCRYPTION</a>
+<a class="font-label-md text-label-md uppercase text-surface-variant hover:text-primary-fixed transition-colors" href="#">DATA_PURGE</a>
 </div>
-<div class="flex flex-wrap justify-center gap-lg">
-<a class="font-label-md text-label-md uppercase text-surface hover:text-tertiary transition-colors cursor-pointer" href="#">MANIFESTO</a>
-<a class="font-label-md text-label-md uppercase text-surface hover:text-tertiary transition-colors cursor-pointer" href="#">COMPONENTS</a>
-<a class="font-label-md text-label-md uppercase text-surface hover:text-tertiary transition-colors cursor-pointer" href="#">SUPPORT</a>
-<a class="font-label-md text-label-md uppercase text-surface hover:text-tertiary transition-colors cursor-pointer" href="#">PRIVACY</a>
-</div>
-<div class="flex gap-md">
-<a class="w-12 h-12 border-border-width border-surface flex items-center justify-center hover:bg-surface hover:text-on-background transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
-</a>
-<a class="w-12 h-12 border-border-width border-surface flex items-center justify-center hover:bg-surface hover:text-on-background transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="code">code</span>
-</a>
+<div class="font-label-md text-label-md uppercase text-on-tertiary-fixed-variant">
+                © 2024 NEO_DRIVE REBELLION. NO PERMISSION GRANTED.
+            </div>
 </div>
 </footer>
-<!-- Micro-interactions Script -->
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Simple hover effect for cards to simulate neobrutalist interaction
-            const cards = document.querySelectorAll('.bg-surface, .bg-primary-container, .bg-tertiary-container');
-            cards.forEach(card => {
-                if (card.classList.contains('shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]')) {
-                    card.addEventListener('mouseenter', () => {
-                        card.style.transform = 'translate(2px, 2px)';
-                        card.style.boxShadow = '6px 6px 0px 0px rgba(0,0,0,1)';
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        card.style.transform = 'translate(0, 0)';
-                        card.style.boxShadow = '8px 8px 0px 0px rgba(0,0,0,1)';
-                    });
-                }
+        // Micro-interaction for buttons and cards
+        document.querySelectorAll('.neobrutal-shadow').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'translate(4px, 4px)';
+                el.style.boxShadow = '2px 2px 0px 0px rgba(0,0,0,1)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+                el.style.boxShadow = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+                el.style.boxShadow = '';
             });
         });
     </script>
