@@ -6,7 +6,7 @@ A definitive visual guide to 20 foundational and emerging web design styles. Cur
 🚀 **[https://web-style-guide.web.app](https://web-style-guide.web.app)**
 
 ## Preview
-![Web Style Guide Preview](resources/screenshot.png)
+![Web Style Guide Preview](resources/the-design-style-cheatsheet.png)
 
 ## Styles Included
 The guide contains interactive demos for the following aesthetics:
