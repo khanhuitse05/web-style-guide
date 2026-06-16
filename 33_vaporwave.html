@@ -1,36 +1,482 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>33. Vaporwave - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EPOCH ARCHIVE | VAPORWAVE DEMO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --vapor-pink: #ffabf3;
+            --vapor-mint: #00fbfb;
+            --vapor-lavender: #a900a9;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            overflow-x: hidden;
+            selection-background-color: var(--vapor-mint);
+        }
+
+        .vapor-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 171, 243, 0.2);
+        }
+
+        .win95-border {
+            box-shadow: inset 1px 1px #fff, inset -1px -1px #808080, 1px 1px #000;
+            background: #c0c0c0;
+            color: #000;
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            20% { clip: rect(62px, 9999px, 42px, 0); }
+            40% { clip: rect(10px, 9999px, 51px, 0); }
+            60% { clip: rect(80px, 9999px, 12px, 0); }
+            80% { clip: rect(43px, 9999px, 84px, 0); }
+            100% { clip: rect(91px, 9999px, 32px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(12px, 9999px, 58px, 0); }
+            40% { clip: rect(82px, 9999px, 33px, 0); }
+            60% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(21px, 9999px, 92px, 0); }
+            100% { clip: rect(55px, 9999px, 14px, 0); }
+        }
+
+        .serif-wide {
+            font-family: 'Libre Baskerville', serif;
+            letter-spacing: 0.15em;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.1);
+            position: absolute;
+            z-index: 50;
+            top: 0;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .perspective-grid {
+            perspective: 500px;
+            overflow: hidden;
+        }
+
+        .grid-plane {
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 255, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 255, 0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(60deg);
+            transform-origin: top;
+            animation: move-grid 10s linear infinite;
+        }
+
+        @keyframes move-grid {
+            0% { transform: rotateX(60deg) translateY(0); }
+            100% { transform: rotateX(60deg) translateY(50px); }
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#00dddd",
+                      "surface-tint": "#ffabf3",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#ffffff",
+                      "surface-container-high": "#2a2a2a",
+                      "error": "#ffb4ab",
+                      "on-primary-container": "#510051",
+                      "surface-container": "#20201f",
+                      "inverse-on-surface": "#313030",
+                      "outline-variant": "#564052",
+                      "on-tertiary-fixed": "#221b00",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-primary": "#a900a9",
+                      "outline": "#a4899d",
+                      "on-primary-fixed-variant": "#810081",
+                      "tertiary-container": "#c8a900",
+                      "surface-variant": "#353535",
+                      "secondary-container": "#00fbfb",
+                      "background": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "primary": "#ffabf3",
+                      "on-secondary": "#003737",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container-highest": "#353535",
+                      "surface-bright": "#393939",
+                      "primary-fixed": "#ffd7f5",
+                      "on-primary": "#5b005b",
+                      "on-primary-fixed": "#380038",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "surface-dim": "#131313",
+                      "on-background": "#e5e2e1",
+                      "on-error": "#690005",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary": "#3a3000",
+                      "tertiary": "#e9c400",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#ffabf3",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "primary-container": "#ff00ff",
+                      "on-surface-variant": "#dcbed4",
+                      "on-secondary-fixed": "#002020",
+                      "on-secondary-container": "#007070",
+                      "on-tertiary-container": "#4b3e00",
+                      "secondary-fixed": "#00fbfb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin": "32px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "label-md": ["JetBrains Mono"],
+                      "headline-md": ["Sora"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-xl": ["Sora"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+      </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+<body class="bg-background text-on-surface">
+<!-- Scanline effect -->
+<div class="scanline"></div>
+<!-- Navigation -->
+<header class="fixed top-0 left-0 right-0 z-[100] bg-surface/80 backdrop-blur-md border-b border-outline-variant shadow-md dark:shadow-[0_0_15px_rgba(255,171,243,0.3)]">
+<div class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary">
+                EPOCH ARCHIVE
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-medium transition-colors duration-300" href="#">Eras</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Artifacts</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Curators</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Timeline</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden md:block relative">
+<input class="bg-surface-container-low border-outline-variant text-on-surface rounded-full px-4 py-2 focus:ring-primary focus:border-primary w-48" placeholder="Search the void..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:scale-95 transition-transform">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main class="relative pt-20">
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+
+</div>
+<!-- Background Grid -->
+<div class="absolute inset-0 perspective-grid z-[-1] opacity-30 pointer-events-none">
+<div class="grid-plane mx-auto"></div>
+</div>
+<div class="container-max mx-auto px-margin z-10 flex flex-col items-center text-center">
+<div class="mb-6 win95-border px-4 py-1 text-label-sm font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">warning</span> System initialized 1984
+                </div>
+<h1 class="font-headline-xl text-headline-xl text-primary serif-wide uppercase mb-6 leading-none glitch-text" data-text="AESTHETIC MEMORY">
+                    AESTHETIC MEMORY
+                </h1>
+<p class="font-body-lg text-body-lg text-secondary-fixed-dim max-w-2xl mb-10 italic">
+                    Experience the digital decay of the 20th century. A curated archive of marble, neon, and late-night television glitches.
+                </p>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-on-secondary-container font-headline-md text-headline-md px-10 py-4 border-2 border-primary shadow-[4px_4px_0px_#a900a9] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                        ENTER THE VOID
+                    </button>
+</div>
+</div>
+<!-- Floating 3D Elements -->
+<div class="absolute top-[20%] left-[10%] floating hidden lg:block opacity-70">
+<div class="w-64 h-80 rounded-t-full bg-surface-container-high relative overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover grayscale mix-blend-screen" data-alt="A classical Greek marble bust of a philosopher, with one eye replaced by a glowing magenta digital screen. The statue is placed against a background of soft pastel pink and mint green gradients, with digital grid lines overlapping the stone surface. The mood is surreal, nostalgic, and high-contrast vaporwave aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQcCIkJ5_fNRIhI9ffK1Hev_P3NFTvM96giE-FFBfDV5WZ46ZrdBH6EWLSyzxJw5BTNFd653pmVjcVlAFS56mFK2-zJ8p4PD4F67h6z9eoC5mkoZJuIqQwjD6YhJnOYIusqjzt-8iElim03Jc-yY6lTdkCXuX43y-QFdUFtCVYCHTdF-4DkRJ8-3M2YPtkhulBUj6sES3jWpBRumOaFa4tKYKfV9GGv5lpYWTh9YnM9tYAXIC_AhqCrXyL7X7bjoYmbWlPRHIhs8fK">
+</div>
+</div>
+<div class="absolute bottom-[10%] right-[10%] floating hidden lg:block opacity-70" style="animation-delay: -3s;">
+<div class="w-72 h-48 bg-surface-container-lowest relative overflow-hidden border-2 border-secondary-fixed-dim p-4">
+<div class="w-full h-full bg-black/50 border border-secondary-fixed-dim flex items-center justify-center text-secondary-fixed-dim font-label-md">
+                        SIGNAL LOST...
+                    </div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Artifacts -->
+<section class="py-24 bg-surface-container-lowest relative">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-secondary uppercase serif-wide">Digital Artifacts</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Browse our high-fidelity lo-fi collection.</p>
+</div>
+<div class="flex gap-2">
+<button class="win95-border px-3 py-1 text-label-sm">NEXT_FILE</button>
+<button class="win95-border px-3 py-1 text-label-sm">RANDOMIZE</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter h-auto md:h-[800px]">
+<!-- Artifact 1 -->
+<div class="md:col-span-2 md:row-span-2 vapor-glass rounded-xl overflow-hidden group p-6 flex flex-col">
+<div class="flex-1 relative overflow-hidden rounded-lg mb-6">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A collection of vintage 1980s personal computers and translucent neon controllers arranged in a dreamy, pastel-lit room. Soft pink and cyan lighting creates long, soft shadows. The image is filtered with a slight VHS grain and chromatic aberration, emphasizing a nostalgic vaporwave tech mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT4jiClakpGcow8E0ra-xkGjzOjjnnXc_qI4FrKtivffrZrnXR2TYE5SMYOGOOujxcV5fEkk89-FamNAwpxyvILLWZcL_R154xgZNNGwhelXdrJ290Kndf2STzBWyv8pM0As4wWjfu7omhCrDDXk2esC_OuacwmNsCgf_wg81VH3pBemHPjafhDINL2GZcl76CoHTMS9K1MlfeM_92dB8qDDJ5mSBaMtwLsPulqvaRtZWw8bCZxW7VdPYeewBx7EX9rvQEC6IsYozP">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="mt-auto">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-primary/20 text-primary text-label-sm px-3 py-1 rounded-full">FILE://001</span>
+<span class="text-on-surface-variant text-label-sm">VER 2.0.4</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-secondary mb-2">Retro Hardware Cycle</h3>
+<p class="text-on-surface-variant font-body-md">Silicon dreams of a future that never was. Re-examine the aesthetics of 90s computing power.</p>
+</div>
+</div>
+<!-- Artifact 2 -->
+<div class="md:col-span-2 vapor-glass rounded-xl overflow-hidden group relative">
+<div class="absolute inset-0 opacity-40">
+
+</div>
+<div class="relative z-10 p-8 h-full flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-md text-primary-fixed serif-wide uppercase">Glitch Architecture</h3>
+<p class="text-on-surface font-body-md">Deconstructed urban landscapes in lavender.</p>
+</div>
+</div>
+<!-- Artifact 3 -->
+<div class="md:col-span-1 vapor-glass rounded-xl overflow-hidden group flex flex-col p-4 border-l-4 border-primary">
+<div class="aspect-square rounded-lg overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="Abstract 3D low-poly landscape of a tropical beach with silhouetted palm trees under a massive setting neon sun. The water is a flat, reflective purple plane with digital ripples. The sky is a gradient of deep indigo to hot pink, typical of 80s synthwave visual art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTfG0U2kmsK2Ee6hga7oBBhAomveYZaOF_DLz_t6jfmQ_VVZKcAcb90khFs8FVrHfcj6ef8VwR9AIroJne_v9WctmM4y8nZ9hWqzLCq2lP74MZgHK5Wz95w7Xcw4VMXyJS2-llYmNKLcg2WYW-tSdgv5ebZgifAfc7VOh9XxL70SbOYTlqxm_88tRsucZXo1NewyKwxJU1vJ3Qzmibe1_PN1p3JbxWW054du_pvIwxpOT26V9X57ie1osyiEUG-mLNqtGRaexe8YRM">
+</div>
+<h4 class="font-label-md text-label-md text-secondary uppercase">Tropical Silhouette</h4>
+<p class="text-label-sm text-on-surface-variant mt-1">Palms.exe</p>
+</div>
+<!-- Artifact 4 -->
+<div class="md:col-span-1 vapor-glass rounded-xl overflow-hidden group flex flex-col p-4">
+<div class="flex-1 flex flex-col justify-center items-center gap-4 text-center">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">cloud_download</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">64KB BUFFER</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-secondary-fixed-dim shadow-[0_0_8px_#00ffff]"></div>
+</div>
+</div>
+<button class="win95-border w-full py-2 mt-4 font-bold text-label-md active:translate-y-0.5">DOWNLOAD_SOUL</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Windows 95 Simulation Section -->
+<section class="py-24 bg-surface flex items-center justify-center relative overflow-hidden">
+<!-- Floating Palm Silhouettes -->
+<div class="absolute left-[-10%] bottom-0 opacity-20 pointer-events-none w-96">
+<img class="w-full object-contain grayscale" data-alt="A dark, high-contrast silhouette of a single palm tree against a vibrant magenta sky. The image has a low-resolution, slightly pixelated texture as if captured on an old camcorder. The composition is off-center, creating a sense of digital unease and nostalgia." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsrswD_t41XU09i3cFOdeCEcsjGXW46JWqG2X8N9vUjxGMALKDZo1_tCrvh9FU0JZRbBOwr999FGL0tmyzp0SNyH-PL8wA5-2A-pqJGrjBCSag3vWLn9NvYbha6XerPt_sbHXtT4sCGqhoGMHapXDYp-geGVlnt0Sz6biftfXmCs9LlF-uQkA6DEE9L-TXz3jYkWhZVtQwQnIBsansss_PALPUDHS31AcaneosnHh6xFsKo_LSddIyN3leijFPMdwoFTdwYiykqP3T">
+</div>
+<div class="win95-border w-full max-w-4xl z-10 mx-margin">
+<div class="bg-blue-900 text-white p-1 flex justify-between items-center">
+<div class="flex items-center gap-2 px-2">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span class="font-bold text-sm tracking-tight">ECHO_CHAMBER.EXE</span>
+</div>
+<div class="flex gap-1">
+<button class="win95-border px-2 text-xs font-bold bg-[#c0c0c0] text-black">_</button>
+<button class="win95-border px-2 text-xs font-bold bg-[#c0c0c0] text-black">□</button>
+<button class="win95-border px-2 text-xs font-bold bg-[#c0c0c0] text-black">X</button>
+</div>
+</div>
+<div class="p-8 bg-[#c0c0c0] text-black grid md:grid-cols-2 gap-12 border-t border-white">
+<div class="flex flex-col gap-6">
+<div class="win95-border bg-white p-4 h-64 overflow-y-auto font-label-md text-sm leading-relaxed border-2 border-gray-600">
+<p class="mb-4 text-blue-800">&gt;&gt; BOOTING ARCHIVE SESSION...</p>
+<p class="mb-2">Memory address: 0x84A22F</p>
+<p class="mb-2">Scanning sectors for aesthetic fragments...</p>
+<p class="mb-2">Fragment found: [MARBLE_STATUE_01]</p>
+<p class="mb-2">Fragment found: [VHS_NOISE_LOOP]</p>
+<p class="mb-2">Fragment found: [CITY_POP_CHORD]</p>
+<p class="mb-2 text-primary font-bold">WARNING: Nostalgia levels exceeding safe limits.</p>
+<p class="animate-pulse">_</p>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 win95-border px-4 py-2 bg-gray-200">
+<label class="block text-[10px] uppercase font-bold text-gray-600">Buffer Size</label>
+<input class="w-full accent-blue-900" type="range">
+</div>
+<button class="win95-border px-6 py-2 bg-[#c0c0c0] font-bold active:shadow-inner">EXECUTE</button>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center text-center gap-6">
+<div class="w-48 h-48 rounded-full border-4 border-dotted border-primary flex items-center justify-center p-4 bg-white/20">
+<div class="text-primary material-symbols-outlined text-8xl floating">psychology</div>
+</div>
+<h4 class="font-headline-md text-headline-md serif-wide uppercase">Dream Core</h4>
+<p class="text-sm font-medium">Please wait while we recalibrate your reality. This process may take several decades.</p>
+<div class="flex gap-4">
+<span class="win95-border bg-white px-4 py-1 text-xs">ONLINE</span>
+<span class="win95-border bg-white px-4 py-1 text-xs">ENCRYPTED</span>
+</div>
+</div>
+</div>
+<div class="bg-[#c0c0c0] p-1 border-t border-gray-400 text-[10px] flex gap-4">
+<span>16 Objects Found</span>
+<span>Disk Space: 1.44MB</span>
+<span class="ml-auto">12:00 AM</span>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact -->
+<section class="py-24 relative overflow-hidden">
+
+<div class="max-w-xl mx-auto px-margin text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary serif-wide uppercase mb-8">Subscribe to the Drift</h2>
+<p class="text-secondary-fixed-dim font-body-lg mb-12 italic">Receive weekly transmissions from the aesthetic underground. Direct to your terminal.</p>
+<form class="flex flex-col sm:flex-row gap-0 win95-border p-1 bg-[#c0c0c0]">
+<input class="flex-1 bg-white border-2 border-gray-600 px-4 py-3 text-black font-label-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="USER@PROVIDER.COM" type="email">
+<button class="bg-[#c0c0c0] text-black px-8 py-3 font-bold win95-border active:translate-x-0.5 active:translate-y-0.5">SUBMIT.BAT</button>
+</form>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">EPOCH ARCHIVE</div>
+<p class="text-tertiary dark:text-tertiary-fixed font-label-md text-label-md uppercase tracking-widest max-w-xs">
+                    © 1984-2024 DIGITAL HISTORY MUSEUM. ALL RIGHTS RESERVED.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6">
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-label-sm">NAVIGATION</span>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-label-sm">RESOURCES</span>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Archive API</a>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-on-surface font-bold text-label-sm">CONNECT</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary-fixed">language</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary-fixed">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary-fixed">radio</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full text-center py-4 bg-surface text-[10px] text-on-surface-variant opacity-30 font-label-sm">
+            PLEASE DRINK CRYSTAL PEPSI RESPONSIBLY.
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">33. Vaporwave</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Pastel pinks, Roman statues, glitch effects, and Windows 95 aesthetics.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+</footer>
+<!-- FAB -->
+<div class="fixed bottom-8 right-8 z-[100] md:hidden">
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">explore</span>
+</button>
+</div>
+<script>
+        // Micro-interaction for mouse movement parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            document.querySelectorAll('.floating').forEach(el => {
+                el.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        // Toggle search bar expand
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.classList.remove('w-48');
+                searchInput.classList.add('w-64');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.classList.remove('w-64');
+                searchInput.classList.add('w-48');
+            });
+        }
+    </script>
+</body></html>

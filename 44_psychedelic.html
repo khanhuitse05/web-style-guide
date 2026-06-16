@@ -1,36 +1,310 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>44. Psychedelic - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Bricolage+Grotesque:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        @keyframes liquid-warp {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+        .liquid-shape {
+            animation: liquid-warp 8s ease-in-out infinite;
+        }
+        .glass-psychedelic {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(185, 5, 56, 0.3);
+        }
+        .glow-text-purple {
+            text-shadow: 0 0 15px rgba(185, 5, 56, 0.8), 0 0 30px rgba(185, 5, 56, 0.4);
+        }
+        .glow-text-green {
+            text-shadow: 0 0 15px rgba(78, 222, 163, 0.8);
+        }
+        .trippy-gradient-bg {
+            background: linear-gradient(135deg, #0053db 0%, #b90538 50%, #4edea3 100%);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .kaleidoscope-grid {
+            mask-image: radial-gradient(circle, black 50%, transparent 100%);
         }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary": "#b90538",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-fixed": "#ffdadb",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#0053db",
+                    "on-surface": "#121c2a",
+                    "outline": "#737686",
+                    "inverse-surface": "#27313f",
+                    "on-secondary-fixed-variant": "#92002a",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#40000d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-background": "#121c2a",
+                    "tertiary-container": "#007d55",
+                    "secondary-container": "#dc2c4f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#bdffdb",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006242",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#ffb2b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d0dbed",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "40px",
+                    "unit": "4px",
+                    "gutter-fluid": "32px",
+                    "gutter-brutalist": "0px",
+                    "isometric-step": "30deg"
+            },
+            "fontFamily": {
+                    "body-lg": ["beVietnamPro"],
+                    "display-xl": ["syne"],
+                    "display-lg": ["syne"],
+                    "handwritten-md": ["bricolageGrotesque"],
+                    "headline-md": ["syne"],
+                    "label-mono": ["jetbrainsMono"],
+                    "body-md": ["beVietnamPro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary selection:text-white overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface glow-text-purple">
+            ART-MORPH
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">44. Psychedelic</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Swirling colors, optical illusions, and warped typography.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-secondary underline decoration-4 underline-offset-8 font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-8 py-3 font-display-lg text-body-lg uppercase tracking-widest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                Inquire
+            </button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden py-24">
+
+<div class="relative z-10 text-center px-margin-page">
+<h1 class="font-display-xl text-[120px] md:text-[180px] leading-none mb-8 glow-text-purple mix-blend-difference italic">
+                    DISSOLVE<br><span class="text-tertiary-fixed-dim glow-text-green">REALITY</span>
+</h1>
+<p class="font-handwritten-md text-handwritten-md max-w-2xl mx-auto mb-12 text-on-surface-variant">
+                    Experience the digital slipstream where art morphs into liquid consciousness. Our studio crafts neural visual landscapes for the post-physical era.
+                </p>
+<div class="flex flex-wrap justify-center gap-8">
+<div class="liquid-shape w-48 h-48 bg-secondary-container flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-white text-5xl">cyclone</span>
+</div>
+<div class="liquid-shape w-48 h-48 bg-tertiary flex items-center justify-center hover:rotate-12 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-white text-5xl">auto_fix_high</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Portfolio -->
+<section class="px-margin-page py-24 bg-surface-container">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-fluid auto-rows-[300px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 glass-psychedelic rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A mesmerizing psychedelic art piece featuring swirling, high-contrast patterns in neon purple, electric green, and vibrant orange. The composition uses liquid typography and optical illusion shapes that seem to warp and melt across the canvas. The lighting is surreal and high-intensity, reflecting a modern light-mode psychedelic aesthetic with deep depth and vibrant saturation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuyy66_0UW5JGE1-CfMhKTu9O5LEg3QM2udjUWg-hMN6JZwi1pkVexuPLsW4_nTpwfw28OFmK_0KjeaowFd86bPrKAPkWZWAMuY-gRY8paxj5c0xdyAzabKjs_p8lLfLqR7r9FN471NzhsajNS6hqtNt5Wrr2bTiIykDKnpxs5NrpnTn3bQn7Oe7II1IJR3_A-oSCXgNGabcveGgBJmsn5gsj1EuYjzcT0vqhG51kPDLjy-o-PIhUiH1kh18qgyHGfYsPwVuYEv72r">
+<div class="relative z-10">
+<span class="bg-secondary text-white px-4 py-1 font-label-mono text-label-mono rounded-full mb-4 inline-block">FEATURED EXHIBIT</span>
+<h2 class="font-display-lg text-display-lg text-on-surface glow-text-purple">THE NEURAL BLOSSOM</h2>
+</div>
+</div>
+<!-- Medium Card 1 -->
+<div class="md:col-span-2 glass-psychedelic rounded-3xl p-8 flex items-center gap-6 overflow-hidden">
+<div class="w-1/3 h-full rounded-2xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract 3D liquid waves flowing through a digital space with vibrant purple and lime green color grading. The lighting creates shimmering highlights on the warped surfaces, evoking a sense of fluid movement and high-energy creativity. The style is avant-garde and eclectic, perfectly matching a psychedelic visual identity with saturated neon hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI161ZlwblRY21SYhHjuiPYT8MXUDGlqa6dtiR95IMZqlkmzLaGM4Tr4MD5YT53fx8wK2zCLDd_VhrOIR7bKciKC1DIFhpwz5xQmCYF1DLAowFPT01nLPKnQm0nFS2_2r0ftGKVvYng4QMYJC7jg5hhXTGe9adZwcKfs4zkz-qMNYWhzpvpkrgu0SHPSb9EVPdt0Wj1tuYAq5A6EQpV89lZF5jyWotKEvkxYUMDRUBGqNB9hjzc6fhveIG_-42hbUltITUrgGQw02C">
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-2">Liquid Architecture</h3>
+<p class="font-body-md text-body-md">Redefining space through generative fluid dynamics.</p>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="glass-psychedelic rounded-3xl p-6 flex flex-col justify-between hover:bg-tertiary-fixed transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl text-primary">blur_on</span>
+<p class="font-label-mono text-label-mono uppercase tracking-tighter">Optical Distortion Patterns 04</p>
+</div>
+<!-- Small Card 2 -->
+<div class="glass-psychedelic rounded-3xl p-6 flex flex-col justify-between hover:bg-secondary-fixed transition-colors cursor-help">
+<span class="material-symbols-outlined text-4xl text-secondary">waves</span>
+<p class="font-label-mono text-label-mono uppercase tracking-tighter">Liquid Typography Engine</p>
+</div>
+</div>
+</section>
+<!-- Kinetic Text Section -->
+<section class="py-24 bg-on-surface text-surface overflow-hidden">
+<div class="whitespace-nowrap flex animate-marquee gap-24">
+<span class="font-display-xl text-[120px] uppercase opacity-50 italic">Morphogenesis</span>
+<span class="font-display-xl text-[120px] uppercase glow-text-green">Chromesthesia</span>
+<span class="font-display-xl text-[120px] uppercase opacity-50 italic">Hallucination</span>
+<span class="font-display-xl text-[120px] uppercase glow-text-green">Resonance</span>
+</div>
+<style>
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                    animation: marquee 20s linear infinite;
+                    width: max-content;
+                }
+            </style>
+</section>
+<!-- Process Section / Isometric -->
+<section class="px-margin-page py-32 relative">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 relative">
+<div class="w-full aspect-square trippy-gradient-bg liquid-shape relative flex items-center justify-center p-12">
+<img class="w-full h-full object-cover liquid-shape shadow-2xl" data-alt="A detailed close-up of a kaleidoscope pattern with intricate geometric symmetry and exploding vibrant colors including neon purple, electric lime green, and trippy orange. The lighting is high-key and bright, creating a dazzling array of reflections and color gradients. The image feels energetic and mind-bending, emphasizing the avant-garde psychedelic design theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyNRCsH4KK5TPBh72CnUW10wrmyR9y2EO93WbX7D3S1BEWDaz6dtnGxzoxUl1HyxC-Qeb87t0cCZtZmkn2h5quSvN3JGXRAk6corSEPyiQO8TWh3cCtHykO5hTU2aqqcHUCSoeRRO5yp49xAlimwU79fLS5xiF7rvNQBULZPw8LD25uu7Ncv8K4YSciHuOiaSW2hntkhA0mRORHYYxcnmVQm_7KecbwnnuwbAfFSHskcBPWbcaizNJ32uxYXbMY7S2XiF30O06yKXJ">
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-8">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight">
+                        The Method Behind<br>The <span class="text-secondary italic">Madness</span>
+</h2>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<span class="font-display-xl text-primary opacity-20">01</span>
+<div>
+<h4 class="font-headline-md text-headline-md">Neural Sketching</h4>
+<p class="text-on-surface-variant font-body-lg text-body-lg">We use custom AI models to generate infinite permutations of organic textures.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="font-display-xl text-secondary opacity-20">02</span>
+<div>
+<h4 class="font-headline-md text-headline-md">Liquid Refraction</h4>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Each pixel is passed through a simulated water-lens for natural warping.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="font-display-xl text-tertiary opacity-20">03</span>
+<div>
+<h4 class="font-headline-md text-headline-md">Kinetic Binding</h4>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Static frames are brought to life using motion-vector synchronization.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Interaction Section -->
+<section class="py-24 text-center">
+<button class="group relative px-12 py-8 transition-all duration-300">
+<div class="absolute inset-0 bg-secondary liquid-shape group-hover:scale-125 transition-transform duration-500 opacity-20"></div>
+<span class="relative z-10 font-display-xl text-display-lg group-hover:tracking-widest transition-all duration-500 block">
+                    START THE TRIP
+                </span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full mt-auto border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface glow-text-purple">ART-MORPH</div>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-on-surface flex items-center justify-center text-surface hover:rotate-45 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-on-surface flex items-center justify-center text-surface hover:rotate-45 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Subtle rotation for elements with specific class
+            document.querySelectorAll('.hover-tilt').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const tiltX = (e.clientX - centerX) / 20;
+                const tiltY = (e.clientY - centerY) / 20;
+                el.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg)`;
+            });
+        });
+    </script>
+</body></html>

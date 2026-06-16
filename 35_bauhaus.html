@@ -1,36 +1,326 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>35. Bauhaus - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom Bauhaus Accents */
+        .bauhaus-grid {
+            background-image: linear-gradient(#353535 1px, transparent 1px), linear-gradient(90deg, #353535 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .asymmetric-border-b {
+            border-bottom: 8px solid #ff00ff; /* Primary from config mapped to Bauhaus 'Pure' feel */
+        }
+        .shape-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#00dddd",
+                      "surface-tint": "#ffabf3",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#ffffff",
+                      "surface-container-high": "#2a2a2a",
+                      "error": "#ffb4ab",
+                      "on-primary-container": "#510051",
+                      "surface-container": "#20201f",
+                      "inverse-on-surface": "#313030",
+                      "outline-variant": "#564052",
+                      "on-tertiary-fixed": "#221b00",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-primary": "#a900a9",
+                      "outline": "#a4899d",
+                      "on-primary-fixed-variant": "#810081",
+                      "tertiary-container": "#c8a900",
+                      "surface-variant": "#353535",
+                      "secondary-container": "#00fbfb",
+                      "background": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "primary": "#ffabf3",
+                      "on-secondary": "#003737",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container-highest": "#353535",
+                      "surface-bright": "#393939",
+                      "primary-fixed": "#ffd7f5",
+                      "on-primary": "#5b005b",
+                      "on-primary-fixed": "#380038",
+                      "tertiary-fixed-dim": "#e9c400",
+                      "surface-dim": "#131313",
+                      "on-background": "#e5e2e1",
+                      "on-error": "#690005",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary": "#3a3000",
+                      "tertiary": "#e9c400",
+                      "error-container": "#93000a",
+                      "primary-fixed-dim": "#ffabf3",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "tertiary-fixed": "#ffe16d",
+                      "on-tertiary-fixed-variant": "#544600",
+                      "primary-container": "#ff00ff",
+                      "on-surface-variant": "#dcbed4",
+                      "on-secondary-fixed": "#002020",
+                      "on-secondary-container": "#007070",
+                      "on-tertiary-container": "#4b3e00",
+                      "secondary-fixed": "#00fbfb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin": "32px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg-mobile": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "label-md": ["JetBrains Mono"],
+                      "headline-md": ["Sora"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-xl": ["Sora"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">35. Bauhaus</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Primary colors (red, blue, yellow), functional geometry, and bold typography.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- Header / TopAppBar Component -->
+<header class="bg-surface docked full-width top-0 border-b border-outline-variant shadow-md z-50 sticky">
+<nav class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary">
+                EPOCH ARCHIVE
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-headline-md text-headline-md tracking-tight hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#">Eras</a>
+<a class="text-on-surface-variant font-medium font-headline-md text-headline-md tracking-tight hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#">Artifacts</a>
+<a class="text-on-surface-variant font-medium font-headline-md text-headline-md tracking-tight hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#">Curators</a>
+<a class="text-on-surface-variant font-medium font-headline-md text-headline-md tracking-tight hover:text-primary transition-colors duration-300 active:scale-95 transition-transform" href="#">Timeline</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary text-2xl">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 font-bold tracking-tight active:scale-95 transition-transform">
+                    Sign In
+                </button>
+</div>
+</nav>
+</header>
+<main class="relative overflow-hidden">
+<!-- Hero Section: Bauhaus Asymmetry -->
+<section class="relative min-h-[921px] flex items-center bauhaus-grid">
+<div class="max-w-container-max mx-auto px-margin grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center w-full py-20">
+<div class="lg:col-span-7 z-10">
+<div class="inline-block bg-tertiary text-on-tertiary px-4 py-1 mb-8 font-label-md text-label-md uppercase tracking-widest">
+                        EST. 1919 — WEIMAR
+                    </div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 leading-none">
+                        FORM FOLLOWS <br>
+<span class="text-primary-container bg-on-surface px-4">FUNCTION.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
+                        Bridging the gap between fine arts and industrial design. Explore the curated digital archive of the world's most influential design school.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-headline-md text-headline-md flex items-center gap-3 active:scale-95 transition-all">
+                            EXPLORE THE ARCHIVE
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-4 border-on-surface text-on-surface px-8 py-4 font-headline-md text-headline-md active:scale-95 transition-all">
+                            COLLECTIONS
+                        </button>
+</div>
+</div>
+<!-- Abstract Geometric Layout -->
+<div class="lg:col-span-5 relative h-[500px] hidden lg:block">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container opacity-90 shape-float"></div>
+<div class="absolute bottom-10 left-0 w-48 h-48 rounded-full bg-secondary-fixed opacity-80" style="animation-delay: 1s;"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-l-[100px] border-l-transparent border-r-[100px] border-r-transparent border-bottom-[180px] border-b-tertiary shape-float" style="animation-delay: 2s;"></div>
+<div class="absolute bottom-0 right-10 w-32 h-32 bg-on-surface border-8 border-primary"></div>
+<div class="absolute top-1/4 left-1/4 w-full h-full border border-outline opacity-20 -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: The Philosophies -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-on-surface">CORE PRINCIPLES</h2>
+<div class="h-2 w-32 bg-primary mb-6"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Our archive is organized through the lens of Gropius’s original vision: the unification of craft and technology.
+                        </p>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant border-l-4 border-tertiary pl-4">
+                        INDEX: 001 — 004
+                    </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 bg-on-surface text-background p-10 flex flex-col justify-between group cursor-pointer overflow-hidden relative">
+<div class="z-10">
+<span class="font-label-md text-label-md uppercase tracking-widest mb-4 block">01 / GEOMETRY</span>
+<h3 class="font-headline-xl text-headline-xl mb-6">ELEMENTAL FORMS</h3>
+<p class="font-body-md text-body-md max-w-sm">The circle, square, and triangle as the foundation of all visual language.</p>
+</div>
+<div class="absolute right-[-10%] bottom-[-10%] w-80 h-80 bg-primary opacity-20 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="mt-auto z-10 flex items-center gap-4 font-bold">
+                            VIEW MODULE <span class="material-symbols-outlined">north_east</span>
+</div>
+</div>
+<!-- Small High Contrast Card -->
+<div class="bg-primary-container text-on-primary-container p-8 flex flex-col justify-between hover:bg-on-primary-container hover:text-primary transition-colors">
+<span class="font-label-sm text-label-sm uppercase">02 / COLOR</span>
+<h3 class="font-headline-md text-headline-md">PRIMARY SPECTRUM</h3>
+<span class="material-symbols-outlined text-4xl">palette</span>
+</div>
+<!-- Image Content Card -->
+<div class="md:col-span-1 bg-surface-container-highest relative overflow-hidden group">
+<img alt="Bauhaus Architecture" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A striking architectural photograph of a classic Bauhaus style building featuring clean white rectangular volumes and large glass window walls. The lighting is harsh and high-contrast, casting deep black shadows against the brilliant white facade under a clear sky. The image emphasizes vertical and horizontal lines and minimal ornamentation, capturing the movement's functionalist and industrial aesthetic in a modern photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrhgwXytzKsfmBGPFetu4PE21j_k01IuvH121O--rvAexVRxxjo_kow9eW3_eLLcRcIUK2uYFwu6TlawfWhziesRl-JC8-VZY4v7wF1_k5MKStZ1hLCot0LcHZWeSRipUGFdegy6qxyjcoCFp6A7SEquJryyWoc8tcsIPgxjMkMj82ZM5OctOt3ykBLGN80os2EYkAnnJTX1VIwmRLlTBdMc5WGVByNnHmg-88i_DKTjIRDhYLb1pI6V_v92UhzmlZVfe1sz4w_Ew">
+<div class="absolute inset-0 bg-secondary-fixed/20 mix-blend-multiply group-hover:bg-transparent"></div>
+</div>
+<!-- Long Vertical Text Card -->
+<div class="bg-tertiary text-on-tertiary p-8 md:row-span-1">
+<span class="font-label-sm text-label-sm uppercase">03 / TYPOGRAPHY</span>
+<h3 class="font-headline-md text-headline-md mb-4">UNIVERSAL SANS</h3>
+<p class="font-label-sm text-label-sm leading-relaxed">
+                            Herbert Bayer's pursuit of a typeface that transcended national boundaries and historical decoration.
+                        </p>
+</div>
+<!-- Material Interaction Card -->
+<div class="md:col-span-1 bg-secondary-fixed text-on-secondary-fixed p-8 flex flex-col justify-between">
+<div class="h-2 w-full bg-on-secondary-fixed mb-4"></div>
+<h3 class="font-headline-md text-headline-md">TEXTILE &amp; WEAVING</h3>
+<div class="flex justify-between items-end">
+<span class="font-label-md text-label-md">04</span>
+<span class="material-symbols-outlined">texture</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Showcase: Large Image and Asymmetric Text -->
+<section class="py-24 bauhaus-grid">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="flex flex-col lg:flex-row gap-20 items-center">
+<div class="w-full lg:w-1/2 relative">
+<div class="absolute -top-10 -left-10 w-full h-full bg-tertiary -z-10"></div>
+<div class="bg-surface p-4 border border-outline-variant shadow-xl">
+<img alt="Modern Design Interface" class="w-full grayscale border-2 border-on-surface" data-alt="A modern digital interface displayed on a sleek monitor in a professional design studio environment. The UI on the screen features bold geometric layouts, heavy sans-serif typography, and a primary color palette of red, blue, and yellow against a dark background. The studio environment is softly lit with warm accent lights, creating a sophisticated and creative atmosphere for digital archivism and high-end graphic design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1JPDkbgyjWgaXqQ8jI5qdQtj2LTgmEgl6jnkrjYNFVDOkzAcVBWk26u0dsMPy3imV9kLA7FwSP-OsTcNO0HbxQgyst_ge8fIgAnus6pYVwRZs_MuXeueSTkbHAwWpU8wfXE5UnE16taCOJjjQwjEcMhigNFht916HE0iRyrg4hpP8Yqv1UwrIFg6LU3m5lBzZIVW-iuhtfQqES-YjH3GP7EJuUk1-gGU-pAHRYlvIDag9n2ij6O4PSk8NLCPthph8XecsEz4OZ-vN">
+</div>
+</div>
+<div class="w-full lg:w-1/2 space-y-8">
+<h2 class="font-headline-lg text-headline-lg leading-tight">PRESERVING THE <br><span class="text-secondary-fixed">DIGITAL GRID.</span></h2>
+<div class="flex gap-10">
+<div class="w-1 bg-primary"></div>
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                                    Our preservation engine treats each artifact as a living document. We don't just store files; we maintain the mathematical relationship between elements.
+                                </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 font-headline-md text-headline-md">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+                                        Vector Preservation
+                                    </li>
+<li class="flex items-center gap-3 font-headline-md text-headline-md">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+                                        Color Accuracy Logs
+                                    </li>
+<li class="flex items-center gap-3 font-headline-md text-headline-md">
+<span class="material-symbols-outlined text-primary" data-weight="fill">check_circle</span>
+                                        Grid Metasheets
+                                    </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Visual: Shader Background Placeholder -->
+<section class="h-96 relative overflow-hidden bg-black flex items-center justify-center">
+
+<div class="relative z-10 text-center space-y-6">
+<h2 class="font-headline-xl text-headline-xl text-primary-fixed border-y-4 border-primary-fixed py-4">JOIN THE WORKSHOP</h2>
+<p class="font-label-md text-label-md tracking-[0.5em] text-white">SUBMIT YOUR CONTRIBUTION TO THE ARCHIVE</p>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest full-width bottom-0 border-t border-outline-variant flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col gap-4">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">EPOCH ARCHIVE</div>
+<p class="font-label-md text-label-md text-on-surface-variant max-w-xs">
+                    Building the future by preserving the structural integrity of the past.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-primary transition-all duration-200 underline underline-offset-4" href="#">Privacy</a>
+<a class="hover:text-primary transition-all duration-200 underline underline-offset-4" href="#">Terms</a>
+<a class="hover:text-primary transition-all duration-200 underline underline-offset-4" href="#">Archive API</a>
+<a class="hover:text-primary transition-all duration-200 underline underline-offset-4" href="#">Contact</a>
+</div>
+<div class="text-tertiary font-label-md text-label-md uppercase tracking-widest md:text-right">
+                © 1984-2024 DIGITAL HISTORY MUSEUM. <br> ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'scale(1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'scale(1)';
+            });
+        });
+
+        // Hover Effect for primary elements
+        const primaryAccents = document.querySelectorAll('.bg-primary-container');
+        primaryAccents.forEach(acc => {
+            acc.addEventListener('mouseenter', () => {
+                acc.classList.add('shadow-[8px_8px_0px_0px_rgba(255,171,243,0.3)]');
+            });
+            acc.addEventListener('mouseleave', () => {
+                acc.classList.remove('shadow-[8px_8px_0px_0px_rgba(255,171,243,0.3)]');
+            });
+        });
+    </script>
+</body></html>

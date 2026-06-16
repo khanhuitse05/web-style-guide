@@ -1,36 +1,472 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>54. Cosmic/Space - Style Guide</title>
+    <title>Aetheris Gallery | Cosmic Exploration</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@400;500;700&family=Geist:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#23501e",
+                        "tertiary-fixed": "#d7e2ff",
+                        "inverse-on-surface": "#2e3132",
+                        "tertiary-container": "#a2b3d7",
+                        "on-surface": "#e1e3e4",
+                        "surface-dim": "#111415",
+                        "primary": "#f2ca50",
+                        "on-secondary-container": "#90c283",
+                        "surface-container-highest": "#323536",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary-container": "#354563",
+                        "on-background": "#e1e3e4",
+                        "on-primary": "#3c2f00",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#735c00",
+                        "secondary": "#a1d494",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#e1e3e4",
+                        "tertiary-fixed-dim": "#b6c7eb",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "on-primary-fixed-variant": "#574500",
+                        "primary-fixed": "#ffe088",
+                        "surface-container-lowest": "#0c0f10",
+                        "primary-container": "#d4af37",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#99907c",
+                        "background": "#111415",
+                        "secondary-fixed": "#bcf0ae",
+                        "secondary-container": "#23501e",
+                        "tertiary": "#becef3",
+                        "surface-bright": "#373a3b",
+                        "surface-container": "#1d2021",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#002201",
+                        "surface-variant": "#323536",
+                        "on-tertiary-fixed": "#081b38",
+                        "on-secondary": "#0a3909",
+                        "surface-container-low": "#191c1d",
+                        "primary-fixed-dim": "#e9c349",
+                        "secondary-fixed-dim": "#a1d494",
+                        "on-tertiary-fixed-variant": "#374765",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary": "#20304e",
+                        "surface-tint": "#e9c349",
+                        "surface": "#111415",
+                        "on-primary-container": "#554300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "unit": "8px",
+                        "section-gap": "160px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "80px",
+                        "gutter": "32px",
+                        "margin-tablet": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Geist"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #050505;
+            /* Absolute black void */
+            color: #e1e3e4;
+            overflow-x: hidden;
+        }
+
+        .cosmic-nebula {
+            background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.15) 0%, rgba(255, 0, 255, 0.05) 50%, transparent 100%);
+            filter: blur(120px);
+            z-index: -1;
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .luminescence-hover:hover {
+            box-shadow: 0 0 30px rgba(242, 202, 80, 0.3);
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+        }
+
+        .animate-drift {
+            animation: drift 10s ease-in-out infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+
+<body class="font-body-md selection:bg-primary/30">
+    <!-- Star Field Background -->
+    <div class="star-field" id="starField"></div>
+    <div class="cosmic-nebula fixed top-[-20%] left-[-10%] w-[60%] h-[60%] opacity-40"></div>
+    <div class="cosmic-nebula fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] opacity-30"></div>
+    <!-- Top Navigation Bar -->
+    <header
+        class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl dark:bg-surface-dim/40 transition-all duration-500">
+        <nav class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md text-primary tracking-tighter cursor-pointer active:scale-95">
+                Aetheris Gallery
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="font-body-md text-body-md text-primary font-bold border-b border-primary pb-1 cursor-pointer active:scale-95"
+                    href="#">Archetypes</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95"
+                    href="#">Artifacts</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95"
+                    href="#">Design Tokens</a>
+                <a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95"
+                    href="#">Curators</a>
+            </div>
+            <div class="flex items-center gap-6">
+                <button
+                    class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all duration-300">search</button>
+                <button
+                    class="bg-primary/10 border border-primary/30 text-primary px-6 py-2 rounded-full font-label-sm text-label-sm tracking-widest hover:bg-primary/20 transition-all active:scale-95">
+                    INQUIRE
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center pt-24 px-margin-desktop overflow-hidden">
+            <div class="grid grid-cols-12 gap-gutter items-center w-full max-w-container-max mx-auto">
+                <div class="col-span-12 lg:col-span-7 z-10">
+                    <span class="font-label-sm text-label-sm text-primary tracking-[0.3em] uppercase mb-6 block">Cosmic
+                        Archetype</span>
+                    <h1 class="font-display-lg text-display-lg text-white mb-8 leading-[1.05]">
+                        The Infinite <br>
+                        <span class="italic text-tertiary">Glass Canopy</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                        Step beyond the terrestrial. Explore a design system forged in the absolute cold of the void,
+                        illuminated by the dying breath of distant stars and the crystalline clarity of cosmic dust.
+                    </p>
+                    <div class="flex gap-8 items-center">
+                        <button
+                            class="px-10 py-5 bg-white text-surface-dim font-label-sm text-label-sm tracking-widest rounded-full hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all duration-500">
+                            EXPLORE ORBIT
+                        </button>
+                        <button class="flex items-center gap-3 group">
+                            <span
+                                class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center group-hover:border-primary transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_arrow</span>
+                            </span>
+                            <span
+                                class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-colors">THE
+                                VOID MANIFESTO</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-5 relative h-[600px] flex items-center justify-center">
+                    <div
+                        class="absolute w-[120%] h-[120%] blur-3xl opacity-30" style="background: radial-gradient(circle, rgba(242,202,80,0.1) 0%, transparent 70%);">
+                    </div>
+                    <div
+                        class="relative w-full aspect-square rounded-full overflow-hidden glass-card p-2 group cursor-pointer">
+                        <div class="w-full h-full rounded-full overflow-hidden relative">
+                            <img class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[3s] ease-out"
+                                data-alt="A hyper-detailed telescope capture of a swirling purple and magenta nebula, with crystalline white stars scattered throughout the deep black void. The lighting is ethereal and directional, as if from a nearby pulsar, casting a soft luminescence over cosmic gas clouds. The overall mood is vast, mysterious, and serene, fitting a luxury cosmic design language."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT0AQ7ma1ncV4r5fouY3sIrRVmK6EnDH12G-TjntL4BkE8qlOfAQZPs2WoJ5HBUjjabXSVV24LqpZKJ_PxrjeUVALXOfp6lm9RqSWkJqGiyLy02MejPrZZvri2sML5ZOJ94QRgJbYfrEGSXTP6JyDd7DZalOPxezqZFdLIPVz3FApTza00zYJIVKepmHWq5QJ5STgngkm3t9rqcRxdHJ2wm4US4et16pRU4ZX1dQJMpI6v-3e34gBR-1Hfa1VFQupzVfyuycTJ2elM">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                    </div>
+                    <!-- Floating UI Element -->
+                    <div class="absolute -bottom-10 -left-10 glass-card p-8 rounded-xl animate-drift max-w-[240px]">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#f2ca50]"></span>
+                            <span class="font-label-sm text-label-sm text-primary">LIVE TELEMETRY</span>
+                        </div>
+                        <div class="font-headline-md text-headline-md text-white mb-2">4.2ly</div>
+                        <p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Distance to Archetype
+                            Zero</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid Artifacts Section -->
+        <section class="py-section-gap px-margin-desktop">
+            <div class="max-w-container-max mx-auto">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <span
+                            class="font-label-sm text-label-sm text-primary-fixed-dim tracking-widest block mb-4 uppercase">Stellar
+                            Catalog</span>
+                        <h2 class="font-headline-lg text-headline-lg text-white">Curated Artifacts</h2>
+                    </div>
+                    <p class="text-on-surface-variant font-body-md max-w-sm">
+                        Objects recovered from the edges of the known, preserved in stasis fields for your inspection.
+                    </p>
+                </div>
+                <div class="grid grid-cols-12 grid-rows-2 gap-gutter h-[800px]">
+                    <!-- Large Feature Card -->
+                    <div class="col-span-8 row-span-2 relative glass-card rounded-2xl overflow-hidden group">
+                        <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[2s]"
+                            data-alt="A close-up high-fidelity image of a crystalline planet surface reflecting the purple glow of a nearby cosmic nebula. The ground is composed of jagged, translucent obsidian structures catching white starlight on their edges. The atmosphere is thin and shimmering with celestial dust, creating a feeling of profound isolation and high-end extraterrestrial exploration."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFYJcmWjRQyW_5qirc7uJPEsDgapvn8W5pZ_qwioWuiyFz1g8AZg4db7g49V-bd55YZvoKP4dG7cMqR9ETYEgz0jYrLl9ojoDSC4eUM3_CTDGbgqHZOPY0RcbRDRgKPwi81ICp-9fyUeBvCbs51w085bQrfLi2fcxZxWFghXOLzCeUNNIBkRuqQUv1fOt58LbAPaXiTezVmjwilm18tdW_mmg-oWHThahwTHkVA-gi8Mf3ByH9xrUWbW-sX1MSat1MTnFUmTnjBl_m">
+                        <div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-0 p-12 w-full">
+                            <span class="font-label-sm text-label-sm text-tertiary tracking-widest block mb-4">REGION:
+                                ORION BELT</span>
+                            <h3 class="font-headline-lg text-headline-lg text-white mb-6">The Obsidian Shard</h3>
+                            <button
+                                class="bg-white/10 hover:bg-white text-white hover:text-surface-dim px-8 py-3 rounded-full border border-white/20 transition-all font-label-sm text-label-sm">VIEW
+                                ARCHIVE</button>
+                        </div>
+                    </div>
+                    <!-- Small Card 1 -->
+                    <div class="col-span-4 row-span-1 glass-card rounded-2xl overflow-hidden relative group">
+                        <img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:rotate-3 group-hover:scale-110 transition-transform duration-[3s]"
+                            data-alt="An abstract view of a swirling magenta galaxy core, intensely bright at the center with flowing tendrils of dark matter and purple gas. The composition is dynamic and immersive, highlighting the organic movement of celestial fluids. The background is a dense field of brilliant white stars, providing a sharp contrast to the soft nebula gradients."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5vUJSvij4yw6fVnJRb9UH_BuxLmiwkVnAU1-c3H1lU-ZVQrIDbhKPrVeMZDKwoxMBLu0___zGvYPCqodN57p2spVnN-89rc7WJMYHItvIZFV4JPlm3UPfaK_72WlKqCO-dqr52urbaMIL89Pormm8g3SWO3lpYMpGkY44zYcB3Cv_g-ViYyAZg5VQqKsEzI2gSdZuSiYt5FQMEVin5BfpXNACWgfxkT_RDn6ERFg6jAP7mVnE4XikSTI8iUFygXbb_WZe37GTvk7l">
+                        <div class="absolute inset-0 flex flex-col justify-end p-8">
+                            <div class="font-headline-md text-headline-md text-white mb-2">Nebula Core</div>
+                            <p class="font-label-sm text-label-sm text-on-surface-variant">VIBRATIONAL DESIGN TOKEN</p>
+                        </div>
+                    </div>
+                    <!-- Small Card 2 -->
+                    <div
+                        class="col-span-4 row-span-1 glass-card rounded-2xl p-8 flex flex-col justify-between group hover:bg-white/5 transition-colors">
+                        <div class="flex justify-between items-start">
+                            <span class="material-symbols-outlined text-primary text-4xl">flare</span>
+                            <span class="font-label-sm text-label-sm text-on-surface-variant">ID: 902-X</span>
+                        </div>
+                        <div>
+                            <h4 class="font-headline-md text-headline-md text-white mb-4">Light Transmission</h4>
+                            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Fiber-optic threads woven from harvested solar flares. Pure luminosity.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-white/10 flex justify-between items-center">
+                            <span class="font-label-sm text-label-sm text-primary">ACTIVE STATE</span>
+                            <span
+                                class="material-symbols-outlined text-white group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Environmental Section (Interactive Shader Placeholder) -->
+        <section class="relative min-h-[819px] flex items-center justify-center overflow-hidden">
+
+            <div class="relative z-10 text-center px-margin-desktop">
+                <div class="glass-card max-w-4xl mx-auto p-16 rounded-3xl backdrop-blur-3xl border border-white/10">
+                    <h2 class="font-display-lg text-display-lg text-white mb-8">Atmospheric Sync</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                        The interface adapts to the gravitational pull of your current perspective. Notice the light
+                        shifts as you navigate through different celestial coordinates.
+                    </p>
+                    <div class="flex justify-center gap-12">
+                        <div class="text-center">
+                            <div class="font-headline-md text-headline-md text-primary mb-2">0.0g</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase">
+                                Gravity</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-headline-md text-headline-md text-primary mb-2">-270°C</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase">
+                                Temp</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-headline-md text-headline-md text-primary mb-2">99%</div>
+                            <div class="font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase">
+                                Vacuum</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter / Contact Section -->
+        <section class="py-section-gap px-margin-desktop">
+            <div class="max-w-container-max mx-auto glass-card rounded-[40px] p-24 relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/20 rounded-full blur-[100px]"></div>
+                <div class="relative z-10 flex flex-col md:flex-row gap-20 items-center">
+                    <div class="flex-1">
+                        <h2 class="font-headline-lg text-headline-lg text-white mb-6">Join the Observer Class</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Receive rare updates on deep space design findings and upcoming celestial gallery openings.
+                        </p>
+                        <form class="flex gap-4 max-w-md">
+                            <div class="relative flex-1">
+                                <input
+                                    class="w-full bg-white/5 border-b-2 border-white/20 border-x-0 border-t-0 focus:border-primary focus:ring-0 text-white font-body-md py-4 px-2 transition-all"
+                                    placeholder="Observer Email" type="email">
+                                <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-700"
+                                    id="inputLine"></div>
+                            </div>
+                            <button
+                                class="bg-primary text-on-primary px-8 py-2 rounded-lg font-label-sm text-label-sm tracking-widest hover:brightness-110 active:scale-95 transition-all"
+                                type="submit">
+                                TRANSMIT
+                            </button>
+                        </form>
+                    </div>
+                    <div class="flex-1 flex justify-center">
+                        <div
+                            class="w-64 h-64 border-2 border-dashed border-white/20 rounded-full flex items-center justify-center animate-[spin_20s_linear_infinite]">
+                            <div
+                                class="w-48 h-48 border-2 border-primary/40 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite_reverse]">
+                                <span class="material-symbols-outlined text-primary text-6xl">satellite_alt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-20">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter w-full max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md text-on-surface-variant">
+                Aetheris Gallery
+            </div>
+            <div class="flex gap-8 my-10 md:my-0">
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#">Environmental Impact</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300"
+                    href="#">Contact</a>
+            </div>
+            <div class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                © 2024 Aetheris Natural Skeuomorphism Lab. All rights reserved.
+            </div>
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">54. Cosmic/Space</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Stars, nebulae, deep void backgrounds, and glowing celestial bodies.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
+    </footer>
+    <script>
+        // Simple Star Generator
+        function createStars() {
+            const starField = document.getElementById('starField');
+            const count = 300;
+
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 2 + 'px';
+                star.style.position = 'absolute';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.background = 'white';
+                star.style.borderRadius = '50%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.opacity = Math.random() * 0.8;
+                star.style.boxShadow = `0 0 ${Math.random() * 5}px rgba(255, 255, 255, 0.8)`;
+
+                // Add twinkle animation
+                if (Math.random() > 0.8) {
+                    star.style.animation = `twinkle ${Math.random() * 5 + 3}s infinite ease-in-out`;
+                }
+
+                starField.appendChild(star);
+            }
+        }
+
+        // Add CSS for twinkle
+        const styleSheet = document.createElement('style');
+        styleSheet.innerText = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0.3; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.2); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Input effect
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.nextElementSibling.style.width = '100%';
+            });
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.nextElementSibling.style.width = '0';
+                }
+            });
+        });
+
+        // Initialize
+        createStars();
+
+        // Parallax Effect for the star field
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 20;
+            const y = (e.clientY / window.innerHeight) * 20;
+            document.getElementById('starField').style.transform = `translate(${-x}px, ${-y}px)`;
+        });
+    </script>
 </body>
+
 </html>

@@ -1,36 +1,335 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>81. Scandi-Minimal - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NORDIC | Scandi-Minimalist Furniture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Geist:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#959680",
+                    "surface-bright": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-surface": "#1a1c1c",
+                    "inverse-primary": "#c8c6c6",
+                    "background": "#f9f9f9",
+                    "surface": "#f9f9f9",
+                    "primary": "#181919",
+                    "tertiary-fixed": "#e4e4cc",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#4e4638",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f3",
+                    "primary-container": "#2d2d2d",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#d1c5b3",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#18190b",
+                    "primary-fixed": "#e4e2e1",
+                    "surface-tint": "#5f5e5e",
+                    "on-tertiary-fixed": "#1b1d0e",
+                    "on-secondary-fixed": "#211b0f",
+                    "outline": "#747878",
+                    "on-tertiary-fixed-variant": "#474836",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c4c7c7",
+                    "on-surface-variant": "#444748",
+                    "inverse-surface": "#2f3131",
+                    "surface-dim": "#dadada",
+                    "primary-fixed-dim": "#c8c6c6",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-primary-container": "#959494",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#ebdecb",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#2c2e1e",
+                    "secondary-fixed": "#eee1ce",
+                    "surface-container": "#eeeeee",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#6b6152",
+                    "on-primary-fixed": "#1b1c1c",
+                    "secondary": "#665d4e",
+                    "tertiary-fixed-dim": "#c8c8b0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "stack-sm": "16px",
+                    "gutter": "32px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "stack-lg": "80px",
+                    "stack-md": "32px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-md": ["Geist"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "display": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.03em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #FAFAFA; /* Snow background */
+            scroll-behavior: smooth;
+        }
+        .scandi-wood-texture {
+            background-color: #F5F5DC; /* Ash surface */
+            background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+            background-blend-mode: multiply;
+            opacity: 0.85;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">81. Scandi-Minimal</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Nordic design, pale wood colors, and expansive white space.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-on-surface overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-surface h-20 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="font-display text-display tracking-tight text-primary">NORDIC</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md hover:text-primary transition-colors duration-300" href="#">Design</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300" href="#">Craft</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300" href="#">Journal</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300" href="#">Studio</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-md text-label-md rounded transition-all hover:opacity-80 active:opacity-60">
+            Enquire
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="z-10 max-w-2xl fade-in">
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest block mb-4">Collection 2024</span>
+<h1 class="font-display text-display text-primary leading-tight mb-8">Quietude in <br/>Craftsmanship.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">
+                Functional objects designed for the intentional home. Sourced from sustainable ash forests and hand-finished in our Copenhagen studio.
+            </p>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-md text-label-md transition-all hover:opacity-90">
+                    Explore Studio
+                </button>
+<button class="border border-outline text-primary px-10 py-5 font-label-md text-label-md hover:bg-surface-container-low transition-all">
+                    View Journal
+                </button>
+</div>
+</div>
+<!-- Large Hero Image Canvas -->
+<div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block">
+<div class="w-full h-full bg-surface-container-low relative">
+<img alt="Minimalist Living Room" class="w-full h-full object-cover grayscale-[20%] brightness-105" data-alt="A serene, high-end minimalist living room featuring a pale ash wood lounge chair with clean geometric lines. The space is filled with bright, natural sunlight pouring through large floor-to-ceiling windows, highlighting the soft textures of a neutral wool rug and a single ceramic vase on a low plinth. The aesthetic is purely Scandi-minimalist, emphasizing massive negative space, a palette of soft whites and warm wood tones, and an atmosphere of quiet, intentional calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcuU-npF5NLP-GWCsYkjB-aisfz5LWRgPmXY4NIbPZlnxbTQUC5OQWwc9fdQrMP6ql8fyYWGOhpIQFxXlArFTaFk6Halxwf2chSln6z2JTmpjPjEAeSerGw9Q2s2QTuwX-dUAubOzV3jsUfHtMHEm5Z6OmR_J6BzYqZ-G8phOnnDwTqEVqE3CDlKZ4EhVC2LdApMVQFrkT3QLaCYYoqstbPQeY9xAXwj4wgXJclUyILAcRAifycCwH937rJAfks2TZKDVV6gScbW8v"/>
+</div>
+</div>
+</section>
+<!-- Bento Grid Philosophy Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Text Lead -->
+<div class="md:col-span-4 mb-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Built for Longevity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    We believe the things you own should last a lifetime. Our philosophy centers on modularity, repairability, and aesthetic permanence.
+                </p>
+</div>
+<!-- Bento Item 1 -->
+<div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-low p-stack-md aspect-square flex flex-col justify-end group cursor-pointer transition-colors hover:bg-secondary-fixed">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary">forest</span>
+<h3 class="font-headline-md text-headline-md text-primary">Ethical Sourcing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Certified FSC timber from northern latitudes.</p>
+</div>
+<div class="bg-surface-container-low p-stack-md aspect-square flex flex-col justify-end group cursor-pointer transition-colors hover:bg-secondary-fixed">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary">architecture</span>
+<h3 class="font-headline-md text-headline-md text-primary">Precision Joinery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Traditional dovetails meeting modern CNC precision.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Full Width Feature with Ash Texture -->
+<section class="scandi-wood-texture py-stack-lg">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-24">
+<div class="flex-1 w-full h-[600px] bg-white relative">
+<img alt="Studio table close up" class="w-full h-full object-cover" data-alt="Close-up architectural shot of a minimalist dining table made from light birchwood, focusing on the seamless joinery and smooth grain texture. The lighting is soft and diffused, characteristic of a cloudy Scandinavian day, creating gentle shadows that emphasize the furniture's form. The background is a crisp, off-white gallery wall, maintaining a high-readability, ultra-clean aesthetic consistent with luxury Nordic design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_yUuWNAo5Ef2FFY2TWoy5iaMhp6onJ209H6SNjlNznvOWlgPeHvhCABO0R05N4oL9VIGsiAO5dN7GgQjKm_cZjng-mcGl4SgPXHdBZfSX42OhICoXnuQy2uMqqBFhKsO2xQT54Dfx3HAD9rv8YwtsLyKSWL2SCLuYW9z38g8veVyB38SoA9TOHAAH7V0z8oWZapJx65PK1SRSnt8X7IhkqPN82SPbVMTq_bDNIdqeX6LZadihWPcEPI1hA0zskWRuCyH95vtHEmWv"/>
+</div>
+<div class="flex-1">
+<h2 class="font-display text-display text-primary mb-8 leading-tight">Tactile <br/>Authenticity.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        The "Birchwood" series explores the intersection of raw nature and human intent. Each surface is hand-sanded to 400-grit for a silk-like touch that invites the hand as much as the eye.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary"></span>
+<span class="font-label-md text-label-md text-primary">Natural Oil Finish</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary"></span>
+<span class="font-label-md text-label-md text-primary">Solid Ash Construction</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary"></span>
+<span class="font-label-md text-label-md text-primary">Zero-VOC Adhesives</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Showcase (Carousel Simulation) -->
+<section class="py-stack-lg overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-stack-md flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Current Catalog</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Available for worldwide delivery.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter px-margin-mobile md:px-margin-desktop overflow-x-auto pb-10 scrollbar-hide no-scrollbar">
+<!-- Product Card 1 -->
+<div class="min-w-[320px] md:min-w-[400px]">
+<div class="bg-surface-container-low aspect-[4/5] mb-6 overflow-hidden">
+<img alt="Nordic Stool" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A sculptural three-legged stool made of light ash wood, centered in a bright, airy room with soft-focus white walls. The lighting is ethereal and clean, highlighting the smooth curves and functional simplicity of the piece. The image follows a high-key light mode aesthetic with significant white space, reflecting the quiet warmth of Scandi-minimalist furniture design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKZbIBr9J-33mdGUpVlKlCG8j0ZscnvlB0iRoee9JXzKiTetRcC6rAjcsVjxQxORtuTArF8tJa1_U4-aRv8c6EJchRVqyawRZKCDHE9PKW91hIb2nYPV5kvEWOx_x3FDSRQ3t7li--PHDmvyfOiGc5VhQ7o_HNRlQdHuwwCRDuQ7xFZlLGNjLxPRhLZ87nCXMNDuBPtkQZ8sshgzdNoIqd4jnThVyqT2U2If8o2AFIqEkPy8YH98GKJ5lzkpvmdZDTkZ7CkBuV_WFn"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">Alvar Stool</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Seating / Ash</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$420</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[320px] md:min-w-[400px]">
+<div class="bg-surface-container-low aspect-[4/5] mb-6 overflow-hidden">
+<img alt="Studio Desk" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A minimalist desk setup featuring a slim-profile solid wood table in a pale wood finish. The room is decorated with a single architectural plant in a gray clay pot, set against a backdrop of clean off-white walls. Bright, soft natural light fills the frame, creating a sense of clarity and focus appropriate for a luxury home office. The mood is sophisticated and calming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHzy6vbez8oQsJKLIY63MTq4TNc5sTFW9sPLviyxJP7AkD_K2IoHlD9L0FM_D0vkSJ9tJGM6gLYVmEzoYy19x92IdhvkO8hHnfoyKMH3sZwKfxn6yg8talt6o3-Q4JUCemEu4E8JvmZ0c04-YodGfjsVdq_h8V_pcpaHsJsN5I9ZIqCAgs0D70DBjSAb_apr4kXbPnwH2DqxwquVC72HIsoBhGrk_btXhPE5o7GafEoVNIbAsBp5aWYSQSTuLG94EULcPePVP3_caI"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">Kjell Desk</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Workspace / Birch</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$1,850</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="min-w-[320px] md:min-w-[400px]">
+<div class="bg-surface-container-low aspect-[4/5] mb-6 overflow-hidden">
+<img alt="Lounge Chair" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="An elegant, low-profile lounge chair with a woven paper cord seat and a light oak wood frame. The scene is set in a spacious gallery-like room with polished light concrete floors and expansive negative space. The lighting is soft and directional, casting gentle architectural shadows that accentuate the chair's handcrafted details and natural materials. The overall feel is one of expensive, quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUjD_YchaJS48vivYz342XEC5XsuS8vnUQCH8qzWv3hKqyiL7r3b9Ior-cc3rZcFHXm1vK6zVr5X6dNQXB9YxA1lV-9Vuntf71yhMwAOHQWTVZU7vHUel78gsE-LyTUiGqse8Fb3XRVs9zaIswcBzdYhbQDiwFCv6AZMUydlgXLBOXXuOeFQ9XI2dLX-p33sqc2zsVYaK4MpzD7JceYxWo_azT01ukAHE9ey8jmhhXlRcRK1JT5sO2n42xWKahVTswoFqYZ9yzOzmL"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary">Soren Lounge</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Comfort / Oak</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$2,100</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Divider / Brand Essence -->
+<section class="h-[716px] w-full relative flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center px-margin-mobile">
+<p class="font-label-md text-label-md text-primary uppercase tracking-[0.3em] mb-8">Design Manifesto</p>
+<blockquote class="font-display text-4xl md:text-6xl text-primary max-w-4xl leading-tight">
+                "Simplicity is the ultimate sophistication. We do not design for the eye, but for the soul's need for peace."
+            </blockquote>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/10">
+<div class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="font-display text-headline-md text-primary">NORDIC</div>
+<div class="flex gap-stack-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Stockists</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Contact</a>
+</div>
+<div class="text-on-surface-variant font-body-md text-body-md">
+                © 2024 Nordic Studio. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for header on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.style.height = '70px';
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.style.height = '80px';
+            }
+        });
+
+        // Simple horizontal scroll controller for carousel
+        const carousel = document.querySelector('.no-scrollbar');
+        const nextBtn = document.querySelectorAll('button')[2]; // Simplistic selector for demo
+        const prevBtn = document.querySelectorAll('button')[1];
+
+        // This is a placeholder for the actual button logic
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body></html>

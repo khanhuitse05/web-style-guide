@@ -1,36 +1,362 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>23. Neumorphism - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GalleryOS | Neumorphic Design System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeedf3",
+                    "surface-bright": "#faf9fe",
+                    "surface-variant": "#e3e2e7",
+                    "on-secondary-fixed": "#0c006a",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-container-low": "#f4f3f8",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717786",
+                    "on-error-container": "#93000a",
+                    "background": "#faf9fe",
+                    "secondary-fixed": "#e2dfff",
+                    "tertiary": "#9e3d00",
+                    "secondary-container": "#6664e4",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "surface-tint": "#005bc1",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-container": "#fefcff",
+                    "surface": "#faf9fe",
+                    "primary-fixed-dim": "#adc6ff",
+                    "secondary-fixed-dim": "#c2c1ff",
+                    "surface-container-highest": "#e3e2e7",
+                    "on-secondary-container": "#fffbff",
+                    "on-background": "#1a1b1f",
+                    "surface-container-high": "#e9e7ed",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary": "#4c4aca",
+                    "inverse-primary": "#adc6ff",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3631b4",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-surface": "#1a1b1f",
+                    "inverse-on-surface": "#f1f0f5",
+                    "tertiary-container": "#c64f00",
+                    "primary": "#0058bc",
+                    "surface-dim": "#dad9df",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#0070eb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "inverse-surface": "#2f3034",
+                    "on-primary-fixed": "#001a41",
+                    "on-surface-variant": "#414755",
+                    "on-primary-fixed-variant": "#004493"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "1.5rem",
+                    "grid-gutter": "1.5rem",
+                    "stack-gap": "0.75rem",
+                    "grid-margin": "2rem"
+            },
+            "fontFamily": {
+                    "headline-md-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        :root {
+            --neumorph-bg: #faf9fe;
+            --neumorph-light: #ffffff;
+            --neumorph-shadow: #d1d9e6;
+            --neumorph-inner-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+            --neumorph-outer-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+            --neumorph-outer-shadow-sm: 4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff;
+            --neumorph-inset: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+        }
+
+        .neumorph-flat {
+            background: var(--neumorph-bg);
+            box-shadow: var(--neumorph-outer-shadow);
+        }
+
+        .neumorph-flat-sm {
+            background: var(--neumorph-bg);
+            box-shadow: var(--neumorph-outer-shadow-sm);
+        }
+
+        .neumorph-inset {
+            background: var(--neumorph-bg);
+            box-shadow: var(--neumorph-inset);
+        }
+
+        .neumorph-btn:active {
+            box-shadow: var(--neumorph-inset);
+            transform: scale(0.98);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--neumorph-bg);
+            color: #1a1b1f;
+            overflow-x: hidden;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">23. Neumorphism</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Soft, extruded monochromatic UI elements with inner/outer shadows.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-lg text-body-lg">
+<!-- Top Navigation Bar -->
+<header class="w-full sticky top-0 z-50 bg-surface-bright/80 backdrop-blur-md border-b border-outline-variant transition-all duration-300">
+<nav class="flex justify-between items-center px-grid-margin py-4 max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">GalleryOS</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-sm text-body-sm" href="#">Showcase</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Styles</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Designers</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Resources</a>
+</div>
+<button class="neumorph-flat-sm px-6 py-2 rounded-full text-primary font-semibold transition-all hover:scale-105 active:scale-95 text-body-sm">
+                Sign In
+            </button>
+</nav>
+</header>
+<main class="max-w-screen-2xl mx-auto px-grid-margin py-12">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+<div class="lg:col-span-7">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6">
+                    Softness meets <br><span class="text-primary">Ordered Complexity.</span>
+</h1>
+<p class="text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Experience the future of interface design with our Bento Box Minimalism approach. Tactile, monochromatic surfaces crafted for the high-density information era.
+                </p>
+<div class="flex gap-stack-gap">
+<button class="neumorph-flat px-8 py-4 rounded-xl text-primary font-bold hover:scale-[1.02] transition-transform neumorph-btn">
+                        Get Started
+                    </button>
+<button class="neumorph-inset px-8 py-4 rounded-xl text-on-surface-variant font-medium hover:opacity-80 transition-opacity">
+                        View Demo
+                    </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="neumorph-flat aspect-square rounded-3xl p-8 flex items-center justify-center overflow-hidden">
+<img alt="Abstract visual" class="w-full h-full object-cover rounded-2xl opacity-80" data-alt="A high-end abstract 3D render of soft, flowing fabric-like structures in a creamy white and pale lavender color palette. The lighting is diffused and ethereal, casting soft shadows that emphasize the tactile, organic curves of the digital sculpture. The mood is tranquil and premium, reflecting a sophisticated minimalist aesthetic suitable for a modern gallery interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFnyyTeJRayI5-e_f4ftXsR62F4JfQb9KgJPBT2GaInjBdun95mpMRG63EUrvpIj1A_83x4Fb0hsnWekumMRI5Ccaqi9E9g-_JujgVpeKbHsI4W71KF4OvrBdy3gEk4Qd8cGgls_UWpkASwxcSt4TZzC1S3UYq7gRZohiDNo60yvATwFvG6J6cCyDIcFTOOaKMwRpn668KHgICTb9nv6yf83SHSOA8rKsTNzy-X03uczRNOM28C7Xu50wXtWTSFkWNt0zchcCKdtAe">
+</div>
+<!-- Floating Card Detail -->
+<div class="absolute -bottom-6 -left-6 neumorph-flat-sm p-4 rounded-2xl flex items-center gap-4 bg-surface-bright border border-white/50">
+<div class="w-12 h-12 rounded-full neumorph-inset flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<p class="font-label-mono text-label-mono text-primary uppercase">v2.0 Active</p>
+<p class="font-headline-md-mobile text-headline-md-mobile">Core Engine</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Stats & Controls -->
+<section class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-grid-gutter mb-24">
+<!-- Large Card: Main Stats -->
+<div class="md:col-span-3 lg:col-span-4 neumorph-flat rounded-3xl p-card-padding flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-headline-md">Engagement</h3>
+<span class="font-label-mono text-label-mono text-on-surface-variant opacity-60">REAL-TIME</span>
+</div>
+<div class="space-y-stack-gap">
+<div class="h-24 neumorph-inset rounded-xl flex items-end p-4 gap-2">
+<div class="flex-1 bg-primary/20 rounded-t-sm" style="height: 40%"></div>
+<div class="flex-1 bg-primary/40 rounded-t-sm" style="height: 70%"></div>
+<div class="flex-1 bg-primary/60 rounded-t-sm" style="height: 55%"></div>
+<div class="flex-1 bg-primary/30 rounded-t-sm" style="height: 90%"></div>
+<div class="flex-1 bg-primary/80 rounded-t-sm" style="height: 65%"></div>
+<div class="flex-1 bg-primary/10 rounded-t-sm" style="height: 45%"></div>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="text-body-sm">Mon</span>
+<span class="text-body-sm">Sat</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/30">
+<p class="text-display-lg text-primary font-bold">84%</p>
+<p class="text-body-sm text-on-surface-variant">Avg. Retention Rate</p>
+</div>
+</div>
+<!-- Medium Card: Interactive Controls -->
+<div class="md:col-span-3 lg:col-span-4 neumorph-flat rounded-3xl p-card-padding">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md">Device Settings</h3>
+<span class="material-symbols-outlined text-primary">settings_input_component</span>
+</div>
+<div class="space-y-8">
+<div class="space-y-3">
+<div class="flex justify-between font-label-mono text-label-mono">
+<span>BRIGHTNESS</span>
+<span>72%</span>
+</div>
+<div class="h-3 w-full neumorph-inset rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="neumorph-inset p-4 rounded-2xl flex flex-col items-center gap-2 group transition-all">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">wifi</span>
+<span class="text-body-sm font-medium">Network</span>
+</button>
+<button class="neumorph-flat-sm p-4 rounded-2xl flex flex-col items-center gap-2 hover:scale-[1.02] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">bluetooth</span>
+<span class="text-body-sm font-medium">Pairing</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 neumorph-inset rounded-2xl">
+<span class="text-body-sm font-semibold">Stealth Mode</span>
+<div class="w-12 h-6 neumorph-flat rounded-full relative cursor-pointer p-1">
+<div class="w-4 h-4 bg-primary rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Image Card -->
+<div class="md:col-span-6 lg:col-span-4 neumorph-flat rounded-3xl p-4 overflow-hidden group">
+<div class="relative h-full min-h-[300px] rounded-2xl overflow-hidden">
+<img alt="Interior Design" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition-transform duration-700" data-alt="A pristine and ultra-modern living space with minimalist furniture and high ceilings. The room is flooded with natural light from large windows, creating a soft, warm cream glow. Monochromatic tones dominate the scene, with subtle textures of light wood and polished concrete. The atmosphere is quiet, clean, and perfectly organized, embodying the essence of high-end architectural minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgHNnHE2EzIPvb_R1QklY6vFgj4wk8bzwd8xKNDJZ4WfhjyQXwMf8stcQ2Te-sqp7laQpU2Yrsqp0dlp74EwyFuScuE3D3bhVGs3yGfLBCLPh0UY9JVwxCF8WLa8QG-vk2t0uZPRSIfdReVaTilVfac_wLFnln9NXOgIwHtf2eyBr5R_0Rta6KjwvPcBvOIO5y0weKyo5gl9dH5conx0jrcGVMEBGaNOlggsShlXVcQGhyBgFEJlQsRsSN_uToXQLBUv8nM6iM9njI">
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex flex-col justify-end p-6">
+<span class="font-label-mono text-label-mono text-primary mb-2">GALLERY_VIEW_01</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">Minimalist Ethos</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Informational Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-grid-margin items-center mb-24">
+<div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+<div class="neumorph-inset aspect-square rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" style="font-variation-settings: 'FILL' 1;">speed</span>
+<p class="font-headline-md text-headline-md">1.2ms</p>
+<p class="text-body-sm text-on-surface-variant">Response Time</p>
+</div>
+<div class="neumorph-flat aspect-square rounded-3xl flex flex-col items-center justify-center p-6 text-center mt-8">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">security</span>
+<p class="font-headline-md text-headline-md">AES-256</p>
+<p class="text-body-sm text-on-surface-variant">Bank-Grade</p>
+</div>
+<div class="neumorph-flat aspect-square rounded-3xl flex flex-col items-center justify-center p-6 text-center -mt-8">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">cloud_done</span>
+<p class="font-headline-md text-headline-md">99.9%</p>
+<p class="text-body-sm text-on-surface-variant">Sync Uptime</p>
+</div>
+<div class="neumorph-inset aspect-square rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">language</span>
+<p class="font-headline-md text-headline-md">Global</p>
+<p class="text-body-sm text-on-surface-variant">Edge Network</p>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-6 lg:pl-12">
+<span class="font-label-mono text-label-mono text-primary font-bold tracking-widest px-4 py-1 neumorph-inset rounded-full inline-block">PERFORMANCE</span>
+<h2 class="font-display-lg text-display-lg">Engineered for the <span class="italic font-light">Perceptive User</span></h2>
+<p class="text-on-surface-variant leading-relaxed">
+                    Behind the soft curves and monochromatic shadows lies a high-performance framework optimized for instant data visualization. Every interaction is measured, every transition is purposeful.
+                </p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 neumorph-flat-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="font-medium">Adaptive Tonal Lighting Engine</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 neumorph-flat-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="font-medium">Zero-Lag Interactive Components</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 neumorph-flat-sm rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<span class="font-medium">Context-Aware Grid Resizing</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Interactive Card -->
+<section class="mb-24">
+<div class="neumorph-flat rounded-[40px] p-12 text-center max-w-4xl mx-auto">
+<h2 class="font-headline-md text-headline-md mb-4">Join the GalleryOS Ecosystem</h2>
+<p class="text-on-surface-variant mb-10">Get notified when new aesthetic modules and bento templates are released.</p>
+<div class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-1 neumorph-inset bg-transparent border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary/20 outline-none placeholder:text-on-surface-variant/40" placeholder="Enter your email" type="email">
+<button class="neumorph-flat px-8 py-4 rounded-2xl text-primary font-bold neumorph-btn transition-transform whitespace-nowrap">
+                        Stay Updated
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-grid-margin gap-stack-gap max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">GalleryOS</div>
+<div class="flex gap-8 my-6 md:my-0">
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4" href="#">Support</a>
+</div>
+<div class="text-on-surface-variant/70 font-body-sm text-body-sm">
+                © 2024 GalleryOS Design Systems. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Micro-interactions for Neumorphism
+        document.querySelectorAll('.neumorph-btn, .neumorph-flat-sm').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                if(!btn.classList.contains('neumorph-inset')) {
+                    btn.style.boxShadow = 'inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff';
+                }
+            });
+            btn.addEventListener('mouseup', () => {
+                if(!btn.classList.contains('neumorph-inset')) {
+                    if(btn.classList.contains('neumorph-flat-sm')) {
+                        btn.style.boxShadow = '4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff';
+                    } else {
+                        btn.style.boxShadow = '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff';
+                    }
+                }
+            });
+            btn.addEventListener('mouseleave', () => {
+                if(!btn.classList.contains('neumorph-inset')) {
+                    if(btn.classList.contains('neumorph-flat-sm')) {
+                        btn.style.boxShadow = '4px 4px 8px #d1d9e6, -4px -4px 8px #ffffff';
+                    } else {
+                        btn.style.boxShadow = '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff';
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

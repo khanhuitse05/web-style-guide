@@ -1,36 +1,364 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>96. Slack Download - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Slack | Slack</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fdf8f9",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffd6f8",
+                    "on-tertiary-container": "#009fc6",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#80737d",
+                    "on-secondary-container": "#007149",
+                    "surface-dim": "#ddd9da",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005234",
+                    "inverse-surface": "#313031",
+                    "secondary-fixed-dim": "#5edda0",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f4f0f1",
+                    "tertiary": "#001a23",
+                    "surface-container-low": "#f7f2f3",
+                    "surface-container-high": "#ebe7e8",
+                    "on-primary-container": "#be7db9",
+                    "inverse-primary": "#f6afef",
+                    "surface-container": "#f1edee",
+                    "error": "#ba1a1a",
+                    "surface": "#fdf8f9",
+                    "primary": "#300033",
+                    "on-surface": "#1c1b1c",
+                    "tertiary-container": "#00303e",
+                    "primary-fixed-dim": "#f6afef",
+                    "surface-container-highest": "#e6e1e2",
+                    "on-tertiary-fixed": "#001f29",
+                    "outline-variant": "#d2c2cd",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#844981",
+                    "surface-variant": "#e6e1e2",
+                    "on-tertiary-fixed-variant": "#004d61",
+                    "tertiary-fixed-dim": "#56d5ff",
+                    "on-secondary-fixed": "#002112",
+                    "on-primary-fixed-variant": "#693168",
+                    "on-surface-variant": "#4f434c",
+                    "on-primary-fixed": "#370139",
+                    "secondary-container": "#79f7b8",
+                    "secondary": "#006c46",
+                    "primary-container": "#4a154b",
+                    "tertiary-fixed": "#b9eaff",
+                    "secondary-fixed": "#7cfabb",
+                    "background": "#fdf8f9",
+                    "on-error": "#ffffff",
+                    "on-background": "#1c1b1c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-xs": "4px",
+                    "stack-sm": "8px",
+                    "gutter": "12px",
+                    "base": "8px",
+                    "stack-lg": "24px",
+                    "stack-md": "16px",
+                    "sidebar-width": "260px",
+                    "container-margin": "20px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "label-lg": ["15px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .aubergine-gradient {
+            background: linear-gradient(135deg, #4a154b 0%, #300033 100%);
+        }
+        .hero-mesh {
+            background-color: #fdf8f9;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(74, 21, 75, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(0, 108, 70, 0.03) 0px, transparent 50%);
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">96. Slack Download</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Enterprise-friendly, clean white and aubergine purple, highly organized grid layout, and trusted corporate branding.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- TopAppBar from JSON -->
+<header class="w-full sticky top-0 z-50 bg-primary border-b border-outline-variant flex justify-between items-center px-container-margin py-base w-full transition-colors duration-200">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-on-primary">menu</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-primary">Slack</span>
+</div>
+<nav class="hidden md:flex gap-stack-lg items-center">
+<a class="text-on-primary-fixed-variant font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container px-3 py-2 rounded-lg transition-all" href="#">Product</a>
+<a class="text-on-primary-fixed-variant font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container px-3 py-2 rounded-lg transition-all" href="#">Solutions</a>
+<a class="text-on-primary-fixed-variant font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container px-3 py-2 rounded-lg transition-all" href="#">Enterprise</a>
+<a class="text-on-primary-fixed-variant font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container px-3 py-2 rounded-lg transition-all" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-stack-md">
+<button class="font-label-md text-label-md text-on-primary px-4 py-2">Sign In</button>
+<button class="bg-surface-container-lowest text-primary px-5 py-2 rounded font-label-md text-label-md font-bold hover:bg-secondary-container transition-colors">GET STARTED</button>
+</div>
+</header>
+<main class="hero-mesh">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-container-margin py-24 flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 space-y-stack-lg">
+<div class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="font-label-sm text-label-sm">Enterprise Ready: v4.36.0</span>
+</div>
+<h1 class="font-headline-lg text-6xl md:text-7xl font-extrabold text-primary leading-tight">
+                    Slack for <span class="text-secondary">macOS</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Bring your team together in one place. Slack is the AI-powered platform for productivity where people, tools and data come together to do work.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="aubergine-gradient text-on-primary px-8 py-4 rounded-lg font-label-lg text-label-lg shadow-xl hover:scale-105 transition-transform flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">download</span>
+                        DOWNLOAD FOR MAC
+                    </button>
+<button class="border border-outline text-primary px-8 py-4 rounded-lg font-label-lg text-label-lg hover:bg-surface-container transition-colors">
+                        ALL PLATFORMS
+                    </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">
+                    Supports macOS 11.0 and higher. Intel or Apple Silicon.
+                </p>
+</div>
+<div class="flex-1 w-full relative">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-2xl p-2 rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden">
+<img alt="Slack Interface" class="rounded-lg w-full h-auto" data-alt="A high-fidelity mockup of the Slack desktop interface displayed on a sleek, modern workstation monitor. The interface showcases clean, aubergine-themed sidebars, vibrant channel lists, and an active team conversation with professional avatars and file previews. The room environment is a bright, airy corporate office with soft natural daylight and minimalist decor, emphasizing high-end professional collaboration and technological sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVOnpifSNZUq02giLGCFg9Fa0LKJIdSSTqhd1e2ikDWHvsVNYlRkDsIqV-bRtyECnobud1VXq2yl0wgNwY5jJ3U3zzmtmAqPNjB5f2uGybrwnoW9k8xNXHHu1FIGD2kpSNhK5YWYLDIWrtDLh8rTRIDGZxeUammnBz4dVk1rhSt8KS0qgitibP_MWO9nPpjVn0XaD-cNQ1px0amSeYbLeTC0v2JObldLR2k_Grd1gnbNcbSKcfWUAAt6SPsZoG2FSAiOm1CXURTTmi"/>
+</div>
+<!-- Floating Card -->
+<div class="absolute -bottom-10 -left-10 bg-surface-bright p-6 rounded-xl shadow-lg border border-outline-variant hidden lg:block animate-bounce-slow">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-primary">35% Faster Workflows</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated by 2024 Team Report</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="max-w-7xl mx-auto px-container-margin py-20">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-16">Engineered for the modern workspace</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature -->
+<div class="md:col-span-8 bg-surface-container-low border border-outline-variant rounded-2xl p-10 flex flex-col justify-between group hover:border-primary transition-colors">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-6">psychology</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Enterprise-grade AI built-in</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                            Slack AI helps you find what you need, catch up on conversations in seconds, and summarize complex threads with a single click.
+                        </p>
+</div>
+<div class="mt-12 h-48 bg-white/50 rounded-xl overflow-hidden border border-dashed border-outline-variant flex items-center justify-center">
+<img alt="AI visualization" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A conceptual visualization of artificial intelligence interacting with digital data streams in a corporate setting. Glowing nodes of deep purple and emerald green light connect together in a network pattern against a clean, white background. The aesthetic is futuristic yet grounded in enterprise professional design, symbolizing the seamless integration of AI technology into daily business communications." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1cAmsF1SoHzYTfRWijdR7zrA7WQq2ARrjOC85bxQu4EvjyQbi9BfZDdK9KpyGYGiw4QisEVsEt8nnAtUQUiuZxUOWZ6c20o87xMwqh50tqwv9WuulHcb8lRyjz8wd3iqPrexowl75Pow0LCQCvogCuLybQGgulicczliPUZVCZ3Sb3_mfoHaSRbnva2le3F1dCJjPJPttXdOiUBaJ5gzDie5pCc96T7RuQc83Sqi6oa0SpGO3mps99Az2zRHQYWSasXk6kR1nHL77"/>
+</div>
+</div>
+<!-- Small Feature -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-2xl p-10 flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl mb-6">shield</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-4">Security first</h3>
+<p class="font-body-md text-body-md opacity-80">
+                            Enterprise-key management and industry-standard encryption for every message.
+                        </p>
+</div>
+</div>
+<!-- Small Feature -->
+<div class="md:col-span-4 bg-secondary-fixed text-on-secondary-fixed rounded-2xl p-10 flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl mb-6">hub</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-4">2,500+ Apps</h3>
+<p class="font-body-md text-body-md opacity-80">
+                            Connect the tools you already use, from Salesforce to Jira.
+                        </p>
+</div>
+</div>
+<!-- Large Feature -->
+<div class="md:col-span-8 bg-surface-container-highest border border-outline-variant rounded-2xl p-10 flex flex-col md:flex-row gap-10 items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">groups</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Channels for everything</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Organize your work into channels for every project, topic, or team. It’s the structured space your work deserves.
+                        </p>
+</div>
+<div class="flex-1 bg-white p-4 rounded-xl shadow-sm border border-outline-variant">
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-2 bg-surface rounded">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md"># project-aurora</span>
+</div>
+<div class="flex items-center gap-3 p-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md"># design-critique</span>
+</div>
+<div class="flex items-center gap-3 p-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md"># budget-review-2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By Section -->
+<section class="bg-surface-container-lowest py-20 border-y border-outline-variant">
+<div class="max-w-7xl mx-auto px-container-margin text-center">
+<p class="font-label-sm text-label-sm text-outline mb-10 tracking-widest uppercase">TRUSTED BY TEAMS AT</p>
+<div class="flex flex-wrap justify-center gap-16 opacity-50 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">token</span>
+<span class="font-bold text-xl">ACME</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">cloud</span>
+<span class="font-bold text-xl">STRATUS</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+<span class="font-bold text-xl">ORBIT</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+<span class="font-bold text-xl">LUMINA</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-container-margin py-32 text-center">
+<div class="aubergine-gradient rounded-[2rem] p-16 md:p-24 relative overflow-hidden">
+<!-- Decorative Circle -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container opacity-10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<h2 class="font-headline-lg text-5xl font-extrabold text-on-primary mb-8 relative z-10">
+                    Ready to transform your work?
+                </h2>
+<p class="font-body-lg text-body-lg text-on-primary opacity-80 mb-12 max-w-2xl mx-auto relative z-10">
+                    Join millions of teams around the world who use Slack to build a more connected, efficient, and enjoyable work environment.
+                </p>
+<div class="flex flex-col md:flex-row justify-center gap-4 relative z-10">
+<button class="bg-surface-container-lowest text-primary px-10 py-5 rounded-xl font-label-lg text-label-lg font-bold hover:bg-secondary-container transition-colors shadow-2xl">
+                        GET STARTED NOW
+                    </button>
+<button class="border-2 border-on-primary text-on-primary px-10 py-5 rounded-xl font-label-lg text-label-lg font-bold hover:bg-on-primary hover:text-primary transition-colors">
+                        CONTACT SALES
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from JSON -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-stack-md px-container-margin py-stack-lg w-full">
+<div class="flex flex-col gap-4">
+<span class="font-label-lg text-label-lg font-bold text-primary">Slack</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+                ©2024 Slack Technologies, LLC, a Salesforce company. All rights reserved.
+            </p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline-offset-4" href="#">Privacy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline-offset-4" href="#">Terms</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary underline-offset-4" href="#">Cookie Preferences</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">language</span>
+<span class="font-label-md text-label-md text-on-surface-variant">English (US)</span>
+</div>
+</footer>
+<!-- BottomNavBar (Hidden on desktop as per JSON responsive pivot) -->
+<div class="md:hidden fixed bottom-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 w-full">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="font-label-sm text-label-sm">Product</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 transition-transform">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-label-sm text-label-sm">Solutions</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 transition-transform">
+<span class="material-symbols-outlined">business</span>
+<span class="font-label-sm text-label-sm">Enterprise</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 transition-transform">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Pricing</span>
+</div>
+</div>
+<script>
+        // Micro-interactions for primary buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.98)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = '';
+            });
+        });
+
+        // Simple scroll reveal effect for bento grid items
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.grid > div').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

@@ -1,36 +1,346 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>53. Earthy/Desert - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aetheris Gallery | Earthy Archetype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Montserrat:wght@400;500&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Natural Skeuomorphism: Sand Grain Texture Overlay */
+        .sand-grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Earthy transition effects */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .rock-edge {
+            clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+        }
+        
+        /* Custom Scrollbar for Earthy feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111415;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4d4635;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#23501e",
+                      "tertiary-fixed": "#d7e2ff",
+                      "inverse-on-surface": "#2e3132",
+                      "tertiary-container": "#a2b3d7",
+                      "on-surface": "#e1e3e4",
+                      "surface-dim": "#111415",
+                      "primary": "#f2ca50",
+                      "on-secondary-container": "#90c283",
+                      "surface-container-highest": "#323536",
+                      "surface-container-high": "#282a2b",
+                      "on-tertiary-container": "#354563",
+                      "on-background": "#e1e3e4",
+                      "on-primary": "#3c2f00",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#735c00",
+                      "secondary": "#a1d494",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e1e3e4",
+                      "tertiary-fixed-dim": "#b6c7eb",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#d0c5af",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary-fixed": "#ffe088",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary-container": "#d4af37",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#99907c",
+                      "background": "#111415",
+                      "secondary-fixed": "#bcf0ae",
+                      "secondary-container": "#23501e",
+                      "tertiary": "#becef3",
+                      "surface-bright": "#373a3b",
+                      "surface-container": "#1d2021",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed": "#002201",
+                      "surface-variant": "#323536",
+                      "on-tertiary-fixed": "#081b38",
+                      "on-secondary": "#0a3909",
+                      "surface-container-low": "#191c1d",
+                      "primary-fixed-dim": "#e9c349",
+                      "secondary-fixed-dim": "#a1d494",
+                      "on-tertiary-fixed-variant": "#374765",
+                      "outline-variant": "#4d4635",
+                      "on-tertiary": "#20304e",
+                      "surface-tint": "#e9c349",
+                      "surface": "#111415",
+                      "on-primary-container": "#554300"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "unit": "8px",
+                      "section-gap": "160px",
+                      "margin-mobile": "24px",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "margin-tablet": "40px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Montserrat"],
+                      "body-lg": ["Montserrat"],
+                      "label-sm": ["Geist"],
+                      "headline-lg": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">53. Earthy/Desert</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Terracotta, sand textures, and warm, dry palettes.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl dark:bg-surface-dim/40">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter cursor-pointer active:scale-95">
+                Aetheris Gallery
+            </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md text-primary font-bold border-b border-primary pb-1 cursor-pointer active:scale-95" href="#">Archetypes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Artifacts</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Design Tokens</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Curators</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest cursor-pointer active:scale-95 transition-all hover:bg-primary-fixed-dim">
+                Inquire
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden sand-grain">
+<div class="absolute inset-0 z-0 scale-110">
+<img class="w-full h-full object-cover grayscale-[20%] brightness-[0.6]" data-alt="A panoramic, high-contrast photograph of majestic desert sand dunes during the golden hour. The sunlight creates deep, dramatic shadows on the terracotta-colored slopes, highlighting the sharp geological ridges and tactile textures of the wind-blown sand. The sky is a gradient of burnt orange and soft amber, evoking a serene and grounded terrestrial atmosphere within a minimalist, luxury design context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBur9EGb_CHGE_gMZ6xRViNvZjN0inzHO8tvZM3rJIec88ADFC73Q_iierqmVKxZsNOu3Ij2Eu2-1A-UIim3E6MQJTfVIOd0w20B3U5LvlhSfUBl0bdrhBSRiA72AxXTeQiKl_9oufggxMd00KgeKYHIDSW4FsQhujnNfiVr7qFDzHhKcHZk1o-ozpfUtrTGuv4hHxpJVNnezezahc7xuh4GuOcK-7q0-NhiAsTLxiO6KJS-2JMGwKEameDt18w0l1QSEUjBDLKR9L2">
+</div>
+<div class="relative z-10 text-center px-margin-desktop max-w-4xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em] mb-6 block reveal-up">Terrestrial Archetype</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-8 reveal-up" style="transition-delay: 200ms;">The Earthy Soul</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12 reveal-up" style="transition-delay: 400ms;">
+                    A sensory-rich journey into natural skeuomorphism. Grounded in terracotta palettes, tactile grain, and the silent weight of ancient rock formations.
+                </p>
+<div class="flex justify-center gap-6 reveal-up" style="transition-delay: 600ms;">
+<button class="px-10 py-5 border border-outline text-on-surface font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-bright/20 backdrop-blur-md transition-all">
+                        Explore Dunes
+                    </button>
+</div>
+</div>
+<!-- Atmospheric Element -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+<span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Gallery Section (Bento Grid) -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg mb-6">Tactile Minimialism</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our Earthy mode prioritizes the "Digital Serenity" of sun-baked landscapes. Every interface element is etched with subtle sand-grain textures and global illumination cues.
+                    </p>
+</div>
+<div class="font-label-sm text-label-sm text-primary border-b border-primary-container pb-2 cursor-pointer hover:border-primary transition-all">
+                    VIEW ALL ARTIFACTS
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Bento Card -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-high aspect-[16/9] sand-grain reveal-up">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up macro photography of sun-baked, cracked earth showing intricate geometric patterns and geological textures. The color palette is composed of rich terracotta, sienna, and deep charcoal. The lighting is harsh and direct, emphasizing the tactile, rough surfaces of the parched land, creating a sense of ancient durability and organic minimalist beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm1raBZ1iKq7BDPJ_7j-NSgKV8Jy1OCprzdJ75iXG4GrSxC43vJIFgROJqOW1dsXcUan35Uk-B8QDf4-X2LN9OzPjoUy_KZipnKoV66DN8kBu1GYyGucdxSdk5AzX6wNGn3IWWPKYM3V48j2HtFhsFVwq0uSJBTwMkrwVqPXk81KLs1Zr-3LPkFugQcDsZlwLusE_P-agENZgZ32rrYcAbpb15QEz_rCgiJQn4U7LlpIcI95uVaOC4zA4MPmKTV-Ov7IeA-CtSYNfh">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent p-12 flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary mb-2">01 — MATERIAL</span>
+<h3 class="font-headline-md text-headline-md">Silt &amp; Sediments</h3>
+</div>
+</div>
+<!-- Tall Bento Card -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high aspect-[9/16] sand-grain reveal-up" style="transition-delay: 150ms;">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An artistic vertical shot of a minimalist rock formation in a vast desert landscape. The lighting is soft and ethereal, catching the sharp edges of the stone against a hazy, sand-filled horizon. The colors are muted warm neutrals, beige, and warm sand tones, embodying the Zen wabi-sabi philosophy of the terrestrial design archetype." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfBqNIQfmiU-5GeyJDrDODeeQpD5YacvhRndTKk3qPuCTKKcGba09pCS0EQ4W0qa1YYLs5fS3n5AF9SGl3NxWi8qxP16lCdRJIFiT3fKhAAseXkRHlfslp3b1ur3bm8VFt2wGl7TUc2sW0JVU9LwiuGJ7SH1UT9rKCsY1_NxA6r1dyEdO3TSH2ZoNhXL3q4UxkVoWGL7EgoKKaFpPRhcn0AvTrZ-NbUR1x5BoB0fFX-dcFw6DWfvNMHY_T2kFCy_CWPopfOUII1rer">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent p-12 flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary mb-2">02 — FORM</span>
+<h3 class="font-headline-md text-headline-md">Monolithic Silence</h3>
+</div>
+</div>
+<!-- Small Square Bento -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-high aspect-square sand-grain reveal-up" style="transition-delay: 200ms;">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A highly detailed close-up of a terracotta ceramic vessel with a rough, granular surface. The image emphasizes the tactile minimalism of the object, with warm lighting highlighting its organic imperfections and rich earth tones. The background is a clean, dark surface-container color, creating a high-end luxury editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEuVc3cX6nTDpBqEQmmtqgC5nrTP045aj5I5UwLSnRocEzSSmSD17EEMRFnW5Pj1CZjbxEOALwR-auUs9VPhjUeMneomA5ckn_lwxlSiNyQUFP7y9Yu8M-bTcmi3CvQ0FEPm-p7v7ScmgWGFyXZJQGWbwqnJE1O5gRRF5m9ssanNDapMlkR9FB2Jg_Sf5xBCUUjwh3g1cSOmQxov94dHrxcvBN4jInUVjdd1IQaWYq_UdQ0bGELnHOBHH7y966cdyCgZhuCHWfTKhQ">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent p-12 flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary mb-2">03 — TACTILITY</span>
+<h3 class="font-headline-md text-headline-md">Fired Clay</h3>
+</div>
+</div>
+<!-- Horizontal Medium Bento -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-high aspect-[21/9] sand-grain reveal-up" style="transition-delay: 250ms;">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An expansive wide-angle view of a desolate volcanic plain under a dark, moody sky. The ground is covered in dark basalt and igneous rock fragments, with subtle red glows suggesting residual heat from below. The style is volcanic and terrestrial, utilizing sharp, high-contrast lighting and a deep, immersive color palette of blacks, greys, and ember reds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3DAZ2eCjXOGJOF5_3us3n4Rg80ExwkF5wFY04o7NIFfc9x5j9mjLV241ZseVxYu5CAaYBe6xXNkg4lgT0QbzmYaL5Y6bwZgPNRHpUuzhVOCaGCUgihPzlTl97_d3oHZxBdTxpLERlz5JCVe9hC4j1KrbxEB9Hs-gB0Um0znmR05CNzRG5mzIauxgix72pI59hkefdkcz5j_DbEXtuJDEl_ou0W9knnrVu5dW8vO3CKlU2p7GgczFv9mh9X27NsVwL2V6JwCnpUXHo">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent p-12 flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary mb-2">04 — TEXTURE</span>
+<h3 class="font-headline-md text-headline-md">Igneous Flow</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Interactive Quote -->
+<section class="bg-surface-container-low py-section-gap relative overflow-hidden sand-grain">
+<div class="max-w-4xl mx-auto px-margin-desktop text-center relative z-10">
+<div class="mb-12">
+<span class="material-symbols-outlined text-6xl text-primary/40" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<blockquote class="font-headline-lg text-headline-lg mb-12 italic leading-tight">
+                    "Nature doesn't have borders; it has transitions. Our interface reflects the settling of dust and the permanence of stone."
+                </blockquote>
+<cite class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">— Dr. Aris Thorne, Lead Curator</cite>
+</div>
+<!-- Abstract background shape -->
+<div class="absolute -right-20 top-20 w-96 h-96 bg-primary/5 rounded-full blur-[100px]"></div>
+<div class="absolute -left-20 bottom-20 w-96 h-96 bg-tertiary-container/5 rounded-full blur-[100px]"></div>
+</section>
+<!-- Artifact Details Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+<div class="reveal-up">
+<div class="aspect-[4/5] relative sand-grain overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A striking minimalist sculpture made of layered sandstone and burnt orange clay, presented in a high-fidelity digital gallery. The piece is illuminated from the top with high-key lighting, casting soft, architectural shadows that define its organic, breathing form. The overall aesthetic is grounded, earthy, and premium, with visible granular textures and a warm, desert-inspired color story." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIm2N-xR7H_JSWnnNOqGS9oFFic4rkcBXthBNchz-yRS0BSSipCpPmAKcyn9JmkWWhECzxSrULGF9zeLHFW-xA5NxFNIYBp79BOjmRC6XVZJYHRI-0f9vbrQ3ST2UcJO5T5-k0Hsp-zBVcA06nQpOCd1tt0gtfxlAWZHfkhs-aw2ETqo_KRLt8tyQ6-Ev2iGACFdynN011aZi63yX2Jz7_KWyP2qMd5qzHev4TIfCOC-TnvbKO3JSwKR0zT_PnsFfn4o7EBTACEvSR">
+</div>
+</div>
+<div class="reveal-up" style="transition-delay: 200ms;">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-6 block">The Zen Archetype</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Wabi-Sabi Geologies</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        In the Earthy mode, we embrace the beauty of imperfection. Our design tokens are inspired by arid environments where survival dictates simplicity. Notice the 1px "top-light" strokes on cards that simulate the way sun hits the edge of a canyon wall.
+                    </p>
+<ul class="space-y-8">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">texture</span>
+<div>
+<h4 class="font-body-md text-body-md font-bold mb-1">Granular Depth</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Surfaces use tonal depth shifts and 5% opacity sand-grain overlays for a physical presence.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">landscape</span>
+<div>
+<h4 class="font-body-md text-body-md font-bold mb-1">Breathing Grid</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Asymmetrical placement mimics the organic growth of desert flora and rock erosion.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact CTA -->
+<section class="mb-section-gap px-margin-desktop">
+<div class="max-w-container-max mx-auto bg-primary-container/20 p-20 relative overflow-hidden sand-grain group">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-12">
+<div class="max-w-lg text-center md:text-left">
+<h3 class="font-headline-lg text-headline-lg mb-4">Join the Lab</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Receive weekly dispatches on natural skeuomorphism and the evolution of sensory-rich digital interfaces.</p>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-4">
+<div class="relative">
+<input class="bg-transparent border-b-2 border-outline focus:border-primary transition-all py-4 px-2 w-full md:w-80 outline-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant" placeholder="Email Address" type="email">
+<div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-700 group-hover:w-full"></div>
+</div>
+<button class="bg-on-surface text-surface py-4 px-10 font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary transition-colors active:scale-95">Subscribe</button>
+</div>
+</div>
+<!-- Subtle graphic element -->
+<div class="absolute top-0 right-0 p-10 opacity-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'wght' 100;">grain</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface-variant mb-10 md:mb-0">
+                Aetheris
+            </div>
+<div class="flex flex-wrap justify-center gap-10 mb-10 md:mb-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Environmental Impact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60 text-center md:text-right">
+                © 2024 Aetheris Natural Skeuomorphism Lab. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Interactive subtle parallax on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('section img');
+            if (heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
+            }
+        });
+    </script>
+</body></html>

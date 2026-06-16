@@ -1,36 +1,412 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>24. Material You (MD3) - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GalleryOS — Design Systems for the Future</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeedf3",
+                    "surface-bright": "#faf9fe",
+                    "surface-variant": "#e3e2e7",
+                    "on-secondary-fixed": "#0c006a",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-container-low": "#f4f3f8",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717786",
+                    "on-error-container": "#93000a",
+                    "background": "#faf9fe",
+                    "secondary-fixed": "#e2dfff",
+                    "tertiary": "#9e3d00",
+                    "secondary-container": "#6664e4",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "surface-tint": "#005bc1",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-container": "#fefcff",
+                    "surface": "#faf9fe",
+                    "primary-fixed-dim": "#adc6ff",
+                    "secondary-fixed-dim": "#c2c1ff",
+                    "surface-container-highest": "#e3e2e7",
+                    "on-secondary-container": "#fffbff",
+                    "on-background": "#1a1b1f",
+                    "surface-container-high": "#e9e7ed",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary": "#4c4aca",
+                    "inverse-primary": "#adc6ff",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3631b4",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-surface": "#1a1b1f",
+                    "inverse-on-surface": "#f1f0f5",
+                    "tertiary-container": "#c64f00",
+                    "primary": "#0058bc",
+                    "surface-dim": "#dad9df",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#0070eb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "inverse-surface": "#2f3034",
+                    "on-primary-fixed": "#001a41",
+                    "on-surface-variant": "#414755",
+                    "on-primary-fixed-variant": "#004493"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "1.5rem",
+                    "grid-gutter": "1.5rem",
+                    "stack-gap": "0.75rem",
+                    "grid-margin": "2rem"
+            },
+            "fontFamily": {
+                    "headline-md-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
+            background-color: #faf9fe;
+            color: #1a1b1f;
             -webkit-font-smoothing: antialiased;
+        }
+        .bento-card {
+            background-color: #ffffff;
+            border: 1px solid #E5E5EA;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.04);
+        }
+        .well {
+            background-color: #F9F9FB;
+            border-radius: 1rem;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .button-click-scale:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">24. Material You (MD3)</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Google's dynamic color system, pill-shaped buttons, and playful scaling.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-lg text-body-lg">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-surface-bright/80 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-200">
+<div class="flex justify-between items-center px-grid-margin py-4 max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">GalleryOS</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-sm text-body-sm" href="#">Showcase</a>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Styles</a>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Designers</a>
+<a class="text-on-surface-variant/70 hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center well px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-32" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-body-sm text-body-sm font-semibold button-click-scale transition-all">Sign In</button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-grid-margin py-12">
+<!-- Hero Section -->
+<section class="grid grid-cols-12 gap-grid-gutter mb-12">
+<div class="col-span-12 lg:col-span-8 bento-card rounded-[2.5rem] p-card-padding flex flex-col justify-between min-h-[400px] overflow-hidden relative">
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest bg-primary-fixed px-3 py-1 rounded-full">Featured Collection</span>
+<span class="font-label-mono text-label-mono text-outline">2024.V1</span>
+</div>
+<h1 class="font-display-lg text-display-lg mt-8 max-w-xl leading-tight">Architectural Order Meets Organic Fluidity.</h1>
+<p class="text-on-surface-variant mt-4 max-w-md">Experience the next generation of Material You interfaces built on the Bento Minimalism principle.</p>
+</div>
+<div class="mt-8 flex gap-4 relative z-10">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-headline-md text-headline-md-mobile flex items-center gap-2 button-click-scale">
+                        Explore Gallery
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-full opacity-20 pointer-events-none">
+
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 grid grid-rows-2 gap-grid-gutter">
+<div class="bento-card rounded-[2rem] p-card-padding flex flex-col justify-center items-center text-center bg-secondary-fixed">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-size: 32px;">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-secondary-fixed">Dynamic Palettes</h3>
+<p class="text-body-sm text-on-secondary-fixed-variant mt-2">Personalized colors that adapt to your brand identity automatically.</p>
+</div>
+<div class="bento-card rounded-[2rem] p-card-padding flex items-center justify-between overflow-hidden">
+<div>
+<h3 class="font-headline-md text-headline-md">Recent Assets</h3>
+<p class="text-body-sm text-on-surface-variant">128 new components</p>
+</div>
+<div class="flex -space-x-4">
+<div class="w-12 h-12 rounded-full border-4 border-white bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a creative designer in a brightly lit studio, captured with a shallow depth of field. The aesthetic is clean and professional, using a soft pastel color palette of lavender and cool blues. The lighting is diffused and natural, highlighting a focused yet friendly expression suitable for a high-end design platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTdmoAklpIfhb8tTb5P4peP5lZZMTOiZPKE8lgezLovrCcMwlOUfUo_ddb6OGgNbK4HV3snUv8qEus54Kn_b3xoPMqszaMNNSSVwcIWIMEioRPy6samxcsOVQbuMTuCyIROi3_x3Ig5u_1YNGIEsEyMzM6aQ-do9yhX9ysynCKyeYL5EZWQlZSY8M4k0lF2fD_4rZch8t4fW1tLxCj88w5KlJYQ7AyJAwW9kzKzPO33UeutHAY35D7sTse1FAkpn21RdBAqhLFNM-R"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-white bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated headshot of a male digital artist with a modern, clean aesthetic. The background is a minimalist gallery white with subtle soft shadows. The lighting is high-key and even, creating a professional and polished look. The overall vibe is calm, creative, and technologically advanced, fitting a premium design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK42D6EY7mPW1AHBdoCbRVp0ybKGpX2H4_M3y87kgdZeIIN_IxJgsh2QN8Jityc19bpXmyHTRc1lRvDApAbKMLp6ZvqkgFq0mPcEVJ6r_EeBqDlt7OIZMLX4Jmi-uJQ5l0I4eVK4HCedcQmzWdk1eA2wQCI7wVnFPrySgARYP7khxP3VZ0l2VqIa92K-lQlulgsJRGKDZ4HKxNtlf74iq5Cobykfx3EggZRCXyhAOoLV1SnRC_sncp0WrkWaMKn5jIQsH1jRusTr75"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-white bg-primary-container flex items-center justify-center text-on-primary-container font-label-mono text-label-mono">
+                            +5
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Bento Grid -->
+<section class="grid grid-cols-12 gap-grid-gutter">
+<!-- Left Column: Stats & Progress -->
+<div class="col-span-12 md:col-span-4 space-y-grid-gutter">
+<div class="bento-card rounded-[2rem] p-card-padding">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">System Health</h3>
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div class="space-y-stack-gap">
+<div class="well p-4">
+<div class="flex justify-between mb-2">
+<span class="text-body-sm font-semibold">Consistency</span>
+<span class="text-body-sm text-primary">98%</span>
+</div>
+<div class="w-full bg-surface-variant h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 98%"></div>
+</div>
+</div>
+<div class="well p-4">
+<div class="flex justify-between mb-2">
+<span class="text-body-sm font-semibold">Accessibility</span>
+<span class="text-body-sm text-tertiary">92%</span>
+</div>
+<div class="w-full bg-surface-variant h-3 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bento-card rounded-[2rem] p-0 overflow-hidden group">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An abstract 3D render of flowing, silk-like ribbons in soft gradient shades of peach, cream, and sky blue. The composition is clean and minimalist, with a strong focus on texture and light. The lighting is soft and directional, creating gentle shadows that emphasize the organic curves. This piece embodies the Material You aesthetic with its fluid shapes and pastel palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyAIsXnhKx3g0iLSylfYEwMDszgUXZ-DYgXxL06d1C6IsQg9bAKvJHLE8jlB4wiF5fXzOnkxELf5pQEF0hdHLWGMy1rGT5Xrp_kyOE2Na48e8bv4sXqHfTrIDhKDGEa4YPNkxXkszBdDAq7i6xl_M_pE5oEk0XkmA4gtaBC_rekaJbb9AqONTbz4e-_kKxstjUYZ_hTLLFOpaRMGLCmzRZ9iwVk-e-sci6LX2ojATQ8EZjI9lprwO4m5qBsOGqKBBwDlADGgRGjKF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<p class="font-label-mono text-label-mono opacity-80 uppercase">Style Guide</p>
+<h4 class="font-headline-md text-headline-md">Fluid Motion</h4>
+</div>
+</div>
+<div class="p-card-padding">
+<p class="text-body-sm text-on-surface-variant">Our motion principles are derived from natural physics, ensuring every transition feels human.</p>
+</div>
+</div>
+</div>
+<!-- Middle Column: Large Showcase Card -->
+<div class="col-span-12 md:col-span-5 bento-card rounded-[2rem] p-card-padding flex flex-col">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md">Component Lab</h3>
+<p class="text-body-sm text-on-surface-variant">Interactive prototypes</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<div class="well flex-grow p-6 flex flex-col justify-center items-center relative overflow-hidden">
+<!-- Segmented Control UI Simulation -->
+<div class="bg-surface-container-highest rounded-full p-1 flex gap-1 mb-8 relative z-10">
+<button class="bg-surface-container-lowest px-4 py-1.5 rounded-full text-body-sm font-medium shadow-sm">Light</button>
+<button class="px-4 py-1.5 rounded-full text-body-sm text-on-surface-variant hover:text-on-surface transition-colors">Dark</button>
+<button class="px-4 py-1.5 rounded-full text-body-sm text-on-surface-variant hover:text-on-surface transition-colors">Auto</button>
+</div>
+<!-- Prototype Preview -->
+<div class="w-full max-w-xs space-y-4 relative z-10">
+<div class="bg-white p-4 rounded-3xl shadow-sm border border-outline-variant/30">
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded-2xl bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm">Premium Feature</p>
+<p class="text-[12px] text-on-surface-variant">Unlocked for Teams</p>
+</div>
+</div>
+</div>
+<div class="bg-secondary-container p-4 rounded-3xl text-white">
+<p class="text-body-sm">"The attention to detail in GalleryOS is unparalleled. It's the standard for modern UI."</p>
+<p class="font-label-mono text-[10px] mt-2 opacity-80">— Chief Design Officer</p>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 240px;">auto_awesome</span>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full py-4 bg-on-surface text-surface rounded-full font-semibold button-click-scale hover:bg-on-surface-variant transition-colors">
+                        Launch Designer Mode
+                    </button>
+</div>
+</div>
+<!-- Right Column: Micro-Feed & Info -->
+<div class="col-span-12 md:col-span-3 space-y-grid-gutter">
+<div class="bento-card rounded-[2rem] p-card-padding h-full">
+<h3 class="font-headline-md text-headline-md mb-6">Upcoming</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="min-w-[48px] h-12 rounded-2xl bg-tertiary-fixed flex flex-col items-center justify-center">
+<span class="font-bold text-tertiary">14</span>
+<span class="text-[10px] uppercase font-label-mono text-tertiary">Oct</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm">Global Sync 2024</p>
+<p class="text-[12px] text-on-surface-variant">Virtual Workshop</p>
+</div>
+</div>
+<div class="flex gap-4 opacity-60">
+<div class="min-w-[48px] h-12 rounded-2xl bg-surface-container flex flex-col items-center justify-center">
+<span class="font-bold">22</span>
+<span class="text-[10px] uppercase font-label-mono">Oct</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm">v2.0 Beta Release</p>
+<p class="text-[12px] text-on-surface-variant">Developer Preview</p>
+</div>
+</div>
+<div class="flex gap-4 opacity-40">
+<div class="min-w-[48px] h-12 rounded-2xl bg-surface-container flex flex-col items-center justify-center">
+<span class="font-bold">05</span>
+<span class="text-[10px] uppercase font-label-mono">Nov</span>
+</div>
+<div>
+<p class="font-semibold text-body-sm">Designers Meetup</p>
+<p class="text-[12px] text-on-surface-variant">Tokyo, Japan</p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-6 well flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2" style="font-size: 48px;">mark_email_read</span>
+<h4 class="font-headline-md text-headline-md-mobile">Stay Inspired</h4>
+<p class="text-[12px] text-on-surface-variant mt-2 mb-4">Join 24k designers in our weekly digest.</p>
+<input class="w-full bg-white border-none rounded-full px-4 py-2 text-body-sm mb-2 shadow-sm" placeholder="Email address" type="email"/>
+<button class="w-full py-2 bg-primary text-on-primary rounded-full text-body-sm font-semibold">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Section -->
+<section class="mt-grid-gutter grid grid-cols-12 gap-grid-gutter">
+<div class="col-span-12 bento-card rounded-[2.5rem] p-card-padding flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="max-w-xl">
+<h2 class="font-display-lg text-display-lg mb-4">Crafted for Clarity.</h2>
+<p class="text-body-lg text-on-surface-variant">Our system removes the friction between imagination and implementation. Build interfaces that breathe and interact with intent.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="px-6 py-8 bento-card rounded-3xl flex flex-col items-center min-w-[140px] bg-surface-bright">
+<span class="text-3xl font-bold text-primary">400+</span>
+<span class="text-body-sm text-outline">Modules</span>
+</div>
+<div class="px-6 py-8 bento-card rounded-3xl flex flex-col items-center min-w-[140px] bg-surface-bright">
+<span class="text-3xl font-bold text-primary">50k</span>
+<span class="text-body-sm text-outline">Downloads</span>
+</div>
+<div class="px-6 py-8 bento-card rounded-3xl flex flex-col items-center min-w-[140px] bg-surface-bright">
+<span class="text-3xl font-bold text-primary">4.9/5</span>
+<span class="text-body-sm text-outline">Rating</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-grid-margin gap-stack-gap max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<div class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">GalleryOS</div>
+<p class="text-body-sm text-on-surface-variant/70 text-center md:text-left">© 2024 GalleryOS Design Systems. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 hover:underline decoration-primary underline-offset-4 text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 hover:underline decoration-primary underline-offset-4 text-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 hover:underline decoration-primary underline-offset-4 text-body-sm" href="#">Cookie Settings</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface transition-all duration-300 hover:underline decoration-primary underline-offset-4 text-body-sm" href="#">Support</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">public</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Card parallax effect
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const xPct = (x / rect.width - 0.5) * 5; // Slight tilt
+                const yPct = (y / rect.height - 0.5) * 5;
+                
+                card.style.transform = `perspective(1000px) rotateX(${-yPct}deg) rotateY(${xPct}deg) translateY(-4px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[placeholder="Search..."]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary/20', 'bg-white');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20', 'bg-white');
+            });
+        }
+    </script>
+</body></html>

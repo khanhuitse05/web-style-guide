@@ -1,36 +1,393 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>100. Linear Download - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Linear — The Desktop App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Geist:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#464748",
+                    "tertiary-fixed-dim": "#c7c6c7",
+                    "on-secondary-fixed": "#091253",
+                    "error-container": "#93000a",
+                    "surface-tint": "#bdc2ff",
+                    "surface-variant": "#30353d",
+                    "outline-variant": "#454652",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#30353d",
+                    "on-tertiary-fixed": "#1b1c1d",
+                    "secondary-fixed": "#dfe0ff",
+                    "background": "#0e141a",
+                    "on-error": "#690005",
+                    "on-background": "#dee3ec",
+                    "tertiary-fixed": "#e3e2e3",
+                    "primary-container": "#5e6ad2",
+                    "on-primary-fixed-variant": "#2e3aa2",
+                    "on-surface-variant": "#c6c5d5",
+                    "on-primary-fixed": "#000965",
+                    "secondary-container": "#3b4383",
+                    "secondary": "#bcc2ff",
+                    "surface-dim": "#0e141a",
+                    "surface-container-lowest": "#090f15",
+                    "outline": "#908f9e",
+                    "on-secondary-container": "#abb3fb",
+                    "on-tertiary-container": "#fdfbfd",
+                    "surface-bright": "#343a41",
+                    "on-tertiary": "#303032",
+                    "primary-fixed": "#dfe0ff",
+                    "surface": "#0e141a",
+                    "primary": "#bdc2ff",
+                    "on-surface": "#dee3ec",
+                    "tertiary-container": "#747475",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "inverse-primary": "#4854bb",
+                    "surface-container": "#1b2027",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#bcc2ff",
+                    "on-primary": "#121f8b",
+                    "inverse-on-surface": "#2c3138",
+                    "tertiary": "#c7c6c7",
+                    "surface-container-low": "#171c23",
+                    "surface-container-high": "#252a32",
+                    "on-primary-container": "#fdfaff",
+                    "on-secondary": "#222a69",
+                    "on-secondary-fixed-variant": "#394180",
+                    "inverse-surface": "#dee3ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-edge": "24px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "xl": "48px",
+                    "md": "16px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-md": ["JetBrains Mono"],
+                    "headline-sm": ["Geist"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Geist"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["10px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #08090A;
+            color: #dee3ec;
+            overflow-x: hidden;
+        }
+        .star-field {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(18, 20, 23, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(69, 70, 82, 0.3);
+        }
+        .glow-primary {
+            box-shadow: 0 0 60px 10px rgba(94, 106, 210, 0.1);
+        }
+        .kbd-hint {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+        }
+        .nav-link-hover:hover .kbd-hint {
+            color: #bdc2ff;
+            border-color: rgba(189, 194, 255, 0.4);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">100. Linear Download</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Hyper-polished dark theme, subtle purple glows, starry backgrounds, and intense focus on speed and keyboard shortcuts.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Background Layers -->
+<div class="fixed inset-0 z-[-1] star-field"></div>
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full animate-pulse-slow"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary-container/5 blur-[120px] rounded-full"></div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-dim/80 backdrop-blur-md border-b border-outline-variant/30 px-margin-edge h-16 flex items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold tracking-tighter text-on-surface">Linear</span>
+<div class="hidden md:flex items-center gap-md ml-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs" href="#">
+                    Features <span class="kbd-hint">F</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs" href="#">
+                    Method <span class="kbd-hint">M</span>
+</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-xs" href="#">
+                    Changelog <span class="kbd-hint">C</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<a class="hidden md:flex font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Log in</a>
+<button class="bg-primary-container hover:bg-primary text-on-primary-container px-md py-sm rounded-lg font-label-md text-label-md transition-all active:scale-95 shadow-lg shadow-primary-container/20">
+                Sign up
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-margin-edge max-w-7xl mx-auto relative">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center mb-xl">
+<div class="inline-flex items-center gap-sm px-md py-xs rounded-full border border-outline-variant/30 bg-surface-container-low mb-lg">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(189,194,255,0.8)]"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">v2.4.0 — Now Available</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-md max-w-3xl leading-[1.1] bg-gradient-to-b from-on-surface to-on-surface-variant bg-clip-text text-transparent">
+                Engineered for speed.<br/>Built for the desktop.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant/80 max-w-2xl mb-xl">
+                Experience Linear at its full potential. Instant loading, global keyboard shortcuts, and deep system integration for modern engineering teams.
+            </p>
+<!-- Download Action Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg w-full max-w-4xl">
+<!-- Mac Download -->
+<div class="glass-panel p-lg rounded-xl flex flex-col items-start text-left group hover:border-primary/40 transition-all glow-primary">
+<div class="flex justify-between w-full mb-md">
+<span class="material-symbols-outlined text-primary text-[32px]">laptop_mac</span>
+<span class="kbd-hint">⌘ D</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">macOS</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg">Universal Binary (Intel &amp; Apple Silicon)</p>
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary-container py-md rounded-lg font-label-md text-label-md transition-all flex items-center justify-center gap-sm">
+                        Download for Mac
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<!-- Windows Download -->
+<div class="glass-panel p-lg rounded-xl flex flex-col items-start text-left group hover:border-primary/40 transition-all">
+<div class="flex justify-between w-full mb-md">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]">window</span>
+<span class="kbd-hint">⊞ D</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-xs">Windows</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mb-lg">64-bit installer for Windows 10+</p>
+<button class="w-full border border-outline-variant hover:border-primary/50 text-on-surface py-md rounded-lg font-label-md text-label-md transition-all flex items-center justify-center gap-sm">
+                        Download for Windows
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<!-- Command Palette Hint -->
+<div class="mt-xl flex items-center gap-sm text-on-surface-variant/40 font-label-md text-label-md">
+<span>Press</span>
+<span class="kbd-hint">⌘</span>
+<span class="kbd-hint">K</span>
+<span>to search other versions (Linux, Beta, CLI)</span>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="mt-xl">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- App Preview -->
+<div class="col-span-12 lg:col-span-8 glass-panel rounded-xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
+<img alt="Linear Desktop Interface" class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" data-alt="A high-fidelity wide-angle screenshot of a sleek software project management interface displayed on a premium monitor. The UI is dark-themed with deep obsidian backgrounds, vibrant purple accents, and crisp monospaced typography. The scene is set in a dimly lit, modern workspace with soft ambient purple lighting reflecting off the glass desk surface. The aesthetic is professional, futuristic, and focused on high-performance productivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5VXVQhR8HpgYQtTBt42zzKdBWz1jXaq25MjI7o2_j0_XIVRYvZ_K2beiHxhGCU6_1z1zYkulOEqSFV3ljgTiK-_RlsaYKDFni08xTQfjIxQutk7Ip23nMpvN3o_ZT0XlF82TtW2cpXSNugP4s1VkGQukP0B6M-uYWyPzC3_n9jPxMF0QrNAq3zspF6aPDeibZyE-R7yNcAidCek1qXanocJi3lyC6Ic8ap_8Jf8bl31POnDG42tEAVwXX3k8dBTm_tjS8WRZWxair"/>
+<div class="absolute bottom-lg left-lg z-20">
+<h4 class="font-headline-md text-headline-md text-on-surface">Native Performance</h4>
+<p class="text-on-surface-variant/80 max-w-md">Experience sub-100ms response times and smooth 120Hz animations optimized for your hardware.</p>
+</div>
+</div>
+<!-- Shortcuts Card -->
+<div class="col-span-12 lg:col-span-4 glass-panel p-lg rounded-xl flex flex-col justify-between border-l-2 border-l-primary/30">
+<div>
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">keyboard_command_key</span>
+<span class="font-label-md text-label-md uppercase tracking-widest">Keyboard First</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm mb-sm">Unmatched Velocity</h4>
+<p class="text-on-surface-variant text-body-md mb-lg">Built with a terminal-inspired philosophy. Everything is a shortcut away.</p>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+<span class="text-on-surface-variant font-label-md">Create issue</span>
+<span class="kbd-hint">C</span>
+</div>
+<div class="flex justify-between items-center py-xs border-b border-outline-variant/10">
+<span class="text-on-surface-variant font-label-md">Global search</span>
+<span class="kbd-hint">/</span>
+</div>
+<div class="flex justify-between items-center py-xs">
+<span class="text-on-surface-variant font-label-md">Command menu</span>
+<span class="kbd-hint">⌘ K</span>
+</div>
+</div>
+</div>
+<!-- Integration Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-panel p-lg rounded-xl">
+<span class="material-symbols-outlined text-primary mb-md">sync</span>
+<h4 class="font-headline-sm text-headline-sm mb-sm">Always in Sync</h4>
+<p class="text-on-surface-variant text-body-md">Offline support allows you to keep working even when your connection drops. Changes sync instantly when you're back.</p>
+</div>
+<!-- Notifications Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 glass-panel p-lg rounded-xl">
+<span class="material-symbols-outlined text-primary mb-md">notifications_active</span>
+<h4 class="font-headline-sm text-headline-sm mb-sm">Native Notifications</h4>
+<p class="text-on-surface-variant text-body-md">Deep integration with system notifications and focus modes ensures you never miss a critical update.</p>
+</div>
+<!-- Security Card -->
+<div class="col-span-12 md:col-span-12 lg:col-span-4 glass-panel p-lg rounded-xl bg-gradient-to-br from-surface-container to-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-md">shield</span>
+<h4 class="font-headline-sm text-headline-sm mb-sm">Enterprise Grade</h4>
+<p class="text-on-surface-variant text-body-md">SOC2 compliant with local data encryption. Your codebase and project data are safe by design.</p>
+</div>
+</div>
+</section>
+<!-- Command Palette Floating Component (Simulated) -->
+<div class="hidden fixed inset-0 z-[100] flex items-start justify-center pt-[153px] px-md" id="command-palette">
+<div class="absolute inset-0 bg-background/60 backdrop-blur-sm" onclick="togglePalette()"></div>
+<div class="w-full max-w-2xl glass-panel rounded-xl shadow-2xl glow-primary overflow-hidden relative z-10 border border-primary/20">
+<div class="flex items-center px-md py-md border-b border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant mr-md">search</span>
+<input autofocus="" class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-headline-sm placeholder:text-on-surface-variant/40" placeholder="Search download versions..." type="text"/>
+<span class="kbd-hint">ESC</span>
+</div>
+<div class="p-sm">
+<div class="px-md py-xs font-label-sm text-label-sm text-on-surface-variant/40 uppercase tracking-widest mt-sm">Operating Systems</div>
+<div class="mt-xs">
+<div class="flex items-center justify-between px-md py-sm rounded-lg hover:bg-primary-container/20 cursor-pointer group transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">laptop_mac</span>
+<span class="font-body-md">macOS (Apple Silicon)</span>
+</div>
+<span class="text-on-surface-variant font-label-sm">.dmg / .zip</span>
+</div>
+<div class="flex items-center justify-between px-md py-sm rounded-lg hover:bg-primary-container/20 cursor-pointer group transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">window</span>
+<span class="font-body-md">Windows (x64)</span>
+</div>
+<span class="text-on-surface-variant font-label-sm">.exe / .msi</span>
+</div>
+<div class="flex items-center justify-between px-md py-sm rounded-lg hover:bg-primary-container/20 cursor-pointer group transition-colors">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">terminal</span>
+<span class="font-body-md">Linux (AppImage / Deb)</span>
+</div>
+<span class="text-on-surface-variant font-label-sm">.deb / .rpm</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container px-md py-xs flex justify-end gap-md border-t border-outline-variant/20">
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">expand_less</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+<span>to navigate</span>
+</div>
+<div class="flex items-center gap-xs font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">keyboard_return</span>
+<span>to select</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer with Platform Stats -->
+<footer class="border-t border-outline-variant/20 bg-surface-container-lowest/50 py-lg">
+<div class="max-w-7xl mx-auto px-margin-edge flex flex-col md:flex-row justify-between items-center gap-md">
+<div class="flex gap-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase tracking-widest">Active Installs</span>
+<span class="font-headline-sm text-headline-sm">2.4M+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase tracking-widest">Update Cycle</span>
+<span class="font-headline-sm text-headline-sm">Weekly</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Contact</a>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant/30">
+                © 2024 Linear Orbit, Inc.
+            </div>
+</div>
+</footer>
+<!-- Interactive Layer: K-Bar Listener -->
+<script>
+        function togglePalette() {
+            const palette = document.getElementById('command-palette');
+            palette.classList.toggle('hidden');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            // Command+K or Ctrl+K to toggle palette
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                togglePalette();
+            }
+            // Escape to close palette
+            if (e.key === 'Escape') {
+                const palette = document.getElementById('command-palette');
+                if (!palette.classList.contains('hidden')) {
+                    togglePalette();
+                }
+            }
+        });
+
+        // Simple button interaction sounds or feedback would go here
+    </script>
+<!-- Shared Bottom Nav for Mobile Consistency as per protocol -->
+<div class="md:hidden">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-lg py-sm bg-surface-container/90 backdrop-blur-xl border-t border-outline-variant/20 rounded-t-xl shadow-[0_-8px_30px_rgb(94,106,210,0.1)]">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full p-2 shadow-[0_0_15px_rgba(189,194,255,0.3)] active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 p-2 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 p-2 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">download</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 p-2 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+</div>
+</body></html>

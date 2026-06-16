@@ -1,36 +1,380 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>88. Victorian - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Grand Folio | Private Archival Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Source+Serif+4:ital,wght@0,400;0,600;1,400&amp;family=Source+Sans+3:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@100..900&amp;family=Source+Sans+3:wght@100..900&amp;family=Source+Serif+4:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --damask-pattern: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c-4 10-15 15-15 25s8 15 15 15 15-5 15-15S44 10 40 0zM0 40c10-4 15-15 15-15s15 8 15 15-5 15-15 15-10-4-15-15zm40 40c4-10 15-15 15-25s-8-15-15-15-15 5-15 15 10 10 15 25zm40-40c-10 4-15 15-15 15s-15-8-15-15 5-15 15-15 10 4 15 15z' fill='%23540b0e' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #101225;
+            background-image: var(--damask-pattern);
+            scroll-behavior: smooth;
+        }
+
+        .brass-border {
+            border: 1px solid #e9c349;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .filigree-divider {
+            height: 40px;
+            background: linear-gradient(to right, transparent, #e9c349, transparent);
+            mask-image: url("data:image/svg+xml,%3Csvg width='200' height='40' viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 C 50 0, 150 0, 200 20 C 150 40, 50 40, 0 20' fill='black'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='200' height='40' viewBox='0 0 200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 C 50 0, 150 0, 200 20 C 150 40, 50 40, 0 20' fill='black'/%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+
+        .velvet-card {
+            background: radial-gradient(circle at center, #1e361e 0%, #101225 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .velvet-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: var(--damask-pattern);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .brass-glow:hover {
+            box-shadow: 0 0 15px rgba(233, 195, 73, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .parchment-text {
+            color: #F4EBD0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .ledger-line {
+            border-bottom: 2px solid #e9c349;
+            background: rgba(16, 18, 37, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .ledger-line:focus-within {
+            background: rgba(233, 195, 73, 0.05);
+            border-bottom-width: 3px;
+        }
+
+        .engraved-title {
+            background: linear-gradient(to bottom, #ffe088 0%, #e9c349 50%, #cca830 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
         }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "on-tertiary-container": "#4f3e00",
+                    "surface-bright": "#36384d",
+                    "surface-variant": "#313349",
+                    "inverse-on-surface": "#2d2f44",
+                    "on-surface": "#e0e0fc",
+                    "inverse-primary": "#9c413e",
+                    "background": "#101225",
+                    "surface": "#101225",
+                    "primary": "#ffb3ae",
+                    "tertiary-fixed": "#ffe088",
+                    "on-secondary": "#1e361e",
+                    "on-secondary-fixed-variant": "#344d32",
+                    "on-background": "#e0e0fc",
+                    "surface-container-low": "#181a2e",
+                    "primary-container": "#540b0e",
+                    "surface-container-high": "#26283d",
+                    "secondary-fixed-dim": "#b2ceac",
+                    "on-tertiary": "#3c2f00",
+                    "tertiary": "#eac34a",
+                    "primary-fixed": "#ffdad7",
+                    "surface-tint": "#ffb3ae",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-fixed": "#09200a",
+                    "outline": "#a38b89",
+                    "on-tertiary-fixed-variant": "#574500",
+                    "on-primary": "#5f1415",
+                    "outline-variant": "#554241",
+                    "on-surface-variant": "#dbc0be",
+                    "inverse-surface": "#e0e0fc",
+                    "surface-dim": "#101225",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#7d2a29",
+                    "on-primary-container": "#da716c",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#344d32",
+                    "surface-container-highest": "#313349",
+                    "surface-container-lowest": "#0a0c20",
+                    "tertiary-container": "#cca830",
+                    "secondary-fixed": "#ceebc7",
+                    "surface-container": "#1c1e32",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#a1bd9b",
+                    "on-primary-fixed": "#410004",
+                    "secondary": "#b2ceac",
+                    "tertiary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "max-width": "1280px",
+                    "gutter": "32px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Libre Caslon Text"],
+                    "body-md": ["\"Source Serif 4\""],
+                    "display-lg-mobile": ["Libre Caslon Text"],
+                    "headline-md": ["Libre Caslon Text"],
+                    "label-md": ["\"Source Sans 3\""],
+                    "display-lg": ["Libre Caslon Text"],
+                    "body-lg": ["\"Source Serif 4\""]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">88. Victorian</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Ornate damask patterns, brass, filigree.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="text-on-surface selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky border-b border-outline-variant dark:border-outline-variant bg-surface-container-low/90 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)] z-50">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-max-width mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-tertiary-fixed dark:text-tertiary tracking-tight">The Grand Folio</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-headline-sm text-headline-sm text-primary border-b-2 border-primary pb-1 transition-all" href="#">Archives</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-tertiary transition-all duration-300" href="#">Collections</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-tertiary transition-all duration-300" href="#">Chronicles</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-tertiary transition-all duration-300" href="#">The Vault</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center ledger-line px-4 py-1">
+<span class="material-symbols-outlined text-tertiary mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-outline-variant" placeholder="Search the catalog..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 brass-border font-label-md text-label-md uppercase tracking-widest brass-glow transition-all active:scale-95">
+                    Inquire
+                </button>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary transition-colors">menu_book</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<main class="relative min-h-[921px] flex items-center justify-center overflow-hidden">
+<!-- Background Animation -->
+
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<h1 class="font-display-lg text-display-lg mb-6 engraved-title leading-tight">
+                Preserving the Echoes <br/> of Antiquity
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto italic">
+                Step into a sanctuary of curated knowledge. Our private archival library offers the world's most distinguished scholars access to first editions, lost scrolls, and the tactile history of the human spirit.
+            </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 brass-border font-label-md text-label-md uppercase tracking-widest brass-glow shadow-xl">
+                    Request Entry
+                </button>
+<button class="bg-transparent text-tertiary px-10 py-4 border border-tertiary/30 font-label-md text-label-md uppercase tracking-widest hover:bg-tertiary/10 transition-all">
+                    Explore Collections
+                </button>
+</div>
+</div>
+<!-- Decorative Corners -->
+<div class="absolute top-12 left-12 w-32 h-32 border-t-4 border-l-4 border-tertiary opacity-30 rounded-tl-lg pointer-events-none"></div>
+<div class="absolute bottom-12 right-12 w-32 h-32 border-b-4 border-r-4 border-tertiary opacity-30 rounded-br-lg pointer-events-none"></div>
+</main>
+<!-- Bento Grid Section: Archival Highlights -->
+<section class="py-24 px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<div class="filigree-divider mx-auto w-64 mb-6"></div>
+<h2 class="font-headline-md text-headline-md text-tertiary mb-2">The Curator's Selection</h2>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Rare findings from the depths of the 19th-century archives.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto md:h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 md:row-span-2 velvet-card brass-border group cursor-pointer transition-transform duration-500 hover:scale-[1.01] flex flex-col justify-end p-8">
+<div class="absolute inset-0 z-0">
+<img alt="Antique Library" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-700" data-alt="A grand Victorian private library with towering dark wood bookshelves reaching toward a vaulted ceiling. The room is bathed in warm, flickering light from brass chandeliers and oil lamps, creating deep shadows. Rich emerald green velvet curtains frame the scene, and the air feels heavy with history and the scent of aged parchment. The overall mood is academic, luxurious, and deeply historical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7FTjQmb0qbG_nEt3sonfMSxJwzfeZ__smLMeF_3sbB9RZSrQ2rfPnbZKSdULmNc2jFWAPnfHH7BXQt13jnYqJHSoBfiRyTOoWldzygzA6W6zbx6UyYlHzfUI2YUxWeGWb-PArP2ukGMMvbhtB3F2_hX4MQEtY99XRhlK_U7SEpFohtZQ1EztUGvIcGDVGnY_5dvDhTn2kGYcaUOuIsz8oircOpNAhO979KxhgW2_EWaQhH-m9bxwPZQYgn02l9uJ4IlEerTByeGlK"/>
+</div>
+<div class="relative z-10">
+<span class="bg-tertiary text-on-tertiary px-3 py-1 text-label-md font-label-md mb-4 inline-block">CHRONICLE I</span>
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">The Crimson Manuscripts</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        A collection of hand-bound journals detailing the secret histories of the Victorian elite, recently recovered from a sealed vault in Westminster.
+                    </p>
+</div>
+</div>
+<!-- Small Detail Card 1 -->
+<div class="md:col-span-4 velvet-card brass-border p-6 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2">Archival Standards</h4>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+                    Restored using period-accurate binding techniques and 19th-century materials.
+                </p>
+</div>
+<!-- Small Detail Card 2 -->
+<div class="md:col-span-4 velvet-card brass-border p-0 overflow-hidden group">
+<img alt="Old Books" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000" data-alt="Close-up of several aged, leather-bound books stacked neatly on a mahogany table. One book is open, revealing yellowed parchment pages covered in elegant Victorian cursive ink. A brass magnifying glass rests beside the stack, catching a glint of soft amber light. The background is a dark, atmospheric emerald velvet that reinforces a sense of prestigious academic study." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhcFTuD9d8FohxyF5zhtlJntY0VpCepxmri1sbt4wlIAYruBRSjQ1b0Tg97bS-i0eJo1v0ZyKJdciG8TcpW1D6O0DVjVG241VqdjAS8y68AKfOcdwpB5eC2JRRAXppPsHSQPJejctVoOhnsQpEEvHbKU-wJ0WdR-wM1tcaeUwGMggt9mwg3OVnP4Z27GwPapO7VCiVU4Usj9LH5OaLOEtklJN9V4QUGW3ejQHNde9YR5wsEzNJO-t5J3yg8HdDC22Jgx3Vf9g7sEKL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent flex items-end p-6">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">The Cartographer's Ink</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Services / Pillars -->
+<section class="bg-surface-container-lowest py-24 relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: var(--damask-pattern);"></div>
+<div class="px-margin-desktop max-w-max-width mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="flex flex-col items-start gap-4">
+<div class="w-12 h-12 flex items-center justify-center border-2 border-tertiary rounded-full mb-2">
+<span class="material-symbols-outlined text-tertiary">lock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Private Curation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our librarians work discreetly with private collectors to catalog and preserve family legacies with the utmost confidentiality.
+                    </p>
+<div class="h-px w-24 bg-tertiary/30 mt-4"></div>
+</div>
+<div class="flex flex-col items-start gap-4">
+<div class="w-12 h-12 flex items-center justify-center border-2 border-tertiary rounded-full mb-2">
+<span class="material-symbols-outlined text-tertiary">search_insights</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Paleography</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Expert transcription of historical scripts, deciphering the lost nuances of Victorian correspondence and legal documentation.
+                    </p>
+<div class="h-px w-24 bg-tertiary/30 mt-4"></div>
+</div>
+<div class="flex flex-col items-start gap-4">
+<div class="w-12 h-12 flex items-center justify-center border-2 border-tertiary rounded-full mb-2">
+<span class="material-symbols-outlined text-tertiary">auto_stories</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Digital Legacy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        State-of-the-art non-invasive scanning that bridges the tactile 19th century with the accessibility of the modern digital age.
+                    </p>
+<div class="h-px w-24 bg-tertiary/30 mt-4"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Ledger Section -->
+<section class="py-24 px-margin-desktop max-w-4xl mx-auto">
+<div class="velvet-card brass-border p-12 relative">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-tertiary/20 text-8xl">edit_note</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-tertiary mb-8 text-center">Register for Archival Access</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="ledger-line group">
+<label class="block font-label-md text-label-md text-outline uppercase mb-1">Full Appellation</label>
+<input class="w-full bg-transparent border-none focus:ring-0 text-headline-sm font-headline-sm text-on-surface px-0" placeholder="Lord/Lady Arthur Penhaligon" type="text"/>
+</div>
+<div class="ledger-line group">
+<label class="block font-label-md text-label-md text-outline uppercase mb-1">Subject of Interest</label>
+<input class="w-full bg-transparent border-none focus:ring-0 text-headline-sm font-headline-sm text-on-surface px-0" placeholder="Pre-Raphaelite Manuscripts" type="text"/>
+</div>
+</div>
+<div class="ledger-line group">
+<label class="block font-label-md text-label-md text-outline uppercase mb-1">Inquiry Details</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-body-lg font-body-lg text-on-surface px-0 resize-none" placeholder="Describe the nature of your scholarly pursuit..." rows="3"></textarea>
+</div>
+<div class="flex justify-center pt-6">
+<button class="bg-primary-container text-on-primary-container px-16 py-4 brass-border font-label-md text-label-md uppercase tracking-[0.2em] brass-glow transition-transform hover:scale-105 active:scale-95" type="submit">
+                        Dispatch Inquiry
+                    </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bottom-0 relative border-t-2 border-outline dark:border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-gutter gap-4 max-w-max-width mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-sm text-headline-sm text-tertiary-fixed mb-1">The Grand Folio</span>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">© MDCCCLXXXVIII Her Majesty's Private Library. All Rights Reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary underline decoration-dotted transition-all cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary underline decoration-dotted transition-all cursor-pointer" href="#">Archival Standards</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary underline decoration-dotted transition-all cursor-pointer" href="#">Privacy Scroll</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:border-tertiary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-tertiary">share</span>
+</div>
+<div class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:border-tertiary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-tertiary">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top FAB (Contextual) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary-container text-on-primary-container brass-border shadow-2xl flex items-center justify-center opacity-0 transition-opacity duration-300 z-50 hover:scale-110 active:scale-95" id="back-to-top">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+<script>
+        // Simple micro-interaction for the FAB
+        window.onscroll = function() {
+            const fab = document.getElementById('back-to-top');
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                fab.style.opacity = "1";
+            } else {
+                fab.style.opacity = "0";
+            }
+        };
+
+        document.getElementById('back-to-top').onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        // Input field focus interaction
+        const inputs = document.querySelectorAll('.ledger-line input, .ledger-line textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.style.borderColor = '#ffb3ae'; // primary highlight
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.style.borderColor = '#eac34a'; // revert to brass
+            });
+        });
+    </script>
+</body></html>

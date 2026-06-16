@@ -1,36 +1,354 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>32. 90s Web - Style Guide</title>
+    <title>EPOCH ARCHIVE - 1994 Edition</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;family=Inter:wght@400;500&amp;family=Arimo:wght@400;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+        :root {
+            --beveled-outset: 2px solid #ffffff;
+            --beveled-inset: 2px solid #808080;
+        }
+
+        .90s-bevel {
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            border-right: 2px solid #808080;
+            border-bottom: 2px solid #808080;
+            background-color: #c0c0c0;
+        }
+
+        .90s-bevel-inset {
+            border-top: 2px solid #808080;
+            border-left: 2px solid #808080;
+            border-right: 2px solid #ffffff;
+            border-bottom: 2px solid #ffffff;
+            background-color: #ffffff;
+        }
+
+        .90s-table-border {
+            border: 2px solid #808080;
+        }
+
+        .90s-table-cell {
+            border: 1px solid #808080;
+            padding: 8px;
+        }
+
+        marquee {
+            font-family: 'JetBrains Mono', monospace;
+            background: #000080;
+            color: #ffffff;
+            padding: 4px 0;
+            font-weight: bold;
+        }
+
+        /* Override for the 90s aesthetic specifically */
+        .web-safe-blue {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+
+        .web-safe-blue:hover {
+            color: #FF0000;
+        }
+
+        .pixel-bg {
+            background-image: radial-gradient(#353535 1px, transparent 1px);
+            background-size: 4px 4px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#00dddd",
+                        "surface-tint": "#ffabf3",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#ffffff",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#510051",
+                        "surface-container": "#20201f",
+                        "inverse-on-surface": "#313030",
+                        "outline-variant": "#564052",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#a900a9",
+                        "outline": "#a4899d",
+                        "on-primary-fixed-variant": "#810081",
+                        "tertiary-container": "#c8a900",
+                        "surface-variant": "#353535",
+                        "secondary-container": "#00fbfb",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#ffabf3",
+                        "on-secondary": "#003737",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353535",
+                        "surface-bright": "#393939",
+                        "primary-fixed": "#ffd7f5",
+                        "on-primary": "#5b005b",
+                        "on-primary-fixed": "#380038",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#3a3000",
+                        "tertiary": "#e9c400",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffabf3",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "primary-container": "#ff00ff",
+                        "on-surface-variant": "#dcbed4",
+                        "on-secondary-fixed": "#002020",
+                        "on-secondary-container": "#007070",
+                        "on-tertiary-container": "#4b3e00",
+                        "secondary-fixed": "#00fbfb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Arimo", "sans-serif"],
+                        "body-lg": ["Arimo", "sans-serif"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Sora"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Sora"]
+                    }
+                },
+            },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+
+<body class="bg-background text-on-surface font-body-md pixel-bg">
+    <marquee scrollamount="5">*** WELCOME TO THE EPOCH ARCHIVE *** SYSTEM STATUS: ONLINE *** LAST UPDATED: AUGUST 14,
+        1994 *** BEST VIEWED IN NETSCAPE NAVIGATOR 2.0 ***</marquee>
+    <!-- TopAppBar -->
+    <header
+        class="bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant shadow-md dark:shadow-[0_0_15px_rgba(255,171,243,0.3)] docked full-width top-0 z-50">
+        <div class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary">
+                EPOCH ARCHIVE</div>
+            <nav class="hidden md:flex items-center gap-gutter">
+                <a class="font-headline-md text-headline-md tracking-tight text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300 active:scale-95 transition-transform"
+                    href="#">Eras</a>
+                <a class="font-headline-md text-headline-md tracking-tight text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300 active:scale-95 transition-transform"
+                    href="#">Artifacts</a>
+                <a class="font-headline-md text-headline-md tracking-tight text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300 active:scale-95 transition-transform"
+                    href="#">Curators</a>
+                <a class="font-headline-md text-headline-md tracking-tight text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300 active:scale-95 transition-transform"
+                    href="#">Timeline</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="90s-bevel px-6 py-2 font-label-md uppercase tracking-widest text-on-surface-variant active:scale-95 transition-transform">
+                    Sign In
+                </button>
+            </div>
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">32. 90s Web</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Marquees, web-safe colors, chaotic layouts, and visible table borders.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
+    </header>
+    <main class="max-w-container-max mx-auto px-margin py-12">
+        <!-- Classic 90s Table Layout Container -->
+        <div class="90s-bevel p-1 mb-12">
+            <table class="w-full border-collapse 90s-table-border bg-surface-container-low">
+                <tbody>
+                    <tr>
+                        <td class="90s-table-cell w-1/4 align-top bg-surface-container">
+                            <div class="flex flex-col gap-4">
+                                <h3 class="font-headline-md text-headline-md text-primary mb-2">DIRECTORY</h3>
+                                <ul class="space-y-2 list-none p-0">
+                                    <li><a class="web-safe-blue font-label-md" href="#">~/root/home.html</a></li>
+                                    <li><a class="web-safe-blue font-label-md" href="#">~/root/about_us.txt</a></li>
+                                    <li><a class="web-safe-blue font-label-md" href="#">~/root/gallery_90s/</a></li>
+                                    <li><a class="web-safe-blue font-label-md" href="#">~/root/guestbook.cgi</a></li>
+                                    <li><a class="web-safe-blue font-label-md" href="#">~/root/links.html</a></li>
+                                </ul>
+                                <div class="mt-8 90s-bevel-inset p-4 flex flex-col items-center">
+                                    <span class="font-label-sm text-on-surface-variant mb-2">VISITOR COUNT:</span>
+                                    <div
+                                        class="bg-black text-primary font-mono text-2xl p-2 tracking-widest border border-outline">
+                                        000,429,102
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="90s-table-cell w-3/4 align-top p-8 relative overflow-hidden">
+                            <!-- Hero Section Pattern -->
+                            <div class="absolute inset-0 opacity-10 pointer-events-none">
+
+                            </div>
+                            <div class="relative z-10">
+                                <h1 class="font-headline-xl text-headline-xl text-primary mb-6">PRESERVING THE DIGITAL
+                                    DAWN</h1>
+                                <p class="font-body-lg text-body-lg text-on-surface mb-8 max-w-2xl">
+                                    Welcome to the most comprehensive archive of the early internet. From the first HTTP
+                                    requests to the golden age of MIDI background music.
+                                </p>
+                                <div class="flex gap-4">
+                                    <button
+                                        class="90s-bevel px-8 py-4 font-headline-md text-primary flex items-center gap-2 group hover:brightness-110 active:translate-y-1 active:translate-x-1">
+                                        <span class="material-symbols-outlined">explore</span>
+                                        ENTER ARCHIVE
+                                    </button>
+                                    <button
+                                        class="90s-bevel px-8 py-4 font-headline-md text-on-surface-variant flex items-center gap-2 active:translate-y-1 active:translate-x-1">
+                                        <span class="material-symbols-outlined"
+                                            style="font-variation-settings: 'FILL' 1;">history</span>
+                                        VIEW LOGS
+                                    </button>
+                                </div>
+                                <!-- Featured Artifact Bento-ish Layout -->
+                                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="90s-bevel p-4 group cursor-pointer transition-all">
+                                        <div class="90s-bevel-inset h-48 mb-4 overflow-hidden">
+                                            <img class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                                                data-alt="A vintage 1990s desktop computer setup on a messy wooden desk with a CRT monitor displaying a primitive green-text interface. The lighting is moody and warm, highlighting the yellowed plastic of the hardware. The scene captures the nostalgic essence of early digital tinkering in a cluttered home office environment."
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1AlOEVFpw2CLll1eeTaETir3AoOhU0o4UEbfZ2W5lJgqlICBfE04D-d2QXfIgrRu980BY6zXnzdmKmti1DNwcajw2x4P-yy1BsqNu_y-97ssVHsBiXKougBo1eDXA9p2yrFi9hCegvQ3AwrEahUI0hVEz0VCRpBMxJydQF61lwS-bAJrggjA93j93nZ13d27WeieSLeETNtjVfbty8Hc7w5fMYEfehHYJwZol3TMkAk033BIQkkUXKB8AVOlyJybMkdnU04_TpzS2">
+                                        </div>
+                                        <h4 class="font-label-md text-primary mb-1">FILE: HARDWARE_94.ZIP</h4>
+                                        <p class="font-label-sm text-on-surface-variant">The machines that built the
+                                            web.</p>
+                                    </div>
+                                    <div class="90s-bevel p-4 group cursor-pointer transition-all">
+                                        <div class="90s-bevel-inset h-48 mb-4 overflow-hidden">
+                                            <img class="w-full h-full object-cover filter sepia group-hover:sepia-0 transition-all duration-500"
+                                                data-alt="Macro photography of a complex green circuit board with golden soldered points and tiny electronic components. The lighting is sharp and cinematic, casting long shadows across the silicon landscape. The visual style is clinical yet awe-inspiring, focusing on the intricate physical foundation of the digital world."
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyT6U22Xp5FWouzPkDYc4p3AZuO1-3q8ZhNeR8iLGop-K4Q0hmGHU4076eHhWb9-ENXd_jQEt3c8z7laFI5AIiT1PPOFvp_opQr73e29kTWyCwer4TBpT0TPioH2QheRGsl3djnTOXKCXy24wN0OLUFl19H1zITxo-Kyyyf8i362OzcFtj4Yj98KykCacnxBok1xoGuJ4Q_YQvl0ioI5dT2uqUHInHj35ZJBcABwW2EGUG2Q65jTwQM58CEfRmPanhw8Mqg4MR9zvt">
+                                        </div>
+                                        <h4 class="font-label-md text-primary mb-1">FILE: KERNEL_LOG.TXT</h4>
+                                        <p class="font-label-sm text-on-surface-variant">Tracing the first operational
+                                            systems.</p>
+                                    </div>
+                                    <div class="90s-bevel p-4 group cursor-pointer transition-all">
+                                        <div
+                                            class="90s-bevel-inset h-48 mb-4 overflow-hidden flex items-center justify-center bg-black">
+                                            <div class="text-secondary-fixed-dim text-center animate-pulse">
+                                                <span class="material-symbols-outlined text-6xl">code</span>
+                                                <div class="text-xs mt-2">&lt;SOURCE_CODE /&gt;</div>
+                                            </div>
+                                        </div>
+                                        <h4 class="font-label-md text-primary mb-1">FILE: WEB_SRC.TAR</h4>
+                                        <p class="font-label-sm text-on-surface-variant">Original HTML standards
+                                            archive.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
+        <!-- Call to Action Section -->
+        <section class="90s-bevel p-8 bg-surface-container-highest text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+
+            </div>
+            <div class="relative z-10">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-4">JOIN THE CURATORS</h2>
+                <p class="font-body-md text-on-surface mb-8 max-w-xl mx-auto">
+                    Do you have artifacts from the early digital era? Join our global network of digital historians.
+                </p>
+                <div class="inline-block 90s-bevel p-2">
+                    <input
+                        class="90s-bevel-inset px-4 py-3 bg-white text-black outline-none border-none min-w-[300px] font-mono"
+                        placeholder="ENTER YOUR EMAIL..." type="email">
+                    <button
+                        class="90s-bevel px-6 py-3 ml-2 text-on-surface-variant hover:text-primary active:translate-y-1">SUBSCRIBE</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline-variant flat no shadows">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+            <div class="flex flex-col gap-4">
+                <div class="font-headline-sm text-headline-sm font-bold text-on-surface">DIGITAL HISTORY MUSEUM</div>
+                <p class="font-label-md text-label-md uppercase tracking-widest text-tertiary dark:text-tertiary-fixed">
+                    © 1984-2024 DIGITAL HISTORY MUSEUM. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+            <div class="flex gap-gutter">
+                <a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200"
+                    href="#">Privacy</a>
+                <a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200"
+                    href="#">Terms</a>
+                <a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200"
+                    href="#">Archive API</a>
+                <a class="font-label-md text-label-md uppercase tracking-widest text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200"
+                    href="#">Contact</a>
+            </div>
+            <div class="flex gap-4">
+                <div class="90s-bevel p-2 flex items-center justify-center">
+                    <img class="h-8 w-auto"
+                        data-alt="A small pixelated badge graphic featuring a green 'Made with Notepad' logo on a white background. The style is deliberately low-resolution and simplified, reminiscent of late 90s web badges found in footers. The lighting is flat and the colors are vibrant primaries, evoking a sense of DIY internet culture."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMX4QByi4eP1bbrf1Ino_Wb-v28yG28ZFFVzPhsEbWixyN0strJhWhn8i2eCWwYhFJboVMTM-FZzutGAf-vBkmkoRtqaQNjVGtC3Oul1YTYZwW5jtzoFK3mk646ybEkmzEUPHttkd8KiKd5_0KdFr6mpE-f2Am0GhM0xhgbXSYPSUyQ2Jqv4MfHRZlDzgus5GQTLeFVATsqXPkWqlCgNxr5TZxZYDhpR3R3kWFOFtADWAzNYGfTfO7Gz1Y1pAJ9mn0KWTKsa-7nj4N">
+                </div>
+                <div class="90s-bevel p-2 flex items-center justify-center">
+                    <img class="h-8 w-auto"
+                        data-alt="A retro 'Under Construction' animated gif banner featuring a yellow and black striped barrier and a tiny flashing light. The animation is simple and repetitive, with a limited 256-color palette. The style is classic web 1.0 aesthetic, intended to be humorous and nostalgic within a modern archive context."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB_vySYK9u9u_ZM_8Kpj_xx6VgZUfX2mxtshfZ550IUHI0tLdaUlWwpE8MSJ5ybJMQ29_L_9w9ZXfK3xkMeWDwucI957fzL42AHWN4ZuQEouNk7-4TvpQy6WrofTH87jRbGy0Jyuhn6g6IjSbjkXrlb6VYIgSApHQ6FtgBJtgnkz8krpi5g9xXuI6k_iwMKoX8U8s6stbdJ1rBii8U-z7cxzEvswwmZMy1YUPAusE3TF9e3M7mCqLcVKfaKFYczqP9aVAyAnHKQHtp">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interaction for bevel buttons
+        document.querySelectorAll('.90s-bevel').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.borderTop = '2px solid #808080';
+                button.style.borderLeft = '2px solid #808080';
+                button.style.borderRight = '2px solid #ffffff';
+                button.style.borderBottom = '2px solid #ffffff';
+                button.style.paddingTop = '10px';
+                button.style.paddingLeft = '10px';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.borderTop = '2px solid #ffffff';
+                button.style.borderLeft = '2px solid #ffffff';
+                button.style.borderRight = '2px solid #808080';
+                button.style.borderBottom = '2px solid #808080';
+                button.style.paddingTop = '8px';
+                button.style.paddingLeft = '8px';
+            });
+        });
+    </script>
 </body>
+
 </html>

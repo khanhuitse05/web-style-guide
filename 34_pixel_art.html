@@ -1,36 +1,366 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>34. Pixel Art - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EPOCH ARCHIVE | Pixel Art Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Sora:wght@600;700;800&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        
+        /* Pixel Art Specific Utilities */
+        .pixel-border {
+            box-shadow: 
+                0 -4px 0 0 #131313,
+                0 4px 0 0 #131313,
+                -4px 0 0 0 #131313,
+                4px 0 0 0 #131313;
+        }
+        
+        .pixel-border-primary {
+            box-shadow: 
+                0 -4px 0 0 #ffabf3,
+                0 4px 0 0 #ffabf3,
+                -4px 0 0 0 #ffabf3,
+                4px 0 0 0 #ffabf3;
+        }
+
+        .pixel-steps {
+            image-rendering: pixelated;
+            position: relative;
+        }
+
+        .dither-bg {
+            background-image: radial-gradient(#353535 2px, transparent 2px);
+            background-size: 4px 4px;
+        }
+
+        .pixel-btn-shadow {
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+
+        .pixel-btn-shadow:active {
+            box-shadow: 0px 0px 0px 0px #000;
+            transform: translate(4px, 4px);
+        }
+
+        /* Custom Scrollbar for Retro feel */
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffabf3;
+            border: 3px solid #131313;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#00dddd",
+                        "surface-tint": "#ffabf3",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#ffffff",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#510051",
+                        "surface-container": "#20201f",
+                        "inverse-on-surface": "#313030",
+                        "outline-variant": "#564052",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#a900a9",
+                        "outline": "#a4899d",
+                        "on-primary-fixed-variant": "#810081",
+                        "tertiary-container": "#c8a900",
+                        "surface-variant": "#353535",
+                        "secondary-container": "#00fbfb",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#ffabf3",
+                        "on-secondary": "#003737",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353535",
+                        "surface-bright": "#393939",
+                        "primary-fixed": "#ffd7f5",
+                        "on-primary": "#5b005b",
+                        "on-primary-fixed": "#380038",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#3a3000",
+                        "tertiary": "#e9c400",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffabf3",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "primary-container": "#ff00ff",
+                        "on-surface-variant": "#dcbed4",
+                        "on-secondary-fixed": "#002020",
+                        "on-secondary-container": "#007070",
+                        "on-tertiary-container": "#4b3e00",
+                        "secondary-fixed": "#00fbfb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Sora"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Sora"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">34. Pixel Art</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">8-bit typography, nostalgic gaming aesthetics, and blocky borders.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-on-primary">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-md">
+<div class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary">
+                EPOCH ARCHIVE
+            </div>
+<div class="hidden md:flex gap-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md text-label-md uppercase tracking-widest" href="#">Eras</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#">Artifacts</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#">Curators</a>
+<a class="text-on-surface-variant font-medium font-label-md text-label-md uppercase tracking-widest hover:text-primary transition-colors duration-300" href="#">Timeline</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary" data-icon="search"></button>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md uppercase tracking-widest pixel-btn-shadow border-2 border-black active:translate-y-1 transition-all">
+                    Sign In
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center overflow-hidden dither-bg">
+
+<div class="relative z-10 max-w-container-max mx-auto px-margin w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7">
+<div class="inline-block bg-tertiary text-on-tertiary px-4 py-1 font-label-md text-label-md mb-6 pixel-border-primary">
+                        NEW EPOCH UNLOCKED: 1989
+                    </div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-6 leading-none">
+                        COLLECT THE <br> <span class="text-secondary-fixed">8-BIT ERA.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        A digital time-capsule preservation project. Explore the artifacts, soundscapes, and character sprites that defined a generation of home computing.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-md text-label-md uppercase border-4 border-black pixel-btn-shadow flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="joystick"></span>
+                            Enter Archive
+                        </button>
+<button class="bg-surface text-primary px-8 py-4 font-label-md text-label-md uppercase border-4 border-primary pixel-btn-shadow flex items-center gap-3">
+                            View Roadmap
+                        </button>
+</div>
+</div>
+<div class="hidden md:flex md:col-span-5 justify-end relative">
+<div class="w-80 h-80 bg-surface-container-highest border-8 border-black pixel-steps p-4">
+<img alt="Retro Console" class="w-full h-full object-cover pixelated" data-alt="A macro photography shot of a vintage 8-bit home video game console resting on a dithered grey background. The lighting is harsh and direct, reminiscent of 1980s catalog photography, with high contrast shadows and saturated highlights. The overall aesthetic is pixelated and sharp, focusing on the blocky plastic textures and nostalgic grey and red color palette of classic gaming hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloEybFwD4qEos0YK6A04nCOFBlJh3mselQDWlnTAnYaAWwep-Rq0t5I1jpUJOx7OJzteSGN75Ziijm87iJHL9enAAYi9rL2WoMSc9JZxxc-td8NmfBzpysCFsGqAywiKOi5OgTEN1CpoukgUVUpaOuuyrNTw3-W-ghajRmPNaIwe2mrBlOLNWO09Lyr8IqGc6RzlzQg60o25xzo5ePrcUB0O4BNnfU6QQMHTH2DzSTfSZugHbYhip6GWD2-Mh0hLwhOmXMgADVtV_">
+<div class="absolute -bottom-8 -left-8 bg-secondary-fixed text-on-secondary-fixed p-4 border-4 border-black shadow-lg">
+<span class="font-label-md text-label-md">VERIFIED ARTIFACT #8812</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid (Bento Style) -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Feature 1 -->
+<div class="md:col-span-2 bg-surface-container p-8 border-4 border-outline-variant pixel-steps">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="history_edu"></span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Meticulous Documentation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Every sprite, every sound effect, and every manual page is preserved in lossless quality for future generations of digital explorers.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-primary text-on-primary p-8 border-4 border-black pixel-btn-shadow">
+<div class="font-headline-xl text-headline-xl mb-2">12K+</div>
+<div class="font-label-md text-label-md uppercase">Assets Archived</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-secondary-fixed text-on-secondary-fixed p-8 border-4 border-black pixel-btn-shadow">
+<div class="font-headline-xl text-headline-xl mb-2">42</div>
+<div class="font-label-md text-label-md uppercase">Consoles Covered</div>
+</div>
+<!-- Feature 4 -->
+<div class="md:col-span-4 bg-surface p-8 border-4 border-outline-variant flex flex-col md:flex-row items-center gap-10">
+<div class="w-full md:w-1/3">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">The Dither Engine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Our custom rendering pipeline ensures that modern displays capture the true essence of CRT phosphor glow and scanlines.</p>
+<button class="text-tertiary font-label-md text-label-md underline underline-offset-8 uppercase">Technical Docs</button>
+</div>
+<div class="w-full md:w-2/3 h-48 bg-black pixel-border p-2">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Artifacts Grid -->
+<section class="py-24">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">LATEST ARTIFACTS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Recent additions to the permanent digital collection.</p>
+</div>
+<button class="font-label-md text-label-md uppercase border-2 border-primary text-primary px-6 py-2 hover:bg-primary hover:text-on-primary transition-all">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Artifact Card 1 -->
+<div class="group bg-surface-container-low border-4 border-black p-4 pixel-btn-shadow hover:translate-y-[-4px] transition-transform">
+<div class="aspect-square bg-black mb-6 overflow-hidden">
+<img class="w-full h-full object-cover pixelated grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A vibrant pixel art illustration of a 1980s bedroom filled with posters, a chunky television, and game controllers. The scene is lit by the blue glow of a screen, creating a moody, nostalgic atmosphere with sharp, dithered shadows and a limited retro color palette including neon blues and deep purples. The focus is on the intricate blocky details of the furniture and electronics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAhV7NFhAbIrp9pcJH6iiDkWWbr0IhiAi4gdsfRihX8otbOo03aqJzYjlTwZybwAybjh2Ttk8CvAUB3m0CzdXfzEoitbjZpkiJ1F7ZnNPlDHDIyG_RWlRbUk9JohKCtK9TvYHjDcx1PhUfcEX0hk8HUnywHG7n7VQ_27PNA_xIIRvlSS-sh0B7NLTsRUTUYAa9q0YS6qQPa-1Iyquyw1S-n9gbrT99bJRNTmFfTzC5JT45APtSwpIZEYDUXlfSHTir0vhiI_tOEhrb">
+</div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-1">HARDWARE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#3341</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Z-80 Processor Kit</h4>
+<div class="flex gap-2">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">1976</span>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">8-BIT</span>
+</div>
+</div>
+<!-- Artifact Card 2 -->
+<div class="group bg-surface-container-low border-4 border-black p-4 pixel-btn-shadow hover:translate-y-[-4px] transition-transform">
+<div class="aspect-square bg-black mb-6 overflow-hidden">
+<img class="w-full h-full object-cover pixelated group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of a vintage handheld gaming device with a monochrome liquid crystal display. The image captures the tactile quality of the plastic buttons and the subtle texture of the screen. The lighting is soft and diffused, highlighting the green-tinted display and the retro industrial design. The overall mood is one of tech-archival preservation in a dark, clean studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJPwJuAgM8tzwxLTKYML_ARBmEDQyu0nVF9MpNGQKLRRE9BqDJE3OaL9lkN4ZjOjVhwLje8OHJVMgIXHuaTt5BUNGrVBd0ujRQSsTjYkJrysqtcw-PI4Awrazto79fAMJtveixnYMGndLR-HE6_1onmBQaj2-KEciv2pikhTSGguyzO9ESmkM-oi8RwgyKo0FcAynAIJOmEBCWmsWHq6VsXwoT1EI6BFxsqyWOYR2RH0ktds9BsEeoZFqfftUyGtny4FbQzKc_JNn2">
+</div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary-fixed/10 px-2 py-1">SOFTWARE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#9021</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">Binary Dreamscape</h4>
+<div class="flex gap-2">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">1984</span>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">SOURCE</span>
+</div>
+</div>
+<!-- Artifact Card 3 -->
+<div class="group bg-surface-container-low border-4 border-black p-4 pixel-btn-shadow hover:translate-y-[-4px] transition-transform">
+<div class="aspect-square bg-black mb-6 overflow-hidden relative">
+
+</div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1">MEDIA</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">#4412</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-4">FM-Synth Archive</h4>
+<div class="flex gap-2">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">1988</span>
+<span class="bg-surface-variant text-on-surface-variant text-[10px] px-2 py-1 uppercase font-bold">AUDIO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 bg-surface">
+<div class="max-w-container-max mx-auto px-margin">
+<div class="bg-primary-container p-12 border-4 border-black pixel-border-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 text-on-primary-container opacity-20">
+<span class="material-symbols-outlined text-[120px]" data-icon="mail"></span>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-primary-container mb-6">JOIN THE <br>COMMUNITY.</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-10">Get notified when we de-archive new hardware datasets and community mods.</p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface border-4 border-black p-4 font-label-md text-label-md focus:outline-none focus:ring-0" placeholder="USER@TERMINAL.NET" type="email">
+<button class="bg-black text-white px-10 py-4 font-label-md text-label-md uppercase pixel-btn-shadow">
+                                Subscribe
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">EPOCH ARCHIVE</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">© 1984-2024 DIGITAL HISTORY MUSEUM.</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Terms</a>
+<a class="hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Archive API</a>
+<a class="hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 border-2 border-outline flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="terminal"></span>
+</div>
+<div class="w-10 h-10 border-2 border-outline flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="database"></span>
+</div>
+</div>
+</div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-tertiary text-on-tertiary border-4 border-black pixel-btn-shadow flex items-center justify-center z-50 group hover:bg-primary transition-colors">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-icon="arrow_upward"></span>
+</button>
+<script>
+        // Micro-interaction for pixel hover effects
+        document.querySelectorAll('.pixel-btn-shadow').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Potential sound effect trigger or subtle animation logic
+            });
+        });
+
+        // Simple smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

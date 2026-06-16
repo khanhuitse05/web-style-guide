@@ -1,36 +1,423 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>87. Wild West - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
-        }
-    </style>
-</head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Frontier Heritage | Rugged Frontier Gear</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;family=Source+Serif+4:ital,wght@0,400;0,700;1,400&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline": "#82746b",
+                  "on-tertiary-fixed-variant": "#524436",
+                  "on-primary": "#ffffff",
+                  "outline-variant": "#d4c3b8",
+                  "on-surface-variant": "#50453c",
+                  "surface-dim": "#e3d9c6",
+                  "inverse-surface": "#353023",
+                  "primary-fixed-dim": "#f0bc92",
+                  "error-container": "#ffdad6",
+                  "on-primary-fixed-variant": "#623f1e",
+                  "on-primary-container": "#d6a47c",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#ebe1cf",
+                  "secondary-container": "#fdcb9b",
+                  "secondary-fixed": "#ffdcbd",
+                  "tertiary-container": "#4d4032",
+                  "surface-container-lowest": "#ffffff",
+                  "on-error-container": "#93000a",
+                  "surface-container": "#f7edda",
+                  "on-primary-fixed": "#2e1500",
+                  "on-secondary-container": "#79542d",
+                  "tertiary-fixed-dim": "#d7c3b0",
+                  "secondary": "#7c5730",
+                  "on-error": "#ffffff",
+                  "on-tertiary-container": "#bfac99",
+                  "surface-bright": "#fff8f0",
+                  "inverse-on-surface": "#faf0dc",
+                  "surface-variant": "#ebe1cf",
+                  "background": "#fff8f0",
+                  "inverse-primary": "#f0bc92",
+                  "on-surface": "#1f1b10",
+                  "surface": "#fff8f0",
+                  "tertiary-fixed": "#f4dfcb",
+                  "primary": "#432406",
+                  "on-secondary": "#ffffff",
+                  "primary-container": "#5d3a1a",
+                  "surface-container-low": "#fdf3df",
+                  "on-background": "#1f1b10",
+                  "on-secondary-fixed-variant": "#61401b",
+                  "surface-container-high": "#f1e7d4",
+                  "secondary-fixed-dim": "#eebd8e",
+                  "tertiary": "#362a1d",
+                  "on-tertiary": "#ffffff",
+                  "on-secondary-fixed": "#2c1600",
+                  "on-tertiary-fixed": "#241a0e",
+                  "surface-tint": "#7d5633",
+                  "primary-fixed": "#ffdcc2"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "max-width": "1280px",
+                  "gutter": "24px",
+                  "margin-mobile": "16px",
+                  "unit": "8px",
+                  "margin-desktop": "64px"
+          },
+          "fontFamily": {
+                  "body-lg": ["\"Source Serif 4\""],
+                  "label-sm": ["Courier Prime"],
+                  "display-lg": ["Domine"],
+                  "headline-md": ["Domine"],
+                  "label-md": ["Courier Prime"],
+                  "headline-sm": ["Domine"],
+                  "body-md": ["\"Source Serif 4\""],
+                  "display-lg-mobile": ["Domine"]
+          },
+          "fontSize": {
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                  "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "display-lg-mobile": ["36px", {"lineHeight": "42px", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #fff8f0;
+      /* Aged Parchment Texture Overlay */
+      background-image: url("https://www.transparenttextures.com/patterns/old-paper.png");
+    }
     
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">87. Wild West</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Wanted posters, wood grain, leather textures.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
+    .wood-texture {
+      background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+    }
+
+    .stamped-x {
+      position: relative;
+    }
+    .stamped-x::after {
+      content: 'X';
+      font-family: 'Courier Prime', monospace;
+      font-weight: 900;
+      color: #432406;
+      opacity: 0.8;
+      transform: rotate(-10deg);
+    }
+
+    .wanted-poster {
+      border: 3px solid #82746b;
+      box-shadow: inset 0 0 40px rgba(130, 116, 107, 0.2);
+    }
+
+    .leather-button {
+      background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+      box-shadow: 2px 2px 0px #1f1b10;
+      transition: all 0.15s ease;
+    }
+    .leather-button:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #1f1b10;
+    }
+
+    .burnt-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #82746b, transparent);
+      opacity: 0.4;
+    }
+
+    .stamp-decoration {
+      font-family: 'Courier Prime', monospace;
+      border: 4px double #ba1a1a;
+      color: #ba1a1a;
+      padding: 4px 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      transform: rotate(-12deg);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .inset-carved {
+      box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="bg-surface sticky top-0 z-50 border-b-4 border-outline w-full px-margin-desktop py-unit max-w-max-width mx-auto flex justify-between items-center h-20">
+<div class="font-display-lg text-display-lg text-primary tracking-tighter uppercase">
+      Frontier Heritage
     </div>
-</body>
-</html>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">The Post</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline decoration-2 transition-transform active:scale-95 duration-150" href="#">Marketplace</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline decoration-2 transition-transform active:scale-95 duration-150" href="#">Our Story</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline decoration-2 transition-transform active:scale-95 duration-150" href="#">Settler's Journal</a>
+</nav>
+<button class="leather-button bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-3 uppercase tracking-widest">
+      Claim Stake
+    </button>
+</header>
+<main class="max-w-max-width mx-auto px-margin-desktop space-y-20 pb-20">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter pt-16">
+<div class="md:col-span-7 flex flex-col justify-center space-y-8">
+<div class="inline-block bg-tertiary-container text-on-tertiary-container px-4 py-1 font-label-sm text-label-sm w-fit uppercase tracking-widest transform -rotate-1">
+          Est. 1885 • Wyoming Territory
+        </div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">
+          BUILT FOR THE BOLD. <br/>FORGED FOR THE WILD.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          We don't make gear for the drawing room. We craft heritage-grade equipment for those who spend their days under the big sky and their nights by the embers.
+        </p>
+<div class="flex gap-4">
+<button class="leather-button bg-primary text-on-primary px-8 py-4 font-label-md text-label-md uppercase tracking-tighter flex items-center gap-2">
+            Shop The Collection
+            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-4 border-primary text-primary px-8 py-4 font-label-md text-label-md uppercase tracking-tighter hover:bg-primary hover:text-on-primary transition-colors">
+            Our Methods
+          </button>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="wanted-poster bg-surface-container p-4 rotate-1 shadow-xl">
+<div class="w-full h-[500px] overflow-hidden grayscale contrast-125 sepia hover:grayscale-0 hover:sepia-0 transition-all duration-700">
+<img alt="Rugged frontiersman" class="w-full h-full object-cover" data-alt="A gritty, cinematic portrait of a rugged frontiersman in the 19th-century American West. He wears a weathered wide-brimmed felt hat and a thick dark leather coat with visible wear and grain. The background shows a dusty, sun-bleached prairie with a soft golden hour glow. The overall aesthetic is rustic and nostalgic with high contrast and organic textures reminiscent of an old daguerreotype." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5DUfvMiydlxmXsnms3BtwH2KvjcFAdKGVLuzJjgfJhA4YjHvYlPeRi4mEvpfLug_sJFbZxKUfM-e5-UNACSdQASJwSpawbeMOGhAYHfSNdZJGSe-0PopOd7p9jQOeMWOndtRhg-71teFB_Sz87OFhk-vmv5d7F80ahA1V_YjlKBeoEKwiPQB4-B-b2WkaSICIsLaM7go5hWBB_fRmq0nZ5qoxGj4sUfjSb_EtovO3wrXJkDUxsfjtv1_MkNNaToO2n5L3CPbgMFcJ"/>
+</div>
+<div class="mt-4 border-t-2 border-outline pt-4 text-center">
+<span class="font-display-lg text-headline-sm text-primary uppercase">Wanted: Durability</span>
+</div>
+<div class="absolute -top-4 -right-4 stamp-decoration">
+            Original Craft
+          </div>
+</div>
+</div>
+</section>
+<!-- Featured Categories / Bento Grid -->
+<section class="space-y-12">
+<div class="text-center space-y-2">
+<h2 class="font-display-lg text-headline-md text-primary uppercase">Survival Essentials</h2>
+<div class="burnt-divider w-48 mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Leather Goods -->
+<div class="wanted-poster bg-surface-container-high p-4 flex flex-col gap-4 group">
+<div class="aspect-square bg-surface overflow-hidden border-2 border-outline">
+<img alt="Leather bags" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up detail of high-quality vegetable-tanned leather saddles and travel bags resting in a dusty stable. Sunlight streams through wooden slats, catching the natural grain and rugged stitching of the dark brown leather. The scene is filled with warm ochre and sienna tones, emphasizing the craftsmanship and durability of heritage outdoor gear in a rustic frontier setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpdnHd7vt9dMcf44zqIozgCThzn79GBXxtpFRV9JSw1vaIFjGqyiYosPyPnnI2pgwUMnZFL-ajisK6L-XuQDNT0i9o0Li7nzPEFkuWdpPDKLOek3fuJ1wme1vB7qif-w_M35H-4Fczs_0vJ5Kk_fQWBb_i__9XKdlSOSfn3nRDy12OxjNCjSYWqmIo7103ovxzp4fsv1B_8LcD0guBhF99y24zT3_JqCNMbJfXB6snfVEjDNe3rwQTbiNLLyYGDmX56VfaUyzhQgUX"/>
+</div>
+<div class="space-y-2">
+<div class="font-display-lg text-headline-sm text-primary">LEATHER GOODS</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Saddles, holsters, and journals that age better than whiskey.</p>
+<a class="font-label-md text-label-md text-primary flex items-center gap-1 group-hover:translate-x-2 transition-transform" href="#">
+              Explore Supply <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+</div>
+<!-- Iron & Forge -->
+<div class="md:row-span-2 wanted-poster bg-surface-container-highest p-4 flex flex-col gap-6 relative">
+<div class="h-full bg-surface overflow-hidden border-2 border-outline relative">
+<img alt="Blacksmith forging" class="w-full h-full object-cover" data-alt="An atmospheric scene inside a 19th-century blacksmith shop. A master craftsman's hands are visible working with glowing orange iron on a heavy steel anvil. Sparks fly into the dark, smoky air of the forge. The lighting is dramatic and warm, focusing on the intense heat and the raw strength of the metalworking process. Deep shadows and rich textures of stone and iron dominate the frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_8ltLbw01kAqkdKyahoqltI12NA565GQhuzW0LcnoidPB7CLcVWqRyhaKXdOytYlavR9NHaPFGimfnGYPBqTSe6UXk8N8WDMwmpHtg-Kt4xZTuH-zjaBqVkzBWfsCUyN7TzRi66SdRf2NuPp_QvbXtHs5EeUZMPBQJRLjr1bip12dF4TjnQG2IUmIW3ieAVZ4heu8UBoPQhbWZvGO-cL7L8rE_hHKpN0wUJ4iopVcUPWTtag-Fq76-M5Uu1-GlGmKib6R5aabnIqm"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+</div>
+<div class="space-y-4">
+<div class="font-display-lg text-headline-md text-primary">THE IRON FORGE</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Hand-forged tools and campfire cookery that last generations. Stamped with the Frontier mark of approval.</p>
+<button class="leather-button bg-primary-container text-on-primary-container w-full py-4 font-label-md text-label-md uppercase">View Registry</button>
+</div>
+<div class="absolute top-10 right-10 stamp-decoration rotate-12 scale-110">
+            Forged Hard
+          </div>
+</div>
+<!-- Canvas & Cloth -->
+<div class="wanted-poster bg-surface-container-high p-4 flex flex-col gap-4 group">
+<div class="aspect-square bg-surface overflow-hidden border-2 border-outline">
+<img alt="Canvas tent" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A heavy-duty waxed canvas wall tent standing in a mountain clearing at twilight. A small lantern glows inside, casting a warm light through the thick beige fabric. The surrounding forest is in deep blue and purple hues, contrasting with the warm amber glow of the shelter. The texture of the rugged, water-resistant canvas is prominently visible, suggesting safety and comfort in the wilderness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7e6iBuAEcP25wNSsGOxso9x5AM7uKZd-9XadPs9sAOAl_50ooBiV3cgyYL_sQotAa8lHCtkI7EWtnCO6huDyPMdblVHv0hP-HFp6Ou8q5gSIAJ32r2soDVezPdrAJ5gNBFIwiXJLyWNWjflEgt2ThphnYI0cjItwfZoFSmhLpN0S0RTD7DbjtqGQxV_1UWQDQH8BKtoHqkMsGx6lpkz-o1o2T_J9dOku5bJUwZ_k-wT6KVRiqSsISVPiu3FSJXtl7-j8qs49iLlCc"/>
+</div>
+<div class="space-y-2">
+<div class="font-display-lg text-headline-sm text-primary">CANVAS &amp; CLOTH</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Heavy waxed canvas meant to weather the harshest storms.</p>
+<a class="font-label-md text-label-md text-primary flex items-center gap-1 group-hover:translate-x-2 transition-transform" href="#">
+              Browse Textiles <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+</div>
+<!-- Cattle Marks / Tags -->
+<div class="md:col-span-1 wanted-poster bg-surface-container-low p-6 flex flex-col justify-between items-center text-center border-dashed">
+<span class="material-symbols-outlined text-4xl text-outline" style="font-variation-settings: 'FILL' 1;">landscape</span>
+<div class="space-y-2">
+<h4 class="font-label-md text-label-md text-secondary">PROVISIONS</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Coffee, Pemmican, and Tallow Candles.</p>
+</div>
+<div class="flex gap-2 flex-wrap justify-center">
+<span class="bg-primary text-on-primary px-3 py-1 font-label-sm text-label-sm rounded-none">IN STOCK</span>
+<span class="bg-outline text-on-primary px-3 py-1 font-label-sm text-label-sm rounded-none">TRADED</span>
+</div>
+</div>
+<div class="md:col-span-1 wanted-poster bg-surface-container p-6 flex flex-col justify-between items-center text-center border-dashed">
+<span class="material-symbols-outlined text-4xl text-outline">history_edu</span>
+<div class="space-y-2">
+<h4 class="font-label-md text-label-md text-secondary">TERRITORY NEWS</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Read the latest from the Frontier Post.</p>
+</div>
+<button class="border-b-2 border-primary font-label-md text-label-md text-primary">Dispatch</button>
+</div>
+</div>
+</section>
+<!-- Product Detail / Showcase -->
+<section class="wood-texture bg-primary-container p-12 text-on-primary-container grid grid-cols-1 lg:grid-cols-2 gap-12 border-4 border-outline relative">
+<div class="space-y-8">
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary-fixed leading-none">THE DEPUTY'S SADDLE BAG</h2>
+<div class="burnt-divider bg-primary-fixed-dim"></div>
+<p class="font-body-lg text-body-lg opacity-90 italic">
+          "I've dragged this bag through the Platte River and across the Rockies. Not a single stitch gave way. It's the only companion I can truly rely on out here."
+        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4">
+<div class="w-8 h-8 flex items-center justify-center border-2 border-primary-fixed text-primary-fixed stamped-x"></div>
+<span class="font-label-md text-label-md">10oz Full-Grain Steerhide</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-8 h-8 flex items-center justify-center border-2 border-primary-fixed text-primary-fixed stamped-x"></div>
+<span class="font-label-md text-label-md">Solid Brass Buckles &amp; Rivets</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-8 h-8 flex items-center justify-center border-2 border-primary-fixed text-primary-fixed stamped-x"></div>
+<span class="font-label-md text-label-md">Hand-Sewn Waxed Thread</span>
+</li>
+</ul>
+<div class="pt-4">
+<button class="leather-button bg-primary text-on-primary px-12 py-5 font-headline-sm text-headline-sm uppercase tracking-widest shadow-2xl">
+            Acquire for $245
+          </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 border-2 border-primary-fixed opacity-30 transform rotate-2 pointer-events-none"></div>
+<div class="bg-surface p-2 shadow-2xl relative">
+<img alt="Saddle Bag" class="w-full h-auto grayscale-20" data-alt="A detailed macro photograph of a heavy, dark brown leather saddle bag resting on a rustic wooden bench. The bag features thick brass buckles and intricate hand-stitching along its edges. Fine dust particles dance in a shaft of sunlight that highlights the rich texture and natural imperfections of the hide. The background is a blurred old western storefront, creating a sense of history and rugged use." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi9PlTnc3SM_z53fd78RmvDq3e_Fx_N8k642geDP1ShNjRzZaiXFaQf7wzMl9CF3rxehtZii-gB5ssKE3jKg5Ab66D-YxFWREM-cROVwXSO7JX43sZ5Agg3fL4yhOg_jF6XPXj4MJQ3CYB-p1T1U0K-W4LfDNlv0A-diY4q10Irw8P-GGgs2ZRNvwt4ZD-7Dka_HTu_bDyxHL7ShHChX4XvQudYNm9s6UK3kHM_X1rwPkgRN23Qe2Uz1ZW_028-j5LZoi1TGlxJc3a"/>
+<div class="absolute bottom-6 right-6 bg-tertiary-container text-on-tertiary-container px-6 py-2 font-label-md text-label-md rotate-3">
+            LIMITED RUN: 50 UNITS
+          </div>
+</div>
+</div>
+</section>
+<!-- Ledger / Testimonials Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+<div class="space-y-8">
+<h3 class="font-display-lg text-headline-md text-primary">TALES FROM THE TRAIL</h3>
+<div class="space-y-12">
+<div class="border-l-4 border-outline pl-6 space-y-2">
+<p class="font-body-md text-body-md italic text-on-surface-variant">"The 'Settler's Journal' survived a blizzard in the Sierras. The wax coating is no joke. Every map I drew stayed dry as a bone."</p>
+<cite class="font-label-md text-label-md text-secondary block">— Silas Vane, Scout</cite>
+</div>
+<div class="border-l-4 border-outline pl-6 space-y-2">
+<p class="font-body-md text-body-md italic text-on-surface-variant">"Most boots fail after a month in the desert. Yours are just getting started. I won't wear anything else on a drive."</p>
+<cite class="font-label-md text-label-md text-secondary block">— Martha 'Calamity' Roe</cite>
+</div>
+</div>
+</div>
+<div class="wanted-poster bg-surface-container-high p-8 space-y-6">
+<h4 class="font-display-lg text-headline-sm text-primary uppercase text-center">Join The Register</h4>
+<p class="font-body-md text-body-md text-center text-on-surface-variant">Sign your name to receive dispatches via telegraph (or email) about new shipments and territory events.</p>
+<form class="space-y-8">
+<div class="relative">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary focus:ring-0 font-label-md text-label-md placeholder:text-outline/50 py-2" placeholder="GIVEN NAME" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b-2 border-primary focus:ring-0 font-label-md text-label-md placeholder:text-outline/50 py-2" placeholder="TELEGRAPH ADDRESS (EMAIL)" type="email"/>
+</div>
+<button class="leather-button w-full bg-primary text-on-primary py-4 font-label-md text-label-md uppercase tracking-widest" type="submit">
+            Sign The Ledger
+          </button>
+</form>
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-outline opacity-70 italic">* We respect your privacy as we do our own property.</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-tertiary-container dark:bg-inverse-surface border-t-4 border-outline w-full py-margin-desktop px-margin-desktop flex flex-col items-center gap-unit text-center">
+<div class="font-display-lg text-display-lg text-on-tertiary-container uppercase tracking-widest mb-4">
+      Frontier Heritage
+    </div>
+<div class="flex flex-wrap justify-center gap-gutter mb-8">
+<a class="font-label-md text-label-md text-on-tertiary-container opacity-80 hover:text-secondary-fixed transition-colors" href="#">Privacy Ledger</a>
+<a class="font-label-md text-label-md text-on-tertiary-container opacity-80 hover:text-secondary-fixed transition-colors" href="#">Trade Terms</a>
+<a class="font-label-md text-label-md text-on-tertiary-container opacity-80 hover:text-secondary-fixed transition-colors" href="#">Cattle Marks</a>
+<a class="font-label-md text-label-md text-on-tertiary-container opacity-80 hover:text-secondary-fixed transition-colors" href="#">Telegram Us</a>
+</div>
+<div class="font-label-md text-label-md text-on-tertiary-container opacity-60">
+      © 1885 Frontier Heritage Co. All rights reserved. Stamped in the territory of Wyoming.
+    </div>
+<div class="mt-8 opacity-20 contrast-150">
+<span class="material-symbols-outlined text-6xl text-on-tertiary-container">token</span>
+</div>
+</footer>
+<!-- Floating Action Button - Only on relevant screens -->
+<button class="fixed bottom-8 right-8 leather-button bg-secondary text-on-secondary w-16 h-16 rounded-none flex items-center justify-center shadow-2xl z-40 md:hidden">
+<span class="material-symbols-outlined text-3xl">shopping_bag</span>
+</button>
+<script>
+    // Micro-interaction for the "Wanted" images - subtle movement on hover
+    document.querySelectorAll('.wanted-poster').forEach(poster => {
+      poster.addEventListener('mousemove', (e) => {
+        const rect = poster.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const moveX = (x - centerX) / 25;
+        const moveY = (y - centerY) / 25;
+        
+        poster.style.transform = `perspective(1000px) rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
+      });
+
+      poster.addEventListener('mouseleave', () => {
+        poster.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
+      });
+    });
+
+    // Ink "Stamp" animation reveal
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-bounce');
+                // Could add more specific "stamping" logic here
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.stamp-decoration').forEach(stamp => observer.observe(stamp));
+  </script>
+</body></html>

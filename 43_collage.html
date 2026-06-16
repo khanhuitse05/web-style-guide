@@ -1,36 +1,306 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>43. Collage - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ART-MORPH | The Collage Collective</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Bricolage+Grotesque&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary": "#b90538",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-fixed": "#ffdadb",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#0053db",
+                    "on-surface": "#121c2a",
+                    "outline": "#737686",
+                    "inverse-surface": "#27313f",
+                    "on-secondary-fixed-variant": "#92002a",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#40000d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-background": "#121c2a",
+                    "tertiary-container": "#007d55",
+                    "secondary-container": "#dc2c4f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#bdffdb",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006242",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#ffb2b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d0dbed",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "40px",
+                    "unit": "4px",
+                    "gutter-fluid": "32px",
+                    "gutter-brutalist": "0px",
+                    "isometric-step": "30deg"
+            },
+            "fontFamily": {
+                    "body-lg": ["beVietnamPro"],
+                    "display-xl": ["syne"],
+                    "display-lg": ["syne"],
+                    "handwritten-md": ["bricolageGrotesque"],
+                    "headline-md": ["syne"],
+                    "label-mono": ["jetbrainsMono"],
+                    "body-md": ["beVietnamPro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .collage-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+            background-color: #f8f9ff;
+        }
+        .ransom-note {
+            display: inline-block;
+            transform: rotate(var(--rot));
+            padding: 2px 8px;
+            margin: 0 2px;
+            background: var(--bg);
+            color: var(--fg);
+            border: 2px solid #000;
+        }
+        .paper-rip {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 95% 100%, 85% 92%, 75% 100%, 65% 94%, 55% 100%, 45% 91%, 35% 100%, 25% 93%, 15% 100%, 5% 90%, 0% 100%);
+        }
+        .paper-rip-top {
+            clip-path: polygon(0% 10%, 5% 0%, 15% 10%, 25% 0%, 35% 10%, 45% 0%, 55% 10%, 65% 0%, 75% 10%, 85% 0%, 95% 10%, 100% 0%, 100% 100%, 0% 100%);
+        }
+        .rotated-card {
+            transform: rotate(var(--rotation));
+        }
+        .mask-cutout {
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"><path d="M10,10 L90,15 L85,90 L15,85 Z" fill="black"/></svg>');
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/xlink" viewBox="0 0 100 100"><path d="M10,10 L90,15 L85,90 L15,85 Z" fill="black"/></svg>');
+        }
+        .tape {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(2px);
+            width: 80px;
+            height: 25px;
+            transform: rotate(-15deg);
+            position: absolute;
+            z-index: 20;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">43. Collage</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Cut-out photography, mixed media, and ransom-note text.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="collage-texture font-body-md text-on-surface selection:bg-secondary selection:text-on-secondary min-h-screen flex flex-col">
+<div class="grain"></div>
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out cursor-default">ART-MORPH</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-secondary underline decoration-4 underline-offset-8 font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<input class="bg-surface-variant border-2 border-on-surface px-4 py-1 font-label-mono focus:ring-0 focus:border-secondary transition-all" placeholder="Search..." type="text">
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-headline-md text-headline-md active:skew-x-6 active:scale-95 transition-all duration-150">
+                Inquire
+            </button>
+</div>
+</header>
+<main class="flex-grow overflow-x-hidden">
+<!-- Hero Section: Ransom Note Style -->
+<section class="relative px-margin-page pt-20 pb-32 flex flex-col items-center text-center">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none select-none overflow-hidden w-full whitespace-nowrap">
+<span class="text-[200px] font-display-xl leading-none">ART-MORPH STUDIO ART-MORPH STUDIO</span>
+</div>
+<div class="relative z-10 space-y-6 max-w-5xl">
+<h1 class="flex flex-wrap justify-center gap-2 md:gap-4">
+<span class="ransom-note font-display-xl text-display-xl-mobile md:text-display-xl" style="--rot:-2deg; --bg:#004ac6; --fg:#fff;">DESTRUCT</span>
+<span class="ransom-note font-display-xl text-display-xl-mobile md:text-display-xl" style="--rot:1.5deg; --bg:#fff; --fg:#000;">THE</span>
+<span class="ransom-note font-display-xl text-display-xl-mobile md:text-display-xl" style="--rot:-1deg; --bg:#b90538; --fg:#fff;">ORDINARY</span>
+</h1>
+<p class="font-handwritten-md text-handwritten-md max-w-2xl mx-auto rotate-1 bg-surface-container-highest/60 p-4 border-2 border-dashed border-on-surface-variant">
+                    We mash together the digital and the tactile to create something that breathes, bleeds, and breaks the rules. 
+                    No grids, just vibes.
+                </p>
+<div class="pt-8 flex gap-4 justify-center">
+<button class="bg-primary text-on-primary font-headline-md px-10 py-4 border-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all">JOIN REVOLUTION</button>
+<button class="bg-surface border-4 border-on-surface font-headline-md px-10 py-4 shadow-[8px_8px_0px_0px_rgba(185,5,56,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">VIEW MANIFESTO</button>
+</div>
+</div>
+<!-- Absolute Positioned Collage Elements -->
+<div class="hidden lg:block absolute top-40 left-0 w-64 h-80 rotated-card shadow-2xl border-8 border-white p-2 bg-white" style="--rotation: -8deg">
+<div class="tape top-[-10px] left-[-20px]"></div>
+<img class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" data-alt="A vintage black and white photograph of a high-fashion model wearing an avant-garde paper dress. The photo has a grainy newsprint texture and is slightly torn at the bottom edge. It is set against a stark, high-contrast studio background with dramatic shadows, fitting the artistic and distressed collage aesthetic of the Art-Morph brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSuA7P6-uvnAeLUEi17zhE-Cp87h6Y0XyejxAOd6knqKe8-t5RxP0aXv9mIQEkouX3oPpQc4gUP_Fy79dM5hDmZJsFBzMTaDTw5H1RI9xzIp9QdLZMPsfkZ_HRKEPIenkUH8HMPYUoWSaMDKiTZ-Xuepv8Lh39HqrBTISvk0ooO6CTYWoEG0Zas9jfw4YL4Xt0a3DLDEbExTx4Uf3blCJeJ_K_REvQM-5yrvt5l2KzsI4ENcpA1gZsO5p742XPM2YVKpOeOisgz25c">
+</div>
+<div class="hidden lg:block absolute top-60 right-10 w-72 h-72 rotated-card shadow-2xl border-8 border-white p-2 bg-white" style="--rotation: 12deg">
+<div class="tape top-[-10px] right-[-20px] !rotate-[20deg]"></div>
+<img class="w-full h-full object-cover" data-alt="An abstract painting with thick, vibrant red and blue acrylic brushstrokes that appear to be physically peeling off the canvas. The image is captured in extreme close-up, showing the rich texture and dimensionality of the paint. The style is raw and expressionistic, perfectly complementing the eclectic and avant-garde spirit of Art-Morph Studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjLDYb-GLqCWkY6MrGdmJVWQ1sxN6nN7Ytklsr5E782IFrPGyysvB_S5KQ7KWxUGPEaOtfAykx7cSxlCdNEsC2awBxg1vIPCAckv2otM4C4SUsUHVCFhsnFz-v1mZlGL0tAy-39PPmASL1G2Wl4WRdUg6bKKdbhr-c8FdfJ81MU-mdLvbMZSXWeDLYppyYMv7-_8r643-rAOWGcohDZlopE3sO2jXjLDDO2JHDEj6_C6xKilP3vO4hNy2MhGCvX52W6mYTvQ8DJl8_">
+</div>
+</section>
+<!-- Bento Grid Collage -->
+<section class="px-margin-page py-20 bg-inverse-surface text-on-primary-container paper-rip-top paper-rip relative">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-8">
+<!-- Feature 1 -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container text-on-surface border-4 border-on-surface p-8 rotated-card hover:rotate-0 transition-transform duration-500 relative" style="--rotation: -2deg">
+<div class="tape bottom-4 right-4"></div>
+<h3 class="font-display-lg text-display-lg mb-6 leading-tight">MASHUP<br><span class="text-secondary italic">MANIFESTO</span></h3>
+<p class="font-body-lg text-body-lg mb-8">Every piece of art is a dialogue between the past and the future. We cut, copy, and paste reality into new forms.</p>
+<img class="w-full h-64 object-cover border-4 border-on-surface grayscale sepia hover:grayscale-0 hover:sepia-0 transition-all duration-500" data-alt="A large-scale collage mural featuring a mix of classical Renaissance figures and futuristic glitch art elements. The mural is textured with layers of wheat-pasted posters and spray-painted graffiti. The color palette is dominated by newsprint grays with intense pops of neon secondary red. The composition is dynamic and layered, reflecting a bold, eclectic artistic vision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAvwhk2OruZrfvWTHjQlwyJ34l_2Qc5Qbpe5ghMM52Jr3cTIJJkDqiwXJDusrOWighBczubom9Hfhy5flKomZiysgrQvujLJKI7E8an584cqpvk3XZNtGRWrd0_Ji7daXSUHKG3AOh5Caq6zWXm9heCWg7UfPrsUL6ISEqjt3ILAQp7Ex8muAc27X2V5YlStsaWPYR2XClOoy8ejwdP7gLVE0oZkhu3eqID0eFJ-uRIYReasHu2Qq0w3ke69SSGN7BHYUcLE_2menP">
+</div>
+<!-- Feature 2 -->
+<div class="bg-secondary text-on-secondary border-4 border-on-surface p-6 rotated-card hover:rotate-1 transition-transform" style="--rotation: 3deg">
+<span class="material-symbols-outlined text-4xl mb-4">content_cut</span>
+<h4 class="font-headline-md text-headline-md mb-2">RAW EDGES</h4>
+<p class="font-label-mono text-label-mono uppercase tracking-widest">Hand-cut precision in a digital world.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-primary text-on-primary border-4 border-on-surface p-6 rotated-card hover:rotate-[-1deg] transition-transform" style="--rotation: -4deg">
+<span class="material-symbols-outlined text-4xl mb-4">layers</span>
+<h4 class="font-headline-md text-headline-md mb-2">MULTI-LAYER</h4>
+<p class="font-label-mono text-label-mono uppercase tracking-widest">Depth that defies the flat screen.</p>
+</div>
+<!-- Feature 4 -->
+<div class="md:col-span-2 bg-surface text-on-surface border-4 border-on-surface p-6 flex items-center gap-6 overflow-hidden">
+<div class="flex-shrink-0 w-24 h-24 bg-on-surface text-surface flex items-center justify-center -rotate-6">
+<span class="font-display-xl text-4xl">88+</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md">EXHIBITS</h4>
+<p class="font-body-md text-body-md">Global pop-up installations from NYC to Tokyo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA section -->
+<section class="px-margin-page py-32 flex flex-col items-center">
+<div class="bg-white p-12 max-w-4xl w-full border-4 border-on-surface shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 -rotate-45 translate-x-16 -translate-y-16"></div>
+<h2 class="font-display-lg text-display-lg text-center mb-10">BECOME AN <span class="ransom-note !bg-on-surface !text-surface !rotate-[-3deg]">ACCOMPLICE</span></h2>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow border-4 border-on-surface p-4 font-label-mono text-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="YOUR@EMAIL.COM" type="email">
+<button class="bg-secondary text-on-secondary font-display-lg px-8 py-4 border-4 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">SUBSCRIBE</button>
+</form>
+<p class="mt-8 text-center font-handwritten-md text-handwritten-md text-on-surface-variant">
+                    *We only send cool stuff. No spam, just pure visual noise.
+                </p>
+</div>
+</section>
+<!-- Dynamic Texture Grid -->
+<section class="grid grid-cols-2 md:grid-cols-6 h-48 border-t-4 border-on-surface">
+<div class="bg-primary/20 border-r-4 border-on-surface flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-crosshair">
+<img class="w-full h-full object-cover" data-alt="A macro shot of crumpled white paper showing intricate valleys and peaks of light and shadow. The texture is extremely detailed, highlighting the physical imperfections and fragility of the material. This element serves as a background texture that emphasizes the tactile, hand-made philosophy of the Art-Morph brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW2oodyPZrUe5yXZSh6aoXEhb5C7fwW9jDuNy_9a5-ArNtAgOUVdMZaVdjNe4loLzSQBFL9YNu8WARXWDflq2FylyL-JQPemwOD2iAISUo3ngDKLvHNeOmi7GbI9xFsWxOHKuMgbtrYNknE3nent_WI9sZ-_ehYN5VSbcip7J3OP-c_UDQ-6VaRJEf4PNUrhOBbuZ5emttZrnGk7cTw9QfD3hmR6pBNDMcG4QhqfLerf6ClRjeRhYqFA7nXWEU9_0l6-F78GoRpUb5">
+</div>
+<div class="bg-secondary border-r-4 border-on-surface flex items-center justify-center font-display-xl text-on-secondary">A</div>
+<div class="bg-surface-variant border-r-4 border-on-surface flex items-center justify-center">
+<img class="w-full h-full object-cover filter contrast-125" data-alt="A collection of vintage postage stamps from different countries, overlapping in a dense and colorful arrangement. The stamps feature various illustrations and typography styles, all weathered with age and ink cancellations. This visual serves as a metaphor for global connection and the layered history of art within the Art-Morph collective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJXJOTSHxVtPV2pEu3i8dhDfyydR9q2faqUJMucjFT0zzDIl4F1213LK4KRDIaxtVCp9EHsTquG4p9eO-sAwG84jLbc_jvjV7MiU28mDGhtBdqzDr9FfMeqYKtrrxZOd-zJAphD76rlgXjCx955s69Zaf58QvSwebXJaUswGHv5LQjTHiteBBHlI2EzugeVdpJ3m5ZIrZtQbZ129ZUKBm1IFVwTQRWeUD8uI2HsNCQquXb4YPtvXVQYsJ3gsHav1SiMmDY7r2-ctkb">
+</div>
+<div class="bg-on-surface border-r-4 border-on-surface flex items-center justify-center font-display-xl text-surface">R</div>
+<div class="bg-surface border-r-4 border-on-surface">
+<img class="w-full h-full object-cover" data-alt="A close-up of a ripped edges of black cardboard revealing the brown corrugated interior. The lighting is harsh and directional, accentuating the rough, torn fibers of the paper. This image embodies the brutalist and raw aesthetic of Art-Morph, focusing on the beauty found in destruction and reconstruction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_2MuZuBB6rs2pAcpeo800WWarR4fdMQG5JE6f421mZKQA9vI8Byn_e3yyTNIiaOpQjHVYVeMUvMX-v-IbsaDJw4sNFlw3D1Ku9m4-OVYZQQj-ShwkaS9zOS-rMd2dp-6n9Xl-f7MONLy3Uj2nYjHwxLMLjCK1mCZ6uMkyX-o0pD5Ma07tGZRuv1iqzny-_Ul7yw2pWsnFMAJpKISa8T65hwoecvlMUXO-h8BCVj1IlX7M1WhqqzZFzU4WyvsTFR2lLwWTO2eqaJ-H">
+</div>
+<div class="bg-secondary flex items-center justify-center font-display-xl text-on-secondary">T</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t-2 border-outline-variant w-full mt-auto py-12 px-margin-page">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter-fluid">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface">ART-MORPH</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant text-center md:text-left">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-primary dark:text-primary-fixed font-bold font-body-md text-body-md hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-surface hover:bg-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-surface hover:bg-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">mail</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Interactive Micro-interactions for the collage feel
+        document.querySelectorAll('.rotated-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '30';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '10';
+            });
+        });
+
+        // Add some random rotation to ransom notes on load
+        window.onload = () => {
+            document.querySelectorAll('.ransom-note').forEach(note => {
+                const randomRot = (Math.random() * 6 - 3).toFixed(1);
+                note.style.setProperty('--rot', `${randomRot}deg`);
+            });
+        };
+    </script>
+</body></html>

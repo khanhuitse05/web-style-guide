@@ -1,36 +1,359 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>79. Newspaper - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Digital Broadsheet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Space+Grotesk:wght@300..700&amp;family=Work+Sans:wght@300..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-low": "#1d1b20",
+                    "surface": "#141218",
+                    "surface-container": "#211f24",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-primary": "#6750a4",
+                    "on-secondary-container": "#bfb2da",
+                    "tertiary-fixed": "#ffdf93",
+                    "secondary": "#cdc0e9",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#494551",
+                    "error": "#ffb4ab",
+                    "primary": "#cfbcff",
+                    "on-tertiary": "#3e2e00",
+                    "surface-container-lowest": "#0f0d13",
+                    "error-container": "#93000a",
+                    "background": "#141218",
+                    "surface-tint": "#cfbcff",
+                    "surface-container-highest": "#36343a",
+                    "inverse-on-surface": "#322f35",
+                    "surface-dim": "#141218",
+                    "outline": "#948e9c",
+                    "surface-container-high": "#2b292f",
+                    "on-tertiary-fixed": "#241a00",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "tertiary": "#e7c365",
+                    "surface-variant": "#36343a",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "primary-fixed-dim": "#cfbcff",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-surface": "#e6e0e9",
+                    "on-tertiary-container": "#503d00",
+                    "on-primary": "#381e72",
+                    "primary-fixed": "#e9ddff",
+                    "on-secondary-fixed": "#1f1635",
+                    "primary-container": "#6750a4",
+                    "on-background": "#e6e0e9",
+                    "surface-bright": "#3b383e",
+                    "on-surface-variant": "#cbc4d2",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "tertiary-container": "#c9a74d",
+                    "secondary-container": "#4d4465",
+                    "secondary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "on-secondary": "#342b4b",
+                    "inverse-surface": "#e6e0e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "display-xl": ["EB Garamond", "serif"],
+                    "headline-lg": ["Space Grotesk", "sans-serif"],
+                    "headline-lg-mobile": ["Space Grotesk", "sans-serif"],
+                    "body-md": ["Work Sans", "sans-serif"],
+                    "display-xl-mobile": ["EB Garamond", "serif"],
+                    "label-sm": ["Space Mono", "monospace"]
+            },
+            "fontSize": {
+                    "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Ink bleed and paper texture effects */
+        .paper-texture {
+            background-color: #141218;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 100%),
+                url("https://www.transparenttextures.com/patterns/p6.png");
+        }
+
+        .ink-bleed {
+            filter: contrast(120%) brightness(95%);
+            text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.1);
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4.5rem;
+            line-height: 1;
+            padding-right: 12px;
+            font-family: 'EB Garamond', serif;
+            font-weight: 800;
+            color: #cfbcff;
+        }
+
+        .column-divider {
+            border-left: 1px solid #494551;
+        }
+
+        .broadsheet-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .broadsheet-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom scrollbar for newsprint feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1d1b20;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #494551;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">79. Newspaper</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Broadsheet column layouts, serif headlines, and monochrome printing.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="paper-texture text-on-surface selection:bg-primary selection:text-on-primary-fixed min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface-container dark:bg-surface-container border-b-4 border-outline-variant dark:border-outline shadow-[0_0_15px_rgba(207,188,255,0.3)] dark:shadow-none">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="The Daily Logo" class="h-16 w-16 object-contain invert opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeCkjp1FPKmkpGLxVWWewHcf6QwT-EsEUbwqYm2Rom8haNynbBG7XpHFRLejRtpJWIkGZ7BWYsbtOhd7XvC8DKZGuYvUXwbNwEeLaafEuAhQDyGYYvPBsRd2K9Wu6ZeVhgdjMvyOOjKQTImuPNrphOPC2ZS-1zSK1t4kblUoOqAVY-I0h3RUeSlApQGgtg9no5ApYeS-mYYKr8K4Ixdn1Y9pEShOqtr7leI1dcwxzT2vWcuXlQk5PvEszzr0QDex4uOuXCztxakExF"/>
+<div class="flex flex-col">
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary dark:text-primary tracking-tighter leading-none">ThematicEngine</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Digital Edition • Vol. MMXXIV</span>
+</div>
+</div>
+<nav class="hidden md:flex gap-md">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-tertiary transition-colors duration-300" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="#">Artifacts</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-primary p-2 active:scale-95 transition-transform">search</button>
+<button class="bg-primary text-on-primary-fixed px-md py-xs font-bold active:scale-95 transition-transform hover:bg-tertiary transition-colors">Explore</button>
+</div>
+</div>
+<div class="border-t border-outline-variant px-gutter py-1 text-center bg-surface-container-high">
+<p class="font-label-sm text-label-sm text-on-surface-variant italic">Weather: High fidelity with a chance of pixel-perfect rendering • London, UK • {{ new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
+</div>
+</header>
+<main class="flex-grow max-w-container-max mx-auto px-gutter py-lg">
+<!-- Breaking News Section -->
+<section class="mb-xl">
+<div class="border-b-8 border-on-surface mb-md">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase italic font-black tracking-tighter ink-bleed">Breaking News</h2>
+</div>
+<div class="broadsheet-grid">
+<!-- Headline Story -->
+<div class="col-span-12 lg:col-span-8 border-b lg:border-b-0 lg:border-r border-outline-variant pr-0 lg:pr-gutter pb-lg lg:pb-0">
+<article class="group">
+<div class="overflow-hidden mb-base">
+<img class="w-full grayscale hover:scale-105 transition-transform duration-700 aspect-video object-cover" data-alt="A high-contrast monochrome photograph of a futuristic city skyline shrouded in fog. The image has a heavy film grain and ink-bleed texture, mimicking traditional newspaper printing. Sharp architectural lines pierce through the soft atmosphere, with deep black shadows and bright white highlights defining the moody, noir aesthetic of a high-tech metropolis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkHhYH4WCxoyNR1spknsVEdCNRg9R_koBkVTXy6YS7LkiFhcjGmPI_N3vmoBpf5Ltx4iwv8Plink9gVMqvMagsIHfIwCJ7e-HjQd6lOB9_VSHob7u0bRi8SMwpSd7-ZbWvwJ0Q4_-iUmqjNBoFlgbXSlP6OT-6qSgiccVS8f6MLqXS3jPApl9EB_NrFZK3L6NTh9hqHRDn8l9N8dZoNi1G3G4C7oLQlkdVN_d_UyorcCUKg2WFo6q6EFGMTVqs8hkrfeiPNFs1m_rr"/>
+</div>
+<h3 class="font-display-xl text-display-xl-mobile md:text-display-xl leading-tight mb-sm group-hover:text-primary transition-colors cursor-pointer">The Great Convergence: UI Design Meets Procedural Narratives</h3>
+<p class="font-body-md text-body-md text-on-surface-variant drop-cap mb-base">
+                            In a shocking turn for the digital landscape, the boundary between static layout and living narrative has finally collapsed. Designers across the globe are reporting a surge in "emotive frameworks" that adapt their very structure to the content they host. This movement, dubbed the Thematic Engine, promises a future where the interface is as expressive as the art it contains. Experts suggest that we are entering a new era of digital craftsmanship, moving away from generic SaaS grids toward curated, atmospheric experiences.
+                        </p>
+<div class="flex justify-between items-center border-t border-outline-variant pt-base">
+<span class="font-label-sm text-on-surface-variant">BY ARTHUR PENDLETON</span>
+<span class="font-label-sm text-primary underline cursor-pointer">READ FULL STORY</span>
+</div>
+</article>
+</div>
+<!-- Side Feed -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-lg">
+<article class="border-b border-outline-variant pb-base">
+<span class="font-label-sm text-tertiary font-bold uppercase mb-1 block">Politics</span>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile font-bold leading-none mb-2">New Regulation on AI Typography Passed</h4>
+<p class="font-body-md text-body-md line-clamp-3 text-on-surface-variant">Authorities demand transparency in generative kerning as concerns over digital legibility rise in the latest tech summit.</p>
+</article>
+<article class="border-b border-outline-variant pb-base">
+<span class="font-label-sm text-tertiary font-bold uppercase mb-1 block">Technology</span>
+<h4 class="font-headline-lg-mobile text-headline-lg-mobile font-bold leading-none mb-2">Shadow DOM Leak Causes Global Dark Mode Trigger</h4>
+<p class="font-body-md text-body-md line-clamp-3 text-on-surface-variant">A minor CSS leak in a major framework led to millions of screens globally switching to midnight palettes simultaneously.</p>
+</article>
+<div class="bg-surface-container-highest p-base border border-outline shadow-inner">
+<p class="font-label-sm text-label-sm uppercase text-on-surface mb-2 font-bold italic">Advertisement</p>
+<div class="aspect-square bg-surface border-2 border-dashed border-outline-variant flex items-center justify-center p-md text-center">
+<p class="font-display-xl text-headline-lg text-primary opacity-50 font-bold">YOUR AD HERE</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section -->
+<section class="mb-xl pt-lg border-t-2 border-on-surface">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase font-bold tracking-tight">Editorial &amp; Opinion</h2>
+<span class="font-label-sm text-on-surface-variant">PAGE A12</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2">
+<article class="mb-lg">
+<h3 class="font-display-xl text-display-xl-mobile md:text-headline-lg mb-base leading-tight italic">The Death of the Generic Dashboard</h3>
+<div class="flex gap-md mb-base">
+<div class="w-24 h-24 bg-surface-container-high rounded-full overflow-hidden flex-shrink-0 border-2 border-primary grayscale">
+<img class="w-full h-full object-cover" data-alt="A portrait of a thoughtful, middle-aged man with sharp features and a short beard, looking slightly away from the camera. The lighting is dramatic and low-key, with a high-contrast black and white treatment that emphasizes texture and character, fitting for a prestigious newspaper columnist profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWDM5UD3_ouPiU1kU0JTF0-tvl-CDbnrPM-ygBb5gqCWozOPUSkFcoucSu7cAgKFQA89guvVd7NvojHgUd73L6uW6PhfOrR5EHzm9NWI735r-EJly1gygbCk7ocnNigAmObnG1PnSiFltqngesaZxwOETADnkHmuDQYbJdUKj-gUivQOZiqzcLgaeZpdSJ_dv9N18HJDBb-6BDQw6Jo11wUtSz-ngI-vrOaBoH-k6qR3ta-OWx4zPRStgou7CjNEIK1djg1Z-JMfec"/>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface">"The era of the 'one-size-fits-all' interface is over. We no longer want tools that just work; we want tools that speak. We want digital environments that echo the weight of history or the shimmer of the future." — Editorial Board</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-base">
+                            The transition from utility to atmosphere is not merely an aesthetic choice. It is a psychological necessity. In a world saturated with digital noise, the human mind craves the grounding effect of high-fidelity thematic environments. The ThematicEngine represents more than just a code library; it is a philosophy of immersion.
+                        </p>
+</article>
+</div>
+<aside class="bg-surface-container-low p-md border-l-4 border-primary">
+<h4 class="font-label-sm text-label-sm font-bold text-primary mb-sm uppercase tracking-widest">Letters to the Editor</h4>
+<div class="space-y-md">
+<div class="border-b border-outline-variant pb-sm">
+<p class="font-body-md text-sm italic text-on-surface mb-1">"Why must everything be neon? Give us more broadsheets!"</p>
+<p class="font-label-sm text-xs text-on-surface-variant">— G. Smith, Brighton</p>
+</div>
+<div class="border-b border-outline-variant pb-sm">
+<p class="font-body-md text-sm italic text-on-surface mb-1">"The arcade theme reminded me of my youth. Keep pushing."</p>
+<p class="font-label-sm text-xs text-on-surface-variant">— L. Chen, San Francisco</p>
+</div>
+</div>
+</aside>
+</div>
+</section>
+<!-- Classifieds Section -->
+<section class="border-t-4 border-on-surface pt-lg">
+<h2 class="font-label-sm text-display-xl-mobile uppercase text-center mb-lg tracking-[0.5em] font-black opacity-80">Classifieds</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-base border border-outline-variant p-base">
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">FOR SALE</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Vintage 808 Drum Machine. Slightly used, heavily saturated. Best offer.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">WANTED</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Three.js Wizard for mysterious project in the cloud. Must love shaders.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">SITUATIONS</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Experienced Ghost Writer looking for haunted digital mansions to populate.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">LOST &amp; FOUND</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Found: One pixel, slightly off-color. Found near the footer section.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">REAL ESTATE</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Prime 12-column grid property. High visibility, great margins.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">SERVICES</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Custom ink-bleed filters applied to any digital manuscript. Fast turn.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">TRAVEL</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">First-class tickets to the Meta-Universe. No return date necessary.</p>
+</div>
+<div class="border border-outline-variant p-base hover:bg-surface-container-high transition-colors cursor-pointer group">
+<h5 class="font-label-sm text-tertiary mb-1 font-bold group-hover:underline">AUCTIONS</h5>
+<p class="font-body-md text-sm text-on-surface-variant italic">Selling rare CSS selectors. Very specific. Very powerful.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-headline-lg text-on-surface ink-bleed tracking-tighter">Thematic Engine</span>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80 mt-1">© 2024 Thematic Engine. Built for digital storytellers.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="flex gap-sm">
+<div class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">rss_feed</span>
+</div>
+<div class="w-8 h-8 flex items-center justify-center border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+</div>
+</div>
+<div class="text-center mt-lg pt-base border-t border-outline-variant border-dashed">
+<p class="font-label-sm text-xs text-on-tertiary-fixed-variant tracking-widest uppercase">Finis • The End of the Edition • Finis</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Periodic "glint" effect on primary actions
+        function applyGlint() {
+            const buttons = document.querySelectorAll('.bg-primary');
+            buttons.forEach(btn => {
+                btn.classList.add('transition-all', 'duration-500');
+                btn.style.boxShadow = '0 0 20px rgba(207,188,255,0.4)';
+                setTimeout(() => {
+                    btn.style.boxShadow = 'none';
+                }, 1000);
+            });
+        }
+        setInterval(applyGlint, 4000);
+
+        // Simple scroll reveal for articles
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('article').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

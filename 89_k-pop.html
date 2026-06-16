@@ -1,36 +1,362 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>89. K-Pop - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STARDUST | Future of K-Pop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Geist:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&amp;family=Geist:wght@100..900&amp;family=Syne:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#353439",
+                    "secondary-container": "#ff24e4",
+                    "surface-container-lowest": "#0e0e12",
+                    "secondary-fixed": "#ffd7f0",
+                    "tertiary-container": "#e1d2ff",
+                    "on-primary-container": "#006970",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#520049",
+                    "on-primary-fixed": "#002022",
+                    "secondary": "#fface8",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "surface-container": "#1f1f23",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#3b494b",
+                    "on-primary": "#00363a",
+                    "on-surface-variant": "#b9cacb",
+                    "outline": "#849495",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-primary-fixed-variant": "#004f54",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#e4e1e7",
+                    "surface-dim": "#131317",
+                    "on-secondary-fixed-variant": "#840076",
+                    "primary-container": "#00f0ff",
+                    "surface-container-low": "#1b1b1f",
+                    "on-background": "#e4e1e7",
+                    "surface-container-high": "#2a292e",
+                    "primary": "#dbfcff",
+                    "tertiary-fixed": "#e9ddff",
+                    "on-secondary": "#5e0053",
+                    "tertiary": "#faf3ff",
+                    "on-tertiary": "#3c0090",
+                    "surface-tint": "#00dbe9",
+                    "primary-fixed": "#7df4ff",
+                    "on-secondary-fixed": "#3a0033",
+                    "on-tertiary-fixed": "#23005b",
+                    "secondary-fixed-dim": "#fface8",
+                    "on-tertiary-container": "#7213ff",
+                    "on-error": "#690005",
+                    "inverse-primary": "#006970",
+                    "on-surface": "#e4e1e7",
+                    "background": "#131317",
+                    "surface": "#131317",
+                    "surface-bright": "#39393d",
+                    "inverse-on-surface": "#303034",
+                    "surface-variant": "#353439"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "container-max": "1440px",
+                    "margin-desktop": "64px",
+                    "gutter-desktop": "24px",
+                    "gutter-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Geist"],
+                    "headline-md": ["Syne"],
+                    "headline-lg": ["Syne"],
+                    "headline-lg-mobile": ["Syne"],
+                    "display-lg-mobile": ["Syne"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "display-lg": ["Syne"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131317; color: #e4e1e7; overflow-x: hidden; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 40px rgba(0, 219, 233, 0.15);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 219, 233, 0.5);
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        .animate-glow { animation: pulse-glow 4s ease-in-out infinite; }
+        .kinetic-scroll { display: inline-block; white-space: nowrap; animation: scroll-text 20s linear infinite; }
+        @keyframes scroll-text {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">89. K-Pop</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">High energy, neon accents, slick modern layouts.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface/20 backdrop-blur-xl border-b border-white/10 shadow-[0_0_40px_rgba(0,219,233,0.15)] flex justify-between items-center px-margin-desktop py-4 z-50">
+<div class="font-display-lg text-display-lg-mobile md:text-headline-lg text-primary tracking-tighter italic">STARDUST</div>
+<div class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary border-b-2 border-primary pb-1 transition-all" href="#">Artists</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="#">Tours</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="#">Store</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors hover:scale-105 transition-all duration-300" href="#">Fan-Club</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-transform active:scale-95" data-icon="search">search</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-transform active:scale-95" data-icon="shopping_bag">shopping_bag</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-md text-label-md uppercase tracking-widest rounded-full hover:scale-105 transition-all active:scale-95">Tickets</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="absolute inset-0 -z-10">
+
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+</div>
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<div class="lg:col-span-7 z-10">
+<span class="inline-block px-4 py-1 rounded-full border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest mb-6">World Class Talent Agency</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter italic leading-none mb-8">
+                    CRAFTING THE <br/>
+<span class="text-white text-glow">ULTIMATE ICON</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Stardust Entertainment is the catalyst for the next global phenomenon. We blend cutting-edge production with raw talent to create legends that redefine the music industry.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-gradient-to-r from-primary-fixed-dim to-secondary-container text-on-primary-fixed px-10 py-4 font-headline-md text-headline-md uppercase italic hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(0,219,233,0.3)]">Join Global Audition</button>
+<button class="glass-panel text-primary px-10 py-4 font-headline-md text-headline-md uppercase italic hover:bg-white/10 transition-all">Artist Roster</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden glass-panel p-2 shadow-2xl">
+<img alt="K-Pop Star" class="w-full h-full object-cover rounded-lg" data-alt="A dynamic portrait of a K-pop idol performing on stage with dramatic neon purple and cyan lighting. The subject has stylish silver hair and a high-fashion streetwear outfit, captured in a mid-dance pose. The atmosphere is energetic, with visible stage haze and lens flares from the studio lights, emphasizing a premium K-pop aesthetic with high contrast and deep shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHrrjSjDKPzcIe9KYRM2mAbcu45ZGJ_ox3_SspR1wxgiH2HHoIVUdl9vgKV4vQBeZsRRiPLCu4yeE3Ys0iB1O2KyqgxCJX6X0THnt8UGK3nJUwx_2nCnGKkcPyng4dTsSWMi0tBJNmXaqsY13Sw4zLfjo9JC9hTcZp1ChHvXWmKly500-KQfvoNYSBrdjcfJ0zF04-4rYDXfUNvxD45nJ2yBotbjIigzO8NoC-5zt_jzkfPbSwLel8vwDN7k0nkk4QWrSZfE9xjvnJ"/>
+<div class="absolute bottom-6 right-6 glass-panel p-4 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container animate-glow"></div>
+<div>
+<div class="font-label-md text-label-md text-white">LIVE NOW</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-widest">Neon Soul World Tour</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Kinetic Marquee -->
+<section class="py-12 border-y border-white/10 bg-surface-container-low overflow-hidden">
+<div class="kinetic-scroll flex items-center">
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-transparent stroke-primary stroke-1 px-8" style="-webkit-text-stroke: 1px #dbfcff;">STARDUST ARTISTS</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-primary px-8">★</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-transparent stroke-secondary stroke-1 px-8" style="-webkit-text-stroke: 1px #fface8;">GLOBAL TOUR 2024</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-secondary px-8">★</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-transparent stroke-primary stroke-1 px-8" style="-webkit-text-stroke: 1px #dbfcff;">STARDUST ARTISTS</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-primary px-8">★</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-transparent stroke-secondary stroke-1 px-8" style="-webkit-text-stroke: 1px #fface8;">GLOBAL TOUR 2024</span>
+<span class="font-display-lg text-headline-lg md:text-display-lg-mobile text-secondary px-8">★</span>
+</div>
+</section>
+<!-- Bento Artist Grid -->
+<section class="py-24 container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-white mb-4">THE ROSTER</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Our curated selection of world-class performers breaking boundaries across the globe.</p>
+</div>
+<button class="hidden md:block text-primary font-label-md text-label-md uppercase tracking-widest border-b border-primary pb-1 hover:text-secondary-container transition-colors">View All Artists</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter-desktop h-auto md:h-[800px]">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl glass-panel">
+<img alt="Boy Group" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a K-pop boy band group of four, styled in sleek, black futuristic tactical outfits against a background of high-intensity cyan neon tubes. The composition is sharp and editorial, with a heavy emphasis on cool blue tones and deep blacks. Lighting creates strong highlights on their faces and clothing textures, embodying a modern, high-fashion music video aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQw0MsLX3AU2Bb2fo0OWcsjG00N2F88L2CDsQmJ1niRXI2Te34Uk23GWCrPPCXE0hOaUeFRRIKR7dthUO7Ig91Od--GKQNHr_UHjuBEtaqDxftt4KQaRqdxOIhKitayqYuJjhImO8btgLaIu3AEd8QChJ5oFaPWzc1jSNnvcbXRgdHc36tBcvG0Tpg1MZ3Pe85oYiJ3X9Tcwghyck7_mYtRrYysAGSVi48ojvvy9_oVMTgpu8FWMuTO07gI9mHFHmU0R--Cc3Tk0wV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10">
+<h3 class="font-display-lg text-display-lg-mobile text-white leading-tight">VOID-7</h3>
+<p class="font-label-md text-label-md text-primary uppercase tracking-[0.3em] mb-4">Electro-Pop Collective</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/20 backdrop-blur-md rounded border border-primary/30 text-primary text-[10px] uppercase font-bold">New Single Out Now</span>
+</div>
+</div>
+</div>
+<!-- Side Cards -->
+<div class="relative group overflow-hidden rounded-xl glass-panel">
+<img alt="Soloist" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A female K-pop soloist with vibrant pink hair performing under a spotlight in a dark, atmospheric venue. She is wearing a reflective silver outfit that catches the light. The mood is dreamlike and electric, with soft bokeh background and a color palette of magenta, deep blue, and chrome. The style is cinematic and polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoWaeblTv5bwCIaR6qCzQbcNBLghKl8u4tfq0RQxjQXcAORywJlJTejKJehDsUCeTELD2lbmA4imGrlXl0I7YhJSwvS1JCr0QlYuuGWnWkuXqfpM6lL3cXWHJrMS8u4fazulJMYJCnLEy9BeADyOhVwFVyTEfz3DAllP6nZkJC9EFasIYsH6GllJnRHXf6CYk5uEnQTB7Cb6sSQfiuKIivi-oNbs65JlwWwMuz7ZRbIurlnsGnsYSw58zqpCgL6KnwE4a_ZQKwoDFS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="font-headline-md text-headline-md text-white">MINA</h4>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Soloist</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl glass-panel">
+<img alt="Concert Crowd" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-energy crowd at a K-pop concert, seen from behind, with thousands of synchronized glowing lightsticks illuminating the dark arena in a sea of neon blue and white. In the distance, a large stage screen shows a silhouetted performer. The lighting is explosive and atmospheric, capturing the 'premium hype' of a major stadium event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRGnthK45pENZOJzZze2HQjsu16-k7WnWmq4To-MtX90qKdSNE-s9TulKaal6rYeC_6I3oyHuQUL35_FApE8FEXy__QvKMb3fLZyyPHccT-B9FBGlVUroc_wL-IhckBg8sLzdHoUx1QGGeDi6MPlahyPpXTUfRcTLad4MwcaSJ4wXjf4EU_D8jic8PEYXNl1q4shFmYmjGnwdpNrD3bvnVDg_vSaZxnTsdjcTgfYz7oojh7rFbCUhbOTPc8PRdQfe7mvbq1ktGm3BN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="font-headline-md text-headline-md text-white">WORLD TOUR</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Tickets Available</p>
+</div>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 flex items-center justify-center -z-10 overflow-hidden">
+
+</div>
+<div class="p-10 flex flex-col justify-center items-center text-center h-full">
+<h4 class="font-display-lg text-headline-lg text-primary italic mb-4">GLOBAL AUDITION</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-sm">The search for the next star begins. We are looking for talent in dance, rap, and vocals.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md uppercase tracking-widest hover:scale-105 transition-all">Apply Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Training Excellence Section -->
+<section class="py-24 relative">
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="glass-panel p-6 rounded-xl hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="music_note">music_note</span>
+<h5 class="font-headline-md text-headline-md text-white mb-2">Vocal Mastery</h5>
+<p class="text-label-sm text-on-surface-variant">Training from the industry's most elite vocal coaches.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h5 class="font-headline-md text-headline-md text-white mb-2">Starlight Factor</h5>
+<p class="text-label-sm text-on-surface-variant">Developing the unique charisma that makes an idol legendary.</p>
+</div>
+</div>
+<div class="space-y-4 mt-8">
+<div class="glass-panel p-6 rounded-xl hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" data-icon="directions_run">directions_run</span>
+<h5 class="font-headline-md text-headline-md text-white mb-2">Choreography</h5>
+<p class="text-label-sm text-on-surface-variant">Intensive dance training focusing on precision and performance.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl hover:border-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-4" data-icon="language">language</span>
+<h5 class="font-headline-md text-headline-md text-white mb-2">Global Fluency</h5>
+<p class="text-label-sm text-on-surface-variant">Multilingual and cultural preparation for worldwide appeal.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-white mb-8">THE EVOLUTION OF <span class="text-primary italic">TALENT</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Our training system is the most rigorous in the world. We don't just teach performance; we build an identity that resonates across cultures and generations. Every star in our constellation undergoes years of meticulous preparation.
+                    </p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/30 shrink-0">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="done">done</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Integrated 360-degree artist development program</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/30 shrink-0">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="done">done</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Access to world-class recording and dance facilities</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center border border-primary-container/30 shrink-0">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="done">done</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Custom career mapping and strategic release management</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual CTA -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop container mx-auto">
+<div class="relative rounded-3xl overflow-hidden min-h-[500px] flex items-center justify-center glass-panel">
+<img alt="Studio Background" class="absolute inset-0 w-full h-full object-cover -z-20" data-alt="A futuristic, minimalist recording studio interior with sleek curved white walls and glowing neon blue accent lighting. High-end music production equipment and modular synthesizers are neatly arranged on minimalist black desks. The floor is polished dark resin reflecting the neon lights, creating a high-tech, premium creative atmosphere for top-tier music production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAACJ9dYI6ib3sOJn71kTIvuZp0Red4pkkGYABHz4_XHMiTP7anENslSPkR2gzik9Kfgx6bh7iD2QfDR9EIuZVhK9lpZJEjU9EIv2LsdVOj6I8e6XK4A6JS_VSY2HtixYyOxjBRaxF4iX6lvOBYWril61Ss4vmassugT9mDJ_RKyHG7Z0IC_CNGrXAdcEPxRJ76UPmffv1Sj8NZVCzJYT8mCq2ADtRgLzYWh4mIu10ueoww_jaJ0XWO4hd6dRAXgbszKLWB2TfbPKhU"/>
+<div class="absolute inset-0 bg-background/60 backdrop-blur-sm -z-10"></div>
+<div class="text-center p-12 max-w-2xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white tracking-tighter mb-8 italic">READY TO <br/> <span class="text-primary text-glow">SHINE?</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Applications for our 2024 global traineeship are now open. Start your journey to becoming the next global icon.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 font-headline-md text-headline-md uppercase italic hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,240,255,0.4)]">Audition Now</button>
+<button class="glass-panel text-white border-white/20 px-12 py-5 font-headline-md text-headline-md uppercase italic hover:bg-white/10 transition-all">Producer Inquiries</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-secondary px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-center gap-gutter-desktop">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">STARDUST</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs text-center md:text-left">
+                Leading the global K-Pop revolution through innovation, dedication, and starlight.
+            </p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-6">
+<div class="flex gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors cursor-pointer" href="#">Contact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors cursor-pointer" href="#">Global Audition</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                © 2024 STARDUST ENTERTAINMENT. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- Interactive Neon Trail Script -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.createElement('div');
+            glow.className = 'fixed pointer-events-none w-2 h-2 rounded-full bg-primary-container mix-blend-screen transition-opacity duration-700 -z-50';
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+            glow.style.boxShadow = '0 0 15px #00f0ff, 0 0 30px #00f0ff';
+            document.body.appendChild(glow);
+            
+            setTimeout(() => {
+                glow.style.opacity = '0';
+                setTimeout(() => glow.remove(), 700);
+            }, 50);
+        });
+    </script>
+</body></html>

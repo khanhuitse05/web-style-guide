@@ -113,7 +113,6 @@
 **87. Wild West:** Wanted posters, wood grain, leather textures.
 **88. Victorian:** Ornate damask patterns, brass, filigree.
 **89. K-Pop:** High energy, neon accents, slick modern layouts.
-**90. Miami Vice/Synth-Pop:** Pastel pink/teal, palm trees, 80s beach vibes.
 
 ### 📲 Download App (Famous Page Clones)
 *This category focuses on high-conversion, beautifully designed landing pages optimized specifically for downloading an app.*

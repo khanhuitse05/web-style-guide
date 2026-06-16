@@ -1,36 +1,243 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>46. Brutalist Web - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary": "#b90538",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-fixed": "#ffdadb",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#0053db",
+                    "on-surface": "#121c2a",
+                    "outline": "#737686",
+                    "inverse-surface": "#27313f",
+                    "on-secondary-fixed-variant": "#92002a",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#40000d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-background": "#121c2a",
+                    "tertiary-container": "#007d55",
+                    "secondary-container": "#dc2c4f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#bdffdb",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006242",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#ffb2b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d0dbed",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "40px",
+                    "unit": "4px",
+                    "gutter-fluid": "32px",
+                    "gutter-brutalist": "0px",
+                    "isometric-step": "30deg"
+            },
+            "fontFamily": {
+                    "body-lg": ["beVietnamPro"],
+                    "display-xl": ["syne"],
+                    "display-lg": ["syne"],
+                    "handwritten-md": ["bricolageGrotesque"],
+                    "headline-md": ["syne"],
+                    "label-mono": ["jetbrainsMono"],
+                    "body-md": ["beVietnamPro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Brutalist Signature Overrides */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .brutalist-border {
+            border: 4px solid #000000;
+        }
+        .brutalist-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .brutalist-link {
+            color: #0000EE;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .brutalist-link:visited {
+            color: #551A8B;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">46. Brutalist Web</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Raw, unstyled HTML default look, massive blue links, and exposed structure.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-white text-black antialiased">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface">ART-MORPH</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-secondary underline decoration-4 underline-offset-8 hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2 brutalist-border brutalist-shadow active:skew-x-6 active:scale-95 transition-all">Inquire</button>
+<span class="material-symbols-outlined text-4xl">search</span>
+</div>
+</header>
+<main class="p-margin-page space-y-24">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter-brutalist brutalist-border">
+<div class="md:col-span-7 p-12 border-b-4 md:border-b-0 md:border-r-4 border-black">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl uppercase mb-8">Raw Digital<br>Expression.</h1>
+<p class="text-2xl font-serif max-w-2xl mb-12">
+                    This is Art-Morph. We reject the polished, the rounded, and the subtle. We embrace the default, the stark, and the structurally honest. 
+                    <a class="brutalist-link text-4xl" href="#">Enter the Void →</a>
+</p>
+<div class="flex gap-4">
+<button class="bg-[#cccccc] brutalist-border p-4 brutalist-shadow font-bold hover:bg-white transition-colors">START CREATING</button>
+<button class="bg-white brutalist-border p-4 brutalist-shadow font-bold hover:bg-[#cccccc] transition-colors">VIEW MANIFESTO</button>
+</div>
+</div>
+<div class="md:col-span-5 relative min-h-[400px] bg-surface-variant overflow-hidden">
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="text-9xl font-black opacity-20 rotate-12">MORPH</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid / Works -->
+<section class="space-y-8">
+<h2 class="text-6xl font-display-lg uppercase italic underline decoration-8">Latest Exhibits</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 md:row-span-2 brutalist-border brutalist-shadow p-0 flex flex-col group">
+<div class="h-96 overflow-hidden border-b-4 border-black">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A high-contrast brutalist art piece featuring sharp geometric obsidian-colored monoliths standing against a stark white void. The lighting is harsh and directional, creating deep, absolute black shadows that emphasize the irregular, jagged edges of the structures. The overall mood is cold, architectural, and avant-garde, adhering to a minimalist light-mode aesthetic with extreme contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDipV8Cnna2jWbUAVQDq27V31kXN9w1O8lbIc_3GWhZEtqIyuNe0_oKCwnBWed0hNhNj1lvhbgeUsfBi--aGEwQXCgu96MywABqCslraBj5dWlzYGYkK2ImG-RPuWOb4VJcIoozJpD4ZGcBXk-XTXNdznO3DT8-5Y9FzabbFPwnZFyWIsKL3X9geRdtluLFlnIddzHZ1vo3nwNBl_kNdWrdv8Z_N8Rsbol1V0uaV9CZ6Gda6N1dYJJif_0nKWV4xPK8DEVgpPWY6YNQ">
+</div>
+<div class="p-6 bg-white flex-grow">
+<span class="font-label-mono text-label-mono uppercase bg-primary text-on-primary px-2 py-1 mb-4 inline-block">Featured</span>
+<h3 class="text-4xl font-display-lg mb-2">CRUSHED_GEOMETRY.EXE</h3>
+<p class="font-serif">A study in digital pressure and structural failure within restricted viewports.</p>
+<a class="brutalist-link block mt-4 text-xl" href="#">View Details</a>
+</div>
+</div>
+<div class="brutalist-border brutalist-shadow p-6 bg-secondary text-white space-y-4">
+<span class="material-symbols-outlined text-6xl" data-weight="fill">token</span>
+<h3 class="text-2xl font-bold">BLOCKCHAIN_STATIC</h3>
+<p class="text-sm font-serif">Immutable artifacts rendered in pure CSS and raw SVG paths.</p>
+</div>
+<div class="brutalist-border brutalist-shadow p-0 overflow-hidden bg-white">
+<img class="w-full h-48 object-cover border-b-4 border-black" data-alt="A stark, raw digital glitch landscape where the horizon line is replaced by a massive purple and blue gradient distortion. The foreground is a flat, plain white surface with intentional digital noise and artifacts visible. The lighting feels artificial and electronic, evoking a sense of experimental digital art from the early 2000s within a modern brutalist UI framework." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmsQTzsF8tRobTjEzo9XV1-cEqXCXm_oSgoVAm7nohssEoTojfGpUSrDoEjrx6XUIaRJvNEk3lE9W1zFlL3uoYEqTrIGM7PRg-ZBR5vCztFOrvr-FoPQekvY0g71hpCOr7OhYq-E9N30oOFDxHGUoAEyO7F7Lbf8lTwDXTDi1rxsLP3vyPCdgFss0GspI1Ir3h_3RT1g4iKzw36UdqzxTUYXicvv8Hw_7IEk_ri_rY3WW2IesMXibqDX7w170N6WIQNLS_QqFP8rGL">
+<div class="p-4">
+<h3 class="text-xl font-bold">GLITCH_V01</h3>
+<a class="brutalist-link" href="#">Download Node</a>
+</div>
+</div>
+<div class="md:col-span-2 brutalist-border brutalist-shadow p-6 bg-primary-container flex justify-between items-center group cursor-pointer">
+<div>
+<h3 class="text-5xl font-display-lg text-white">JOIN_STUDIO</h3>
+<p class="text-white/80 font-serif">Open positions for experimental developers.</p>
+</div>
+<span class="material-symbols-outlined text-white text-7xl group-hover:translate-x-4 transition-transform">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- Newsletter / Stark CTA -->
+<section class="brutalist-border p-12 bg-surface-container-lowest text-center brutalist-shadow">
+<h2 class="text-7xl font-display-xl uppercase mb-6">Stay Primitive.</h2>
+<p class="text-2xl font-serif mb-12 max-w-3xl mx-auto">Get our monthly digest of raw art and unpolished CSS tricks delivered to your inbox with zero tracking pixels.</p>
+<form class="flex flex-col md:flex-row max-w-2xl mx-auto gap-0">
+<input class="flex-grow brutalist-border p-6 text-2xl font-mono focus:outline-none focus:bg-surface-variant" placeholder="YOUR_EMAIL@PROVIDER.COM" type="email">
+<button class="bg-black text-white px-12 py-6 text-2xl font-bold brutalist-border border-l-0 hover:bg-secondary transition-colors">SUBSCRIBE</button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest font-body-md text-body-md w-full mt-auto bg-surface-container-highest border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="space-y-4 text-center md:text-left">
+<div class="font-headline-md text-headline-md text-on-surface">ART-MORPH</div>
+<p class="text-on-surface-variant">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<a class="brutalist-border p-2 hover:rotate-6 transition-transform" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="brutalist-border p-2 hover:-rotate-6 transition-transform" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions for Brutalist feel
+        document.querySelectorAll('.brutalist-border').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'translate(4px, 4px)';
+                if(el.classList.contains('brutalist-shadow')) {
+                    el.style.boxShadow = '2px 2px 0px 0px rgba(0,0,0,1)';
+                }
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = 'translate(0px, 0px)';
+                if(el.classList.contains('brutalist-shadow')) {
+                    el.style.boxShadow = '8px 8px 0px 0px rgba(0,0,0,1)';
+                }
+            });
+        });
+    </script>
+</body></html>

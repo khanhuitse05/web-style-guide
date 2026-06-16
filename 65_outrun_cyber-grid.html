@@ -1,36 +1,413 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>65. Outrun/Cyber-Grid - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_OS // QUANTUM_CORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00fbfb;
+            --neon-green: #39ff14;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Scanline Overlay */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 2px, 3px 100%;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* Perspective Grid */
+        .grid-floor {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(57, 255, 20, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(57, 255, 20, 0.2) 1px, transparent 1px);
+            background-size: 60px 60px;
+            transform: perspective(500px) rotateX(60deg) translateY(0);
+            transform-origin: center bottom;
+            animation: grid-move 10s linear infinite;
+            left: -50%;
+        }
+
+        @keyframes grid-move {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(60px); }
+        }
+
+        .sun-glow {
+            background: linear-gradient(to bottom, #ff00ff, #39ff14);
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            box-shadow: 0 0 80px rgba(255, 0, 255, 0.5);
+        }
+
+        .glitch-text:hover {
+            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); color: var(--neon-blue); }
+            40% { transform: translate(-2px, -2px); color: var(--neon-pink); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .bracket-frame {
+            position: relative;
+        }
+        .bracket-frame::before {
+            content: '[';
+            position: absolute;
+            left: -8px;
+            color: var(--neon-green);
+        }
+        .bracket-frame::after {
+            content: ']';
+            position: absolute;
+            right: -8px;
+            color: var(--neon-green);
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#ffffff",
+                      "outline": "#85967c",
+                      "secondary-fixed": "#00fbfb",
+                      "background": "#131313",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-container": "#39ff14",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#baccb0",
+                      "inverse-primary": "#106e00",
+                      "surface-bright": "#393939",
+                      "tertiary": "#fff8f7",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "error-container": "#93000a",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed": "#002020",
+                      "on-primary-fixed-variant": "#095300",
+                      "on-tertiary-fixed-variant": "#930100",
+                      "primary": "#efffe3",
+                      "outline-variant": "#3c4b35",
+                      "surface": "#131313",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary-fixed": "#410000",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed": "#ffdad4",
+                      "surface-container-highest": "#353535",
+                      "tertiary-fixed-dim": "#ffb4a8",
+                      "tertiary-container": "#ffd3cc",
+                      "secondary-fixed-dim": "#00dddd",
+                      "primary-fixed": "#79ff5b",
+                      "on-secondary-container": "#007070",
+                      "on-error": "#690005",
+                      "surface-variant": "#353535",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary": "#053900",
+                      "surface-tint": "#2ae500",
+                      "secondary-container": "#00fbfb",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-container": "#107100",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-fixed": "#022100",
+                      "surface-container": "#20201f",
+                      "on-tertiary-container": "#c50100",
+                      "primary-fixed-dim": "#2ae500",
+                      "on-tertiary": "#690100",
+                      "on-secondary": "#003737"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "container-max": "1440px",
+                      "margin": "24px"
+              },
+              "fontFamily": {
+                      "display-sm": ["Space Grotesk"],
+                      "label-caps": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "code-sm": ["JetBrains Mono"],
+                      "headline-sm": ["Space Grotesk"],
+                      "body-md": ["JetBrains Mono"],
+                      "body-lg": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-sm": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "code-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">65. Outrun/Cyber-Grid</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Glowing neon floor grids converging to a vanishing point.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background selection:bg-primary-container selection:text-on-primary-container">
+<div class="scanlines"></div>
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50 backdrop-blur-md bg-background dark:bg-background border-b-2 border-outline-variant shadow-[inset_0px_0px_10px_rgba(57,255,20,0.1)]">
+<div class="flex items-center gap-4">
+<span class="font-display-sm text-display-sm font-bold tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(57,255,20,0.4)]">NEURAL_OS_v1.0.4</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary-container border-b-2 border-primary-container pb-1 font-label-caps text-label-caps cursor-crosshair" href="#">NODE_SYS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps cursor-crosshair" href="#">QUANTUM_CORE</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps cursor-crosshair" href="#">CYBER_SEC</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps cursor-crosshair" href="#">MECHA_IND</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-crosshair hover:text-primary-container transition-all">sensors</span>
+<span class="material-symbols-outlined cursor-crosshair hover:text-primary-container transition-all">terminal</span>
+<span class="material-symbols-outlined cursor-crosshair hover:text-primary-container transition-all">notifications</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-label-caps text-label-caps font-bold active:scale-95 transition-all cursor-crosshair">SYSTEM_LOGIN</button>
+</div>
+</nav>
+<main class="relative min-h-screen flex flex-col overflow-hidden">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex flex-col items-center justify-center text-center overflow-hidden border-b-2 border-outline-variant">
+<!-- Animated Hero Background -->
+<div class="absolute inset-0 z-0">
+
+<div class="grid-floor"></div>
+<div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full sun-glow opacity-30 blur-3xl"></div>
+</div>
+<div class="relative z-10 px-gutter max-w-4xl mx-auto">
+<div class="mb-4 inline-block px-3 py-1 border border-primary-container text-primary-container font-code-sm text-code-sm tracking-widest uppercase">
+                    [ SIGNAL_ACQUIRED_BY_NEURAL_NET ]
+                </div>
+<h1 class="font-display-lg text-display-lg md:text-[84px] leading-tight text-primary-container mb-6 drop-shadow-[0_0_15px_rgba(57,255,20,0.6)] glitch-text">
+                    TRANSCEND THE<br/>VIRTUAL_REALM
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Operating system for high-performance entities. Navigate the multi-threaded architecture of the next generation quantum substrate. Secure your node in the global mesh.
+                </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps font-extrabold flex items-center justify-center gap-2 hover:bg-white hover:text-black transition-all">
+                        INITIALIZE_CORE <span class="material-symbols-outlined">bolt</span>
+</button>
+<button class="border-2 border-primary-container text-primary-container px-8 py-4 font-label-caps text-label-caps font-extrabold hover:bg-primary-container/10 transition-all">
+                        READ_MANIFESTO
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center">
+<span class="text-primary-container font-code-sm text-code-sm mb-2">SCROLL_FOR_TELEMETRY</span>
+<span class="material-symbols-outlined text-primary-container">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Data Bento Grid -->
+<section class="py-24 px-gutter max-w-container-max mx-auto w-full">
+<div class="flex flex-col gap-12">
+<div class="flex justify-between items-end border-b-2 border-outline-variant pb-4">
+<div>
+<h2 class="font-display-sm text-display-sm text-primary-container uppercase">System_Telemetry</h2>
+<p class="font-code-sm text-code-sm text-outline">REAL_TIME_NODE_MONITORING // ACTIVE</p>
+</div>
+<div class="font-code-sm text-code-sm text-primary-container animate-pulse">
+                        ● ENCRYPTED_CONNECTION
+                    </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 border-2 border-primary-container p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-2 right-2 font-code-sm text-[10px] text-outline">REF: Q-0492-X</div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4">memory</span>
+<h3 class="font-headline-lg text-headline-lg text-primary-container mb-4">NEURAL_SUBSTRATE_V2</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                                Distributed parallel processing across 10,000+ localized nodes. Zero-latency decision making for autonomous security layers.
+                            </p>
+</div>
+<div class="mt-8 flex gap-4 overflow-hidden h-24">
+<div class="w-full bg-surface-container-high relative">
+<div class="absolute inset-0 bg-primary-container opacity-20 w-1/2 animate-[pulse_2s_infinite]"></div>
+<div class="absolute top-0 left-0 w-full h-full opacity-30">
+<div class="h-1 bg-primary-container mb-2 w-full"></div>
+<div class="h-1 bg-primary-container mb-2 w-2/3"></div>
+<div class="h-1 bg-primary-container mb-2 w-4/5"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 border-2 border-outline-variant p-6 hover:border-primary-container transition-all group flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary-container mb-4" style="font-variation-settings: 'FILL' 1;">security</span>
+<h4 class="font-headline-sm text-headline-sm text-primary-container mb-2">IRON_CLAD_SEC</h4>
+<p class="font-code-sm text-code-sm text-outline">Military-grade hashing protocols applied to every data packet.</p>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="h-1 w-full bg-outline-variant">
+<div class="h-full bg-primary-container w-[88%]"></div>
+</div>
+<span class="text-[10px] font-code-sm text-primary-container">DEFENSE_LEVEL: 88%</span>
+</div>
+</div>
+<!-- Bottom Small Cards -->
+<div class="md:col-span-4 border-2 border-outline-variant p-6 hover:border-primary-container transition-all flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary-container">language</span>
+<span class="bg-primary-container/10 px-2 text-[10px] text-primary-container border border-primary-container">GLOBAL</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-white">LATENCY_MAP</h4>
+<div class="w-full h-32 bg-surface-container-low border border-outline-variant relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="A dark, high-contrast digital world map rendered in a cyber-tech aesthetic with glowing green nodes and interconnecting data lines across the continents. The overall mood is mysterious and highly technical, like a military surveillance interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXmn5YpzR5uxdSpqdtVpkBQ12DoZHyAOxgm1PCCvYZFLhz-uEfiXkUgVTWnrwfLFE37e_tWnEE5H1m6gZ7lFydy_jMo3Ioyt3TaIqreNAqK9x6Bu_m81xKx8ywEzz8Glmt1eowHEX5N-18lTzsJOr8OdGyNev4igmOZR9cpMRFR9Mb4XUl3ZhHKo4BgiQ80Tcw8vZ_2506YFyShsD5J5TZXuW04EE34sd9an6ldWkS-5lnrhcwV0TOZyctY_4jApVydrlhuv2fUO0r"/>
+</div>
+</div>
+<div class="md:col-span-4 border-2 border-primary-container bg-primary-container/5 p-6 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-primary-container text-5xl mb-4 animate-spin" style="animation-duration: 8s;">cycle</span>
+<div class="font-display-sm text-display-sm text-primary-container tracking-widest">99.9%</div>
+<div class="font-code-sm text-code-sm text-outline">UPTIME_GUARANTEE</div>
+</div>
+<div class="md:col-span-4 border-2 border-outline-variant p-6 group hover:bg-surface-container-highest transition-all flex flex-col justify-between">
+<h4 class="font-headline-sm text-headline-sm text-primary-container">TERMINAL_LINK</h4>
+<div class="font-code-sm text-code-sm text-on-surface-variant bg-black p-4 border border-outline-variant">
+                            &gt; SSH root@neural_net<br/>
+                            &gt; Requesting access...<br/>
+                            &gt; <span class="animate-pulse">_</span>
+</div>
+<a class="font-label-caps text-label-caps text-primary-container flex items-center gap-2 mt-4" href="#">
+                            CONNECT <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SideNavBar (Contextual HUD) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-surface-container-lowest dark:bg-surface-container-lowest h-screen w-64 border-r-2 border-outline-variant hidden xl:flex">
+<div class="p-8 flex flex-col gap-2">
+<span class="font-display-sm text-display-sm text-primary-container font-bold">OP_SEC_01</span>
+<span class="font-code-sm text-code-sm text-primary-container opacity-50">STATUS: ENCRYPTED</span>
+</div>
+<nav class="flex-1 mt-8">
+<div class="bg-primary-container text-on-primary-container font-bold border-l-4 border-on-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 active:translate-x-1 transition-transform cursor-crosshair">
+<span class="material-symbols-outlined">code</span> TERMINAL
+                </div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 active:translate-x-1 transition-transform cursor-crosshair hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined">grid_view</span> HUD_GRID
+                </div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 active:translate-x-1 transition-transform cursor-crosshair hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined">polyline</span> WIRE_FRAME
+                </div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 active:translate-x-1 transition-transform cursor-crosshair hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined">speed</span> OUTRUN
+                </div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 active:translate-x-1 transition-transform cursor-crosshair hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined">electrical_services</span> GLITCH
+                </div>
+</nav>
+<div class="p-6">
+<button class="w-full border border-primary-container py-3 font-label-caps text-label-caps text-primary-container hover:bg-primary-container hover:text-black transition-all">
+                    INITIATE_BREACH
+                </button>
+</div>
+<div class="mt-auto border-t-2 border-outline-variant">
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 cursor-crosshair hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">settings</span> SETTINGS
+                </div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 font-code-sm text-code-sm flex items-center gap-3 cursor-crosshair hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-error">power_settings_new</span> LOGOUT
+                </div>
+</div>
+</aside>
+<!-- CTA Section -->
+<section class="py-24 bg-surface-container-lowest border-y-2 border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="grid-floor"></div>
+</div>
+<div class="relative z-10 text-center px-gutter max-w-2xl mx-auto">
+<h3 class="font-display-sm text-display-sm text-primary-container mb-6 italic tracking-tight">READY_FOR_THE_NEXT_EVOLUTION?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Join the 14,302 operators currently maintaining the global mesh. Access is limited. Encryption is mandatory.
+                </p>
+<div class="flex items-center justify-center gap-4">
+<input class="bg-black border border-outline-variant text-primary-container font-code-sm p-4 w-64 focus:border-primary-container focus:ring-0" placeholder="OPERATOR_EMAIL" type="email"/>
+<button class="bg-primary-container text-black font-label-caps p-4 px-8 hover:bg-white transition-all active:scale-95">REQUEST_INVITE</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 mt-auto bg-background dark:bg-background border-t-2 border-outline-variant">
+<div class="flex flex-col gap-1 items-center md:items-start">
+<span class="font-label-caps text-label-caps text-primary-container">NEURAL_NET_GLOBAL</span>
+<span class="font-code-sm text-code-sm text-outline uppercase">©202X NEURAL_NET_GLOBAL // ALL_RIGHTS_RESERVED</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-opacity hover:opacity-80" href="#">DECRYPT_DATA</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-opacity hover:opacity-80" href="#">ENCRYPTION_LOGS</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-opacity hover:opacity-80" href="#">TERMINAL_API</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-opacity hover:opacity-80" href="#">CORE_DUMP</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline cursor-wait hover:text-primary-container">share</span>
+<span class="material-symbols-outlined text-outline cursor-wait hover:text-primary-container">support_agent</span>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Random "Glitch" effect on labels
+        const glitchElements = document.querySelectorAll('.font-label-caps');
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                const el = glitchElements[Math.floor(Math.random() * glitchElements.length)];
+                el.style.opacity = '0.5';
+                setTimeout(() => el.style.opacity = '1', 50);
+            }
+        }, 100);
+
+        // Particle mouse effect could be added here for extra polish
+    </script>
+</body></html>

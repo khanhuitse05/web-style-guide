@@ -1,36 +1,334 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>72. Neon Signage - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Neon Signage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&amp;family=Space+Grotesk:wght@600&amp;family=Work+Sans:wght@400&amp;family=Space+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#22005d",
+                    "surface-container-low": "#1d1b20",
+                    "surface": "#141218",
+                    "surface-container": "#211f24",
+                    "on-primary-container": "#e0d2ff",
+                    "inverse-primary": "#6750a4",
+                    "on-secondary-container": "#bfb2da",
+                    "tertiary-fixed": "#ffdf93",
+                    "secondary": "#cdc0e9",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#494551",
+                    "error": "#ffb4ab",
+                    "primary": "#cfbcff",
+                    "on-tertiary": "#3e2e00",
+                    "surface-container-lowest": "#0f0d13",
+                    "error-container": "#93000a",
+                    "background": "#141218",
+                    "surface-tint": "#cfbcff",
+                    "surface-container-highest": "#36343a",
+                    "inverse-on-surface": "#322f35",
+                    "surface-dim": "#141218",
+                    "outline": "#948e9c",
+                    "surface-container-high": "#2b292f",
+                    "on-tertiary-fixed": "#241a00",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "tertiary": "#e7c365",
+                    "surface-variant": "#36343a",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "primary-fixed-dim": "#cfbcff",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "on-surface": "#e6e0e9",
+                    "on-tertiary-container": "#503d00",
+                    "on-primary": "#381e72",
+                    "primary-fixed": "#e9ddff",
+                    "on-secondary-fixed": "#1f1635",
+                    "primary-container": "#6750a4",
+                    "on-background": "#e6e0e9",
+                    "surface-bright": "#3b383e",
+                    "on-surface-variant": "#cbc4d2",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "tertiary-container": "#c9a74d",
+                    "secondary-container": "#4d4465",
+                    "secondary-fixed": "#e9ddff",
+                    "on-error": "#690005",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "on-secondary": "#342b4b",
+                    "inverse-surface": "#e6e0e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "base": "8px",
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "display-xl": ["EB Garamond", "serif"],
+                    "headline-lg": ["Space Grotesk", "sans-serif"],
+                    "body-md": ["Work Sans", "sans-serif"],
+                    "label-sm": ["Space Mono", "monospace"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #141218;
+            background-image: 
+                linear-gradient(rgba(20, 18, 24, 0.8), rgba(20, 18, 24, 0.8)),
+                url('https://www.transparenttextures.com/patterns/dark-brick-wall.png');
+            color: #e6e0e9;
+        }
+        
+        .neon-pink {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        }
+        
+        .neon-cyan {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+
+        .neon-border-pink {
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 10px #ff00ff, inset 0 0 5px #ff00ff;
+        }
+
+        .neon-border-cyan {
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 10px #00ffff, inset 0 0 5px #00ffff;
+        }
+
+        .flicker {
+            animation: flicker-anim 3s infinite;
+        }
+
+        @keyframes flicker-anim {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+                opacity: 1;
+            }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+                opacity: 0.4;
+            }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-card {
+            background: rgba(33, 31, 36, 0.7);
+            backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">72. Neon Signage</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Dark brick background textures with glowing, colored tube text.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface-container border-b-4 border-outline-variant shadow-[0_0_15px_rgba(207,188,255,0.3)] dark:shadow-none">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="ThematicEngine Logo" class="h-12 w-12 object-contain rounded-full border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD1yHMQp4u9x1zRtUAjIKmpBmNB0ka8vFjovNPx9KlRZcd4JJf8rL2oWFpjkhbLvCayHskQPSWacF8Im3UrDikH2sWaCMqkG8_igKLphKVBcqpIBeg9vfQVlfz0BZD8eg9r3RzfapIoloID4hkvgsrWXnnqDpfoKfYNj-lXkCXpZKi8xbQas-c5WBJ-HQq8jXdIsmk_VDR67gz0DlKXCunvmJBE4jwE-lXPncVzM3JTBCLGSMesNCK_dCntSWEwojv4agPm9DpGj9F"/>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary tracking-tighter">ThematicEngine</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Artifacts</a>
+<button class="px-6 py-2 bg-primary-container text-on-primary-container rounded-lg font-bold hover:bg-tertiary transition-all">Explore</button>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-4xl">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section: Night Lights -->
+<section class="relative py-24 px-gutter overflow-hidden" id="night-lights">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-6">
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl neon-pink flicker">Night Lights</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-xl">
+                        Experience the raw energy of urban electricity. Our thematic engine transforms digital structures into glowing monuments of the midnight hour, where every pixel hums with a vibrant pink and cyan pulse.
+                    </p>
+<div class="flex gap-4">
+<button class="neon-border-pink px-8 py-3 font-label-sm uppercase tracking-widest text-primary hover:bg-primary/10 transition-all">Illuminate</button>
+<button class="neon-border-cyan px-8 py-3 font-label-sm uppercase tracking-widest text-tertiary hover:bg-tertiary/10 transition-all">Analyze</button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+<div class="relative glass-card border border-outline-variant p-4 rounded-xl">
+<img alt="Neon Cityscape" class="rounded-lg shadow-2xl w-full aspect-video object-cover" data-alt="A cinematic night scene of a bustling Tokyo street at midnight, filled with vibrant neon signage in shades of electric pink and cyan. The wet pavement reflects the glowing lights, creating a shimmering effect. In the background, futuristic skyscrapers loom under a dark, moody sky, evoking a cyberpunk atmosphere with high-contrast electric colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWass9uQQ7dolC7Qxa24uDVTbNWetx9ygYppEONlAPDJfT4lxv4u8kpencliAJp4DhtCAZROZl5V6ASJstVbtbiGUmr49fjNf855hpOj1fLlPcqB1VuzeihQ7UvJN-A8ZOSD9jPS-ufdQHZ8uSo2wdHCNz33VNbqMRt-5EJk-V6VvEaDwQrz9V22pYw-lR15OkyW2THRKzbpVQRIta5HwOM8Sl-u21ifi5uculWPyBTtpRXx06uLhKOeUumVixi_RjCSJXNwWWF9w9"/>
+</div>
+</div>
+</div>
+<!-- Atmospheric BG elements -->
+<div class="absolute top-1/4 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]"></div>
+</section>
+<!-- Feature Section: Electric Pulse (Bento Grid) -->
+<section class="py-24 bg-surface-container-low/50" id="electric-pulse">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg neon-cyan mb-4">Electric Pulse</h2>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-widest">Technological Core / Frequency 142.5 MHz</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Bento Item 1 -->
+<div class="md:col-span-2 md:row-span-2 glass-card neon-border-pink p-8 flex flex-col justify-between group overflow-hidden">
+<div>
+<span class="material-symbols-outlined text-5xl mb-4 text-primary group-hover:scale-110 transition-transform">bolt</span>
+<h3 class="font-headline-lg text-2xl mb-2 text-on-surface">Surge Protection</h3>
+<p class="text-on-surface-variant">Intelligent power management for high-density visual components. Ensuring your light never dims during peak processing cycles.</p>
+</div>
+<div class="mt-8 border-t border-outline-variant pt-4">
+<span class="font-label-sm text-primary">STATUS: ACTIVE</span>
+</div>
+</div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-2 glass-card neon-border-cyan p-6 flex items-center gap-6">
+<div class="bg-surface-container-highest p-4 rounded-full">
+<span class="material-symbols-outlined text-tertiary">settings_input_component</span>
+</div>
+<div>
+<h3 class="text-xl font-bold">Tube Tuning</h3>
+<p class="text-sm text-on-surface-variant">Calibrate color frequencies to match your brand's specific neon signature.</p>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="glass-card border border-outline-variant p-6 hover:neon-border-pink transition-all">
+<span class="material-symbols-outlined text-primary mb-2">visibility</span>
+<h4 class="font-bold mb-1">Luminescence</h4>
+<p class="text-xs text-on-surface-variant">High-visibility rendering for ultra-dark interfaces.</p>
+</div>
+<!-- Bento Item 4 -->
+<div class="glass-card border border-outline-variant p-6 hover:neon-border-cyan transition-all">
+<span class="material-symbols-outlined text-tertiary mb-2">auto_awesome</span>
+<h4 class="font-bold mb-1">Flicker Engine</h4>
+<p class="text-xs text-on-surface-variant">Organic light imperfections for a vintage feel.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section: Neon Gallery -->
+<section class="py-24 px-gutter" id="neon-gallery">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl neon-pink">Neon Gallery</h2>
+<p class="text-on-surface-variant">Curated artifacts from the digital underworld.</p>
+</div>
+<button class="hidden md:block font-label-sm text-primary hover:underline underline-offset-8">VIEW ALL ARCHIVES</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Gallery Card 1 -->
+<div class="group relative bg-surface-container-highest rounded-xl overflow-hidden neon-border-cyan/20 hover:neon-border-cyan transition-all duration-500">
+<img alt="Gallery Item 1" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A vibrant neon sign that reads 'OPEN' in a classic 80s pink tube style. The sign is mounted on a dark, textured brick wall that shows slight weathering. The glow of the pink light illuminates the surrounding bricks, casting long shadows and creating a nostalgic nighttime aesthetic characteristic of a vintage diner or arcade." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpltrfnOVOUqO4L6A3Qs8mQjb6ELT1MWC_U3DWXelj0Y4HhOoAZgkGwG3hmJnlWi8HJKpc4oppHYLHRuxSAmok1rzhpOQtZWvB1pgzC7vdufe25uxNHXw6Zeaj_eoiG6NuwD9BYAQwk-HWuSckAbhaFCX8yLBNMY6z2UxRoWP36w7PItGmKgYQ5NddtZG9FYLRiFUzUgbc8qJQlXwRiS2GdSFTXtNFuO3livFxuS1Rv2mpzn3ow3U7o6b1teGd5ifr5LHR8Xg8e018"/>
+<div class="p-6">
+<span class="text-xs font-label-sm text-tertiary uppercase mb-2 block">Catalog #802</span>
+<h3 class="text-xl font-bold text-on-surface mb-2">Classic Pink Tube</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2">Authentic gas-filled tube simulation with responsive humming sounds.</p>
+</div>
+</div>
+<!-- Gallery Card 2 -->
+<div class="group relative bg-surface-container-highest rounded-xl overflow-hidden neon-border-pink/20 hover:neon-border-pink transition-all duration-500">
+<img alt="Gallery Item 2" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A complex geometric neon sculpture glowing with intense cyan light. The sculpture is composed of interconnected triangles and hexagons, creating a three-dimensional effect against a deep black background. The light reflects off metallic surfaces nearby, creating sharp, cold highlights that emphasize the technical and futuristic design style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbEjUQRM9Bt53NknhwnGYS3p6nzh2yf_Fr-yNZs3Q9CUc0-q-VorgfsCpM8I_YqlhW-dvA-A8XnEobNQ9YEhHzeKzKX5kOvq7afwZM6HWtIykaWKQlt68AbVTSakgf_qPhrhSpY5FEQuUGAcxe1x0tXbQIWcvZ9554drKGKMxKYD3tEVtsPG8iuiA7dlEqOvYI3j5vVF0eO-Db81UYL2BXn402HzikVQyU_koG2yZpsT-u1_A0ulEZyv91nJC6DYO3SApFVqLjKYfE"/>
+<div class="p-6">
+<span class="text-xs font-label-sm text-primary uppercase mb-2 block">Catalog #415</span>
+<h3 class="text-xl font-bold text-on-surface mb-2">Cyan Mesh Lattice</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2">Abstract structural elements for high-impact header backgrounds.</p>
+</div>
+</div>
+<!-- Gallery Card 3 -->
+<div class="group relative bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant hover:neon-border-cyan transition-all duration-500">
+<img alt="Gallery Item 3" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A cinematic close-up of a neon light panel displaying flickering kanji characters in a mix of soft purple and bright cyan. The image captures the tiny wires and glass texture of the tubes, suggesting a tangible, physical object. The scene is slightly out of focus in the background, creating a shallow depth of field that highlights the glowing characters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV2Cq1GTm0e8IIaRXZfEbUhCoNIWZg_HxXy4yX18_z2_ASVepRHgEpxvSsjtw5eaxKAHd8JEDyUz1VERPUq93XwMnpi_Jd-3xDIG9zLSCHEkHITcI0t2jn3BwpQx9xqlLgOrhTuTqELD6UcmaaCDY1WKMa2jGEiE7y6Hog_0-iUiJ6kM-jte7rivrv7W0mec4a1Ga5kT0nXkDTUKq2Btbn6VrCX2_gwf5R98bIIxyERE75pBHpLH-em-WG6cmiLwzCzte5XGW0r6TN"/>
+<div class="p-6">
+<span class="text-xs font-label-sm text-tertiary uppercase mb-2 block">Catalog #991</span>
+<h3 class="text-xl font-bold text-on-surface mb-2">District Kanji</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2">Cultural typography overlays for atmospheric world-building.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 px-gutter">
+<div class="max-w-container-max mx-auto neon-border-pink glass-card p-12 text-center rounded-2xl relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Stay Plugged In</h2>
+<p class="text-on-surface-variant mb-10 max-w-2xl mx-auto">Get the latest frequency updates, new artifact drops, and design insights from the Neon Underworld.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow bg-surface-container-highest border-outline-variant text-on-surface focus:ring-primary focus:border-primary rounded-lg p-4" placeholder="Your frequency@neon.net" type="email"/>
+<button class="bg-primary text-on-primary font-bold px-8 py-4 rounded-lg hover:scale-105 transition-transform" type="submit">SUBSCRIBE</button>
+</form>
+</div>
+<!-- Sparkle effect background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-10 left-10 w-20 h-20 bg-primary rounded-full blur-3xl"></div>
+<div class="absolute bottom-10 right-10 w-20 h-20 bg-tertiary rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-headline-lg text-on-surface neon-cyan flicker mb-2">ThematicEngine</span>
+<p class="font-body-md text-body-md font-label-sm text-label-sm text-on-surface-variant opacity-80">© 2024 Thematic Engine. Built for digital storytellers.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity font-label-sm" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity font-label-sm" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity font-label-sm" href="#">License</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity font-label-sm" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 flex items-center justify-center neon-border-cyan rounded-full hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="w-10 h-10 flex items-center justify-center neon-border-pink rounded-full hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover glows
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple flicker logic toggle
+        setInterval(() => {
+            const flickeringElements = document.querySelectorAll('.flicker');
+            flickeringElements.forEach(el => {
+                if (Math.random() > 0.95) {
+                    el.style.opacity = '0.5';
+                    setTimeout(() => el.style.opacity = '1', 50);
+                }
+            });
+        }, 100);
+    </script>
+</body></html>

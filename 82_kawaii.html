@@ -1,36 +1,400 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>82. Kawaii - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MochiJoy | Squishy Kawaii Friends</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config from Style Guidance -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f3ede4",
+                    "secondary": "#2f6a3f",
+                    "tertiary-fixed-dim": "#d8bbf4",
+                    "on-primary-fixed": "#360b1e",
+                    "on-secondary-container": "#357044",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#7b4458",
+                    "tertiary-container": "#ddc0f9",
+                    "secondary-fixed": "#b2f2bb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e7e2d9",
+                    "secondary-container": "#b2f2bb",
+                    "surface-dim": "#dfd9d1",
+                    "inverse-surface": "#32302a",
+                    "on-primary-fixed-variant": "#6a364a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#fab3ca",
+                    "on-tertiary-fixed-variant": "#533d6c",
+                    "outline": "#837377",
+                    "on-surface-variant": "#514347",
+                    "outline-variant": "#d5c2c6",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#96d5a0",
+                    "on-secondary-fixed": "#00210b",
+                    "on-tertiary-fixed": "#26103e",
+                    "surface-tint": "#864d61",
+                    "primary-fixed": "#ffd9e3",
+                    "tertiary": "#6c5485",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#efdbff",
+                    "primary": "#864d61",
+                    "surface-container-high": "#ede7df",
+                    "primary-container": "#ffb7ce",
+                    "surface-container-low": "#f9f3ea",
+                    "on-background": "#1d1b16",
+                    "on-secondary-fixed-variant": "#145129",
+                    "inverse-on-surface": "#f6f0e7",
+                    "surface-variant": "#e7e2d9",
+                    "surface-bright": "#fff9f0",
+                    "surface": "#fff9f0",
+                    "background": "#fff9f0",
+                    "inverse-primary": "#fab3ca",
+                    "on-surface": "#1d1b16",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#634b7c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "md": "24px",
+                    "margin-desktop": "auto",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "label-bold": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
+            background-color: #fff9f0; /* Vanilla Cream */
             -webkit-font-smoothing: antialiased;
+        }
+        .kawaii-button {
+            box-shadow: 0 4px 0 0 rgba(134, 77, 97, 0.2);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .kawaii-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 rgba(134, 77, 97, 0.2);
+        }
+        .kawaii-card {
+            border: 2px solid #e7e2d9;
+            box-shadow: 0 10px 30px -10px rgba(134, 77, 97, 0.1);
+        }
+        .floating-anim {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kawaii-shadow {
+            filter: drop-shadow(0 8px 12px rgba(250, 179, 202, 0.4));
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">82. Kawaii</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Cute, pastel colors, and Japanese pop culture aesthetics.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-lg text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed w-full top-0 z-50 bg-surface dark:bg-surface-dim">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto py-md px-gutter">
+<!-- Brand Logo -->
+<div class="text-headline-md font-headline-md font-black text-primary dark:text-primary-fixed-dim">
+                MochiJoy
+            </div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-bold text-label-bold text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Home</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Characters</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">Shop</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300" href="#">About</a>
+</div>
+<!-- Action Button -->
+<button class="kawaii-button bg-primary text-on-primary font-label-bold text-label-bold px-lg py-sm rounded-full active:scale-95 transition-transform duration-200">
+                Adopt Now
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-xl items-center py-xl">
+<div class="space-y-md text-center lg:text-left">
+<div class="inline-block bg-primary-container text-on-primary-container px-md py-xs rounded-full font-label-bold text-label-bold">
+                    ✨ New Collection Drops Friday!
+                </div>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                    Bring Home a <br/>
+<span class="text-secondary">Bundle of Joy</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto lg:mx-0">
+                    Hand-crafted plushies with squishy hearts and big personalities. Every MochiJoy friend is looking for a forever cuddle.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center lg:justify-start pt-sm">
+<button class="kawaii-button bg-primary text-on-primary px-xl py-md rounded-full font-label-bold text-label-bold flex items-center justify-center gap-xs">
+                        Shop All Friends
+                        <span class="material-symbols-outlined text-[20px]">shopping_basket</span>
+</button>
+<button class="kawaii-button bg-secondary-container text-on-secondary-container px-xl py-md rounded-full font-label-bold text-label-bold flex items-center justify-center gap-xs">
+                        Meet the Cast
+                        <span class="material-symbols-outlined text-[20px]">star</span>
+</button>
+</div>
+</div>
+<!-- Hero Mascot Art -->
+<div class="relative flex justify-center items-center">
+<div class="absolute w-[400px] h-[400px] bg-primary-container/30 rounded-full blur-3xl -z-10"></div>
+<div class="floating-anim relative z-10">
+<img alt="Kawaii Mascot" class="w-[450px] h-[450px] object-contain kawaii-shadow rounded-xl" data-alt="A highly detailed and adorable 3D rendered character illustration of a round, pink mochi-like creature with tiny paws and large twinkling eyes. The character is sitting in a bed of soft mint-colored clouds under a warm, glowing sun that creates a bright, dreamy light-mode aesthetic. The scene is filled with soft pastel pinks, creamy vanilla tones, and pops of sage green, reflecting a playful and bubbly Kawaii design style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9cCsF-uIz555Jse6yMcItIuT3m9DK_P7RK_kakWLGQvkTLz9s6DQtAn_dIYfKIsyDiu1b2IsS9MuI8ArYPLr3iDrIDHrtV56KoPsO7ldrK9FmZLMr4nvxKSmuI_5AdlDRT_ebNOF3EHWJGNXMa6q0J2yHHJFEmZw7xnlOXUDNhfwY2_dqtMnAubnsXl6TUIx9J3YdjKrXf5uRciLe_7I2vVcTNMGY3_g34Wg6Oyevdq3JblH3-SjbaHqvtBxaZV_q8kYSTvyQPSzo"/>
+</div>
+<!-- Floating Decorative Elements -->
+<div class="absolute top-10 right-10 floating-anim" style="animation-delay: 0.5s">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="absolute bottom-10 left-10 floating-anim" style="animation-delay: 1s">
+<span class="material-symbols-outlined text-secondary text-[48px]" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="bg-surface-container-low py-xl">
+<div class="max-w-[1200px] mx-auto px-gutter">
+<div class="text-center mb-xl">
+<h2 class="font-display-lg text-display-lg text-on-background mb-base">The MochiJoy Difference</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">What makes our squishies so special?</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Feature Card 1 -->
+<div class="kawaii-card bg-surface-container-lowest p-lg rounded-lg md:col-span-2 flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-1 space-y-sm">
+<span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full text-label-sm font-label-bold">Eco-Soft Material</span>
+<h3 class="font-headline-md text-headline-md text-primary">Cloud-Grade Softness</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our proprietary "Marshmallow-Felt" blend is 100% recycled and twice as soft as standard plush material.</p>
+</div>
+<img class="w-48 h-48 rounded-lg object-cover" data-alt="A macro photograph focusing on the high-quality, soft-textured fabric of a pastel pink plush toy. The lighting is diffused and bright, highlighting the delicate fibers and squishy density of the material. The background is a soft-focus mint green, creating a peaceful and cuddly atmosphere that emphasizes the premium, comforting quality of the product in a bright light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLwDd_DmPxLRL0VUYt5qqXz-faJuOHBX-pBXsL0niu8a0OLJUMa_MNXq2Ru91lWdDvB0ouR9S6vpofS3yHsCY6LaK1k89qgXOii1L-upKxTN-zdSk_AqnHPfVpRO_DDoDm2r5PaSQ22-pMYqUYlzvDmaXUSLEumuqFYGHEISh51TbNsKYPIe7mqByudEMqzlUpfsFmV2HoO86MK-AgS8iExzDZJvVTqNjE3VXvmO7xU-fLGZPa3rDppY4Poz9WJgElWUHCGOx0bElk"/>
+</div>
+<!-- Feature Card 2 -->
+<div class="kawaii-card bg-primary-container p-lg rounded-lg flex flex-col justify-between">
+<div class="space-y-sm">
+<span class="material-symbols-outlined text-on-primary-container text-[40px]">card_membership</span>
+<h3 class="font-headline-md text-headline-md text-on-primary-container">Birth Certificate</h3>
+<p class="font-body-md text-body-md text-on-primary-container/80">Every friend comes with a unique ID and adoption certificate.</p>
+</div>
+<div class="pt-lg flex justify-end">
+<span class="material-symbols-outlined text-on-primary-container/20 text-[80px]">star_half</span>
+</div>
+</div>
+<!-- Feature Card 3 -->
+<div class="kawaii-card bg-surface-container-highest p-lg rounded-lg text-center space-y-md">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto kawaii-shadow">
+<span class="material-symbols-outlined text-secondary text-[32px]">wash</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Machine Washable</h3>
+<p class="font-body-md text-body-md">Easy to keep clean for endless play and midnight snack accidents.</p>
+</div>
+<!-- Feature Card 4 -->
+<div class="kawaii-card bg-tertiary-container p-lg rounded-lg md:col-span-2 flex flex-col md:flex-row-reverse gap-lg items-center">
+<div class="flex-1 space-y-sm text-right">
+<span class="bg-white text-on-tertiary-container px-md py-xs rounded-full text-label-sm font-label-bold">Global Shipping</span>
+<h3 class="font-headline-md text-headline-md text-on-tertiary-container">Worldwide Friends</h3>
+<p class="font-body-md text-body-md text-on-tertiary-container/80">We ship our cuddly friends to over 50 countries with tracked, safe delivery.</p>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined text-on-tertiary-container text-[120px] opacity-40">public</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Carousel Style Section -->
+<section class="max-w-[1200px] mx-auto px-gutter py-xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary">The Character Shop</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Find your soul-mochi</p>
+</div>
+<button class="text-primary font-label-bold hover:underline">View Gallery</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Product 1 -->
+<div class="group">
+<div class="kawaii-card bg-white rounded-lg p-base mb-sm overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" data-alt="A professional studio shot of a mint-green round plush cat character sitting on a white pedestal. The lighting is high-key and soft, casting colored ambient shadows in light lavender. The background is a smooth, solid peach color. The overall vibe is clean, commercial, and extremely cute, emphasizing the character's round proportions and soft texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLB45tGXpebsczeaf-P48eonmaLsJfRtzzBPrtFjv_bD0PulRX_TNYO8ZW8HQs8uhK31Mx4yiTko1VDByIcJXu3mZFnyaxGzMLjs18gnzCaI2aFS9TXls1EsUDUESogtK4QRH0bFexXduXO9EA9K3KDXglV9u8qHzTCkhGaZZ4-J1RCSb4eZUF928MI0uSQOhCksAwkxAMpt6shC5pXidtLzu5PDckFBUPYq44clZyxi-6EBSgP_xbUgspA7HcD0IyDAfNd7KdH6lL"/>
+<div class="absolute top-md right-md bg-white/90 backdrop-blur-sm p-xs rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="flex justify-between items-center px-xs">
+<div>
+<h4 class="font-headline-md text-on-background">Berry Bob</h4>
+<p class="font-label-bold text-secondary">$24.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group">
+<div class="kawaii-card bg-white rounded-lg p-base mb-sm overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" data-alt="A portrait-style product shot of a light lavender squishy bunny plush toy with long floppy ears and a tiny heart-shaped nose. The bunny is surrounded by pastel pink cherry blossom petals on a pale yellow background. The lighting is bright and ethereal, creating a soft-focus kawaii aesthetic with high-quality white whitespace and organic shapes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmApCzon5zJv5iGjXj8VuPTgeGEL4nT-6H5b02gNW3VQ6mnpOXF4NMa3UFxV8Yn18bG3eRI5uMYGPrXbE_qlHY7XG8iVbtKsyCGOMlnRX53zAZJqi4hvCvB8sZw7Fq1Ocbnkrb8bpA40Ryj3fTVazgbzsOLuDnNkeaqQGjzxtB3bqjTcPDvDNqp2IjFv33VoWASgfSltnkl5W69PdMpKgf2OzL4CfSHsgDnnOHLlzCj4yhB8qDjK0HgtL8TtgSzoiWBvk8zie-Fs7S"/>
+</div>
+<div class="flex justify-between items-center px-xs">
+<div>
+<h4 class="font-headline-md text-on-background">Lulu Lavender</h4>
+<p class="font-label-bold text-secondary">$28.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group">
+<div class="kawaii-card bg-white rounded-lg p-base mb-sm overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" data-alt="A close-up of a small, bright yellow chick plushie with tiny orange wings, perched inside a small white basket. The scene is illuminated by warm, direct morning sunlight that creates a cheerful and welcoming atmosphere. The background is a soft mint blue with floating white sparkle graphics, maintaining the bubbly minimalism and joyful brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9CoIPST_BXxIkwM3RDu_v-_a0YBbywMrWUtWF-DyS-KY5S9JXy2HJzncazABq6NlTvMMV39AlGHBaQIC61wRcHRCTTuBMUHqNG9ebswvY1IeVIW9QrJqiLxMQFeLd0S0mh-pz8gGHGEcy_5Rgg0o2-HCFU5exJ54VIOA0Kxee22KibLokFDykRDZz22GGpcRZO7JFd-Y47agt5AzNC3KWQUhOP9Z6rA7aPoGfGiMoNHtu6n7oi2ss4uXCxwkuQhXI7oPeUXTJJdUG"/>
+</div>
+<div class="flex justify-between items-center px-xs">
+<div>
+<h4 class="font-headline-md text-on-background">Sunny Pip</h4>
+<p class="font-label-bold text-secondary">$18.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group">
+<div class="kawaii-card bg-white rounded-lg p-base mb-sm overflow-hidden aspect-square relative">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" data-alt="A highly detailed shot of a round white cloud-shaped plush toy with a smiling face and tiny pink blush marks. The plushie sits on a soft pink velvet surface, with a background featuring a dreamy gradient of peach and lavender. The lighting is soft and ambient, emphasizing the squishy and tactile feel of the character, adhering to the bubbly minimalism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqRMIHFCHtgCguaDUDPhci6eK3ZsfJw_11NlWYZHIPjeB8s6uIrWhlcf0utOh8YaWaFO1hmMPG8B09Ket1QHJhYRIP3mS86LymmQ2DS_WnwXBdTuDQwX72SRpIwSM_GMfCwdRxqhqUlwKuJ4c9QS-p-4M48us_BHLaKs_PFtk8C4TaA918t1q0XwcJGaynbASzMxyTndLHp35Yp22T_-e9AC2DOcl80vrknRul7oG892DWlB2nrwXVnDpAcWojfEX4AWJusTu3sBLj"/>
+<div class="absolute top-md left-md bg-secondary text-on-secondary px-sm py-xs rounded-full text-label-sm font-label-bold">Best Seller</div>
+</div>
+<div class="flex justify-between items-center px-xs">
+<div>
+<h4 class="font-headline-md text-on-background">Cloudy Puff</h4>
+<p class="font-label-bold text-secondary">$22.00</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="max-w-[1200px] mx-auto px-gutter py-xl">
+<div class="bg-primary text-on-primary rounded-xl p-xl flex flex-col md:flex-row items-center gap-lg relative overflow-hidden">
+<!-- Background Decorations -->
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-white/10 rounded-full blur-xl"></div>
+<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary-container/20 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex-1 space-y-md text-center md:text-left">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg">Join the Joy Club!</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed">Get exclusive early access to drops and secret mochi codes.</p>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<form class="flex flex-col sm:flex-row gap-sm">
+<input class="flex-1 min-w-[280px] bg-white text-on-background px-lg py-md rounded-full border-none focus:ring-4 focus:ring-secondary-container placeholder:text-outline-variant font-body-md" placeholder="mochi-fan@example.com" type="email"/>
+<button class="kawaii-button bg-secondary text-on-secondary px-xl py-md rounded-full font-label-bold text-label-bold" type="submit">
+                            Subscribe
+                        </button>
+</form>
+<p class="text-[12px] mt-base opacity-70 text-center md:text-left">By signing up, you agree to our Cuddle Policy.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container dark:bg-surface-container-highest">
+<div class="max-w-[1200px] mx-auto px-gutter py-xl flex flex-col md:flex-row justify-between items-center gap-md">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start gap-xs">
+<div class="text-headline-md font-headline-md font-black text-primary dark:text-primary-fixed-dim">
+                    MochiJoy
+                </div>
+<p class="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim text-center md:text-left">
+                    © 2024 MochiJoy. Made with love and bubbles.
+                </p>
+</div>
+<!-- Footer Links -->
+<div class="flex gap-lg flex-wrap justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Contact Us</a>
+</div>
+<!-- Social Links (Inferred) -->
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">music_note</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('.kawaii-button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                const colors = ['#ffd9e3', '#b2f2bb', '#efdbff'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                // Playful hover effect if desired
+            });
+        });
+
+        // Subtle parallax or scroll animations can be added here
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-xl', 'bg-white/90', 'backdrop-blur-md');
+            } else {
+                nav.classList.remove('shadow-xl', 'bg-white/90', 'backdrop-blur-md');
+            }
+        });
+    </script>
+</body></html>

@@ -1,36 +1,332 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>94. Notion Download - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download Notion | Your Wiki, Docs, & Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:ital,wght@0,600;0,700;1,600&family=Courier+Prime&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Literata:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed": "#1b1b1b",
+                    "secondary-container": "#e7e2d9",
+                    "secondary": "#615e57",
+                    "on-primary-fixed-variant": "#474747",
+                    "primary-container": "#1b1b1b",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c1a",
+                    "secondary-fixed": "#e7e2d9",
+                    "background": "#faf9f6",
+                    "on-tertiary-fixed": "#410005",
+                    "surface-container-highest": "#e3e2df",
+                    "outline-variant": "#cfc4c5",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#5e5e5e",
+                    "surface-variant": "#e3e2df",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "on-secondary-fixed": "#1d1c16",
+                    "on-tertiary-fixed-variant": "#8e101c",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#494740",
+                    "inverse-surface": "#2f312f",
+                    "tertiary": "#000000",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-container-high": "#e9e8e5",
+                    "on-primary-container": "#848484",
+                    "secondary-fixed-dim": "#cbc6bd",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f2f1ee",
+                    "surface-container": "#efeeeb",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#c6c6c6",
+                    "tertiary-container": "#410005",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "surface": "#faf9f6",
+                    "primary": "#000000",
+                    "on-surface": "#1b1c1a",
+                    "surface-bright": "#faf9f6",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#e35152",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#7e7576",
+                    "on-secondary-container": "#67645d",
+                    "surface-dim": "#dbdad7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "xs": "4px",
+                    "container-max": "900px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xxl": "64px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "sidebar-width": "240px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Literata"],
+                    "headline-md": ["Literata"],
+                    "display-lg": ["Literata"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Literata"],
+                    "mono-sm": ["Courier Prime"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "mono-sm": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
+            background-color: #faf9f6;
+            color: #1b1c1a;
             -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1px;
+            background-color: #E9E9E7;
+            border: 1px solid #E9E9E7;
+        }
+        .bento-item {
+            background-color: #faf9f6;
+            padding: 24px;
+        }
+        .custom-bullet::before {
+            content: "—";
+            margin-right: 8px;
+            color: #7e7576;
+        }
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">94. Notion Download</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Clean monochrome layout, generous whitespace, and quirky black-and-white line-art illustrations.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-md py-sm bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">menu</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary">Notion</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-secondary hover:text-primary transition-colors font-medium" href="#">Product</a>
+<a class="text-secondary hover:text-primary transition-colors font-medium" href="#">Solutions</a>
+<a class="text-secondary hover:text-primary transition-colors font-medium" href="#">Resources</a>
+<a class="text-secondary hover:text-primary transition-colors font-medium" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-secondary hover:text-primary transition-colors font-medium">Log in</button>
+<button class="bg-primary text-on-primary px-md py-xs font-medium rounded-lg hover:opacity-90 transition-opacity">Get Notion free</button>
+</div>
+</header>
+<main class="pt-xxl">
+<!-- Hero Section -->
+<section class="max-w-[900px] mx-auto px-md py-xxl text-center border-x border-outline-variant min-h-[614px] flex flex-col justify-center">
+<div class="mb-lg inline-block">
+<span class="font-mono-sm text-mono-sm uppercase tracking-widest text-secondary-fixed-dim bg-surface-container px-sm py-xs border border-outline-variant">Version 2.41 Available</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-md leading-none">Your workspace, <br/><span class="italic">always within reach.</span></h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl mx-auto mb-xl">
+                Experience the clarity of a unified workspace on any device. Download Notion for Mac, Windows, iOS, and Android to keep your thoughts organized offline and on the go.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-md">
+<button class="bg-primary text-on-primary px-xl py-md font-bold text-lg rounded-lg hover-lift w-full md:w-auto">Download for Mac</button>
+<button class="border border-outline text-primary px-xl py-md font-bold text-lg rounded-lg hover-lift w-full md:w-auto bg-surface">Download for Windows</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-md">Also available on the App Store and Google Play</p>
+</section>
+<!-- Bento Grid Feature Section -->
+<section class="bg-surface-container-low border-y border-outline-variant py-xxl">
+<div class="max-w-screen-xl mx-auto px-md">
+<div class="bento-grid rounded-xl overflow-hidden shadow-sm">
+<!-- Desktop App -->
+<div class="bento-item col-span-12 md:col-span-7 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-lg text-headline-lg mb-sm">The Desktop Experience</h3>
+<p class="text-secondary mb-lg">A focused environment designed for deep work. Native notifications, quick search, and offline mode.</p>
+<ul class="space-y-sm mb-lg">
+<li class="custom-bullet">System-wide search shortcuts</li>
+<li class="custom-bullet">Native tab management</li>
+<li class="custom-bullet">Automatic updates</li>
+</ul>
+</div>
+<div class="relative h-64 overflow-hidden border border-outline-variant rounded-lg">
+<img alt="Desktop Experience" class="w-full h-full object-cover grayscale opacity-80" data-alt="A clean, minimalist desktop workspace with a high-end laptop showing an organized digital interface. The room is filled with soft natural light, highlighting the simple monochrome aesthetic of the desk. Beside the laptop sits a small black notebook and a fine-liner pen, reinforcing the physical stationery inspiration of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNkOjen1svZprwNeTBSPEFCe8xnSCfBePTIxWuoX2Kli3ILJw8t6wYB_upbAmfQyHjtHMsvpcakClGIB6jOUkhmn0x06ONsa6vRVs38RUYvFqTNha8RnBr-lvRBfiFtEJFUnts2Yw1loStYIfqMxgZGrdasK4pNpg-Db6HXGay7MAj9Rtm72bS7WAvylyDCFdJdjkl_v1w98iJepYeu8AL3XH6O4k-2toklorlufuqtlAeH6FNJ96sUhtdoqFk0lvDmtBfm9ocQlwf"/>
+</div>
+</div>
+<!-- Mobile App -->
+<div class="bento-item col-span-12 md:col-span-5 flex flex-col gap-md">
+<div class="h-1/2 flex flex-col justify-center items-center text-center p-lg border-b border-outline-variant md:border-b-0">
+<span class="material-symbols-outlined text-4xl mb-md">smartphone</span>
+<h4 class="font-headline-md text-headline-md mb-xs">Notion Mobile</h4>
+<p class="text-secondary text-sm">Capture ideas anywhere. Optimized for touch and vertical flow.</p>
+</div>
+<div class="h-1/2 bg-surface-container-high rounded-lg p-md overflow-hidden flex justify-center">
+<img alt="Mobile App" class="h-full object-contain rounded-xl shadow-lg grayscale" data-alt="A macro shot of a sleek smartphone screen held by a hand in a bright, airy setting. The display shows a minimalist list-based application with high contrast black text on a cream background. The background is softly blurred with hints of white architectural elements and morning sunlight, creating a professional and calm mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUZjwcMdNMwi16G6VqngrMYbQ1AV71LJts35uGhYoXRlOfnumJ_4vKdhqemI0G1zyNJ-Z_HealxNH5-x-C65jjFiWJ6IR28vgyV4tsYMl2sMS_u06WGiPjlQNeGqJZvrmm6X8kazaB-aQeFmGu9LDJI7hIsetvV0tNB2CLsB9J9Ivko0I--8jnqAPcXzBqaqtso5wucZDpm4tOeG82BSJP8g2aGRuoaPZ-TE0wUvE6Y6H0w3iAn3DkqppqxNhxgIV2XFl6o2KLQPWm"/>
+</div>
+</div>
+<!-- Web Clipper -->
+<div class="bento-item col-span-12 md:col-span-4 border-t border-outline-variant">
+<h4 class="font-headline-md text-headline-md mb-sm">Web Clipper</h4>
+<p class="text-secondary mb-md">Save any website directly to your workspace with one click.</p>
+<a class="text-primary font-bold inline-flex items-center gap-xs group" href="#">
+                            Install Extension <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Notion Calendar -->
+<div class="bento-item col-span-12 md:col-span-8 border-t border-l border-outline-variant flex items-center gap-lg">
+<div class="flex-1">
+<h4 class="font-headline-md text-headline-md mb-sm">Notion Calendar</h4>
+<p class="text-secondary">Fully integrated with your databases and schedule.</p>
+</div>
+<div class="w-1/3 h-24 bg-surface-container rounded border border-outline-variant flex items-center justify-center italic font-mono-sm">
+                            [Coming Soon]
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Illustration / Mood Section -->
+<section class="max-w-[900px] mx-auto px-md py-xxl flex flex-col md:flex-row items-center gap-xxl border-x border-outline-variant">
+<div class="flex-1 order-2 md:order-1">
+<h2 class="font-headline-lg text-headline-lg mb-md">Built for focus.</h2>
+<p class="font-body-lg text-body-lg text-secondary mb-lg">
+                    We've stripped away the noise. No clunky ribbons, no distracting toolbars. Just you and your work, presented on a digital canvas that feels as permanent as a printed page.
+                </p>
+<div class="grid grid-cols-2 gap-md font-mono-sm text-secondary">
+<div class="p-sm border border-outline-variant bg-surface">
+<span class="block font-bold text-primary">01.</span>
+                        Minimal Interface
+                    </div>
+<div class="p-sm border border-outline-variant bg-surface">
+<span class="block font-bold text-primary">02.</span>
+                        Broadsheet Layout
+                    </div>
+<div class="p-sm border border-outline-variant bg-surface">
+<span class="block font-bold text-primary">03.</span>
+                        High Contrast
+                    </div>
+<div class="p-sm border border-outline-variant bg-surface">
+<span class="block font-bold text-primary">04.</span>
+                        Typography First
+                    </div>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2 flex justify-center">
+<div class="relative w-64 h-64">
+<!-- Quirky Line Art Illustration Placeholder -->
+<svg class="w-full h-full text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 200 200">
+<path d="M40 160 L40 40 L160 40 L160 160 Z"></path>
+<path d="M40 70 L160 70"></path>
+<path d="M80 40 L80 160"></path>
+<circle cx="100" cy="100" r="10" stroke-dasharray="2 2"></circle>
+<path d="M120 120 L140 140" stroke-linecap="round"></path>
+<path d="M60 90 Q100 80 140 90"></path>
+<rect height="10" width="10" x="145" y="45"></rect>
+<rect height="10" width="10" x="45" y="145"></rect>
+</svg>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary text-on-primary py-xxl">
+<div class="max-w-[900px] mx-auto px-md text-center">
+<h2 class="font-display-lg text-display-lg mb-md leading-tight">Ready to clear the clutter?</h2>
+<p class="font-body-lg text-body-lg opacity-80 mb-xl max-w-lg mx-auto">Join millions of people using Notion to centralize their life and work.</p>
+<div class="flex flex-col sm:flex-row gap-md justify-center">
+<button class="bg-surface text-primary px-xl py-md font-bold rounded-lg hover:bg-surface-container-high transition-colors">Start for free</button>
+<button class="border border-surface text-on-primary px-xl py-md font-bold rounded-lg hover:bg-white/10 transition-colors">Contact sales</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-xl py-xxl flex flex-col items-center gap-md bg-surface-container-low border-t border-outline-variant">
+<div class="flex flex-col md:flex-row items-center gap-xl mb-lg">
+<span class="font-headline-md text-headline-md text-primary">Notion</span>
+<div class="flex gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Status</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-200" href="#">Cookies</a>
+</div>
+</div>
+<div class="flex gap-md mb-md">
+<a class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+<a class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+<p class="text-secondary font-body-md">© 2024 Notion Labs, Inc.</p>
+</footer>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.opacity = '0.8';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.opacity = '1';
+            });
+        });
+
+        // Simple scroll reveal for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'translate-y-4', 'opacity-0');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

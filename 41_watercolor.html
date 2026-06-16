@@ -1,36 +1,355 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>41. Watercolor - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ART-MORPH | Watercolor Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Bricolage+Grotesque:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary": "#b90538",
+                        "surface-container": "#e6eeff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#ffdadb",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#0053db",
+                        "on-surface": "#121c2a",
+                        "outline": "#737686",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-fixed-variant": "#92002a",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-fixed": "#40000d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-background": "#121c2a",
+                        "tertiary-container": "#007d55",
+                        "secondary-container": "#dc2c4f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#bdffdb",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#006242",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-fixed-dim": "#ffb2b7",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "40px",
+                        "unit": "4px",
+                        "gutter-fluid": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["beVietnamPro"],
+                        "display-xl": ["syne"],
+                        "display-lg": ["syne"],
+                        "handwritten-md": ["bricolageGrotesque"],
+                        "headline-md": ["syne"],
+                        "label-mono": ["jetbrainsMono"],
+                        "body-md": ["beVietnamPro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .watercolor-bg {
+            background-image: radial-gradient(circle at 20% 30%, rgba(185, 5, 56, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 70%, rgba(0, 83, 219, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 50% 50%, rgba(0, 98, 66, 0.05) 0%, transparent 60%);
+            background-color: #f8f9ff;
+            position: relative;
+        }
+
+        .watercolor-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.4;
+            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mask-organic {
+            mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+        }
+
+        .blob-animate {
+            animation: blob-float 20s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+
+        @keyframes blob-float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -30px) scale(1.1); }
+            100% { transform: translate(-20px, 10px) scale(0.9); }
+        }
+
+        .glass-watercolor {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .stain {
+            filter: blur(40px);
+            opacity: 0.5;
+            border-radius: 50%;
+            position: absolute;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">41. Watercolor</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Soft bleeds, natural pigment textures, and fluid edges.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="watercolor-bg min-h-screen flex flex-col font-body-md text-on-surface selection:bg-secondary-fixed overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface dark:border-outline shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)]">
+<div class="flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface dark:text-inverse-on-surface">ART-MORPH</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary dark:text-secondary-fixed-dim underline decoration-4 underline-offset-8 hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface dark:text-surface-variant font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface dark:text-surface-variant font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface dark:text-surface-variant font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center px-4 py-2 glass-watercolor rounded-full border-on-surface/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-32" placeholder="Explore pigments..." type="text">
+</div>
+<button class="bg-secondary text-on-secondary px-8 py-3 font-display-lg text-lg rounded-full hover:scale-110 hover:rotate-2 transition-transform duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:skew-x-6 active:scale-95">
+                    Inquire
+                </button>
+</div>
+</div>
+</header>
+<main class="relative z-10">
+<!-- Hero Section: Organic Composition -->
+<section class="relative px-margin-page py-24 md:py-40 overflow-hidden">
+<div class="stain w-96 h-96 bg-secondary-fixed top-[-10%] left-[-5%] blob-animate"></div>
+<div class="stain w-80 h-80 bg-tertiary-fixed-dim bottom-0 right-[10%] blob-animate" style="animation-delay: -5s;"></div>
+<div class="relative z-20 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1 space-y-8">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface leading-none">
+                        Where <span class="text-secondary italic">Pigment</span><br>Meets <span class="text-primary underline decoration-tertiary-fixed underline-offset-4">Pulse</span>.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        A digital sanctuary for the fluid arts. Explore a curated collection of generative watercolors and hand-bled textures designed for the experimental soul.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-10 py-5 bg-primary text-on-primary rounded-full font-headline-md text-headline-md shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform">
+                            Enter the Flow
+                        </button>
+<button class="px-10 py-5 glass-watercolor border-2 border-on-surface text-on-surface rounded-full font-headline-md text-headline-md hover:bg-surface transition-colors">
+                            View Studio
+                        </button>
+</div>
+</div>
+<div class="flex-1 relative">
+<div class="relative w-full aspect-square rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden shadow-2xl border-4 border-white rotate-3">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of vibrant watercolor pigments bleeding into wet paper. Swirls of deep indigo, soft lavender, and rose pink blend together in an organic, fluid motion. The texture of the high-quality cold-pressed paper is visible through the translucent layers of paint. Soft, natural lighting creates a serene and artistic atmosphere, emphasizing the delicate edges of the color bleeds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBga5DE0WavlFw9IuKR_CVfktRukv1FfrDo2WFltG6Ld1Xra9-qasla0YQGuKpJrwddTEnzrtJn8WiiVizDEUmhgM7d_HUZDKl8ewWM3lhwodVzDrPoiTOihZCKN5twBQJGfL3JGvq0pQTKwpYB5YfKYalzAjdxYVrXM9ENHzlDLEBTpf8oZQuJ01eEx9wdDpM9eLR4DLRUNqIwxRdWtmDFF0tIMQCbBdA41p1EmT-fxAnzD1MovZ5cwEpvekArvHwJGuD_QFHDpGd_">
+</div>
+<div class="absolute -bottom-8 -left-8 w-48 h-48 rounded-full overflow-hidden border-8 border-white -rotate-6 shadow-xl">
+<img class="w-full h-full object-cover" data-alt="Close-up of a brush applying a soft teal watercolor wash to a textured canvas. The bristles are partially submerged in a pool of water, showing the pigment dispersing into delicate, ethereal shapes. The background is a clean, bright studio setting with soft-focus elements. The style is painterly and expressive, capturing a moment of pure creative immersion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcBPsuorAE07p2xHfJjfFMP-WohYvy-ymYlGUOUrrEI89LSWDbIE_t4GTDyuTMC5pxqi9P38ujE-6jHN35goNUoZBHZ57_fSrQ7HyYCAHj4GXaPZH62MDiaAkR3qiUtor62NRFTFi5lGcycRApdWEd8wa1b7xAf6XDl00yS3rZeYAi1xw6nXpJzXfFdj55P7c4piTU0WW6Gn3SVaprPD9YXzlSRWsPz9dwidd3UF3d3cptV2zr_dtOcpnTNEr3aM0AtYNUfM81dsTB">
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Gallery: Non-Linear Layout -->
+<section class="px-margin-page py-24 bg-surface-container-low/50 relative">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Curated Collections</h2>
+<p class="font-handwritten-md text-handwritten-md text-secondary mt-2">Ephemeral strokes, eternal impressions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-auto md:h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-7 bg-white p-4 rounded-3xl shadow-lg rotate-1 hover:rotate-0 transition-transform group cursor-pointer">
+<div class="relative h-full w-full overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An abstract watercolor landscape depicting rolling hills in soft pastel shades of mint, lavender, and peach. The composition is airy and minimalist, with large areas of white space suggesting a misty morning. The pigment bleeds are intentional and delicate, creating a sense of calm and tranquility. Professional gallery lighting enhances the subtle color transitions and paper texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2yF0KxLfm0zFrrnlBDgk_6VDWRXI6NLo1jUbKvgQSpZS3Eo3bUasCQKdLekAxhR1eRpJCPX-aMgcMNiEBCW-vxbJ_8XoQlmnTX1aVk8FBoEEtmP0k04ie6njHBPQIM3GhZXmmVGyLBrFlIo2NuNx4lDAV23iSOj1y3lrmeCMJFURhkc_NCCmoB-VUc5nLLYb_eqHDUN29GuYIhMwCtm2EMSF-DlO3a6huoRcv8DW37xXeF1dzt-Aw9FbxB_xcucrHFxkQ9ahBaj_j">
+<div class="absolute bottom-0 inset-x-0 p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-primary-fixed">Series 01</span>
+<h3 class="font-headline-md text-headline-md mt-2">The Ethereal Plains</h3>
+</div>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="md:col-span-5 flex flex-col gap-8">
+<div class="flex-1 bg-white p-4 rounded-3xl shadow-lg -rotate-1 hover:rotate-0 transition-transform group cursor-pointer">
+<div class="relative h-full w-full overflow-hidden rounded-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A detailed view of a watercolor splatter effect. Vibrant drops of rose and gold paint have landed on a damp white surface, creating jagged, star-like patterns that bleed outward. The style is kinetic and energetic, contrasting the soft watercolor medium with bold, decisive movements. The lighting is bright and even, highlighting the saturation of the pigments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjH9e7hxXxf9w4aw_VCZ3oW0vhX0YBUUPdoMkkHm7eT358V9ErwZ5Dx0SNiALCuehqeyxs1Hqq4MaDxam6Hg650e4dj1DYXcI9Tfn8BvHlbM8HCU2YC6-wFp6qDbI4ZcpOFhpwqErozhuovFGgPbMFaextkkLK2keUnpQ2SI3y6bUsAod_iGwNXBzTJqpI2XY8eOlqZmJrX3wunyyhA7uSfWbsskv-7yQN0i8Ka-lXrdhbDfXBB51PFiw6xzaKYBNwEUn4b69fzrVn">
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-on-surface/20 backdrop-blur-sm">
+<button class="bg-white text-on-surface px-6 py-2 rounded-full font-bold">View Detail</button>
+</div>
+</div>
+</div>
+<div class="h-48 bg-tertiary-container/20 rounded-3xl flex items-center justify-center p-8 border-4 border-dashed border-tertiary-container/30">
+<p class="font-handwritten-md text-handwritten-md text-tertiary text-center leading-tight">
+                                "Art is the only way to run away without leaving home."
+                            </p>
+</div>
+</div>
+<!-- Wide Bottom Card -->
+<div class="md:col-span-12 h-64 bg-secondary-fixed/30 rounded-3xl overflow-hidden relative flex items-center group cursor-pointer">
+<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]"></div>
+<div class="relative z-10 px-12 flex justify-between items-center w-full">
+<div>
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Experimental Studio</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Join our next live pigment-mixing session.</p>
+</div>
+<span class="material-symbols-outlined text-display-xl text-secondary group-hover:translate-x-4 transition-transform" style="font-size: 64px;">arrow_right_alt</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section: Fluid Flow -->
+<section class="py-24 relative">
+<div class="max-w-4xl mx-auto px-margin-page text-center space-y-12">
+<div class="inline-block px-6 py-2 rounded-full glass-watercolor border-2 border-secondary/20 text-secondary font-label-mono text-label-mono uppercase tracking-[0.2em]">
+                    The Philosophy
+                </div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl leading-tight">Embracing the <br><span class="text-primary">Controlled Accident</span></h2>
+<div class="grid md:grid-cols-3 gap-12 text-left mt-16">
+<div class="space-y-4 group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-highest flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-on-primary-container">water_drop</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Hydration</h4>
+<p class="text-on-surface-variant">We start with pure artesian water, prepping the digital canvas for maximum bleed potential.</p>
+</div>
+<div class="space-y-4 group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-highest flex items-center justify-center group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl group-hover:text-on-secondary-container">palette</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Pigment</h4>
+<p class="text-on-surface-variant">Rare earth minerals translated into high-bit depth vectors for uncompromising color fidelity.</p>
+</div>
+<div class="space-y-4 group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-highest flex items-center justify-center group-hover:bg-tertiary-container transition-colors">
+<span class="material-symbols-outlined text-tertiary text-3xl group-hover:text-on-tertiary-container">air</span>
+</div>
+<h4 class="font-headline-md text-headline-md">Diffusion</h4>
+<p class="text-on-surface-variant">Natural atmospheric physics govern how our colors blend and dry over time.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA: Floating Form -->
+<section class="px-margin-page py-32">
+<div class="max-w-5xl mx-auto glass-watercolor rounded-[60px] p-12 md:p-24 relative overflow-hidden shadow-2xl border-4 border-white">
+<div class="stain w-64 h-64 bg-primary-fixed-dim -top-32 -right-32"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg">Fresh Ink in your Inbox.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4">Subscribe to receive limited edition prints and studio updates every Sunday.</p>
+</div>
+<div class="flex-1 w-full max-w-md">
+<form class="flex flex-col gap-4">
+<div class="relative">
+<input class="w-full px-8 py-5 rounded-full bg-white/60 border-2 border-on-surface/5 focus:border-primary focus:ring-0 text-body-lg font-body-lg placeholder:text-on-surface-variant/50" placeholder="Your creative email" type="email">
+</div>
+<button class="w-full py-5 bg-on-surface text-surface rounded-full font-headline-md text-headline-md hover:bg-on-surface-variant transition-colors shadow-lg">
+                                Join the Collective
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface text-secondary dark:text-secondary-fixed font-body-md text-body-md w-full mt-auto bg-surface-container-highest dark:bg-inverse-surface border-t-2 border-outline-variant flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface">ART-MORPH</div>
+<p class="text-on-surface-variant dark:text-surface-variant max-w-xs">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-label-mono text-label-mono text-on-surface/40 uppercase tracking-widest">Connect</span>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Instagram</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Behance</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Twitter</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-mono text-label-mono text-on-surface/40 uppercase tracking-widest">Legal</span>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Terms</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Privacy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Ethics</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim hover:underline Hover: translate-y-[-2px] transition-transform" href="#">Contact</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-6">
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full glass-watercolor flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<button class="w-12 h-12 rounded-full glass-watercolor flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+<div class="text-label-mono text-right hidden md:block">
+                    PRODUCED BY<br>EPHEMERAL LABS
+                </div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for watercolor stains following mouse movement subtly
+        document.addEventListener('mousemove', (e) => {
+            const stains = document.querySelectorAll('.stain');
+            const x = (e.clientX / window.innerWidth) * 20;
+            const y = (e.clientY / window.innerHeight) * 20;
+            
+            stains.forEach((stain, idx) => {
+                const factor = (idx + 1) * 0.5;
+                stain.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,36 +1,310 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>48. Papercraft - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ART-MORPH | Papercraft Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Bricolage+Grotesque:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary": "#b90538",
+                        "surface-container": "#e6eeff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#ffdadb",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#0053db",
+                        "on-surface": "#121c2a",
+                        "outline": "#737686",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-fixed-variant": "#92002a",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-fixed": "#40000d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-background": "#121c2a",
+                        "tertiary-container": "#007d55",
+                        "secondary-container": "#dc2c4f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#bdffdb",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#006242",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-fixed-dim": "#ffb2b7",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "40px",
+                        "unit": "4px",
+                        "gutter-fluid": "32px",
+                        "gutter-brutalist": "0px",
+                        "isometric-step": "30deg"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["beVietnamPro"],
+                        "display-xl": ["syne"],
+                        "display-lg": ["syne"],
+                        "handwritten-md": ["bricolageGrotesque"],
+                        "headline-md": ["syne"],
+                        "label-mono": ["jetbrainsMono"],
+                        "body-md": ["beVietnamPro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #f4f1ea; /* Natural paper white */
+            background-image: 
+                url("https://www.transparenttextures.com/patterns/cardboard-flat.png"),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.05) 100%);
+            overflow-x: hidden;
+        }
+
+        .paper-stack-1 { shadow: 4px 4px 0px 0px rgba(0,0,0,0.1); }
+        
+        .paper-shadow-deep {
+            box-shadow: 
+                1px 1px 0px #fff,
+                2px 2px 0px #e0ddd5,
+                8px 8px 15px rgba(0,0,0,0.1),
+                15px 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .folded-corner {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
+        }
+
+        .crease-line {
+            background: linear-gradient(90deg, transparent 49%, rgba(0,0,0,0.05) 50%, transparent 51%);
+        }
+
+        .paper-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .paper-lift:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">48. Papercraft</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Origami forms, folded elements, and layered realistic drop shadows.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 backdrop-blur-md border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface">ART-MORPH</span>
+</div>
+<nav class="hidden md:flex items-center gap-gutter-fluid">
+<a class="text-secondary underline decoration-4 underline-offset-8 font-display-lg text-display-lg-mobile md:text-display-lg hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium font-display-lg text-display-lg-mobile md:text-display-lg hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium font-display-lg text-display-lg-mobile md:text-display-lg hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium font-display-lg text-display-lg-mobile md:text-display-lg hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-8 py-3 font-headline-md text-headline-md border-b-4 border-r-4 border-black hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all">Inquire</button>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-4xl">menu</span>
+</div>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="px-margin-page py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
+<div class="w-full md:w-1/2 space-y-8 z-10 relative">
+<div class="bg-white p-2 paper-shadow-deep -rotate-2 inline-block">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 font-label-mono text-label-mono uppercase tracking-widest">New Collection</span>
+</div>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface">Layered <br><span class="text-secondary">Dimensions.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Experience a digital landscape crafted from physical inspiration. Our studio explores the intersection of origami precision and generative depth.
+                </p>
+<div class="flex gap-4">
+<button class="bg-on-surface text-surface px-10 py-5 font-headline-md text-headline-md paper-lift">Explore Studio</button>
+<button class="border-2 border-on-surface px-10 py-5 font-headline-md text-headline-md paper-lift flex items-center gap-2">
+                        View Process <span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative flex justify-center items-center">
+<!-- Decorative Folded Paper Graphics -->
+<div class="relative w-full aspect-square">
+<div class="absolute inset-0 bg-[#dccfb4] paper-shadow-deep rotate-6 rounded-lg overflow-hidden">
+<img alt="Paper art" class="w-full h-full object-cover opacity-80 mix-blend-multiply" data-alt="A highly detailed close-up of a complex papercraft sculpture featuring geometric folded wings and sharp origami creases. The lighting is soft and directional, casting realistic long shadows that emphasize the physical texture of the natural beige paper. The composition is artistic and minimalist, reflecting a sophisticated modern art gallery vibe with a palette of craft browns and off-whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ovM7KEd7QaR9o7yM1MN-kZx6ENNJ_hCrTYSbJsdbha6uGEtv91PrMHTFROZk_g1ZExyCmdRhsQVD5Mu951gvx29ODaTEytt3YvDsMImLF4fpxOCiiJO7kYmmViDFS-y34Q-7Iyl9z9lBsld6w10TZTfc5LHyqQGlKUdExIq7qhiIDpZH3b69tZdFfx-kSMohNawNW3Y3gGlkMSokwrOaXzgsFE8u9x38plR4EIM5nJsd8wDPVc2nrNbwypEiG6I-ssMP1bXlSiaj">
+</div>
+<div class="absolute top-10 -left-10 w-64 h-80 bg-white paper-shadow-deep -rotate-12 p-4 border border-outline-variant">
+<div class="w-full h-full bg-surface-container flex items-center justify-center overflow-hidden">
+<img alt="Abstract paper" class="w-full h-full object-cover" data-alt="Abstract paper cutout art with multiple layers of curved shapes in varying shades of cream, tan, and soft grey. Each layer has a distinct drop shadow creating a sense of three-dimensional depth like a paper diorama. The lighting is high-key and bright, mimicking a professional studio environment for a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpUG4kG8T7LgYqds3Si7qs5d9h4z5CwMUnU_TidEsYBdZ20K_543uccyWdhn3Ld9t195E1o1_j1DbSgQZzHeTJean-0-MyB43xct4ATJYgZ9jozVUWlAuj6Q4yTFEolAMT34CRjl2U1-hCZgaqZdM8yriQa6Zb40h0hvEpryTXvA9-wMjiEGC2vcN3nztmoyMftpTMFuCXrVpy0ti8scjD1OVbFLrVhyiCIqVl-B1QTZVF08woYmdTWwNHY-YN8RJ94EtwyhRb9J4p">
+</div>
+</div>
+<div class="absolute -bottom-8 -right-4 w-48 h-48 bg-secondary paper-shadow-deep rotate-12 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<section class="px-margin-page py-24 bg-[#ebe7de]">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Curated Exhibits</h2>
+<div class="h-1 w-24 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-8">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 bg-white p-8 paper-shadow-deep folded-corner relative group paper-lift cursor-pointer">
+<div class="mb-6 overflow-hidden h-96">
+<img alt="Exhibit image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist architectural photograph of a white paper model house on a neutral craft paper background. The model features sharp clean lines and intricate cutouts for windows, casting intricate shadows. The overall image is bright and clean, emphasizing precision and structural design in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWZg8xtRDno2lX3g5DAxg5l_zK269nyzyH_zG4ZSpsGP_dbQaslwUdJhxK_zdeT5Tjdxpj-M-dZ7Hn4hm0zQ6x7P__96N_q3CQnA0KurnxDGuvki3Xak5mj698Q0_5hckzWSTZteUheyGe6q_sHYYDUfr9H9EthoNBSg6J6IvM32_KFiLUYYLn9UKstL_7NNlLL0VqgR-WU7BoWPGcUlvo-VLkXQ-fGx_8rLqrxTx0BU5dAXrPL8_CR-bkUNKpmN_kkkEDGqyEt6Ti">
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md">The Folded City</h3>
+<p class="text-on-surface-variant">Exploring urban density through 1:100 scale paper architectural studies.</p>
+<span class="font-label-mono text-label-mono text-secondary flex items-center gap-2">VIEW EXHIBIT <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="md:col-span-2 bg-[#dcd7cb] p-6 paper-shadow-deep flex flex-col justify-between group paper-lift cursor-pointer">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md max-w-[150px]">Material Ethics</h3>
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">menu_book</span>
+</div>
+<p class="text-on-surface-variant my-4">Our commitment to sustainable pulps and carbon-neutral studio practices.</p>
+<div class="w-full h-2 bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-on-surface w-3/4"></div>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-1 bg-white p-6 paper-shadow-deep flex flex-col justify-center items-center text-center group paper-lift cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-secondary mb-4" style="font-variation-settings: 'FILL' 1;">palette</span>
+<h4 class="font-headline-md text-headline-md">Studio</h4>
+<p class="text-sm">Behind the scenes</p>
+</div>
+<!-- Small Card 3 -->
+<div class="md:col-span-1 bg-on-surface text-surface p-6 paper-shadow-deep group paper-lift cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 bg-secondary transform translate-x-4 -translate-y-4 rotate-45 w-16 h-16"></div>
+<h4 class="font-headline-md text-headline-md relative z-10">Archive</h4>
+<p class="text-surface-variant text-sm mt-2 relative z-10">Past works from 2018-2023</p>
+<div class="mt-8 flex -space-x-4">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-secondary"></div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-primary"></div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-tertiary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Kinetic Call to Action -->
+<section class="px-margin-page py-32 flex flex-col items-center justify-center text-center relative">
+<!-- Decorative "Scraps" -->
+<div class="absolute top-10 left-[10%] w-32 h-32 bg-secondary/10 rotate-45 border border-secondary/20"></div>
+<div class="absolute bottom-10 right-[15%] w-24 h-48 bg-primary/10 -rotate-12 border border-primary/20"></div>
+<div class="max-w-4xl z-10">
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-12">Start your <span class="italic underline decoration-secondary">paper</span> journey.</h2>
+<div class="bg-white p-12 paper-shadow-deep relative">
+<div class="absolute inset-0 crease-line"></div>
+<p class="font-handwritten-md text-handwritten-md mb-8">Join 5,000+ creators receiving our weekly digest of physical art techniques.</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow bg-[#f4f1ea] border-none focus:ring-2 focus:ring-on-surface p-4 font-body-md shadow-inner" placeholder="Your creative email..." type="email">
+<button class="bg-on-surface text-surface px-8 py-4 font-headline-md text-headline-md paper-lift">Subscribe</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-highest border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-headline-md text-headline-md text-on-surface">ART-MORPH</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                © 2024 Art-Morph Studio. All rights reserved. Built for creators.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-surface paper-lift cursor-pointer">
+<span class="material-symbols-outlined text-xl">share</span>
+</div>
+<div class="w-10 h-10 bg-on-surface rounded-full flex items-center justify-center text-surface paper-lift cursor-pointer">
+<span class="material-symbols-outlined text-xl">camera</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple parallax effect for paper-lift elements based on mouse movement
+        document.addEventListener('mousemove', (e) => {
+            const elements = document.querySelectorAll('.paper-shadow-deep');
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
+
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if(rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.style.transform = `rotate(${x/10}deg) translate(${x/2}px, ${y/2}px)`;
+                }
+            });
+        });
+
+        // Click interaction for "paper" buttons
+        document.querySelectorAll('button.paper-lift').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'translate(2px, 2px)';
+                btn.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.1)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = '';
+                btn.style.boxShadow = '';
+            });
+        });
+    </script>
+</body></html>

@@ -1,36 +1,305 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>50. Line Art - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Bricolage+Grotesque:wght@400&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=beVietnamPro:wght@100..900&amp;family=jetbrainsMono:wght@100..900&amp;family=syne:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary": "#b90538",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-fixed": "#ffdadb",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#0053db",
+                    "on-surface": "#121c2a",
+                    "outline": "#737686",
+                    "inverse-surface": "#27313f",
+                    "on-secondary-fixed-variant": "#92002a",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#40000d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-background": "#121c2a",
+                    "tertiary-container": "#007d55",
+                    "secondary-container": "#dc2c4f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#bdffdb",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006242",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#ffb2b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d0dbed",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "40px",
+                    "unit": "4px",
+                    "gutter-fluid": "32px",
+                    "gutter-brutalist": "0px",
+                    "isometric-step": "30deg"
+            },
+            "fontFamily": {
+                    "body-lg": ["beVietnamPro"],
+                    "display-xl": ["syne"],
+                    "display-lg": ["syne"],
+                    "handwritten-md": ["bricolageGrotesque"],
+                    "headline-md": ["syne"],
+                    "label-mono": ["jetbrainsMono"],
+                    "body-md": ["beVietnamPro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .line-art-stroke {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear forwards;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+        .reveal-text {
+            clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+            animation: reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+        @keyframes reveal {
+            to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        }
+        .float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">50. Line Art</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Continuous minimalist drawing, thin elegant strokes.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface">ART-MORPH</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-secondary underline decoration-4 underline-offset-8 hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant text-2xl hover:scale-110 transition-transform">search</button>
+<button class="px-8 py-2 bg-on-surface text-surface font-label-mono text-label-mono uppercase tracking-widest hover:bg-secondary transition-colors duration-300 active:skew-x-6">
+                Inquire
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center px-margin-page overflow-hidden">
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+<svg class="w-full h-full" fill="none" height="100%" viewBox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path class="line-art-stroke" d="M100 400C100 400 200 100 400 100C600 100 700 400 700 400C700 400 600 700 400 700C200 700 100 400 100 400Z" stroke="currentColor" stroke-width="0.5"></path>
+<circle class="line-art-stroke" cx="400" cy="400" r="50" stroke="currentColor" stroke-width="0.5"></circle>
+</svg>
+</div>
+<div class="relative z-10 text-center max-w-4xl">
+<p class="font-label-mono text-label-mono text-secondary uppercase tracking-[0.4em] mb-8 reveal-text">The Geometry of Silence</p>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-12 leading-none reveal-text">MINIMALISM <br> REIMAGINED</h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-gutter-fluid">
+<div class="h-[1px] w-24 bg-outline-variant hidden md:block"></div>
+<p class="font-body-lg text-body-lg max-w-md text-on-surface-variant">Exploring the boundary where space meets line. A continuous journey through delicate strokes and monochromatic depths.</p>
+<div class="h-[1px] w-24 bg-outline-variant hidden md:block"></div>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="font-label-mono text-[10px] uppercase tracking-widest text-outline">Scroll to explore</span>
+<div class="w-[1px] h-16 bg-gradient-to-b from-on-surface to-transparent"></div>
+</div>
+</section>
+<!-- Featured Gallery (Bento-ish Line Art Style) -->
+<section class="py-24 px-margin-page bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-fluid">
+<div class="md:col-span-8 group relative overflow-hidden aspect-[16/9] border border-outline-variant p-1">
+<img alt="Line Art Exhibit 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A minimalist fine art photograph of a single black calligraphic line swirling gracefully against a pure white background. The lighting is soft and ethereal, emphasizing the smooth texture of the paper. The aesthetic is clean, high-contrast, and modern, reflecting a premium line-art gallery atmosphere with monochromatic tones and a subtle golden glow at the edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0VKCPm6Zfj3aIz-kYxuobnNyE8IWTD-khX4VET4Qf7aCM8Rk5kzf00njWmrWnH-ZpY3pPk-96Z-i4S632KJtm4TqreRWanaJY3O5CiN5c7JjOt7dtIYPT-T1PL4sPwRT2k90eysR-19Tqz1xQ69SnOILpu70nZFVsqeSKRlqWHHaWnGZA0nkC7FwqaF-pLkIGVxw9j6em7-n_UfIstPUpX2_gonefSqP_CQaWekoDT9loicLVoq19EZlfLE8nGh3Qj3fFmGgkL6EG">
+<div class="absolute bottom-8 left-8 bg-surface/90 backdrop-blur px-6 py-4 border-l-2 border-secondary">
+<h3 class="font-headline-md text-headline-md">Vortex 01</h3>
+<p class="font-label-mono text-label-mono text-outline">INK ON COTTON PAPER</p>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col justify-center border-y md:border-y-0 md:border-x border-outline-variant px-8 py-12">
+<h2 class="font-display-lg text-display-lg mb-6">Curated <br> Form</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Each stroke is deliberate. Each void is intentional. Our gallery focuses on the power of the singular mark.</p>
+<a class="inline-flex items-center gap-4 group" href="#">
+<span class="font-label-mono text-label-mono uppercase tracking-widest group-hover:text-secondary transition-colors">View All Exhibits</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</a>
+</div>
+<div class="md:col-span-4 aspect-square border border-outline-variant p-8 flex flex-col justify-between">
+<div class="w-12 h-12 border border-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">flare</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Technique</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Single-path vector mathematics blended with traditional Japanese ink mastery.</p>
+</div>
+</div>
+<div class="md:col-span-8 group relative overflow-hidden aspect-[21/9] border border-outline-variant p-1">
+<img alt="Line Art Exhibit 2" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated architectural detail showing thin black metal lines forming a structural skeleton against a bright, airy gallery wall. The composition is highly geometric and minimalist, with sharp shadows creating secondary patterns on the white surface. The scene is illuminated by natural high-key sunlight, creating a serene and intellectual mood in a light-mode monochromatic space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe_VsCTMfRJYX0ll53bdGwkxBMYK17OuNm8-WK0efpWavmZdoY9HBm8dd-6icy_sf9SYyHsS8sZpGziqIyYtCIg1RPH_js4VVATNeW_S4_qAc-aq5y7J3eoaSMilj6z9rNH5lsoXU-YO96t8H4L_qVB-LOulajnOhZgSiV6JEnl68rClw1SHLIwmQHuTKdGyvcXq8zaQivf092jxqzx5AnUiyweNK_K_jrjPtDM0P8vr4OwRdxRfDxDqXagDkZ9DLVMN4a9qc__2w4">
+<div class="absolute top-8 right-8 text-right">
+<span class="font-display-xl text-display-xl opacity-10">02</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider Illustration -->
+<div class="w-full flex justify-center py-12">
+<svg class="text-outline-variant" fill="none" height="60" viewBox="0 0 200 60" width="200" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 30C50 30 50 10 100 10C150 10 150 50 200 50" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<!-- The Studio Section -->
+<section class="py-24 px-margin-page">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-gutter-fluid">
+<div class="w-full md:w-1/2 space-y-8">
+<span class="font-label-mono text-label-mono text-secondary uppercase tracking-[0.4em]">Inside the Studio</span>
+<h2 class="font-display-lg text-display-lg leading-tight">Where lines find <br> their rhythm.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our creative process begins with a single point of focus. We strip away the unnecessary until only the essential remains—the soul of the subject captured in a thin, elegant stroke.</p>
+<div class="grid grid-cols-2 gap-8 pt-8">
+<div>
+<p class="font-display-lg text-display-lg text-on-surface mb-1">12k+</p>
+<p class="font-label-mono text-label-mono uppercase tracking-tighter text-outline">Unique Paths</p>
+</div>
+<div>
+<p class="font-display-lg text-display-lg text-on-surface mb-1">0.2mm</p>
+<p class="font-label-mono text-label-mono uppercase tracking-tighter text-outline">Precision</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative p-8">
+<div class="absolute inset-0 border border-on-surface translate-x-4 translate-y-4"></div>
+<div class="relative bg-surface p-1 border border-on-surface z-10">
+<img alt="Studio Detail" class="w-full grayscale hover:grayscale-0 transition-all duration-1000" data-alt="A close-up shot of an artist's hand using a thin technical pen to draw a continuous line on a large sheet of premium white paper. The studio environment is bathed in soft, natural light, highlighting the minimalist aesthetic of the workspace. The focus is sharp on the tip of the pen where the black ink meets the pristine white surface, evoking a sense of calm and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDehBQyzxGqdos64opEUgbNhuZTsEcdNAnGsCbIbmD5t5-OTkBin7t-5ToKKRKfvAUlWwy2vRFyswiuQge53mmyNHHmgY5lcI_aTVL-psX3CFOdXyxmkV8Z_L9oKOQBFnyue-gzS_SfENP3prQpBsOpb3qoyPVYr1ujmL9Vj50VmU67YFUdiWW6_6pq-4hUNLv-R-baNYcpGVm3OtNC3WJ6LmVyUirVLcFj4nnPydD0HqqoQfZZ5vkwo9Hr212UIrvuA_xB5puyjI8O">
+</div>
+<div class="absolute -top-4 -right-4 w-24 h-24 float-slow">
+<svg class="w-full h-full text-secondary opacity-40" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="4 4" stroke-width="0.5"></circle>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Artist Quote / Statement -->
+<section class="py-32 bg-on-surface text-surface text-center px-margin-page relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+
+</div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<span class="material-symbols-outlined text-4xl text-secondary mb-12">format_quote</span>
+<p class="font-handwritten-md text-handwritten-md italic mb-12">"Art-Morph is not about what we see, but how we choose to define the edges of reality using the most fundamental element of design: the line."</p>
+<div class="w-12 h-[1px] bg-secondary mx-auto mb-4"></div>
+<p class="font-label-mono text-label-mono uppercase tracking-widest">Elias Thorne — Lead Architect</p>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-24 px-margin-page text-center">
+<h2 class="font-display-lg text-display-lg mb-4">Join the Collective</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 max-w-xl mx-auto">Receive a monthly curation of our finest minimal studies and exclusive early access to digital drops.</p>
+<form class="max-w-md mx-auto flex gap-4">
+<input class="flex-grow bg-transparent border-0 border-b border-outline-variant focus:border-on-surface focus:ring-0 font-body-md py-3 transition-colors" placeholder="Your email address" type="email">
+<button class="px-8 py-3 border border-on-surface hover:bg-on-surface hover:text-surface transition-all duration-300 font-label-mono text-label-mono uppercase tracking-widest">
+                    Subscribe
+                </button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid mt-auto border-t-2 border-outline-variant font-body-md text-body-md">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">ART-MORPH</div>
+<p class="text-on-surface-variant">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex gap-10">
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+<div class="flex gap-6">
+<button class="material-symbols-outlined text-outline-variant hover:text-on-surface transition-colors">public</button>
+<button class="material-symbols-outlined text-outline-variant hover:text-on-surface transition-colors">share</button>
+</div>
+</footer>
+<script>
+        // Simple parallax effect for hero illustration
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            const heroSvg = document.querySelector('section svg');
+            if(heroSvg) {
+                heroSvg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-text');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('h2, .reveal-trigger').forEach(el => observer.observe(el));
+    </script>
+</body></html>

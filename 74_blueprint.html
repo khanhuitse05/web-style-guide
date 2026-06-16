@@ -1,36 +1,339 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>74. Blueprint - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Blueprint Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Space+Grotesk:wght@300;400;600;700&amp;family=Work+Sans:wght@300;400;500&amp;family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005d",
+                        "surface-container-low": "#1d1b20",
+                        "surface": "#141218",
+                        "surface-container": "#211f24",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-primary": "#6750a4",
+                        "on-secondary-container": "#bfb2da",
+                        "tertiary-fixed": "#ffdf93",
+                        "secondary": "#cdc0e9",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#494551",
+                        "error": "#ffb4ab",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "surface-container-lowest": "#0f0d13",
+                        "error-container": "#93000a",
+                        "background": "#141218",
+                        "surface-tint": "#cfbcff",
+                        "surface-container-highest": "#36343a",
+                        "inverse-on-surface": "#322f35",
+                        "surface-dim": "#141218",
+                        "outline": "#948e9c",
+                        "surface-container-high": "#2b292f",
+                        "on-tertiary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "tertiary": "#e7c365",
+                        "surface-variant": "#36343a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary-container": "#503d00",
+                        "on-primary": "#381e72",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#1f1635",
+                        "primary-container": "#6750a4",
+                        "on-background": "#e6e0e9",
+                        "surface-bright": "#3b383e",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "secondary-container": "#4d4465",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-secondary": "#342b4b",
+                        "inverse-surface": "#e6e0e9",
+                        "blueprint-cyan": "#00acc1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1200px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["ebGaramond"],
+                        "headline-lg": ["spaceGrotesk"],
+                        "headline-lg-mobile": ["spaceGrotesk"],
+                        "body-md": ["workSans"],
+                        "display-xl-mobile": ["ebGaramond"],
+                        "label-sm": ["spaceMono"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #00acc1;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .technical-border {
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+        }
+        .technical-border::before, .technical-border::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid white;
+        }
+        .border-tl::before { top: -5px; left: -5px; border-right: 0; border-bottom: 0; }
+        .border-tr::after { top: -5px; right: -5px; border-left: 0; border-bottom: 0; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            color: white;
+        }
+
+        .blueprint-card {
+            background: rgba(0, 172, 193, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .blueprint-card:hover {
+            border-color: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        .glitch-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            width: 100%;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">74. Blueprint</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Cyan paper backgrounds with technical white architectural lines.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-white antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-blueprint-cyan border-b-4 border-white shadow-md z-50">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="ThematicEngine" class="h-12 w-12 technical-border p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7mKvnn-743u96z0ixs2dh8DRlfUCiFiEBWGQF--jOnTcIH8JpktfqIzyRYUYLieBASWWDfL_wpHtaH-K0riplDL6fkCEU2Jiqvpujom8E_KGK7aes-UUa5h9bzn4ChdeAOytUuovru0Q0aSi7_ry3kSRIPoiJl1aU60c8ZnMetKDuZTSWdhKHtotDk35UpmEp21e2LRs46BjBvYQgRH7cOY8BCjEgQF745GifzI4FGLrIATtHJNhazPkWfx8WzSs45wvzarm5cKmB"/>
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-white tracking-tighter">ThematicEngine</span>
+</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="text-white font-bold border-b-2 border-white pb-1 font-label-sm text-label-sm uppercase tracking-widest" href="#">Styles</a>
+<a class="text-white/80 font-medium hover:text-white transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Gallery</a>
+<a class="text-white/80 font-medium hover:text-white transition-colors duration-300 font-label-sm text-label-sm uppercase tracking-widest" href="#">Artifacts</a>
+</nav>
+<button class="bg-white text-blueprint-cyan px-lg py-base font-bold font-label-sm text-label-sm uppercase tracking-widest active:scale-95 transition-transform hover:bg-opacity-90">
+                Explore
+            </button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-xl relative">
+<!-- Technical Legend Overlay -->
+<div class="fixed bottom-12 left-12 z-40 hidden xl:block bg-blueprint-cyan border border-white p-4 font-label-sm text-xs opacity-60">
+<p class="mb-2 border-b border-white/30">TECHNICAL LEGEND</p>
+<div class="flex items-center gap-2 mt-1"><span class="w-3 h-3 border border-white"></span> Grid Alignment</div>
+<div class="flex items-center gap-2 mt-1"><span class="w-3 h-[1px] bg-white"></span> Structural Vector</div>
+<div class="flex items-center gap-2 mt-1"><span class="material-symbols-outlined text-xs">architecture</span> Asset Node</div>
+</div>
+<!-- Hero Section: Structural Logic -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-xl items-center">
+<div class="md:col-span-7 flex flex-col gap-base">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label-sm text-label-sm py-1 px-3 border border-white uppercase tracking-widest">PHASE 01 // CORE</span>
+<div class="h-[1px] flex-grow bg-white/40"></div>
+</div>
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl leading-none">Structural Logic</h1>
+<p class="font-body-md text-white/90 max-w-xl mt-4 leading-relaxed">
+                    Every digital masterpiece begins with an immutable grid. Our Thematic Engine utilizes high-fidelity architectural frameworks to ensure your narrative remains structurally sound while adapting to the most ornate visual skins.
+                </p>
+<div class="flex gap-md mt-8">
+<button class="bg-white text-blueprint-cyan p-4 flex items-center gap-2 hover:translate-x-1 transition-transform group">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-widest">Begin Schematic</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-white text-white p-4 font-label-sm text-label-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-colors">
+                        View Node Hierarchy
+                    </button>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="aspect-square technical-border border-tl border-tr p-4">
+<div class="w-full h-full border border-dashed border-white/40 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[1px] bg-white"></div>
+<div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[1px] bg-white"></div>
+</div>
+<img class="w-4/5 h-4/5 object-cover grayscale brightness-125 contrast-125 border border-white" data-alt="A high-contrast architectural drawing of a futuristic skyscraper structure on cyan blueprint paper. The image shows intricate white technical lines, measurement annotations, and cross-sections that emphasize the complexity of the design. The lighting is crisp and uniform, highlighting the precision of the engineering aesthetic and the deep cyan background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3gLwpDromPmU2NCHjdrP322es2VZWj4_HalasZtlQ06z2V42g-j9VP21SNAmagexHHy8FWHAyHyErv5n8CCuqBRmcaCfWZ96i5_96spz7_JIpAFMc_LeyzXaJKQSVCsEBMX2yp5HDvWzx8ZWTHAC3DXG3Ng6mkdEVtbzNWrTqYllRHR6aKRWWLaxZ5nDCG7klADm_sD-77uubRQo_vhRaouLTXo1NoHSTqOEYVQGiIyQHr3tp3TkYdc0RqpM0sSCKtaxN4hRghJLQ"/>
+<div class="absolute top-4 right-4 font-label-sm text-[10px] text-white">REF_ID: 157-ALPHA</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Schematics (Bento Grid) -->
+<section class="mb-xl">
+<div class="flex items-center gap-4 mb-lg">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg whitespace-nowrap">Schematics</h2>
+<div class="h-[2px] w-full bg-white/20 relative">
+<div class="absolute left-0 top-0 h-full w-24 bg-white"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-md h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 blueprint-card p-lg flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4">architecture</span>
+<h3 class="font-headline-lg-mobile text-2xl uppercase mb-2">Primary Blueprint</h3>
+<p class="font-body-md text-white/80">The master layout configuration. Defines the 12-column foundation and responsive scaling protocols for all child elements.</p>
+</div>
+<div class="mt-8 border-t border-white/30 pt-4 flex justify-between items-end">
+<div class="font-label-sm text-xs opacity-60">
+                            COORD: 40.7128° N<br/>SCALE: 1:250
+                        </div>
+<span class="material-symbols-outlined">settings_overscan</span>
+</div>
+</div>
+<div class="blueprint-card p-md border-l-4 border-l-white">
+<span class="material-symbols-outlined mb-2">grid_view</span>
+<h4 class="font-label-sm font-bold uppercase mb-2">Grid Matrix</h4>
+<p class="text-xs opacity-80 font-body-md">Symmetric 24px gutter alignment for desktop views.</p>
+</div>
+<div class="blueprint-card p-md bg-white/10">
+<span class="material-symbols-outlined mb-2">layers</span>
+<h4 class="font-label-sm font-bold uppercase mb-2">Depth Stack</h4>
+<p class="text-xs opacity-80 font-body-md">Z-index management for modal and navigation overlays.</p>
+</div>
+<div class="md:col-span-2 blueprint-card p-md flex items-center gap-lg">
+<div class="w-1/3 aspect-video bg-white/10 border border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">motion_mode</span>
+</div>
+<div>
+<h4 class="font-label-sm font-bold uppercase mb-2">Dynamic Interpolation</h4>
+<p class="text-xs opacity-80 font-body-md">Animated transition logic for fluid theme shifting between Minimal and Brutalist modes.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: The Build -->
+<section class="py-xl">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-base">The Build</h2>
+<p class="font-body-md mb-lg text-white/90">Execution is everything. Once the logic is defined and the schematics are approved, the build phase initiates the high-fidelity rendering of the final interface.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 border border-white flex items-center justify-center font-label-sm group-hover:bg-white group-hover:text-blueprint-cyan transition-all">01</div>
+<div class="flex-grow border-b border-white/20 pb-2 group-hover:border-white transition-all">
+<h5 class="font-label-sm font-bold uppercase">Material Assembly</h5>
+<p class="text-sm opacity-70">Mapping JSON tokens to physical UI assets.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 border border-white flex items-center justify-center font-label-sm group-hover:bg-white group-hover:text-blueprint-cyan transition-all">02</div>
+<div class="flex-grow border-b border-white/20 pb-2 group-hover:border-white transition-all">
+<h5 class="font-label-sm font-bold uppercase">Atmospheric Integration</h5>
+<p class="text-sm opacity-70">Applying shaders, glows, and shadow stacking.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 border border-white flex items-center justify-center font-label-sm group-hover:bg-white group-hover:text-blueprint-cyan transition-all">03</div>
+<div class="flex-grow border-b border-white/20 pb-2 group-hover:border-white transition-all">
+<h5 class="font-label-sm font-bold uppercase">Validation Protocol</h5>
+<p class="text-sm opacity-70">Responsive stress-testing and UX audit.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative bg-blueprint-cyan p-lg technical-border">
+<div class="absolute -top-4 -right-4 bg-white text-blueprint-cyan p-2 font-label-sm text-[10px] font-bold z-10">BUILD_LOG.v2</div>
+<div class="h-64 overflow-hidden border border-white/40 mb-lg relative">
+<img class="w-full h-full object-cover grayscale brightness-75" data-alt="A detailed wide-angle photograph of an industrial engineering workshop with complex machinery and glowing white technical outlines superimposed over the real equipment. The workshop is bathed in a soft cyan light that complements the blueprint theme. The overall aesthetic is a blend of physical reality and digital schematic overlays, creating a professional and high-tech atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM9-5zbnjfM6RcyeAdODqghQDHVI-DV20Hy_nbMduhi52FMnxe2XC-AXfjYY5shKMQkagNnXuHhOSqQvSZ-1gv9SD_hyKx6Hi8tv0ybF3fJXzoLKmJe-apW458nxNLPLi54MT_YsoaiAZXwPmdookd1fky_v3334p8v3dyiN3Pa28weCHeeVGlqAaLcG9MY23mT2Q_9wPBi734Sz-5ozIKXToeUoD602SQqw14sdsTq1UqKeX5uVzGtDTyuw_l0dE9zFstoQN2wiq1"/>
+<div class="absolute inset-0 bg-blueprint-cyan/30 mix-blend-multiply"></div>
+</div>
+<div class="grid grid-cols-2 gap-md font-label-sm text-xs">
+<div class="p-2 border border-white/30">
+<span class="opacity-50">STATUS:</span> OPERATIONAL
+                        </div>
+<div class="p-2 border border-white/30">
+<span class="opacity-50">LOAD:</span> 42ms
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest border-t-2 border-white">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<span class="font-headline-lg text-headline-lg text-white font-bold uppercase tracking-tighter">Thematic Engine</span>
+</div>
+<p class="font-label-sm text-label-sm text-white/60 text-center md:text-left">
+                © 2024 Thematic Engine. Built for digital storytellers.
+            </p>
+<div class="flex gap-md">
+<a class="text-white/60 font-label-sm text-label-sm uppercase hover:text-white transition-opacity" href="#">Terms</a>
+<a class="text-white/60 font-label-sm text-label-sm uppercase hover:text-white transition-opacity" href="#">Privacy</a>
+<a class="text-white/60 font-label-sm text-label-sm uppercase hover:text-white transition-opacity" href="#">License</a>
+<a class="text-white/60 font-label-sm text-label-sm uppercase hover:text-white transition-opacity" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Mouse tracking glow effect
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.blueprint-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                }
+            });
+        });
+
+        // Simple typing effect for technical elements
+        const techLabels = document.querySelectorAll('.font-label-sm');
+        techLabels.forEach(label => {
+            label.addEventListener('mouseenter', () => {
+                label.classList.add('animate-pulse');
+            });
+            label.addEventListener('mouseleave', () => {
+                label.classList.remove('animate-pulse');
+            });
+        });
+    </script>
+</body></html>

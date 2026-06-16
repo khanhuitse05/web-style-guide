@@ -1,36 +1,373 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>60. Biophilic - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aetheris Gallery | Biophilic Archetype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --leaf-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C70 30 100 50 100 80 C100 100 80 100 50 100 C20 100 0 100 0 80 C0 50 30 30 50 0 Z" fill="black"/></svg>');
+        }
+        .leaf-clip {
+            clip-path: path('M50 0 C75 25 100 50 100 85 C100 100 75 100 50 100 C25 100 0 100 0 85 C0 50 25 25 50 0 Z');
+            -webkit-mask-image: var(--leaf-mask);
+            mask-image: var(--leaf-mask);
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+        .organic-glow {
+            box-shadow: 0 0 40px -10px rgba(161, 212, 148, 0.3);
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(29, 32, 33, 0.4);
+        }
+        @keyframes sway {
+            0%, 100% { transform: rotate(-1deg) translateY(0); }
+            50% { transform: rotate(1deg) translateY(-5px); }
+        }
+        .animate-sway {
+            animation: sway 6s ease-in-out infinite;
+        }
+        .fractal-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(161, 212, 148, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
         }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#23501e",
+                    "tertiary-fixed": "#d7e2ff",
+                    "inverse-on-surface": "#2e3132",
+                    "tertiary-container": "#a2b3d7",
+                    "on-surface": "#e1e3e4",
+                    "surface-dim": "#111415",
+                    "primary": "#f2ca50",
+                    "on-secondary-container": "#90c283",
+                    "surface-container-highest": "#323536",
+                    "surface-container-high": "#282a2b",
+                    "on-tertiary-container": "#354563",
+                    "on-background": "#e1e3e4",
+                    "on-primary": "#3c2f00",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#735c00",
+                    "secondary": "#a1d494",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e1e3e4",
+                    "tertiary-fixed-dim": "#b6c7eb",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#d0c5af",
+                    "on-primary-fixed-variant": "#574500",
+                    "primary-fixed": "#ffe088",
+                    "surface-container-lowest": "#0c0f10",
+                    "primary-container": "#d4af37",
+                    "on-error-container": "#ffdad6",
+                    "outline": "#99907c",
+                    "background": "#111415",
+                    "secondary-fixed": "#bcf0ae",
+                    "secondary-container": "#23501e",
+                    "tertiary": "#becef3",
+                    "surface-bright": "#373a3b",
+                    "surface-container": "#1d2021",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#002201",
+                    "surface-variant": "#323536",
+                    "on-tertiary-fixed": "#081b38",
+                    "on-secondary": "#0a3909",
+                    "surface-container-low": "#191c1d",
+                    "primary-fixed-dim": "#e9c349",
+                    "secondary-fixed-dim": "#a1d494",
+                    "on-tertiary-fixed-variant": "#374765",
+                    "outline-variant": "#4d4635",
+                    "on-tertiary": "#20304e",
+                    "surface-tint": "#e9c349",
+                    "surface": "#111415",
+                    "on-primary-container": "#554300"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "section-gap": "160px",
+                    "margin-mobile": "24px",
+                    "margin-desktop": "80px",
+                    "gutter": "32px",
+                    "margin-tablet": "40px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "label-sm": ["Geist"],
+                    "headline-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">60. Biophilic</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Integrating natural organic elements directly into digital UI components.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface fractal-bg overflow-x-hidden selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl transition-all duration-500">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter cursor-pointer active:scale-95">
+                Aetheris Gallery
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary font-bold border-b border-primary pb-1 font-body-md text-body-md cursor-pointer" href="#">Archetypes</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md cursor-pointer" href="#">Artifacts</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md cursor-pointer" href="#">Design Tokens</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md cursor-pointer" href="#">Curators</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors cursor-pointer">search</span>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2 rounded-full font-label-sm text-label-sm tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                    INQUIRE
+                </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-32 overflow-hidden px-margin-desktop">
+<div class="absolute right-0 top-0 w-1/2 h-full -z-10 opacity-40">
+<div class="relative w-full h-full">
+<div class="absolute inset-0 leaf-clip bg-secondary/20 animate-sway"></div>
+<img class="absolute inset-0 w-full h-full object-cover leaf-clip opacity-80" data-alt="Ultra-high-definition architectural photography of a futuristic biophilic office building. The structure features sweeping organic curves and massive glass walls integrated with lush, cascading vertical gardens and hanging vines. Soft morning sunlight filters through the dense foliage, creating a serene, living environment. The color palette emphasizes deep forest greens and sleek, metallic grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCum_o1lU9nPalJrWI4M4t_lHJ6dWBq4xnBDatX1dcS2pEd_zKcDG4gznZ5Y7xaYdfwrcGTmYVcW-3kTvOwn5JQjywFw-_uAHH7DroXlYXah2TjiLR6sT9Yn_qcaMm85Dp5ABrVyhPxSlRe8TcBp6Ntz1_H_T6PdKbVMLQ1qAwas2MiS35hgxjOpG3gy26k9dkbNgeWMdAx5pExbpkLVX2bS4RziRgT247wja0EPb3Osh5c3514Znu9j10StTpmvX2nBdieBEIKBNLF">
+</div>
+</div>
+<div class="max-w-3xl z-10">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary font-label-sm text-label-sm mb-8">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    ACTIVE ARCHETYPE: BIOPHILIC
+                </div>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-[1.05] mb-8">
+                    Where Digital <br>
+<span class="text-secondary italic">Respirates</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12">
+                    Experience a UI framework that grows, adapts, and lives. Our Biophilic tokens bridge the gap between high-tech architecture and the untamed elegance of fractal natural forms.
+                </p>
+<div class="flex gap-6">
+<button class="px-10 py-5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm tracking-[0.2em] hover:scale-105 active:scale-95 transition-all organic-glow">
+                        EXPLORE THE VINES
+                    </button>
+<button class="px-10 py-5 rounded-full border border-outline/30 text-on-surface font-label-sm text-label-sm tracking-[0.2em] hover:bg-surface-variant transition-all">
+                        TECHNICAL SPECS
+                    </button>
+</div>
+</div>
+<!-- Atmospheric Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 text-on-surface-variant">
+<span class="font-label-sm text-label-sm tracking-widest">DESCEND</span>
+<div class="w-px h-24 bg-gradient-to-b from-secondary to-transparent"></div>
+</div>
+</section>
+<!-- Bento Grid Artifacts -->
+<section class="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="mb-24 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-4">Living Components</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+                        Our elements are not just rendered; they are cultivated. Every card and button follows the mathematical logic of the Golden Ratio.
+                    </p>
+</div>
+<div class="flex gap-4">
+<button class="p-4 rounded-full glass-panel text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-4 rounded-full glass-panel text-secondary hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Large Featured Card -->
+<div class="col-span-8 group relative overflow-hidden rounded-[40px] glass-panel p-12 hover:border-secondary/50 transition-all duration-700">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-secondary/10 blur-[80px] group-hover:bg-secondary/20 transition-all"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="mb-auto">
+<span class="text-secondary font-label-sm text-label-sm tracking-[0.3em] uppercase">Architecture</span>
+<h3 class="font-headline-lg text-headline-lg mt-4 mb-6">Vertical Sanctuaries</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                                Redefining urban density through modular, green-integrated structures that promote psychological well-being.
+                            </p>
+</div>
+<div class="flex items-center gap-6 mt-12">
+<div class="w-24 h-32 leaf-clip bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A close-up, macro-photographic study of a lush green leaf, highlighting its intricate fractal vein pattern. The lighting is soft and diffused, emphasizing the vibrant emerald green tones and the organic texture of the leaf's surface. Small water droplets cling to the edges, catching the light like tiny crystals. The style is serene and highly detailed, reflecting biophilic design principles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk5vVFKAf97qAGO7YMpPp5PnjD5EJGX7BcY2lYqLoQEuBCY9HhKFYMKkf1zyTRAIHwqPjnhuveM5itAsGYdQ87Eg8qAAbfxBgTNfFiZeR32Myg2kxIkkpyjueoEpZJNGaXPypte6KkXP9cjIX9xSfHYQiWxffaqRCXD2tzaOfAOUwysIkp0fiySsx9M9jPUi0BKACv5ClkytTqNNj1z2JD6hl3xE2fTHtC-sNVGm3C4R5yr9-E7K9bBLmThbNZSjzArCSGB3TnKtqj">
+</div>
+<div class="w-24 h-32 leaf-clip bg-surface-container overflow-hidden translate-y-8">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 delay-75" data-alt="A detailed digital rendering of a modular biophilic architectural unit. The structure is composed of sustainable wooden honeycombs filled with a variety of ferns and air plants. The lighting is a warm, late-afternoon glow that casts long, soft shadows, creating a sense of peace and integration with nature. The visual style is high-end, contemporary, and environmentally conscious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxHdkuTTBdksgePANSWij4ntYKdxVrYCQKdGhaJnYqxRneF4xizL4kekQZXQo3pBtMCqReZdGdWaBhHYXoMOgl4EPSo8G6fNyOmdT0ioImnyrjDQP5TMjY6g-VWvAy25D-1EwnJyWJeLISPonyU52AccoHKJ2LJ5BZ-hUqnbDDdVDo-zyFYSuKI5g33cDW1oVwJNZETyRhadLXEkzvWihChtj2NbmGVniIdubUEu41kPs_YGJt_xoocaU1eZ0xHFhLarCcakz3Xiuc">
+</div>
+</div>
+</div>
+</div>
+<!-- Side Info Cards -->
+<div class="col-span-4 flex flex-col gap-gutter">
+<div class="flex-1 glass-panel rounded-[40px] p-10 group hover:bg-secondary/5 transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">eco</span>
+<h4 class="font-headline-md text-headline-md mb-4">Fractal Logic</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Grid systems that follow the Fibonacci sequence for natural flow.
+                        </p>
+</div>
+<div class="flex-1 glass-panel rounded-[40px] p-10 group hover:bg-secondary/5 transition-all">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">filter_vintage</span>
+<h4 class="font-headline-md text-headline-md mb-4">Adaptive Breath</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            UI elements that pulse and shift based on user engagement.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Growing Interactive Section -->
+<section class="relative py-section-gap bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 gap-32 items-center">
+<div class="relative">
+<div class="w-full aspect-square leaf-clip overflow-hidden organic-glow">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" data-alt="An immersive wide-angle shot of a sun-drenched forest, where light beams pierce through a dense canopy of ancient trees. The atmosphere is filled with a soft, misty haze, creating a magical and serene mood. The ground is covered in deep green moss and vibrant ferns. The photographic style is ethereal and cinematic, focusing on the interplay of light and natural shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCdWTg5P8ZLHOvos1jfq-fVyQrfgMn9YodNcjc4FwR1fJoz3Il073TLmh50hP-Mbu_kyXsH2J_Jpzxzd0hIkxeX4SbCKnVK7-iVO3nwjY3z7_hEfA24a21RwmN9TBgTjX3yzBOHbMbS_JRvjGkCmyjILAPme_jko2HcUB9QtjW8_oOLNTzkGxAmsqKRKiUalnZAv-Q9DGO7N0ANWa_URCsLwNAtNAH6ievHhSgfZcntqhbjrg9FuT6mCMVYOnPXbVF197UHwvPaYm5">
+</div>
+<!-- Absolute Floating Badge -->
+<div class="absolute -bottom-10 -right-10 glass-panel p-8 rounded-[30px] flex items-center gap-4 animate-sway">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined">vital_signs</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">BIO-HEALTH</p>
+<p class="font-headline-md text-headline-md leading-none text-secondary">98%</p>
+</div>
+</div>
+</div>
+<div>
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-10 leading-tight">Environmental <br> Symbiosis</h2>
+<ul class="space-y-12">
+<li class="flex gap-8 group">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">1</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Mycelial Connectivity</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our networks mimic the underground fungal structures that allow forests to communicate, ensuring lightning-fast data transfer with organic redundancy.</p>
+</div>
+</li>
+<li class="flex gap-8 group">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">2</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Photosynthetic Shaders</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time background rendering that shifts its hue and intensity based on the local time and sun position of the user.</p>
+</div>
+</li>
+<li class="flex gap-8 group">
+<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">3</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Root-Level Security</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Encryption protocols that evolve and grow more complex over time, just like the strengthening root system of an ancient oak.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="px-margin-desktop py-section-gap max-w-container-max mx-auto text-center">
+<div class="glass-panel py-24 px-12 rounded-[60px] relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-96 h-96 bg-secondary blur-[120px]"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-primary blur-[120px]"></div>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-6">Join the Ecosystem</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                        Receive monthly updates on biophilic design trends, new artifact drops, and exclusive invitations to our physical gallery installations.
+                    </p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<div class="flex-1 relative group">
+<input class="w-full bg-surface-container border-b-2 border-outline/30 focus:border-secondary transition-all py-4 px-2 text-on-surface font-body-md outline-none" placeholder="Your essence email..." type="email">
+<div class="absolute bottom-0 left-0 h-0.5 bg-secondary w-0 group-focus-within:w-full transition-all duration-700"></div>
+</div>
+<button class="px-12 py-4 bg-on-surface text-background font-label-sm text-label-sm tracking-widest rounded-full hover:bg-secondary hover:text-on-secondary transition-all active:scale-95">
+                            SUBSCRIBE
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-20 mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface-variant">
+                Aetheris <span class="text-secondary opacity-50">Natural Skeuomorphism Lab</span>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Environmental Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Contact</a>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm opacity-60">
+                © 2024 Aetheris Natural Skeuomorphism Lab. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Smooth reveal on scroll logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section > div').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+
+        // Sticky Nav Blur Adjustment
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-4', 'bg-surface/80');
+                nav.classList.remove('py-6', 'bg-surface/40');
+            } else {
+                nav.classList.remove('py-4', 'bg-surface/80');
+                nav.classList.add('py-6', 'bg-surface/40');
+            }
+        });
+    </script>
+</body></html>

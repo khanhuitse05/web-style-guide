@@ -1,36 +1,455 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>99. Robinhood Download - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Investing for Everyone | Download Robinhood</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "on-background": "#181c1e",
+                    "secondary-fixed": "#e2e2e2",
+                    "background": "#f7fafc",
+                    "tertiary-fixed": "#ffdbd0",
+                    "primary-container": "#00c805",
+                    "secondary-container": "#e2e2e2",
+                    "secondary": "#5e5e5e",
+                    "on-surface-variant": "#3d4b37",
+                    "on-primary-fixed": "#002200",
+                    "on-primary-fixed-variant": "#005300",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "tertiary-fixed-dim": "#ffb59e",
+                    "on-tertiary-fixed-variant": "#842500",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#006e01",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#bbcbb2",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#390b00",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed-dim": "#3ce42f",
+                    "tertiary-container": "#ff8d68",
+                    "surface": "#f7fafc",
+                    "primary": "#006e01",
+                    "on-surface": "#181c1e",
+                    "surface-container": "#ebeef0",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#3ce42f",
+                    "surface-container-low": "#f1f4f6",
+                    "surface-container-high": "#e5e9eb",
+                    "on-primary-container": "#004c00",
+                    "tertiary": "#ad3300",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "on-secondary-fixed-variant": "#474747",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d7dadc",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#6c7b65",
+                    "on-secondary-container": "#646464",
+                    "on-tertiary-container": "#792100",
+                    "primary-fixed": "#77ff62",
+                    "surface-bright": "#f7fafc",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "xl": "40px",
+                    "xs": "4px",
+                    "max-width": "1200px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xxl": "64px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "display": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "label-sm": ["Geist"],
+                    "data-mono": ["Geist"],
+                    "label-md": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                    "data-mono": ["16px", {"lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(227, 233, 237, 0.5);
+        }
+        .ghost-border {
+            border: 1px solid #E3E9ED;
+        }
+        .neon-line-glow {
+            box-shadow: 0 0 15px rgba(0, 200, 5, 0.3);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">99. Robinhood Download</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Financial tech aesthetic, neon green lines on a pristine white background, sleek simplicity, and data visualization.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-surface text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-desktop h-14 w-full">
+<div class="flex items-center gap-8">
+<a class="font-display text-headline-md font-bold text-primary hover:opacity-80 transition-opacity" href="#">Investing for Everyone</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary font-bold text-label-md hover:opacity-80 transition-opacity" href="#">Investing</a>
+<a class="text-secondary font-medium text-label-md hover:opacity-80 transition-opacity" href="#">Crypto</a>
+<a class="text-secondary font-medium text-label-md hover:opacity-80 transition-opacity" href="#">Cash</a>
+<a class="text-secondary font-medium text-label-md hover:opacity-80 transition-opacity" href="#">Learn</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary font-medium text-label-md hover:opacity-80 transition-opacity">Log In</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md font-bold active:scale-95 transition-transform">Get Started</button>
+</div>
+</header>
+<main class="pt-14 overflow-hidden">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center bg-surface-container-lowest px-margin-desktop">
+<div class="absolute inset-0 z-0 overflow-hidden opacity-30">
+<!-- Using webgl-shader placeholder for atmospheric background if requested, or CSS pattern -->
+<div class="absolute w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #bbcbb2 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<div class="max-w-max-width w-full grid grid-cols-1 md:grid-cols-12 gap-xl items-center relative z-10">
+<div class="md:col-span-6 space-y-lg">
+<span class="inline-block px-3 py-1 bg-primary-container/10 text-primary font-label-sm rounded-full border border-primary-container/20">NOW AVAILABLE ON MAC &amp; PC</span>
+<h1 class="font-display text-display text-on-background leading-tight">
+                        The future of <span class="text-primary">finance</span> is in your hands.
+                    </h1>
+<p class="font-body-lg text-secondary max-w-lg">
+                        Experience lightning-fast execution, professional-grade data visualization, and the simplicity you love, now optimized for every screen you own.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full flex items-center justify-center gap-2 group hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">download</span>
+<span class="font-label-md font-bold">Download for Desktop</span>
+</button>
+<button class="border border-on-background text-on-background px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="font-label-md font-bold">Get App on Mobile</span>
+</button>
+</div>
+<div class="flex items-center gap-4 pt-6 text-secondary text-label-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant border-2 border-surface flex items-center justify-center text-[10px]">JD</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim border-2 border-surface flex items-center justify-center text-[10px]">AS</div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed border-2 border-surface flex items-center justify-center text-[10px]">MK</div>
+</div>
+<span>Joined by over 23M+ investors globally</span>
+</div>
+</div>
+<div class="md:col-span-6 relative">
+<div class="relative z-10 animate-float">
+<img alt="Desktop App Interface" class="rounded-xl shadow-2xl border border-outline-variant w-full" data-alt="A premium high-fidelity mockup of a sleek financial trading terminal application displayed on a minimalist silver laptop screen. The interface features vibrant neon green line charts showing positive market trends against a pristine white and light grey background. Soft cinematic lighting illuminates the scene in a professional light-mode aesthetic, emphasizing precision, speed, and modern corporate financial technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAadb2BWYbEUjpHOtnNjfDgYpOB0VkE2wiZpOTtlKKTQjZY139obhtEzg6Iu-urnMZLmRUsJR03g-9ZuAWlvz2pziGYCiSKTNOzHpo_xAkZ-SYipN-m-seIK3DFV5ldQNdcBz8IMGJ3BLcxx7ZnZpLIUGG4UfGshoaIW1zc179o6aCxPp5heB2cR-PB-3PBILEtphiJ78TsQn0hkAXzFeD6IN1su3vWQCTEgimYzE7XOk9TBELdu1NWL7bKWn33Wg9Xh_S5u2tV3rJO"/>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="py-xxl bg-surface px-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="mb-xl">
+<h2 class="font-display text-headline-lg text-on-background mb-sm">Tools for every trader</h2>
+<p class="text-secondary font-body-md">Advanced features packaged in an interface built for clarity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Feature 1: Advanced Charting -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl ghost-border bg-surface-container-lowest p-lg hover:border-primary/30 transition-colors">
+<div class="flex flex-col md:flex-row gap-lg">
+<div class="md:w-1/2 space-y-md">
+<span class="material-symbols-outlined text-primary text-3xl">show_chart</span>
+<h3 class="font-headline-md text-on-background">Advanced Charting</h3>
+<p class="text-secondary font-body-sm">Customize your view with technical indicators like RSI, MACD, and Moving Averages. Our high-performance engine renders data in real-time without a hint of lag.</p>
+<ul class="space-y-sm pt-4">
+<li class="flex items-center gap-2 text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> 100+ Indicators
+                                    </li>
+<li class="flex items-center gap-2 text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Multi-timeframe view
+                                    </li>
+</ul>
+</div>
+<div class="md:w-1/2 bg-surface-container-high rounded-lg p-base overflow-hidden border border-outline-variant/30">
+<div class="w-full h-full bg-surface-container-lowest rounded-md flex items-end p-4 gap-1 min-h-[200px]">
+<!-- Simulated Sparkline -->
+<div class="flex-1 bg-primary-container/20 rounded-t h-[40%] animate-pulse"></div>
+<div class="flex-1 bg-primary-container/40 rounded-t h-[60%]"></div>
+<div class="flex-1 bg-primary-container/20 rounded-t h-[30%]"></div>
+<div class="flex-1 bg-primary-container/60 rounded-t h-[80%]"></div>
+<div class="flex-1 bg-primary-container/40 rounded-t h-[50%]"></div>
+<div class="flex-1 bg-primary-container/80 rounded-t h-[95%]"></div>
+<div class="flex-1 bg-primary-container/40 rounded-t h-[45%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Feature 2: Real-time Data -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-lg flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-headline-md mb-md">Real-Time Data Streams</h3>
+<p class="opacity-80 font-body-sm">Never miss a beat with zero-latency price updates. Every fraction of a cent matters.</p>
+</div>
+<div class="mt-lg relative z-10">
+<div class="font-data-mono text-3xl font-bold">$42,941.20</div>
+<div class="text-primary-fixed font-label-md">+2.41% Today</div>
+</div>
+<!-- Abstract neon line art -->
+<div class="absolute -bottom-4 -right-4 opacity-20 rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'wght' 100;">monitoring</span>
+</div>
+</div>
+<!-- Feature 3: Security -->
+<div class="md:col-span-4 ghost-border bg-surface-container-lowest p-lg rounded-xl">
+<span class="material-symbols-outlined text-primary mb-md">shield_lock</span>
+<h3 class="font-headline-md mb-md">Fortress Security</h3>
+<p class="text-secondary font-body-sm">Two-factor authentication, biometric login, and end-to-end encryption keep your assets safe and your mind at peace.</p>
+</div>
+<!-- Feature 4: Portfolio Management -->
+<div class="md:col-span-8 ghost-border bg-surface-container-lowest rounded-xl p-lg flex items-center gap-xl">
+<div class="hidden sm:block w-1/3">
+<div class="grid grid-cols-2 gap-2">
+<div class="h-16 bg-surface-container-high rounded-md"></div>
+<div class="h-16 bg-surface-container-high rounded-md"></div>
+<div class="h-16 bg-surface-container-high rounded-md"></div>
+<div class="h-16 bg-surface-container-high rounded-md"></div>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md mb-md">Unified Portfolio View</h3>
+<p class="text-secondary font-body-sm">Stocks, Crypto, and Options all in one place. Analyze your diversification and performance with one-click reporting.</p>
+<button class="mt-md text-primary font-bold text-label-md flex items-center gap-1 hover:gap-2 transition-all">
+                                View demo <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Ticker Row (Auto-scrolling) -->
+<div class="bg-surface-container-lowest border-y border-outline-variant py-4 overflow-hidden whitespace-nowrap">
+<div class="flex gap-12 items-center animate-infinite-scroll">
+<!-- Stock Item -->
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">AAPL</span>
+<span class="font-data-mono text-label-md">$189.42</span>
+<span class="text-primary text-label-sm">+1.24%</span>
+<div class="w-16 h-4 bg-primary/10 rounded overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">BTC</span>
+<span class="font-data-mono text-label-md">$63,241.00</span>
+<span class="text-primary text-label-sm">+0.85%</span>
+<div class="w-16 h-4 bg-primary/10 rounded overflow-hidden">
+<div class="h-full bg-primary w-1/2"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">TSLA</span>
+<span class="font-data-mono text-label-md">$175.20</span>
+<span class="text-error text-label-sm">-2.14%</span>
+<div class="w-16 h-4 bg-error/10 rounded overflow-hidden">
+<div class="h-full bg-error w-1/3"></div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">NVDA</span>
+<span class="font-data-mono text-label-md">$892.40</span>
+<span class="text-primary text-label-sm">+4.12%</span>
+<div class="w-16 h-4 bg-primary/10 rounded overflow-hidden">
+<div class="h-full bg-primary w-4/5"></div>
+</div>
+</div>
+<!-- Duplicate for seamless scroll -->
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">AAPL</span>
+<span class="font-data-mono text-label-md">$189.42</span>
+<span class="text-primary text-label-sm">+1.24%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-bold text-label-md">BTC</span>
+<span class="font-data-mono text-label-md">$63,241.00</span>
+<span class="text-primary text-label-sm">+0.85%</span>
+</div>
+</div>
+</div>
+<!-- Download CTA Section -->
+<section class="py-xxl px-margin-desktop text-center bg-surface-container-lowest">
+<div class="max-w-3xl mx-auto space-y-lg">
+<h2 class="font-display text-display text-on-background">Join the revolution.</h2>
+<p class="font-body-lg text-secondary">Start your journey today with $0 commission on trades. Download the award-winning desktop experience.</p>
+<div class="flex flex-col items-center gap-md">
+<button class="bg-primary text-on-primary px-12 py-5 rounded-full text-headline-md font-bold hover:shadow-xl active:scale-95 transition-all w-full sm:w-auto">
+                        Download Now
+                    </button>
+<p class="text-label-sm text-secondary italic">Available for macOS 12+ and Windows 10+</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg pt-xl opacity-60">
+<div class="flex flex-col items-center gap-2">
+<span class="text-display font-bold text-on-background">4.8</span>
+<span class="font-label-sm">APP STORE RATING</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-display font-bold text-on-background">0$</span>
+<span class="font-label-sm">COMMISSION FEES</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-display font-bold text-on-background">24/7</span>
+<span class="font-label-sm">LIVE SUPPORT</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-display font-bold text-on-background">SIP</span>
+<span class="font-label-sm">INSURED ACCOUNT</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-outline-variant py-xxl px-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-xl mb-xl">
+<div class="col-span-2 space-y-md">
+<a class="font-display text-headline-md font-bold text-primary" href="#">Investing for Everyone</a>
+<p class="text-secondary font-body-sm max-w-xs">
+                        Democratizing finance through technology and education. Invest in stocks, crypto, and more.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-primary-container/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-on-background">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-primary-container/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-on-background">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-md font-bold text-on-background">Products</h4>
+<ul class="space-y-sm text-secondary text-label-md">
+<li><a class="hover:text-primary" href="#">Stocks &amp; Funds</a></li>
+<li><a class="hover:text-primary" href="#">Options</a></li>
+<li><a class="hover:text-primary" href="#">Crypto</a></li>
+<li><a class="hover:text-primary" href="#">Gold</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-md font-bold text-on-background">Company</h4>
+<ul class="space-y-sm text-secondary text-label-md">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Blog</a></li>
+<li><a class="hover:text-primary" href="#">Press</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h4 class="font-label-md font-bold text-on-background">Support</h4>
+<ul class="space-y-sm text-secondary text-label-md">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">System Status</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-lg border-t border-outline-variant text-secondary text-[10px] leading-relaxed">
+<p class="mb-4">© 2024 Robinhood. All rights reserved. All investments involve risk and the past performance of a security, or financial product does not guarantee future results or returns. Keep in mind that while diversification may help spread risk it does not assure a profit, or protect against loss, in a down market. There is always the potential of losing money when you invest in securities, or other financial products. Investors should consider their investment objectives and risks carefully before investing.</p>
+<div class="flex gap-6">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Disclosures</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const ticker = document.querySelector('.animate-infinite-scroll');
+            if (ticker) {
+                // Simple clone for seamless effect if not already handled by CSS
+                const content = ticker.innerHTML;
+                ticker.innerHTML = content + content + content;
+            }
+
+            // Reveal animations on scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.ghost-border').forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+<style>
+        @keyframes infinite-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+            animation: infinite-scroll 40s linear infinite;
+        }
+    </style>
+</body></html>

@@ -1,36 +1,421 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>64. Wireframe UI - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_OS_v1.0.4 // WIREFRAME_CORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#ffffff",
+                    "outline": "#85967c",
+                    "secondary-fixed": "#00fbfb",
+                    "background": "#001a2c", /* Adjusted to Blueprint Blue */
+                    "surface-container-high": "#002a45",
+                    "primary-container": "#39ff14",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#baccb0",
+                    "inverse-primary": "#106e00",
+                    "surface-bright": "#393939",
+                    "tertiary": "#fff8f7",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "error-container": "#93000a",
+                    "surface-dim": "#131313",
+                    "on-secondary-fixed": "#002020",
+                    "on-primary-fixed-variant": "#095300",
+                    "on-tertiary-fixed-variant": "#930100",
+                    "primary": "#efffe3",
+                    "outline-variant": "#004b7a",
+                    "surface": "#001a2c",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed": "#410000",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary-fixed": "#ffdad4",
+                    "surface-container-highest": "#353535",
+                    "tertiary-fixed-dim": "#ffb4a8",
+                    "tertiary-container": "#ffd3cc",
+                    "secondary-fixed-dim": "#00dddd",
+                    "primary-fixed": "#79ff5b",
+                    "on-secondary-container": "#007070",
+                    "on-error": "#690005",
+                    "surface-variant": "#353535",
+                    "surface-container-lowest": "#000d16",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary": "#053900",
+                    "surface-tint": "#2ae500",
+                    "secondary-container": "#00fbfb",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-container": "#107100",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed": "#022100",
+                    "surface-container": "#20201f",
+                    "on-tertiary-container": "#c50100",
+                    "primary-fixed-dim": "#2ae500",
+                    "on-tertiary": "#690100",
+                    "on-secondary": "#003737"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "container-max": "1440px",
+                    "margin": "24px"
+            },
+            "fontFamily": {
+                    "display-sm": ["Space Grotesk"],
+                    "label-caps": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "code-sm": ["JetBrains Mono"],
+                    "headline-sm": ["Space Grotesk"],
+                    "body-md": ["JetBrains Mono"],
+                    "body-lg": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-sm": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "code-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        :root {
+            --blueprint-grid: rgba(0, 251, 251, 0.1);
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #001a2c;
+            background-image: 
+                linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #00fbfb;
+            cursor: crosshair;
+        }
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .wireframe-border {
+            border: 1px solid #00fbfb;
+            position: relative;
+        }
+        .wireframe-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #00fbfb;
+            border-left: 2px solid #00fbfb;
+        }
+        .wireframe-border::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #00fbfb;
+            border-right: 2px solid #00fbfb;
+        }
+        .glitch-text:hover {
+            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .perspective-container {
+            perspective: 1000px;
+        }
+        .wireframe-mesh {
+            transform-style: preserve-3d;
+            animation: rotate-wireframe 20s linear infinite;
+        }
+        @keyframes rotate-wireframe {
+            from { transform: rotateY(0deg) rotateX(10deg); }
+            to { transform: rotateY(360deg) rotateX(10deg); }
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+<body class="font-body-md overflow-x-hidden">
+<div class="scanline"></div>
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50 backdrop-blur-md bg-background border-b-2 border-outline-variant shadow-[inset_0px_0px_10px_rgba(57,255,20,0.1)]">
+<div class="font-display-sm text-display-sm font-bold tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(57,255,20,0.4)] cursor-crosshair">
+            NEURAL_OS_v1.0.4
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">64. Wireframe UI</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Blueprint style, technical outlines, showing the "skeleton" of the app.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
+<nav class="hidden md:flex gap-8 items-center font-label-caps text-label-caps">
+<a class="text-primary-container border-b-2 border-primary-container pb-1 transition-all active:scale-95" href="#">NODE_SYS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 hover:bg-surface-container-highest active:scale-95" href="#">QUANTUM_CORE</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 hover:bg-surface-container-highest active:scale-95" href="#">CYBER_SEC</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 hover:bg-surface-container-highest active:scale-95" href="#">MECHA_IND</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-lowest border border-outline-variant px-3 py-1">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-code-sm font-code-sm text-secondary w-32 placeholder:text-outline" placeholder="SYS_QUERY..." type="text"/>
+</div>
+<div class="flex gap-3 text-primary-container">
+<span class="material-symbols-outlined cursor-crosshair hover:bg-surface-container-highest p-1 transition-all">sensors</span>
+<span class="material-symbols-outlined cursor-crosshair hover:bg-surface-container-highest p-1 transition-all">terminal</span>
+<span class="material-symbols-outlined cursor-crosshair hover:bg-surface-container-highest p-1 transition-all">notifications</span>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 active:scale-95 transition-all">
+                SYSTEM_LOGIN
+            </button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section -->
+<section class="min-h-[921px] flex flex-col items-center justify-center relative px-gutter py-20 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-30">
+
+</div>
+<div class="z-10 text-center max-w-4xl space-y-6 perspective-container">
+<div class="inline-block border border-primary-container px-3 py-1 mb-4">
+<span class="font-code-sm text-code-sm text-primary-container">[ STATUS: WIREFRAME_MODE_ACTIVE ]</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-secondary uppercase leading-none glitch-text">
+                    Engineering the <br/><span class="text-secondary-fixed">Next Synthesis</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    A multi-layered architectural core built for high-latency environments. 
+                    Deconstruct complexity into foundational geometry.
+                </p>
+<div class="flex flex-wrap justify-center gap-6 mt-10">
+<button class="bg-secondary-fixed text-on-secondary px-8 py-4 font-label-caps text-label-caps flex items-center gap-2 group active:translate-y-1 transition-transform">
+                        INITIALIZE_SKELETON
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-secondary-fixed text-secondary-fixed px-8 py-4 font-label-caps text-label-caps hover:bg-secondary-fixed/10 transition-all">
+                        VIEW_SCHEMATICS
+                    </button>
+</div>
+</div>
+<!-- 3D Wireframe Vehicle Model (Visual Representation) -->
+<div class="mt-20 w-full max-w-5xl h-96 relative wireframe-mesh perspective-container">
+<div class="absolute inset-0 flex items-center justify-center">
+<!-- This represents the requested 3D wireframe vehicle/building -->
+<div class="w-full h-full border border-secondary-fixed/20 relative rotate-12 flex items-center justify-center">
+<div class="w-4/5 h-2/3 border-2 border-secondary-fixed relative">
+<div class="absolute top-0 left-0 w-full h-px bg-secondary-fixed shadow-[0_0_10px_#00fbfb]"></div>
+<div class="absolute bottom-0 left-0 w-full h-px bg-secondary-fixed"></div>
+<div class="absolute top-0 left-1/2 w-px h-full bg-secondary-fixed"></div>
+<div class="absolute top-1/2 left-0 w-full h-px bg-secondary-fixed"></div>
+<!-- Cross Bracing -->
+<div class="absolute inset-0 border border-secondary-fixed/40 rotate-45 scale-75"></div>
+<div class="absolute inset-0 border border-secondary-fixed/40 -rotate-45 scale-75"></div>
+<div class="absolute -top-10 -right-10 text-secondary-fixed font-code-sm text-[10px]">VEH_REF: RX-9092</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Sections -->
+<section class="px-gutter py-24 max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Card -->
+<div class="md:col-span-8 wireframe-border p-8 bg-surface-container-lowest/50 backdrop-blur-sm group hover:border-primary-container transition-colors">
+<div class="flex justify-between items-start mb-12">
+<h2 class="font-display-sm text-display-sm text-secondary">CORE_MODULES</h2>
+<span class="font-code-sm text-code-sm text-outline">MOD_ID: 001-A</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="space-y-4">
+<div class="w-12 h-12 border border-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed">polyline</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-secondary">Vector Processing</h3>
+<p class="text-on-surface-variant font-body-md">Optimized pathfinding and spatial analysis for mecha-industrial applications.</p>
+</div>
+<div class="space-y-4">
+<div class="w-12 h-12 border border-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed">grid_view</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-secondary">HUD_Grid V2</h3>
+<p class="text-on-surface-variant font-body-md">Dynamic layout engine providing zero-latency data overlays.</p>
+</div>
+</div>
+<div class="mt-12 flex justify-end">
+<a class="font-label-caps text-label-caps text-secondary-fixed flex items-center gap-2 group-hover:underline" href="#">
+                            EXPLORE_ASSETS <span class="material-symbols-outlined">north_east</span>
+</a>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 wireframe-border p-8 flex flex-col justify-between bg-surface-container-lowest/50">
+<div>
+<div class="text-[10px] text-outline font-code-sm mb-4">SERIAL_NUM: 88-X21</div>
+<h2 class="font-headline-lg text-headline-lg text-secondary mb-4">Real-time Telemetry</h2>
+<div class="h-32 border-b border-l border-outline-variant flex items-end gap-1 p-2">
+<div class="w-full bg-secondary-fixed/40" style="height: 40%"></div>
+<div class="w-full bg-secondary-fixed/60" style="height: 70%"></div>
+<div class="w-full bg-secondary-fixed/30" style="height: 30%"></div>
+<div class="w-full bg-secondary-fixed/80" style="height: 90%"></div>
+<div class="w-full bg-secondary-fixed/50" style="height: 60%"></div>
+</div>
+</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant mt-6">
+                        FEED_STATUS: <span class="text-primary-container">STABLE</span><br/>
+                        LATENCY: <span class="text-primary-container">0.02ms</span>
+</p>
+</div>
+<!-- Side Card 2 -->
+<div class="md:col-span-4 wireframe-border p-8 bg-surface-container-lowest/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-9xl">security</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-secondary mb-4 uppercase">Encryption</h2>
+<p class="text-on-surface-variant font-body-md mb-8">Quantum-hardened layers protecting core schematic data.</p>
+<div class="space-y-2">
+<div class="h-2 w-full bg-outline-variant">
+<div class="h-full bg-primary-container w-3/4"></div>
+</div>
+<div class="flex justify-between font-code-sm text-[10px] text-outline">
+<span>LAYER_STRENGTH</span>
+<span>75%</span>
+</div>
+</div>
+</div>
+<!-- Featured Image Card -->
+<div class="md:col-span-8 wireframe-border overflow-hidden group">
+<div class="aspect-video relative">
+<img alt="Cyber security concept" class="w-full h-full object-cover grayscale opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="A futuristic technical blueprint of a high-security computer server farm shown in a glowing cyan wireframe style. The image is composed of intricate lines and geometric shapes over a deep blueprint-blue background. Minimalist lighting effects and technical data callouts create a sophisticated, high-performance command center aesthetic. The overall mood is cold, precise, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQUkG9IaWOmyL6gCs_vH8bTv2RhNs_hxb_M27x-heazGAsZRC1o9OoUy0G0_rbIXgPAZNQLtUGc1TQojfbJHgkuABUNhy1NIK8Br12Jf51vKrOG6P32iorQIkM6KBf4pInUhHU22UXcsSlTntK61DdpVNWTJkctTwf6McivG8e0ZttjgbZzcQ7PoAoDuo_3SDt3Pah2WCKTMnCFDLvtIqDLZvAvFPkLHwOsADM4ov6iBVBCawvNUVYZGCirqtg885KDeINQWbcfnVp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h2 class="font-display-sm text-display-sm text-secondary mb-2">Architectural_Integrity</h2>
+<p class="text-secondary-fixed font-code-sm">SYSTEM_SCAN: COMPLETE // NO_THREATS_DETECTED</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Section -->
+<section class="border-y border-outline-variant py-20 bg-surface-container-lowest/20">
+<div class="px-gutter max-w-container-max mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-secondary mb-2">1.2B</div>
+<div class="font-label-caps text-label-caps text-outline">OPERATIONS / SEC</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-secondary mb-2">0.00%</div>
+<div class="font-label-caps text-label-caps text-outline">DATA_LEAKAGE</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-secondary mb-2">256</div>
+<div class="font-label-caps text-label-caps text-outline">CORE_NODES</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-secondary mb-2">∞</div>
+<div class="font-label-caps text-label-caps text-outline">SCALABILITY</div>
+</div>
+</div>
+</section>
+</main>
+<!-- SideNavBar (Hidden on Mobile, Docked Left) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-surface-container-lowest flex-col z-40 border-r-2 border-outline-variant font-code-sm text-code-sm">
+<div class="p-6 border-b border-outline-variant">
+<div class="font-display-sm text-display-sm text-primary-container mb-1">OP_SEC_01</div>
+<div class="text-[10px] text-primary-container animate-pulse">STATUS: ENCRYPTED</div>
+</div>
+<nav class="flex-grow py-4">
+<a class="flex items-center gap-4 px-6 py-4 bg-primary-container text-on-primary-container font-bold border-l-4 border-on-primary-container active:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">code</span> TERMINAL
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span> HUD_GRID
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">polyline</span> WIRE_FRAME
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">speed</span> OUTRUN
+            </a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">electrical_services</span> GLITCH
+            </a>
+</nav>
+<div class="p-6 mt-auto space-y-4">
+<button class="w-full py-3 border border-primary-container text-primary-container hover:bg-primary-container hover:text-on-primary-container transition-all text-xs font-bold uppercase tracking-widest">
+                INITIATE_BREACH
+            </button>
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary-container" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> SETTINGS
+                </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary-container" href="#">
+<span class="material-symbols-outlined text-sm">power_settings_new</span> LOGOUT
+                </a>
+</div>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 mt-auto bg-background border-t-2 border-outline-variant font-code-sm text-code-sm">
+<div class="font-label-caps text-label-caps text-primary-container">
+            ©202X NEURAL_NET_GLOBAL // ALL_RIGHTS_RESERVED
         </div>
-    </div>
-</body>
-</html>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-outline hover:text-primary-container transition-opacity hover:opacity-80 cursor-wait" href="#">DECRYPT_DATA</a>
+<a class="text-outline hover:text-primary-container transition-opacity hover:opacity-80 cursor-wait" href="#">ENCRYPTION_LOGS</a>
+<a class="text-outline hover:text-primary-container transition-opacity hover:opacity-80 cursor-wait" href="#">TERMINAL_API</a>
+<a class="text-outline hover:text-primary-container transition-opacity hover:opacity-80 cursor-wait" href="#">CORE_DUMP</a>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="text-[10px] text-outline uppercase tracking-widest">SYSTEM_LIVE_CONNECTION</span>
+</div>
+</footer>
+<script>
+        // Micro-interaction for mouse follower (technical effect)
+        const scanline = document.querySelector('.scanline');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            // Add subtle glow under cursor if needed
+        });
+
+        // Glitch effect on scroll
+        window.addEventListener('scroll', () => {
+            const h1 = document.querySelector('h1');
+            if(Math.random() > 0.98) {
+                h1.style.textShadow = '2px 0 #00fbfb, -2px 0 #39ff14';
+                setTimeout(() => {
+                    h1.style.textShadow = 'none';
+                }, 50);
+            }
+        });
+    </script>
+</body></html>

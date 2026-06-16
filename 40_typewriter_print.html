@@ -1,36 +1,391 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>40. Typewriter/Print - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EPOCH ARCHIVE | Typewriter Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        /* Typewriter Specific Overrides & Textures */
+        :root {
+            --paper-texture: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            background-image: var(--paper-texture);
+            font-family: 'Courier Prime', 'JetBrains Mono', monospace;
+        }
+
+        .paper-canvas {
+            background-color: #1c1b1b;
+            background-image: var(--paper-texture);
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .ink-bleed {
+            text-shadow: 0 0 1px rgba(229, 226, 225, 0.3);
+            filter: blur(0.2px);
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background: #ffabf3;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .slug-line {
+            border-left: 2px solid #a4899d;
+            padding-left: 12px;
+            text-transform: uppercase;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .ink-underline {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: #ffabf3;
         }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#00dddd",
+                    "surface-tint": "#ffabf3",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#ffffff",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#510051",
+                    "surface-container": "#20201f",
+                    "inverse-on-surface": "#313030",
+                    "outline-variant": "#564052",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#a900a9",
+                    "outline": "#a4899d",
+                    "on-primary-fixed-variant": "#810081",
+                    "tertiary-container": "#c8a900",
+                    "surface-variant": "#353535",
+                    "secondary-container": "#00fbfb",
+                    "background": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "primary": "#ffabf3",
+                    "on-secondary": "#003737",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-highest": "#353535",
+                    "surface-bright": "#393939",
+                    "primary-fixed": "#ffd7f5",
+                    "on-primary": "#5b005b",
+                    "on-primary-fixed": "#380038",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary": "#3a3000",
+                    "tertiary": "#e9c400",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#ffabf3",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "primary-container": "#ff00ff",
+                    "on-surface-variant": "#dcbed4",
+                    "on-secondary-fixed": "#002020",
+                    "on-secondary-container": "#007070",
+                    "on-tertiary-container": "#4b3e00",
+                    "secondary-fixed": "#00fbfb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Courier Prime", "monospace"],
+                    "body-lg": ["Courier Prime", "monospace"],
+                    "headline-lg-mobile": ["Sora", "sans-serif"],
+                    "headline-lg": ["Sora", "sans-serif"],
+                    "label-md": ["JetBrains Mono", "monospace"],
+                    "headline-md": ["Sora", "sans-serif"],
+                    "label-sm": ["JetBrains Mono", "monospace"],
+                    "headline-xl": ["Sora", "sans-serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">40. Typewriter/Print</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Monospaced fonts, ink bleed textures, and off-white paper backgrounds.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<nav class="bg-surface sticky top-0 z-50 border-b border-outline-variant shadow-md dark:shadow-[0_0_15px_rgba(255,171,243,0.3)]">
+<div class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary">EPOCH ARCHIVE</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md" href="#">Eras</a>
+<a class="text-on-surface-variant font-medium font-body-md hover:text-primary transition-colors duration-300" href="#">Artifacts</a>
+<a class="text-on-surface-variant font-medium font-body-md hover:text-primary transition-colors duration-300" href="#">Curators</a>
+<a class="text-on-surface-variant font-medium font-body-md hover:text-primary transition-colors duration-300" href="#">Timeline</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center border border-outline-variant px-4 py-1">
+<span class="material-symbols-outlined text-outline-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md placeholder:text-outline-variant uppercase" placeholder="QUERY ARCHIVE..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-md uppercase active:scale-95 transition-transform">
+                    Sign In
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin py-16 space-y-24">
+<!-- Hero Section: Editorial Layout -->
+<header class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-7 space-y-8">
+<div class="slug-line text-primary font-label-md">FILE_001 // INITIALIZATION</div>
+<h1 class="font-headline-xl text-headline-xl ink-bleed leading-tight">
+                    The Digital <br> <span class="text-primary italic">Manuscript</span> <br> of History.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Archive your legacy with the tactile precision of a 1920s Underwood. A modern repository built on the aesthetics of ink, bone, and iron.
+                </p>
+<div class="flex items-center gap-6 pt-4">
+<button class="bg-on-surface text-background px-8 py-4 font-label-md uppercase hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        Begin Drafting
+                    </button>
+<a class="ink-underline font-label-md text-on-surface-variant hover:text-on-surface" href="#">READ DOCUMENTATION</a>
+</div>
+</div>
+<div class="md:col-span-5 relative">
+<div class="paper-canvas p-6 border-2 border-outline-variant aspect-[3/4] flex flex-col justify-between">
+<div class="space-y-4">
+<div class="h-1 bg-outline-variant w-1/3"></div>
+<div class="h-px bg-outline-variant w-full opacity-30"></div>
+<div class="h-px bg-outline-variant w-full opacity-30"></div>
+<div class="h-px bg-outline-variant w-full opacity-30"></div>
+<p class="font-body-md text-sm text-outline-variant leading-relaxed">
+                            [TRANSMISSION START]<br>
+                            Subject: Aesthetic Redundancy<br>
+                            Date: 14-Oct-2024<br><br>
+                            The interface is the machine. The machine is the artifact. We no longer just view history; we type it into existence.
+                        </p>
+</div>
+<div class="flex justify-between items-end">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<div class="text-right">
+<div class="text-xs font-label-sm text-outline">VERIFIED AUTHENTIC</div>
+<div class="font-label-md uppercase">Archive Seal 88-B</div>
+</div>
+</div>
+</div>
+<!-- Floating Element: Animated Shader -->
+<div class="absolute -bottom-8 -left-8 w-48 h-48 border border-outline-variant bg-surface-container overflow-hidden hidden md:block">
+
+</div>
+</div>
+</header>
+<!-- Bento Grid: Artifact Exploration -->
+<section class="space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant pb-8">
+<div>
+<div class="slug-line text-tertiary font-label-md">SECTION_02 // CURATED_ARTIFACTS</div>
+<h2 class="font-headline-lg text-headline-lg mt-2">Classified Records</h2>
+</div>
+<p class="font-body-md text-on-surface-variant max-w-sm text-right">
+                    Access restricted data clusters from the mid-20th century digital expansion.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden bg-surface-container-high border border-outline-variant p-8 flex flex-col justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="space-y-4">
+<span class="font-label-sm px-2 py-1 border border-primary text-primary">ENCRYPTED</span>
+<h3 class="font-headline-md text-headline-md leading-none">The Turing <br>Correspondence</h3>
+</div>
+<div class="mt-8">
+<img class="w-full grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 h-64 object-cover" data-alt="A vintage close-up of a mechanical typewriter keyboard in a dimly lit, atmospheric office. The lighting is low-key with a soft sepia warmth, emphasizing the metallic textures of the keys and the aged paper nearby. The overall aesthetic is moody and historical, echoing a mid-century detective's office or an archivist's secret study." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU2wwkQf9Tr-I6-GGz_QoVimCawAaLkJPDh2GzrbF8_ndW81MoZ8o0AYkIrvRRRFJj4NJmtn61fo_UN_yRN7iRXvSoChYeUOda6q_U2Re44GMospFw63y8-_Ca-MRv4MI1lGJhFEdCGBFCxcxq_yi-0zXezc30y0cLVWWtVhC_FYvI4Rsf6rTkGy72AkV-y5AsHFB58Yqb6m64gntQp0DOCXyFm-aklZ2nUNcN-Dn0ICTqudYfL1eHpoYUis-IXGrw8RvPQvOO7pDN">
+</div>
+<div class="mt-6 font-body-md text-on-surface-variant group-hover:text-on-surface">
+                        Deciphered notes from the early pioneers of computational linguistics. 
+                        <div class="mt-4 inline-flex items-center gap-2 text-primary font-label-md">
+                            OPEN FILE <span class="material-symbols-outlined">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Secondary Cards -->
+<div class="bg-surface-container border border-outline-variant p-6 flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="slug-line font-label-sm text-outline">REF: 902-A</div>
+<div class="mt-4">
+<h4 class="font-body-lg font-bold">Paper Trails</h4>
+<p class="text-sm font-body-md text-on-surface-variant mt-2">Tracking the physical spread of digital information before the cloud.</p>
+</div>
+<span class="material-symbols-outlined text-tertiary mt-6" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="bg-surface-container border border-outline-variant p-6 flex flex-col justify-between hover:bg-surface-container-high transition-colors">
+<div class="slug-line font-label-sm text-outline">REF: 114-C</div>
+<div class="mt-4">
+<h4 class="font-body-lg font-bold">Loom Codes</h4>
+<p class="text-sm font-body-md text-on-surface-variant mt-2">Jacquard's influence on the binary logic of the future.</p>
+</div>
+<span class="material-symbols-outlined text-secondary-fixed-dim mt-6" style="font-variation-settings: 'FILL' 1;">texture</span>
+</div>
+<!-- Wide Card -->
+<div class="md:col-span-2 bg-surface border border-outline-variant p-8 flex items-center gap-8 group">
+<div class="w-1/3 overflow-hidden">
+<img class="w-full grayscale group-hover:scale-110 transition-transform duration-500" data-alt="An artistic high-angle shot of stacks of weathered, yellowed paper organized on a dark wood table. A simple black ink pen rests on the top sheet. The scene is illuminated by a sharp, directional light creating high-contrast shadows, fitting a minimalist editorial design with a bone-white and charcoal-black palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKqVTrfQeSe26L05YxT6Xr-CyRSxM7Ppgffb-IWURlf-zMCNB7yowA_N4LM1IzyjmBnKLH1SNtqF6EqmTJse5fpOcyUG7lujxUlTi3FlqWkSSztUtbZ90FwJvUmOsNLyqQo4UXxza2eF8YFjmxJLibhs7byBfiVp7SuZ_kMtvV2WWkw7XXPnAo7lPSlLpjM47zkicraqBfP7-BdVqjwIsDx2xgC_98agVIZhuXlkFQT8ptU3J-PgWNElOvlGo-KFAfr8fNgDtJH1cA">
+</div>
+<div class="w-2/3 space-y-4">
+<h4 class="font-headline-md text-2xl">Manual for Modern Living</h4>
+<p class="text-sm font-body-md text-on-surface-variant">A collection of instructions for a digital-free existence, found in an abandoned server farm.</p>
+<button class="font-label-md underline underline-offset-4 text-primary">REQUEST DECLASSIFICATION</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Typing Interaction -->
+<section class="paper-canvas border border-outline-variant p-12 md:p-24 text-center space-y-8">
+<div class="max-w-2xl mx-auto space-y-6">
+<span class="material-symbols-outlined text-6xl text-primary-fixed-dim">terminal</span>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Your History is <br> <span class="ink-bleed" id="typing-text"></span><span class="typewriter-cursor"></span></h3>
+<p class="font-body-md text-on-surface-variant">Join the guild of digital archivists. We provide the tools, you provide the narrative.</p>
+<div class="pt-8">
+<input class="bg-surface-container border-2 border-outline-variant px-6 py-4 w-full md:w-80 text-on-surface placeholder:text-outline-variant font-label-md focus:border-primary transition-colors outline-none" placeholder="ENTER_EMAIL_ADRESS" type="email">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-md uppercase mt-4 md:mt-0 md:-ml-1 relative z-10 hover:brightness-110 transition-all">Submit Entry</button>
+</div>
+</div>
+</section>
+<!-- Editorial Feature -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<div class="slug-line text-secondary font-label-md mb-6">MANIFESTO_EXCERPT</div>
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface leading-relaxed italic border-l-4 border-outline-variant pl-8">
+<p>"The clicking of keys is the heartbeat of a culture. We have traded the weight of ink for the weightlessness of photons, and in doing so, we have lost the resistance that makes creation meaningful."</p>
+<p class="not-italic text-outline-variant text-sm">— ELIZA MORGAN, Chief Curator</p>
+</div>
+<div class="grid grid-cols-2 gap-8 mt-12">
+<div class="space-y-2">
+<div class="text-3xl font-black text-primary">2.4M</div>
+<div class="font-label-sm text-outline-variant uppercase">PAGES ARCHIVED</div>
+</div>
+<div class="space-y-2">
+<div class="text-3xl font-black text-primary">1890+</div>
+<div class="font-label-sm text-outline-variant uppercase">CURATED ERAS</div>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 bg-surface-container-lowest p-4 border border-outline-variant shadow-2xl rotate-1">
+<img class="w-full grayscale contrast-125" data-alt="A vintage black manual typewriter sitting on a white desk in a minimalist room. The lighting is crisp and cool, casting long, sharp shadows. The background is a clean bone-white wall. The image capture is high-definition, highlighting the mechanical complexity of the typewriter's arms and ribbons in a professional, gallery-style photograph." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjVCXCfR13I7G1cslsr02uSfJydRNai4j4y0fa_NqJyvfgfuZwLifwUPv3-SeXGO3VDKjOSsqW13TmtqK4Dzo--Y3DYhEV6ftOP_-we_ZCPyujLszyyC7dIzB7Cf8MpIUsx76O55i5h6sadxz_OJlnEXj4Nt1-seiZaJ2iR7EIAOGev5nDsIAQ0w_CeTOWfM6jFhOBrK4I4N_sXw2xKJSs8SrHZymvRyKI59Js5LkfF9dGIL3AtpMrRGg0cBHvmqDC789TtcGyiRUZ">
+<div class="mt-4 flex justify-between items-center px-2">
+<span class="text-xs font-label-sm text-outline italic">PLATE 4: THE WRITING ENGINE</span>
+<span class="text-xs font-label-sm text-outline">ORIGIN: GERMANY, 1934</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+<div class="text-center md:text-left">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">EPOCH ARCHIVE</div>
+<p class="font-label-sm text-on-surface-variant mt-2 tracking-widest uppercase">© 1984-2024 DIGITAL HISTORY MUSEUM. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-md uppercase tracking-widest hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant font-label-md uppercase tracking-widest hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-md uppercase tracking-widest hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Archive API</a>
+<a class="text-on-surface-variant font-label-md uppercase tracking-widest hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+<div class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-primary hover:text-on-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">terminal</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Typing Effect
+        const textElement = document.getElementById('typing-text');
+        const phrases = ['Permanent.', 'Tangible.', 'Unforgettable.', 'Inscribed.'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 150;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 100;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 200;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Subtle micro-interaction: ink bleed on scroll
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.ink-bleed');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const blur = Math.min(0.5, (window.scrollY / 2000));
+                    el.style.filter = `blur(${blur}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

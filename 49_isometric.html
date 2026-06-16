@@ -1,36 +1,341 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>49. Isometric - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Bricolage+Grotesque:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary": "#b90538",
+                        "surface-container": "#e6eeff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#ffdadb",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#0053db",
+                        "on-surface": "#121c2a",
+                        "outline": "#737686",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-fixed-variant": "#92002a",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-fixed": "#40000d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-background": "#121c2a",
+                        "tertiary-container": "#007d55",
+                        "secondary-container": "#dc2c4f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#bdffdb",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#006242",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-fixed-dim": "#ffb2b7",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "40px",
+                        "unit": "4px",
+                        "gutter-fluid": "32px",
+                        "gutter-brutalist": "0px",
+                        "isometric-step": "30deg"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["beVietnamPro"],
+                        "display-xl": ["syne"],
+                        "display-lg": ["syne"],
+                        "handwritten-md": ["bricolageGrotesque"],
+                        "headline-md": ["syne"],
+                        "label-mono": ["jetbrainsMono"],
+                        "body-md": ["beVietnamPro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #f8f9ff;
+            overflow-x: hidden;
+        }
+
+        .isometric-scene {
+            transform: rotateX(60deg) rotateZ(-45deg);
+            transform-style: preserve-3d;
+        }
+
+        .isometric-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .isometric-card:hover {
+            transform: translateZ(24px);
+            box-shadow: 20px 20px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .iso-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0, 74, 198, 0.15);
+        }
+
+        .brutalist-border {
+            border: 3px solid #121c2a;
+        }
+
+        .floating-layer {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Perspective grid background */
+        .iso-grid {
+            background-image: 
+                linear-gradient(30deg, #d9e3f6 12%, transparent 12.5%, transparent 87%, #d9e3f6 87.5%, #d9e3f6),
+                linear-gradient(150deg, #d9e3f6 12%, transparent 12.5%, transparent 87%, #d9e3f6 87.5%, #d9e3f6),
+                linear-gradient(30deg, #d9e3f6 12%, transparent 12.5%, transparent 87%, #d9e3f6 87.5%, #d9e3f6),
+                linear-gradient(150deg, #d9e3f6 12%, transparent 12.5%, transparent 87%, #d9e3f6 87.5%, #d9e3f6),
+                linear-gradient(60deg, #dee9fc 25%, transparent 25.5%, transparent 75%, #dee9fc 75%, #dee9fc),
+                linear-gradient(60deg, #dee9fc 25%, transparent 25.5%, transparent 75%, #dee9fc 75%, #dee9fc);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">49. Isometric</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Angled 3D grid perspective, miniature world feel.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface">ART-MORPH</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-secondary underline decoration-4 underline-offset-8 hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container border-2 border-on-surface px-4 py-2 hover:skew-x-6 transition-all">
+<span class="material-symbols-outlined mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-label-mono text-label-mono" placeholder="Search..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all font-headline-md text-headline-md-mobile md:text-headline-md">
+                Inquire
+            </button>
+</div>
+</header>
+<main class="relative overflow-hidden min-h-screen pt-20">
+<!-- Isometric Background Pattern -->
+<div class="absolute inset-0 iso-grid opacity-20 -z-10"></div>
+<!-- Hero Section -->
+<section class="relative px-margin-page py-24 flex flex-col items-center text-center">
+<div class="z-10 max-w-4xl">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-on-surface mb-8 leading-none">
+                    DIMENSIONS <br>
+<span class="text-primary italic">REDEFINED</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    Welcome to Art-Morph, where 3D geometry meets expressive digital craftsmanship. Explore our curated miniature worlds built on a perfect 45-degree perspective.
+                </p>
+<div class="flex gap-4 justify-center">
+<button class="bg-tertiary text-on-tertiary px-10 py-5 border-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] font-headline-md text-headline-md hover:translate-y-[-4px] transition-transform">
+                        Explore World
+                    </button>
+<button class="bg-surface-bright text-on-surface px-10 py-5 border-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] font-headline-md text-headline-md hover:translate-y-[-4px] transition-transform">
+                        View Grid
+                    </button>
+</div>
+</div>
+<!-- Isometric Scene Visualization -->
+<div class="mt-24 perspective-[1000px] w-full flex justify-center">
+<div class="isometric-scene grid grid-cols-3 gap-8 p-12">
+<!-- Isometric Building Block 1 -->
+<div class="isometric-card w-48 h-48 bg-primary-container brutalist-border relative flex items-center justify-center">
+<div class="absolute -top-4 -left-4 w-12 h-12 bg-secondary border-2 border-on-surface z-20"></div>
+<span class="material-symbols-outlined text-on-primary-container text-6xl">architecture</span>
+</div>
+<!-- Isometric Building Block 2 -->
+<div class="isometric-card w-48 h-48 bg-tertiary-container brutalist-border relative flex items-center justify-center translate-z-12">
+<span class="material-symbols-outlined text-on-tertiary-container text-6xl">token</span>
+</div>
+<!-- Isometric Building Block 3 -->
+<div class="isometric-card w-48 h-48 bg-surface-container-highest brutalist-border relative flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-6xl">layers</span>
+</div>
+<!-- Isometric Building Block 4 -->
+<div class="isometric-card w-48 h-48 bg-secondary-container brutalist-border relative flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-6xl">precision_manufacturing</span>
+</div>
+<!-- Isometric Building Block 5 (Hero Image) -->
+<div class="isometric-card w-48 h-48 bg-white brutalist-border overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, isometric 3D render of a futuristic architectural miniature model. The design features sharp angles, soft sky blue and mint green accents, and professional architectural lighting. The scene is bright and airy with high-key illumination reflecting off polished surfaces in a minimalist studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLbmxI6m-hjNizX-9HsE1fRHI-iRlpxPvXPDbIxEQXxwftzssenR8xRnZd-REYFAOQ1a86Ac2jxKU9ZrJvjlvAjTvh1nDXADoG0UHo-o6M0AqySnbnrPTBgvQ4KUkSNTIpOZKBdhGNu2uXFfa-MBmS4wExKB2BYxyDT-iDQ3hPBXavYIvJmuBVTYMMmdgkPtJtCSROhbplnKF_emBDi3T3dw5LOXkePhajFU47HYlYi6qnFA77xXE8EKRnqq6BfNSU_8slOgHdUJpI">
+</div>
+<!-- Isometric Building Block 6 -->
+<div class="isometric-card w-48 h-48 bg-primary brutalist-border relative flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-6xl">view_in_ar</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="px-margin-page py-32 bg-surface-container-low">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-20 text-center">THE ARCHITECTURAL CORE</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-fluid">
+<!-- Large Card -->
+<div class="md:col-span-2 md:row-span-2 bg-white brutalist-border p-12 shadow-[12px_12px_0px_0px_#0053db]">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">view_quilt</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Spatial Mastery</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Our designs live within a rigid 45-degree constraint, proving that limitations often breed the most innovative creative solutions.
+                    </p>
+<img class="w-full h-64 object-cover brutalist-border" data-alt="A macro photography shot of an isometric art installation using colorful glass cubes. The lighting is soft and natural, coming from a large window. Soft mint and pale orange light filters through the glass cubes, creating complex overlapping shadows on a white minimalist grid floor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-uiRc1aNncSqtdFALAX6KhwC90c5TdkpEjN5NxRN5Ajnq667hSXqv5xfc_RA0Be7xCIkvquyplTr4LURwGPdzaJ_MEIfXOtzVfGW_RlbdM6a-uPxDyYhhHYI6RgyEuXzJWeriwIMqPEhJLKH0RLI6qMXxTOZlUh7v908zrL8qarnIvS1gdlr4X4upIfDEsV84UQ4NIMhhkhUx0DqTcKWR-OjySgdWhZekJygFU0m0n7IDumVlWoB_kaQJUnMcTTFguwcf29I1BB82">
+</div>
+<!-- Tall Card -->
+<div class="md:col-span-1 md:row-span-2 bg-primary brutalist-border p-8 flex flex-col justify-end text-on-primary shadow-[12px_12px_0px_0px_rgba(18,28,42,1)]">
+<div class="text-9xl font-display-xl opacity-20 absolute top-0 right-0 leading-none">01</div>
+<span class="material-symbols-outlined text-6xl mb-6">explore</span>
+<h3 class="font-headline-md text-headline-md mb-2">Miniature Theory</h3>
+<p class="font-body-md text-body-md">Reducing the world to its basic geometric components creates a sense of control and wonder.</p>
+</div>
+<!-- Wide Card -->
+<div class="md:col-span-1 bg-tertiary brutalist-border p-8 text-on-tertiary shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<h4 class="font-label-mono text-label-mono uppercase mb-2">System</h4>
+<p class="font-headline-md text-headline-md">Grid Logic</p>
+</div>
+<!-- Regular Card -->
+<div class="md:col-span-1 bg-secondary brutalist-border p-8 text-on-secondary shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<h4 class="font-label-mono text-label-mono uppercase mb-2">Vibe</h4>
+<p class="font-headline-md text-headline-md">Neon Shift</p>
+</div>
+</div>
+</section>
+<!-- Dynamic Studio Section -->
+<section class="px-margin-page py-32 flex flex-col md:flex-row items-center gap-20">
+<div class="w-full md:w-1/2">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/20 brutalist-border -rotate-3 transition-transform group-hover:rotate-0"></div>
+<img class="relative w-full h-[500px] object-cover brutalist-border" data-alt="An artist's workspace dedicated to 3D isometric modeling. The scene shows high-end digital screens displaying 3D grid systems, architectural tools, and miniature physical models on a wooden desk. Bright, clean lighting suggests a high-energy, creative morning environment with soft blue shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN1yE9gP9Pt-KDvIXYBDrq5BqykRNDysuR_H9LTtN-OY6DXXQU3h5tIsv78yrPwMhCZ6910exZZx0QGKviQL9sxh6gpWqJVJQov20NJ4g5TnxWoESYhoxSWu02HKvUi_pBV2ZJcyB_KDnV8Pr0ScDQPRpX8hYaMOgsMc67E-uZ21iDfR3JLBrnn-txsbSDktA2qPq2igLDJQL-G8656I-7ahUPHE504gGh2EClB4KaO_lIHOvnMpj8b1hXJE-y4hD-_dcpErtRAS01">
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-8">
+<h2 class="font-display-lg text-display-lg text-on-surface">CRAFTED IN <br><span class="text-secondary italic">PARALLEL</span></h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4 p-6 bg-surface-container-high brutalist-border hover:translate-x-4 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-4xl">polyline</span>
+<div>
+<h4 class="font-headline-md text-headline-md">Vector Precision</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Every line is calculated for mathematical perfection in a 3:2 ratio.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-surface-container-high brutalist-border hover:translate-x-4 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-secondary text-4xl">palette</span>
+<div>
+<h4 class="font-headline-md text-headline-md">Chromatic Harmony</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our palette utilizes clean, vibrant tones to highlight depth and shadow.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="px-margin-page py-32 text-center bg-inverse-surface text-inverse-on-surface">
+<div class="max-w-2xl mx-auto">
+<span class="material-symbols-outlined text-8xl text-primary mb-8 floating-layer">deployed_code</span>
+<h2 class="font-display-lg text-display-lg mb-8">JOIN THE CONSTRUCT</h2>
+<p class="font-body-lg text-body-lg text-surface-variant mb-12">
+                    Stay updated with our latest isometric releases, studio workshops, and architectural experiments.
+                </p>
+<div class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface p-6 brutalist-border text-on-surface font-label-mono focus:ring-4 focus:ring-primary outline-none" placeholder="ENTER YOUR EMAIL" type="email">
+<button class="bg-primary text-on-primary px-12 py-6 brutalist-border font-display-lg hover:bg-primary-container transition-colors">
+                        SUBSCRIBE
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest font-body-md text-body-md w-full mt-auto bg-surface-container-highest border-t-2 border-outline-variant flat no shadows flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface">ART-MORPH</div>
+<p class="text-on-surface-variant max-w-xs">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-secondary uppercase tracking-widest text-xs mb-2">Legal</span>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform translate-y-[0px] hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform translate-y-[0px] hover:translate-y-[-2px]" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-bold text-secondary uppercase tracking-widest text-xs mb-2">Connect</span>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform translate-y-[0px] hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline transition-transform translate-y-[0px] hover:translate-y-[-2px]" href="#">Contact</a>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 brutalist-border flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 brutalist-border flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">link</span>
+</button>
+</div>
+</footer>
+<script>
+        // Simple interaction for isometric movement
+        document.addEventListener('mousemove', (e) => {
+            const scene = document.querySelector('.isometric-scene');
+            if (scene) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 100;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 100;
+                scene.style.transform = `rotateX(${60 + yAxis}deg) rotateZ(${-45 + xAxis}deg)`;
+            }
+        });
+    </script>
+</body></html>

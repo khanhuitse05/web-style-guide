@@ -1,36 +1,354 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>47. Low Poly - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ART-MORPH | Low Poly Universe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=syne:wght@400;500;600;700;800&amp;family=be+vietnam+pro:wght@400;500;700&amp;family=jetbrains+mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "secondary": "#b90538",
+                    "surface-container": "#e6eeff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "secondary-fixed": "#ffdadb",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#0053db",
+                    "on-surface": "#121c2a",
+                    "outline": "#737686",
+                    "inverse-surface": "#27313f",
+                    "on-secondary-fixed-variant": "#92002a",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#d9e3f6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#004ac6",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#dee9fc",
+                    "on-secondary-fixed": "#40000d",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-highest": "#d9e3f6",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#00174b",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "on-background": "#121c2a",
+                    "tertiary-container": "#007d55",
+                    "secondary-container": "#dc2c4f",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#bdffdb",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "tertiary": "#006242",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#002113",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#ffb2b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d0dbed",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "40px",
+                    "unit": "4px",
+                    "gutter-fluid": "32px",
+                    "gutter-brutalist": "0px",
+                    "isometric-step": "30deg"
+            },
+            "fontFamily": {
+                    "body-lg": ["beVietnamPro"],
+                    "display-xl": ["syne"],
+                    "display-lg": ["syne"],
+                    "handwritten-md": ["bricolageGrotesque"],
+                    "headline-md": ["syne"],
+                    "label-mono": ["jetbrainsMono"],
+                    "body-md": ["beVietnamPro"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                    "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .low-poly-mask {
+            clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+        }
+
+        .shard-card {
+            clip-path: polygon(0 10%, 10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
+
+        .btn-poly {
+            clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+        }
+
+        .low-poly-bg {
+            background-color: #f8f9ff;
+            background-image: linear-gradient(30deg, #004ac6 12%, transparent 12.5%, transparent 87%, #004ac6 87.5%, #004ac6),
+            linear-gradient(150deg, #004ac6 12%, transparent 12.5%, transparent 87%, #004ac6 87.5%, #004ac6),
+            linear-gradient(30deg, #004ac6 12%, transparent 12.5%, transparent 87%, #004ac6 87.5%, #004ac6),
+            linear-gradient(150deg, #004ac6 12%, transparent 12.5%, transparent 87%, #004ac6 87.5%, #004ac6),
+            linear-gradient(60deg, #0053db 25%, transparent 25.5%, transparent 75%, #0053db 75%, #0053db),
+            linear-gradient(60deg, #0053db 25%, transparent 25.5%, transparent 75%, #0053db 75%, #0053db);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+            opacity: 0.03;
+        }
+
+        .low-poly-gradient {
+            background: linear-gradient(135deg, #004ac6 0%, #002113 100%);
+        }
+
+        @keyframes float-poly {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .animate-float {
+            animation: float-poly 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">47. Low Poly</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Faceted 3D geometry and sharp, colorful triangle meshes.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md text-primary font-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl tracking-tighter text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">change_history</span>
+                ART-MORPH
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary underline decoration-4 underline-offset-8 font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-high px-4 py-2 border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<span class="material-symbols-outlined mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md" placeholder="Search polygons..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 font-bold btn-poly hover:scale-110 transition-transform active:skew-x-6 active:scale-95 shadow-[4px_4px_0px_0px_#002113]">
+                    Inquire
+                </button>
+</div>
+</div>
+</header>
+<main class="relative overflow-hidden">
+<!-- Background Pattern -->
+<div class="fixed inset-0 low-poly-bg pointer-events-none z-0"></div>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 px-margin-page z-10">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-block bg-tertiary text-on-tertiary px-4 py-1 text-label-mono font-label-mono uppercase tracking-widest shard-card">
+                        Aesthetic: Low Poly 2.0
+                    </div>
+<h1 class="font-display-xl text-display-xl text-on-surface leading-none">
+                        Faceted <br> <span class="text-primary italic">Geometry</span> <br> Redefined.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Explore a digital frontier where sharp edges meet jewel-toned gradients. ART-MORPH translates organic complexity into high-precision crystalline structures.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-10 py-5 font-bold btn-poly text-headline-md flex items-center gap-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            Explore Mesh
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-4 border-on-surface px-10 py-5 font-bold btn-poly text-headline-md hover:bg-surface-container-highest transition-colors">
+                            Documentation
+                        </button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 low-poly-gradient opacity-20 shard-card animate-pulse"></div>
+<div class="relative shard-card overflow-hidden aspect-square border-4 border-on-surface shadow-[16px_16px_0px_0px_#b90538]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A macro close-up of a low-poly 3D crystalline landscape with sharp, jagged mountain peaks rendered in deep jewel tones of emerald green, sapphire blue, and ruby red. The lighting is dramatic, catching the faceted edges of each triangle mesh to create brilliant spectral highlights. The background is a dark, velvety void that makes the glowing geometric structures pop with intense color and crystalline clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO5E02senua5vntfMTenFTbf42NlHogy75S8MSCWSYwDsBWTnzqlGPhonJ8QF-MomBH2qXZQX3XFVEqeAonI-qEjje9tXDfM1teBrStl118iL_A3eFWm0tqHm2ujrzXp5YKYNKTsnMd-jZ4kToiAC-JOC0oUfOEo519OdE6C3Hh1BgPWf3piuNVAU3qR9k0UuzbIUlRb9-4Vs09yQ7zLrug6DiqnVk6trCg_fQc7aHXyTUPwfgou0Ld6_Jnw9Gj_jUOt2x92IozwRf">
+</div>
+<!-- Floating Poly Accents -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary animate-float shard-card opacity-90 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="py-24 px-margin-page z-10 bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-4">Structural Integrity</h2>
+<div class="h-2 w-48 bg-primary shard-card"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Large Feature Shard -->
+<div class="md:col-span-2 shard-card bg-surface border-2 border-outline-variant p-10 flex flex-col justify-between hover:border-primary transition-colors group">
+<div>
+<span class="material-symbols-outlined text-6xl text-primary mb-6 group-hover:rotate-12 transition-transform">architecture</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Parametric Mesh Generation</h3>
+<p class="text-body-lg text-on-surface-variant max-w-xl">
+                                Our engine calculates optimal triangle density to maintain visual clarity while maximizing geometric expression across any display resolution.
+                            </p>
+</div>
+<div class="mt-12 flex gap-4 overflow-hidden">
+<div class="w-1/3 aspect-video shard-card bg-primary-container"></div>
+<div class="w-1/3 aspect-video shard-card bg-secondary-container"></div>
+<div class="w-1/3 aspect-video shard-card bg-tertiary-container"></div>
+</div>
+</div>
+<!-- Small Stat Shard -->
+<div class="shard-card bg-on-background p-10 flex flex-col justify-center items-center text-center">
+<div class="text-display-lg font-display-lg text-primary-fixed-dim leading-none">4.2M</div>
+<div class="text-label-mono font-label-mono text-surface-variant uppercase mt-2">Active Vertices</div>
+<div class="mt-8 w-full border-t border-surface-variant pt-8">
+<p class="text-body-md text-surface-variant">Real-time optimization for complex scenes.</p>
+</div>
+</div>
+<!-- Side Feature -->
+<div class="shard-card bg-secondary p-10 text-on-secondary hover:translate-y-[-8px] transition-transform">
+<span class="material-symbols-outlined text-4xl mb-4">light_mode</span>
+<h3 class="font-headline-md text-headline-md mb-2">Refraction Engine</h3>
+<p class="text-body-md opacity-90">Simulating physical light interaction across irregular faceted surfaces.</p>
+</div>
+<!-- Image Feature Shard -->
+<div class="md:col-span-2 relative shard-card h-64 overflow-hidden group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated abstract background featuring an intricate network of low-poly connections rendered in dark blue and deep indigo. Sharp geometric shapes and triangular fragments overlap to create a sense of deep structural complexity. Subtle crystalline highlights dance along the edges of the mesh, illuminated by a cold, futuristic light source from the top-left corner, evoking a sense of high-end digital craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTRZf592XehFE_cqMXfEbh5vQ5BTych88UhAiWbG07RAzYtbeXFc0bWsUN0T5OeArgAp9SYskLWrEB7nj4N3XpZJ_lNlxhYh8saaPNJO_OCHXvyYQYldo-FDaozyAtevYOV7XrY-QHRc99JOpJGzM79QZm9YOVPLAVDbT9GB4HTqTxFSmJAFCP_RFzdSbY0UoolF5mKg9JlNV0-ZXLpUp4Z1xmK9sB-KjaYNkDEpTTtABR-imh2h_kuqHZApuzl1i6lXy0Xd9mCzPl">
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-6 left-10">
+<div class="text-headline-md font-display-lg text-white drop-shadow-lg">Global Illumination</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Gallery Section -->
+<section class="py-24 px-margin-page z-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
+<div class="md:w-1/3 sticky top-32 h-fit">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-6">Exhibits</h2>
+<p class="text-body-lg text-on-surface-variant mb-8">
+                        The latest outputs from our generative laboratory, showcasing the intersection of mathematics and emotion.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-8 h-8 bg-primary shard-card group-hover:scale-125 transition-transform"></div>
+<span class="font-bold text-headline-md hover:text-primary transition-colors">Crystalline Cities</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-8 h-8 bg-secondary shard-card group-hover:scale-125 transition-transform"></div>
+<span class="font-bold text-headline-md hover:text-secondary transition-colors">Digital Fossils</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-8 h-8 bg-tertiary shard-card group-hover:scale-125 transition-transform"></div>
+<span class="font-bold text-headline-md hover:text-tertiary transition-colors">Prism Landscapes</span>
+</li>
+</ul>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="shard-card overflow-hidden aspect-[3/4] border-2 border-on-surface group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" data-alt="An artistic 3D render of an abstract crystalline figure made entirely of sharp-edged triangles in a low-poly style. The figure is composed of deep sapphire blue and electric violet shades, with glowing cyan light emanating from the joints. The setting is a minimalist white studio space which contrasts sharply with the rich jewel tones of the geometric sculpture, creating a striking focal point for a modern creative portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsiPQtGwgDYjpbd9avnEMJsFVFUsMLXtlFe3ucG2q7_3jhXNBZq6N0borDUQHjRBVxix25_Am8p3rsfOnOO4dDhB-3Bjqu7KsHOSm_ibrOra0xyB51YTUiWSU8Xq9-ecmtXptFpCMYABNn1YCuO4vBo6Qo_Fz6FX2YVJXpX_jeGn9h1zJ4MYYhr_8RiHpZeAVP1ZIq41HVz7XRjOygWoYlvXZSUwqsRhkLke4mcHHTBAHPXah9fEVIRKyKymba85-25B2INWeedfK6">
+</div>
+<div class="shard-card overflow-hidden aspect-[3/4] mt-12 border-2 border-on-surface group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" data-alt="A vibrant low-poly forest scene where every tree, leaf, and rock is constructed from distinct geometric facets. The palette consists of deep forest greens, emerald hues, and earthy browns, punctuated by golden shafts of light that pierce through the triangular canopy. The lighting creates hard shadows and bright highlights on the flat surfaces of the geometry, resulting in a highly stylized and immersive digital nature environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPSTvhZSXS2ScQyqAHknQVXp_ew00gLROSb3XSqPcyD20Y8qlXLRq0-7yBiLGyCh6tua2BBbHVKEVVisiJOjSvfMtQCJs3rd0jE3b-4mBR-CJnNZpDR34LyzqqkcjC_9OmXuE06T5MDbjmfNMCxVH5hegHo0wxDy6YU-1qzRGj24K50aSJvlNo6C_SM5YJXU3uG2VmLkOqg2zlNggDpxddnp5prxpbhX7iaiWwGiEN0YQ94JF1ksfkcZMgSWO_ZSchsbe-pvexNE45">
+</div>
+<div class="shard-card overflow-hidden aspect-[3/4] border-2 border-on-surface group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" data-alt="A conceptual low-poly artwork representing a digital storm, featuring sharp, jagged cloud structures rendered in dark charcoal and slate gray. Bolts of stylized geometric lightning in vibrant magenta and hot pink arc across the sky, their jagged forms perfectly aligning with the faceted aesthetic. The overall mood is intense and high-energy, with a color palette that blends dark moody tones with electric crystalline bursts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZBoWX1uyCiaRtdF_FxryzJ0zklOUzU-sHe-u9d6ZMBgESywbfqCtQaWKxDGYPhbsFinef2WFxQ7-hL360iZS5ebv4C2URnhfSvgjQGZF0N4EdM7UVhVmpp-ONtGifJSV-aQNvXRNjueWLoeAxz3jcO9Fs-ZLcY0F2hUT5H43X2tIeiO2Y_biwKKKy3FFScSPXlcyQFqv9ZViHRHjGg73jw7vGtnHzXJz-1QaJXnJsVicr7bIPkICCsReDRtqqIwPbq_Uf98dcLBJg">
+</div>
+<div class="shard-card overflow-hidden aspect-[3/4] mt-12 border-2 border-on-surface group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" data-alt="An abstract low-poly composition focused on geometric mineral formations. Large quartz-like structures with sharp, planar faces are clustered together, glowing from within with a soft amber and gold light. The surrounding environment is a deep, textured indigo, creating a sense of being deep within a digital cavern where the light of the polygons is the only source of illumination. Highly detailed and visually rich." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCriSyuUda8JGQ0oQvfIz2Qv6N0QJrmLSst8J-xfe9mwcoVFbA8P6A_0l0YoYrCPk0iM3pgVskD0kEfBRKK0LDMLnxdq-nISxb-v5M5yeJyerkO1nogWYeaZ3af7rDhdfFGM8qtJK7H6ze-cs_ZClLL3swMpiAd0fKy3hrexwzonWXPfl3fALzkv2qVOL09bLWyJUjLPFYipzfZFLgt_VLF_JrmhrI3N5-MemYbgn1bwlsERY9Di-9KJr5hcJky8OMibzfOZkFt4fJI">
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-24 px-margin-page z-10">
+<div class="max-w-5xl mx-auto bg-on-background text-on-primary-container p-16 shard-card relative overflow-hidden">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary rotate-45 opacity-50 shard-card"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg text-white mb-6">Join the Mesh</h2>
+<p class="text-body-lg text-surface-variant mb-10 max-w-lg">
+                        Get the latest geometric experiments, parametric tools, and low-poly assets delivered to your inbox weekly.
+                    </p>
+<form class="flex flex-col md:flex-row gap-4">
+<input class="bg-surface-container-low text-on-surface px-6 py-4 flex-grow border-none focus:ring-4 focus:ring-primary font-body-md shard-card" placeholder="explorer@poly.art" type="email">
+<button class="bg-primary text-on-primary font-bold px-10 py-4 shard-card hover:bg-surface-tint transition-colors uppercase tracking-widest">
+                            Subscribe
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest text-secondary font-body-md w-full mt-auto border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid max-w-full mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">deployed_code</span>
+                    ART-MORPH
+                </div>
+<p class="text-on-surface-variant text-body-md max-w-xs">
+                    © 2024 Art-Morph Studio. All rights reserved. Built for creators.
+                </p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Terms</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Privacy</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Ethics</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary hover:underline transition-transform hover:translate-y-[-2px]" href="#">Contact</a>
+</nav>
+<div class="flex gap-4">
+<div class="w-10 h-10 shard-card bg-on-surface flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-white text-xl">language</span>
+</div>
+<div class="w-10 h-10 shard-card bg-on-surface flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-white text-xl">share</span>
+</div>
+<div class="w-10 h-10 shard-card bg-on-surface flex items-center justify-center hover:bg-tertiary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-white text-xl">art_track</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for low-poly elements
+        document.querySelectorAll('.shard-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = `rotate(${Math.random() * 2 - 1}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `rotate(0deg) scale(1)`;
+            });
+        });
+    </script>
+</body></html>

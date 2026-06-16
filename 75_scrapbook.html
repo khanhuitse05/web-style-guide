@@ -1,36 +1,301 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>75. Scrapbook - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Scrapbook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Space+Grotesk:wght@300..700&amp;family=Work+Sans:wght@100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --paper-texture: url('https://www.transparenttextures.com/patterns/felt.png');
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #141218; /* surface */
+            background-image: var(--paper-texture);
+            overflow-x: hidden;
+        }
+        .scrapbook-canvas {
+            background-color: #fdfaf3; /* Cream paper look for the content area */
+            background-image: var(--paper-texture);
+            min-height: 100vh;
+            color: #1d1b20; /* surface-container-low dark equivalent but light for paper */
+        }
+        .washi-tape {
+            height: 32px;
+            width: 120px;
+            background-color: rgba(207, 188, 255, 0.6); /* primary with transparency */
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='32'%3E%3Cpath d='M0 5 L5 0 L10 5 L15 0 L20 5 L115 5 L120 10 L115 15 L120 20 L115 25 L110 32 L0 32 Z'/%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='32'%3E%3Cpath d='M0 5 L5 0 L10 5 L15 0 L20 5 L115 5 L120 10 L115 15 L120 20 L115 25 L110 32 L0 32 Z'/%3E%3C/svg%3E");
+            transform: rotate(-3deg);
+            z-index: 10;
+        }
+        .polaroid-frame {
+            background: white;
+            padding: 12px 12px 40px 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .polaroid-frame:hover {
+            transform: scale(1.02) rotate(0deg) !important;
+        }
+        .pinned-note {
+            background: #fff9c4;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .pinned-note::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #ff5252;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 2px rgba(0,0,0,0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005d",
+                        "surface-container-low": "#1d1b20",
+                        "surface": "#141218",
+                        "surface-container": "#211f24",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-primary": "#6750a4",
+                        "on-secondary-container": "#bfb2da",
+                        "tertiary-fixed": "#ffdf93",
+                        "secondary": "#cdc0e9",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#494551",
+                        "error": "#ffb4ab",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "surface-container-lowest": "#0f0d13",
+                        "error-container": "#93000a",
+                        "background": "#141218",
+                        "surface-tint": "#cfbcff",
+                        "surface-container-highest": "#36343a",
+                        "inverse-on-surface": "#322f35",
+                        "surface-dim": "#141218",
+                        "outline": "#948e9c",
+                        "surface-container-high": "#2b292f",
+                        "on-tertiary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "tertiary": "#e7c365",
+                        "surface-variant": "#36343a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary-container": "#503d00",
+                        "on-primary": "#381e72",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#1f1635",
+                        "primary-container": "#6750a4",
+                        "on-background": "#e6e0e9",
+                        "surface-bright": "#3b383e",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "secondary-container": "#4d4465",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-secondary": "#342b4b",
+                        "inverse-surface": "#e6e0e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["EB Garamond", "serif"],
+                        "headline-lg": ["Space Grotesk", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "label-sm": ["Space Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">75. Scrapbook</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Washi tape, polaroid frames, and pinned notes.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="dark font-body-md">
+<!-- Top Navigation Anchor -->
+<header class="w-full top-0 sticky bg-surface-container dark:bg-surface-container text-primary dark:text-primary border-b-4 border-outline-variant dark:border-outline shadow-md z-50 shadow-[0_0_15px_rgba(207,188,255,0.3)] dark:shadow-none">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<img alt="Scrapbook Logo" class="h-12 w-12 object-cover rounded-full border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKq-F_MQh1qGIsVeNvOGjFUPLici0zmNVeXpE0QFdV5JnS3RyeoFNipfW44ndMfXO8a5RvWdIu3aNEZulPjo7XaldCazxU9zPNMvJCS5t7S0lKoo4-Su1AG-YxXicZ5ZLmJHW58gZ7KvTvFBy5L8ZM0BN7F8cG1AhR8GEVsthwHgemvVGKaiKOOmkrE-4s0YDk2NK_r95uviwk_meuy688R1uMtOMwkT-nn22erWQQlcdPJJirBtmTc3Wo7Y2J-eJ8Co5sPvOFB3qi"/>
+<h1 class="font-display-xl text-[32px] md:text-[48px] font-bold text-primary dark:text-primary tracking-tighter">ThematicEngine</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="#">Artifacts</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-xl active:scale-95 transition-transform font-bold hover:text-tertiary">Explore</button>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="scrapbook-canvas max-w-[1400px] mx-auto px-4 md:px-12 py-12 relative overflow-hidden">
+<!-- Hero / Title -->
+<section class="relative z-10 mb-20 text-center">
+<div class="washi-tape absolute -top-8 left-1/2 -translate-x-1/2 opacity-80"></div>
+<h2 class="font-display-xl text-[56px] md:text-[96px] text-on-surface-variant mb-4 italic">Artisanal Memories</h2>
+<p class="max-w-2xl mx-auto font-body-md text-[20px] text-gray-700 leading-relaxed">
+                A digital sanctuary for the tactile, the torn, and the treasured. Welcome to a corner of the web where bits and pieces become beautiful stories.
+            </p>
+</section>
+<!-- Memories Section - Bento-ish Scrapbook Layout -->
+<section class="mb-32" id="Memories">
+<div class="flex items-center gap-4 mb-12">
+<h3 class="font-headline-lg text-[40px] text-on-surface-variant">Memories</h3>
+<div class="h-[2px] flex-grow bg-outline-variant opacity-30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Large Polaroid -->
+<div class="md:col-span-7 polaroid-frame rotate-[-2deg] relative">
+<div class="washi-tape absolute -top-4 right-4 bg-tertiary/40"></div>
+<img class="w-full aspect-[4/3] object-cover filter sepia-[0.2]" data-alt="A nostalgic, high-fidelity photograph of an old vintage camera sitting on a rustic wooden desk. The scene is filled with warm, golden hour sunlight streaming through a nearby window, illuminating dust motes in the air. The overall mood is quiet and reflective, using a palette of deep mahogany browns, soft creams, and golden yellows to evoke a sense of history and preserved time." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMFXpl31ON6tGADHcunHWP5HVhL4uDY-K88NJGW8Nz2QqyzytouoBnNgvJARso_bmB7YPln0QCm3EJpwO9fDtljvFmgw7jgbkkHftM_AZmbOAPvxx-JJ40Zktjs4YAH-MgbFcodt9jbWTauNiDC5Pnr9mEYrp0_6HDLHUCg8WZ1k8hbldCii3EWJD5ec5minX-bH9CmOjzJLr0cN4ygEJnOSOhm6COiMLxslI4ZtpVVcwmgtIWF8PKViX6PDOta5wGVD1Vc6ceWo0s"/>
+<p class="mt-6 font-display-xl text-2xl text-center italic text-gray-800">Summer Solstice, 1994</p>
+</div>
+<!-- Side Notes -->
+<div class="md:col-span-5 flex flex-col gap-8">
+<div class="pinned-note p-8 rotate-[1deg] font-body-md text-gray-800">
+<p class="mb-4 italic">"The smell of old paper and dried lavender always brings back the workshop on Rue de Rivoli..."</p>
+<span class="font-label-sm text-xs uppercase tracking-widest text-gray-500">— Fragment 012</span>
+</div>
+<div class="polaroid-frame rotate-[3deg] w-3/4 self-end">
+<img class="w-full aspect-square object-cover" data-alt="A close-up shot of several dried wildflowers pressed carefully between the pages of an antique book. The paper of the book is yellowed with age, showing delicate deckled edges. The flowers maintain faint hints of their original purple and blue hues. The lighting is soft and diffused, creating a delicate, romantic atmosphere with a focus on tactile textures and the passage of time." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdG2U7tw8VpDEtLzRzawWwn2KR63uBOpcRtU9wnnGz2BCeAXOcgtOY45JghChphCW8WDH_5tu7v60V5Z3T-aHzSA_wRmt15hjq04IC0j25jUlQSSNg0h-TlCG1fDDESkOsOq65fWd1JBB6sm3YviIC551lFWlPlqZTXogka0Yr4UfrkmC2ZTKQf63dAWmOTF24vOdUynMtu9ExPj6bpvsj4T-zd2DVRrmV88eU5hXAWPZVb9H8EGhn5eDZm1fIxYvksbmXA3kihd5Z"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Mixed Media Section - Overlapping Layers -->
+<section class="mb-32 relative" id="Mixed Media">
+<div class="flex items-center gap-4 mb-12 justify-end">
+<div class="h-[2px] flex-grow bg-outline-variant opacity-30"></div>
+<h3 class="font-headline-lg text-[40px] text-on-surface-variant">Mixed Media</h3>
+</div>
+<div class="relative h-[600px] md:h-[800px]">
+<!-- Layered Cards -->
+<div class="absolute top-10 left-0 w-64 h-80 bg-secondary/20 border border-secondary p-4 rotate-[-12deg] z-10 backdrop-blur-sm">
+<h4 class="font-label-sm font-bold mb-2">TEXTURE_01</h4>
+<div class="w-full h-40 bg-gray-300 mb-2 opacity-50 mix-blend-multiply"></div>
+<p class="text-xs font-mono">Linen weave, 300gsm, Ivory.</p>
+</div>
+<div class="absolute top-32 left-[20%] md:left-[30%] z-20 polaroid-frame rotate-[5deg] w-full max-w-md">
+<div class="washi-tape absolute -top-5 left-1/2 -translate-x-1/2 bg-primary/40 rotate-12"></div>
+<img class="w-full h-64 object-cover" data-alt="An artistic composition of mixed media art supplies including torn pieces of sheet music, splatters of dark ink, and delicate bits of gold leaf scattered across a textured canvas. The lighting is dramatic and moody, with deep shadows that emphasize the three-dimensional quality of the layered materials. The color scheme is a sophisticated blend of aged parchment, charcoal black, and shimmering metallic gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCOiccpLRaQhSpjZKhLrvqdrTeSe05h4rq2-NAeNDlRpqPIVbljUE69bjFuyjcOd1bVIIdxiuxYSv64hoyKaPFJhdXRXXLcWV0vfj_rUK4D5BmD1_u2liGrHzOrIJkV4vkifsb7nQJsLV3pscTIIEq5RA4qXrYpIUgBKfoiqawWCmqW-0Uq9REaDVvfC55YnkRdhUGVj_oDerhKPeMWi-QranMG7Jj9J6duFWyajCAnDKXf-IVE3VM6iRn4VFuuUgx8x-vrBcwSgSd"/>
+<div class="p-4">
+<p class="font-body-md text-gray-700 italic">Exploring the intersection of sound and sight. Hand-torn music sheets from the 1920s.</p>
+</div>
+</div>
+<div class="absolute bottom-10 right-0 w-80 p-6 bg-white shadow-xl rotate-[-3deg] z-10">
+<span class="material-symbols-outlined text-4xl text-tertiary-container mb-4">architecture</span>
+<h4 class="font-display-xl text-3xl mb-2">Curated Chaos</h4>
+<p class="text-sm leading-relaxed text-gray-600">The beauty of the digital scrapbook lies in the intentional layering of disparate elements—finding harmony in the fray.</p>
+</div>
+</div>
+</section>
+<!-- Craft Corner Section - Tools and Grid -->
+<section class="mb-20" id="Craft Corner">
+<div class="flex items-center gap-4 mb-12">
+<h3 class="font-headline-lg text-[40px] text-on-surface-variant">Craft Corner</h3>
+<div class="h-[2px] flex-grow bg-outline-variant opacity-30"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="group relative overflow-hidden aspect-square rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center p-4 hover:bg-white/50 transition-colors">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl mb-2 block">content_cut</span>
+<span class="font-label-sm">Precision Cut</span>
+</div>
+</div>
+<div class="group relative overflow-hidden aspect-square polaroid-frame rotate-[2deg]">
+<img class="w-full h-full object-cover" data-alt="A vibrant and organized flat-lay of assorted crafting tools. Colorful rolls of washi tape, stainless steel scissors, a wooden ruler, and several jars of glass beads are arranged neatly on a clean white surface. The lighting is bright and even, highlighting the diverse textures and cheery colors of the hobbyist's workstation. The atmosphere is inspiring and creative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiBAkLc8K1AmgkONgSihL7BWcd_L9UP2fl51HU6mp8gKaUPXTCAjL5vCPPGkEFyqwOJ2EqkivUjdPMlGKSDejJ_Y49QUZnmU0eD7V8VjMIOC6BK44shC3tZvfAzr2qYGj3IsHJPbokobPCVDAI-kdEmy0yMKfrNPzCDA-kOV3cEwn_clfFgAnA8lopw3BbqOldpYnZ3K7d6P9S_46_hPxBIXSfA__vuX8Uf-C1NuX0XlMpjB3aAtHYgde7w900-7GlPvz5j1v656RJ"/>
+</div>
+<div class="group relative overflow-hidden aspect-square rounded-lg bg-tertiary/10 border-2 border-tertiary/20 flex items-center justify-center p-4">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl mb-2 block">brush</span>
+<span class="font-label-sm">Ink &amp; Dye</span>
+</div>
+</div>
+<div class="group relative overflow-hidden aspect-square polaroid-frame rotate-[-4deg]">
+<img class="w-full h-full object-cover" data-alt="Close up of a pair of hands carefully stitching a piece of thick, handmade paper with a silver needle and waxed thread. The focus is sharp on the texture of the paper and the tension of the thread. The background is a soft-focus workshop setting with jars of pigments and brushes. The lighting is focused and warm, emphasizing the craftsmanship and attention to detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ276Cjxwscjy9mPZ3_zdHNePTe4TiwCvhJzrVObFmTL14X9uAUact44KHZlTx2znXSemrdBDVYef-aK0GPxPiClLiS2kZ_UvagnGHKZ1XJhTJjdexYZ1-Rdp8HNTArD7FieVdduRuQgrjhjJb-nMxp4KGqcSP3eNyoOfanxNjmkNfRxMYMJEKnNbdYuCiKr93MtiVBGr9jshqr1ZkYaqh8ZUgpAiTT84BYIgbitUijJep4m6Q1iTNoOpxLyYR2_CWZfVerrxKQyem"/>
+</div>
+</div>
+</section>
+<!-- Newsletter / Sign Up -->
+<section class="max-w-2xl mx-auto py-20 px-8 pinned-note rotate-[0.5deg]">
+<div class="text-center">
+<h3 class="font-display-xl text-4xl mb-4">Join the Collective</h3>
+<p class="font-body-md text-gray-700 mb-8">Receive weekly prompts, digital textures, and stories from our community of creators.</p>
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow p-4 border-2 border-gray-200 bg-white/80 focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Your email address" type="email"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-bold active:scale-95 transition-transform">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- Decorative Floating Elements -->
+<div class="absolute top-[20%] -right-12 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]">auto_stories</span>
+</div>
+<div class="absolute bottom-[10%] -left-12 opacity-10 pointer-events-none rotate-45">
+<span class="material-symbols-outlined text-[200px]">edit_note</span>
+</div>
+</main>
+<!-- Footer Anchor -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-outline-variant text-secondary dark:text-secondary">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-headline-lg text-on-surface">Thematic Engine</span>
+<p class="font-label-sm text-on-surface-variant mt-2 text-center md:text-left">© 2024 Thematic Engine. Built for digital storytellers.</p>
+</div>
+<div class="flex gap-6 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Subtle parallax on scrapbook elements
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            document.querySelectorAll('.polaroid-frame, .pinned-note').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const dist = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+                if (dist < 400) {
+                    const factor = (400 - dist) / 400;
+                    el.style.transform = `${el.style.transform.split('translate')[0]} translate(${moveX * factor}px, ${moveY * factor}px)`;
+                }
+            });
+        });
+    </script>
+</body></html>

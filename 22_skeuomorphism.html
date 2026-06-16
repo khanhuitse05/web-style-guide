@@ -1,36 +1,349 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>22. Skeuomorphism - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GalleryOS - Premium Design Systems</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --skeuo-gloss: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.05) 100%);
+            --brushed-metal: linear-gradient(135deg, #e0e0e0 0%, #ffffff 25%, #d1d1d1 50%, #f0f0f0 75%, #c0c0c0 100%);
+        }
+
+        .skeuo-card {
+            background: #ffffff;
+            border: 1px solid #E5E5EA;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.02), inset 0px 1px 0px white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glossy-button {
+            background: linear-gradient(180deg, #0070eb 0%, #0058bc 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glossy-button::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 50%;
+            background: rgba(255,255,255,0.15);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        .glossy-button:active {
+            transform: scale(0.96);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .metal-dial {
+            background: var(--brushed-metal);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15), inset 0 1px 1px white;
+            border: 1px solid #b0b0b0;
+        }
+
+        .leather-texture {
+            background-color: #2a2a2a;
+            background-image: radial-gradient(#3a3a3a 1px, transparent 0);
+            background-size: 4px 4px;
+        }
+
+        .inner-well {
+            background: #F9F9FB;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #E5E5EA;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
     </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeedf3",
+                    "surface-bright": "#faf9fe",
+                    "surface-variant": "#e3e2e7",
+                    "on-secondary-fixed": "#0c006a",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-container-low": "#f4f3f8",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717786",
+                    "on-error-container": "#93000a",
+                    "background": "#faf9fe",
+                    "secondary-fixed": "#e2dfff",
+                    "tertiary": "#9e3d00",
+                    "secondary-container": "#6664e4",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "surface-tint": "#005bc1",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-container": "#fefcff",
+                    "surface": "#faf9fe",
+                    "primary-fixed-dim": "#adc6ff",
+                    "secondary-fixed-dim": "#c2c1ff",
+                    "surface-container-highest": "#e3e2e7",
+                    "on-secondary-container": "#fffbff",
+                    "on-background": "#1a1b1f",
+                    "surface-container-high": "#e9e7ed",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary": "#4c4aca",
+                    "inverse-primary": "#adc6ff",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3631b4",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-surface": "#1a1b1f",
+                    "inverse-on-surface": "#f1f0f5",
+                    "tertiary-container": "#c64f00",
+                    "primary": "#0058bc",
+                    "surface-dim": "#dad9df",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#0070eb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "inverse-surface": "#2f3034",
+                    "on-primary-fixed": "#001a41",
+                    "on-surface-variant": "#414755",
+                    "on-primary-fixed-variant": "#004493"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "1.5rem",
+                    "grid-gutter": "1.5rem",
+                    "stack-gap": "0.75rem",
+                    "grid-margin": "2rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">22. Skeuomorphism</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Realistic materials, leather, metal, and lighting (classic iOS style).</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-surface text-on-surface font-body-lg overflow-x-hidden selection:bg-primary-fixed">
+<!-- Top Navigation -->
+<header class="w-full sticky top-0 z-50 bg-surface-bright/80 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<nav class="flex justify-between items-center px-grid-margin py-4 max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">GalleryOS</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-sm text-body-sm" href="#">Showcase</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Styles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Designers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full glossy-button text-white font-semibold text-body-sm transition-all relative overflow-hidden">
+                    Sign In
+                </button>
+</div>
+</nav>
+</header>
+<main class="max-w-screen-2xl mx-auto px-grid-margin py-12">
+<!-- Hero Section: Bento Style with Skeuomorphism -->
+<div class="grid grid-cols-12 gap-grid-gutter">
+<!-- Main Hero Card -->
+<div class="col-span-12 lg:col-span-8 skeuo-card rounded-xl p-10 flex flex-col justify-center min-h-[480px]">
+<div class="flex flex-col gap-stack-gap max-w-2xl">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Premium Release v2.4</span>
+<h1 class="font-display-lg text-display-lg text-on-surface">Experience the tactile era of design.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Reimagining the classic iOS aesthetic for the modern web. Every pixel crafted with physical intent, light, and material depth.</p>
+<div class="mt-6 flex gap-4">
+<button class="px-8 py-4 rounded-xl glossy-button text-white font-bold text-headline-md flex items-center gap-2">
+                            Explore Assets
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<button class="px-8 py-4 rounded-xl border border-outline-variant bg-surface-container-low font-semibold text-on-surface hover:bg-surface-container-high transition-colors">
+                            Documentation
+                        </button>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 opacity-20 pointer-events-none transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[320px] text-primary">architecture</span>
+</div>
+</div>
+<!-- Side Interactive Card (Switch & Dial) -->
+<div class="col-span-12 lg:col-span-4 skeuo-card rounded-xl p-8 leather-texture flex flex-col justify-between border-[#1a1b1f] shadow-2xl">
+<div class="flex justify-between items-start">
+<div class="text-white">
+<h3 class="font-headline-md text-headline-md">Material Control</h3>
+<p class="font-body-sm text-body-sm opacity-60">Adjust physical rendering</p>
+</div>
+<span class="font-label-mono text-label-mono text-secondary-fixed-dim bg-white/10 px-2 py-1 rounded">MASTER</span>
+</div>
+<div class="flex flex-col items-center gap-10 py-8">
+<!-- Physical Dial -->
+<div class="w-32 h-32 rounded-full metal-dial flex items-center justify-center relative cursor-pointer group" id="mainDial">
+<div class="absolute w-1 h-8 bg-error rounded-full top-2 origin-bottom transform rotate-0 transition-transform duration-500 ease-out" id="dialPointer"></div>
+<div class="w-24 h-24 rounded-full inner-well border-none shadow-inner flex items-center justify-center">
+<span class="font-label-mono text-on-surface text-lg">74%</span>
+</div>
+</div>
+<!-- Physical Toggle Switch -->
+<div class="flex gap-8 items-center">
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-label-mono text-white/40">GLOSS</span>
+<div class="w-12 h-20 bg-[#111] rounded-lg p-1 border border-white/10 shadow-inner relative cursor-pointer" onclick="this.classList.toggle('active')">
+<div class="w-full h-1/2 bg-white/10 rounded-md transition-all duration-200"></div>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="text-[10px] font-label-mono text-white/40">DEPTH</span>
+<div class="w-12 h-20 bg-[#111] rounded-lg p-1 border border-white/10 shadow-inner relative cursor-pointer">
+<div class="w-full h-1/2 bg-primary rounded-md shadow-[0_0_15px_rgba(0,88,188,0.5)] transform translate-y-full transition-all duration-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card: Featured Component -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 skeuo-card rounded-xl p-card-padding">
+<div class="flex justify-between mb-4">
+<h3 class="font-headline-md text-headline-md">Visual Library</h3>
+<span class="font-label-mono text-label-mono text-primary">01 / ICONS</span>
+</div>
+<div class="inner-well rounded-lg p-6 grid grid-cols-4 gap-4">
+<div class="aspect-square rounded-xl bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl">token</span>
+</div>
+<div class="aspect-square rounded-xl bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl">texture</span>
+</div>
+<div class="aspect-square rounded-xl bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl">layers</span>
+</div>
+<div class="aspect-square rounded-xl bg-white border border-outline-variant flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-primary text-3xl">blur_on</span>
+</div>
+</div>
+</div>
+<!-- Bento Card: Showcase Slider -->
+<div class="col-span-12 md:col-span-6 lg:col-span-8 skeuo-card rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1] hover:scale-105 transition-transform duration-700" data-alt="A high-end, professionally lit studio photograph of a premium physical workstation. The scene features a sleek brushed aluminum desk surface reflecting soft ambient light from a large window. On the desk sits a collection of high-fidelity audio equipment with tactile knobs, leather-wrapped headphones, and a minimal mechanical keyboard. The color palette is dominated by sophisticated greys and blacks with warm wood accents, creating a feeling of ordered complexity and premium craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6-3oMJhlU3QzIiZRcO6T0fjNR_a6G0K2D0XQA2mCDD8YkNP1QLqoPluP9O8qNAYPrrrV3vWYpZYpCzJpLowWGufHgH4tJm3SLNVLlcBGB3zwzpQqJMQ2dNrUXP6wPdgn_YMOByNoMLYXdQMTlEEnmGq08LdkALPWwfWvxlKUXz_M1omSy-ObqFAGeVCa95zMD3jCgDWDvtOLCl9Dd7TbSW8baB41ygwkO3jnaXeWgyLQBD8-GShgVxNfEnR0L8J2Ba_YclQYs0pHU">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<span class="text-white/60 font-label-mono text-label-mono mb-2">GALLERY SHOWCASE</span>
+<h2 class="text-white font-headline-md text-headline-md max-w-lg">Mastering the intersection of digital utility and physical presence.</h2>
+</div>
+</div>
+<!-- Bento Card: Analytics Well -->
+<div class="col-span-12 lg:col-span-5 skeuo-card rounded-xl p-card-padding">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">System Health</h3>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="font-label-mono text-label-mono">LIVE</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="inner-well rounded-lg p-4 flex flex-col gap-2">
+<div class="flex justify-between font-label-mono text-xs">
+<span>RENDER ENGINE</span>
+<span>98% OPTIMIZED</span>
+</div>
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-primary rounded-full" style="width: 98%"></div>
+</div>
+</div>
+<div class="inner-well rounded-lg p-4 flex flex-col gap-2">
+<div class="flex justify-between font-label-mono text-xs">
+<span>LATENCY</span>
+<span>4ms</span>
+</div>
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-tertiary rounded-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card: Texture Preview -->
+<div class="col-span-12 lg:col-span-7 skeuo-card rounded-xl p-card-padding flex flex-col md:flex-row gap-6 items-center">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md mb-2">Micro-Shadow Tech</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Our proprietary lighting engine calculates 12-bit depth shadows for every UI element, ensuring a perfectly grounded user interface regardless of screen brightness.</p>
+<div class="flex gap-2">
+<div class="w-10 h-10 rounded-full border-2 border-primary p-0.5"><div class="w-full h-full rounded-full bg-primary"></div></div>
+<div class="w-10 h-10 rounded-full border-2 border-transparent p-0.5 hover:border-outline-variant"><div class="w-full h-full rounded-full bg-secondary"></div></div>
+<div class="w-10 h-10 rounded-full border-2 border-transparent p-0.5 hover:border-outline-variant"><div class="w-full h-full rounded-full bg-tertiary"></div></div>
+</div>
+</div>
+<div class="w-full md:w-64 h-48 bg-surface-container-high rounded-xl overflow-hidden relative">
+
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 shadow-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl">light_mode</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-grid-margin gap-stack-gap max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">GalleryOS</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all font-body-sm text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all font-body-sm text-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all font-body-sm text-body-sm" href="#">Cookie Settings</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all font-body-sm text-body-sm" href="#">Support</a>
+</div>
+<div class="text-on-surface-variant/70 font-body-sm text-body-sm">
+                © 2024 GalleryOS Design Systems. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Simple dial interaction
+        const dial = document.getElementById('mainDial');
+        const pointer = document.getElementById('dialPointer');
+        let rotation = 0;
+
+        dial.addEventListener('click', () => {
+            rotation += 45;
+            if (rotation >= 360) rotation = 0;
+            pointer.style.transform = `rotate(${rotation}deg)`;
+        });
+
+        // Add hover effects for card items
+        const cards = document.querySelectorAll('.skeuo-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Subtle light tracking effect
+                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.08) 0%, transparent 80%), #ffffff`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.background = '#ffffff';
+                if(card.classList.contains('leather-texture')) card.style.background = '';
+            });
+        });
+    </script>
+</body></html>

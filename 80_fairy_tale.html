@@ -1,36 +1,453 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>80. Fairy Tale - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Fairy Tale Legend</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Space+Grotesk:wght@300..700&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --ebGaramond: 'EB Garamond', serif;
+            --spaceGrotesk: 'Space Grotesk', sans-serif;
+            --workSans: 'Work Sans', sans-serif;
+            --spaceMono: 'Space Mono', monospace;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #141218;
+            color: #e6e0e9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .fairy-tale-gradient {
+            background: linear-gradient(135deg, #1d1b20 0%, #141218 100%);
+        }
+
+        .gold-dust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            background-image: 
+                radial-gradient(circle, #e7c365 1px, transparent 1px),
+                radial-gradient(circle, #cfbcff 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px;
+            background-position: 0 0, 50px 50px;
+            animation: drift 20s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        .glint-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glint-effect::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(231, 195, 101, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: glint 4s infinite;
+        }
+
+        @keyframes glint {
+            0% { transform: translateX(-150%) rotate(45deg); }
+            100% { transform: translateX(150%) rotate(45deg); }
+        }
+
+        .storybook-border {
+            border: 8px double #e7c365;
+            box-shadow: 0 0 20px rgba(207, 188, 255, 0.2), inset 0 0 20px rgba(207, 188, 255, 0.1);
+        }
+
+        .magic-sparkle {
+            filter: drop-shadow(0 0 8px #cfbcff);
+        }
+
+        .perspective-card {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .perspective-card:hover {
+            transform: perspective(1000px) rotateY(5deg) scale(1.02);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#22005d",
+                      "surface-container-low": "#1d1b20",
+                      "surface": "#141218",
+                      "surface-container": "#211f24",
+                      "on-primary-container": "#e0d2ff",
+                      "inverse-primary": "#6750a4",
+                      "on-secondary-container": "#bfb2da",
+                      "tertiary-fixed": "#ffdf93",
+                      "secondary": "#cdc0e9",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#494551",
+                      "error": "#ffb4ab",
+                      "primary": "#cfbcff",
+                      "on-tertiary": "#3e2e00",
+                      "surface-container-lowest": "#0f0d13",
+                      "error-container": "#93000a",
+                      "background": "#141218",
+                      "surface-tint": "#cfbcff",
+                      "surface-container-highest": "#36343a",
+                      "inverse-on-surface": "#322f35",
+                      "surface-dim": "#141218",
+                      "outline": "#948e9c",
+                      "surface-container-high": "#2b292f",
+                      "on-tertiary-fixed": "#241a00",
+                      "secondary-fixed-dim": "#cdc0e9",
+                      "tertiary": "#e7c365",
+                      "surface-variant": "#36343a",
+                      "on-primary-fixed-variant": "#4f378a",
+                      "primary-fixed-dim": "#cfbcff",
+                      "tertiary-fixed-dim": "#e7c365",
+                      "on-surface": "#e6e0e9",
+                      "on-tertiary-container": "#503d00",
+                      "on-primary": "#381e72",
+                      "primary-fixed": "#e9ddff",
+                      "on-secondary-fixed": "#1f1635",
+                      "primary-container": "#6750a4",
+                      "on-background": "#e6e0e9",
+                      "surface-bright": "#3b383e",
+                      "on-surface-variant": "#cbc4d2",
+                      "on-tertiary-fixed-variant": "#594400",
+                      "tertiary-container": "#c9a74d",
+                      "secondary-container": "#4d4465",
+                      "secondary-fixed": "#e9ddff",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#4b4263",
+                      "on-secondary": "#342b4b",
+                      "inverse-surface": "#e6e0e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "8px",
+                      "container-max": "1200px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-xl": ["EB Garamond", "serif"],
+                      "headline-lg": ["Space Grotesk", "sans-serif"],
+                      "body-md": ["Work Sans", "sans-serif"],
+                      "label-sm": ["Space Mono", "monospace"]
+              },
+              "fontSize": {
+                      "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-xl-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">80. Fairy Tale</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Whimsical, storybook textures, magic sparkles, and elegant script.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<div class="gold-dust"></div>
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-[100] bg-surface-container dark:bg-surface-container border-b-4 border-outline-variant dark:border-outline shadow-[0_0_15px_rgba(207,188,255,0.3)] dark:shadow-none transition-all duration-300">
+<nav class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-sm">
+<img alt="Logo" class="h-16 w-16 object-contain magic-sparkle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ymBI47Ktng0nxfsKJZ-leM40JvRms09FCyhWxfmwn9X2YXKugCvHCcZtenp4V9XHEoVWU7nhCY5MQxbecnkijNShLWPh17n2ivsBiLClChabO6jjyLRmq6C3iVb6eAdwOizM-AjSQCf9F75rR8VXBtFDGI1p_SurkxwjwCsdDPI-M4wHO1E0BnWEDj6tpI9d52pq_QHAfcDjiHXMrMx4RXG89RBit81iVeQqwhdcYFaP-k9tU-t7c29-WG2aVa9uAiXq4RTMhAAN"/>
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary dark:text-primary tracking-tighter">ThematicEngine</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#forest">Styles</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#castle">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#legend">Artifacts</a>
+</div>
+<button class="glint-effect bg-primary text-on-primary px-xl py-base rounded-full font-bold hover:bg-tertiary hover:text-on-tertiary transition-all active:scale-95">
+                Explore
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-gutter">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-surface/50 to-surface z-10"></div>
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&amp;fit=crop&amp;q=80&amp;w=2000')] bg-cover bg-center opacity-40 scale-110 blur-sm" data-alt="A sprawling enchanted valley at dusk with glowing purple flora and floating magical particles. Distant crystalline towers catch the golden light of a setting sun. The atmosphere is ethereal, whimsical, and steeped in fairy tale wonder with soft focus and high-contrast color grading."></div>
+</div>
+<div class="relative z-20 text-center max-w-4xl mx-auto">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-md text-primary drop-shadow-[0_0_20px_rgba(207,188,255,0.5)]">
+                    A Realm Beyond <br/>
+<span class="text-tertiary italic font-normal">The Final Page</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl max-w-2xl mx-auto leading-relaxed">
+                    Step through the gilded boundaries of imagination. ThematicEngine weaves digital tapestry from the threads of ancient lore and stardust.
+                </p>
+<div class="flex flex-col md:flex-row gap-md justify-center items-center">
+<button class="glint-effect bg-tertiary text-on-tertiary-container px-xl py-lg rounded-xl font-bold text-headline-lg-mobile transition-all hover:scale-105 hover:shadow-lg shadow-tertiary/20">
+                        Open the Chronicle
+                    </button>
+<button class="border-2 border-primary/50 text-primary px-xl py-lg rounded-xl font-bold hover:bg-primary/10 transition-all flex items-center gap-base">
+<span class="material-symbols-outlined">auto_stories</span>
+                        Read The Legend
+                    </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+<span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Enchanted Forest (Bento Grid) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto" id="forest">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl">
+<div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl text-primary mb-sm">Enchanted Forest</h2>
+<p class="font-body-md text-on-surface-variant max-w-lg">Every leaf tells a secret, and every shadow hides a forgotten wonder. Discover the whispers of the woods.</p>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-6xl text-tertiary/30">forest</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Large Feature -->
+<div class="md:col-span-2 md:row-span-2 storybook-border rounded-xl p-base bg-surface-container-high overflow-hidden group">
+<div class="relative h-[400px] rounded-lg overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Intricate sunlight filtering through ancient, moss-covered trees in a magical forest. Tiny floating spores of light illuminate the air like gold dust. The scene is saturated with deep emerald greens and mystical purples, creating a sense of deep enchantment and peaceful mystery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCyZEJft2RmR9N0KCseCwIgkVlub0J0YF2hQD03WEwcZM0S6MlGDvbiboFZnIgBMWryMYim_5ItcjMNdrC0q2nbkbe_JUTzKJqRoETzVTChf5Atz5C8O9O7-5a4tT-jv0rkMOw_-7EsuqiAtUFGFPju4Q7xBJ7gJUBh4uwoce1MeUZZH2Ek-AFdV8WpK1hyuw4JClUkjUglzd-MKV7OT0tcth-Or3dw2mNZnQ7NNRI2jZSj4Foz-EHrigNeb_5EF62GVjzuaS9GVr-X')"></div>
+<div class="absolute bottom-base left-base right-base z-20">
+<h3 class="font-headline-lg text-primary">Whispering Pines</h3>
+<p class="text-on-surface-variant">The ancient guardians of the digital frontier.</p>
+</div>
+</div>
+</div>
+<!-- Bento Small 1 -->
+<div class="md:col-span-2 storybook-border rounded-xl p-base bg-surface-container-low group cursor-pointer hover:bg-surface-container-highest transition-all">
+<div class="flex gap-md items-center h-full">
+<div class="w-1/3 h-full rounded-lg bg-cover bg-center" data-alt="A macro shot of crystalline flowers blooming in the moonlight. Petals are iridescent and shimmering with soft pastel violet hues. Magic sparkles surround the stamens like tiny stars. Ethereal, macro photography style, extremely detailed." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsR5fyzDHPSSKsZ2oesLFiEA9icywRkH5TPSGLrqqvpzHdoS0oDDtuoEYs5ta-AEpWAYbxaap523nK24cdg7Z6F_34XjPdLTszONorJPaDzWx4v9rzkGj1v1hKsrAWn76UP2kywLzZEk7JRtfEmBi7VuwPQBurp8nIRn7NIle6jx1NOJGm64j1_w4pSaFkFsa1_mw893cPPRf_aVcu8CJDGk9dx77i9ax67XZnKIG1B07V6UKB5ilmc2XjCCzBalUbNqSHgct8ZAF-')"></div>
+<div class="w-2/3 pr-base">
+<span class="text-tertiary font-label-sm uppercase tracking-widest">Flora</span>
+<h4 class="font-headline-lg-mobile text-on-surface mt-base">Moon-Blooms</h4>
+<p class="text-on-surface-variant font-body-md text-sm">Flowers that only reveal their data when the stars align.</p>
+</div>
+</div>
+</div>
+<!-- Bento Small 2 -->
+<div class="storybook-border rounded-xl p-base bg-surface-container-low group cursor-pointer">
+<div class="h-40 rounded-lg bg-cover bg-center mb-base" data-alt="A small glowing trail of fairy dust leading through a dark, mysterious thicket. The dust leaves a trail of soft golden light on the forest floor. The scene is high contrast, with deep blacks and vibrant golden-yellow accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs-pn7kDTqnCfhQ2STaeK8OEBvMpuBeuKOcwLFcw3dts_SZyszayYX3pkzeYlie72fRADCkzsfWukYkdt2xqz1AVU5libUT5vO8ITnxax9vHwk5eTIPI_FSWXlU0Am1qX-r4jRn-ecrJJ2_eAeBQ3Kehi9EU_KYDVmrzhrhDQdsRalF3LrjK03foCVevc_9zVhOLzsva2r-u4msuWAiR13vCClW98VYp7GeGJjx8m-kTuuZ_DSTpKVB_C_E1v0NYTBrE2xpQDQ0zWw')"></div>
+<h4 class="font-headline-lg-mobile text-primary text-center">Pixie Paths</h4>
+</div>
+<!-- Bento Small 3 -->
+<div class="storybook-border rounded-xl p-base bg-surface-container-low group cursor-pointer">
+<div class="h-40 rounded-lg bg-cover bg-center mb-base" data-alt="An ethereal white owl with glowing blue eyes perched on a silver branch. The bird is surrounded by a faint magical aura. The background is a blurred dark blue forest. Sharp focus on the owl's detailed feathers." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2KmtBxU0V893Ebp4b5Mzk28fyUYoiYirrOT2KGzBSoKw2NLvfsJTzbRSS-qK9tmJLAZ7CqYr_qjfY_GQEtUzktAWRju6ODm6UCIewfeyWyYvpai-MLvkStLNFBnn0grE-wnwTfyZr0fcRSGm8vALMsWgDLi0WvZgVyduRHyp0rc4truQzqiQUwrMxPK1qlIvv5P9oA5I7gFq30jFr2OLmxzUS5lt4OaywrwwUd_anwtfqALFfaekR-bh9ovIEqokz_6bceOUfwP5q')"></div>
+<h4 class="font-headline-lg-mobile text-primary text-center">Oracle Owls</h4>
+</div>
+</div>
+</section>
+<!-- Crystal Castle Section -->
+<section class="py-xl bg-surface-container-lowest relative overflow-hidden" id="castle">
+<div class="absolute inset-0 opacity-10">
+
+</div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="text-center mb-xl">
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl text-tertiary drop-shadow-md">Crystal Castle</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">The citadel of pure logic and radiant beauty. Where the architecture of dreams meets the physics of light.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-xl items-center">
+<div class="w-full lg:w-1/2 perspective-card">
+<div class="relative p-base storybook-border bg-surface-container-high rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Crystal Castle" class="w-full h-[500px] object-cover rounded-xl" data-alt="A majestic castle built from translucent violet crystals, soaring into a starry indigo sky. The towers are faceted like diamonds, reflecting light from a massive lunar disk. Cascading waterfalls of liquid light flow from the castle walls into a reflective pool below. The aesthetic is dreamlike, high-fantasy, and breathtakingly elegant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzW3DIckmYfYmUK4k14_Jb4D1VPguylnyKYXURReCGznIj9G1mkItykVGNpwBaXazXnjviPSoWWt9-iuOLP0kCrFmIzOBe3Gr8PYSevSK3P_0iwrUBLk8WOiCmreammS158h0SMCVwu3D01AF4zRKuGXxyGOqV7YZZNf_BNEBdgWzOlRTKFrJMDBJgHc5q68Zmvbon-EfDZwSIFWWv_g3a2rgCNokIBjRZyc6qqCbWjd_FGsm1SnpegY9haqazaGiWvOUcbKqkprJb"/>
+<div class="absolute top-12 right-12 floating">
+<div class="bg-surface/80 backdrop-blur-md p-lg rounded-full border border-primary/30 text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">castle</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 space-y-lg">
+<div class="flex gap-base items-start p-lg bg-surface-container-high/50 backdrop-blur-sm rounded-xl border-l-4 border-tertiary group hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-tertiary text-3xl">diamond</span>
+<div>
+<h4 class="font-headline-lg-mobile text-on-surface">Refractive Resilience</h4>
+<p class="text-on-surface-variant mt-xs">A structure that grows stronger with every observer, bending the light of perspective into unbreakable foundations.</p>
+</div>
+</div>
+<div class="flex gap-base items-start p-lg bg-surface-container-high/50 backdrop-blur-sm rounded-xl border-l-4 border-primary group hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">temp_preferences_custom</span>
+<div>
+<h4 class="font-headline-lg-mobile text-on-surface">Prismatic UI</h4>
+<p class="text-on-surface-variant mt-xs">Interfaces that adapt to your emotional frequency, shimmering with the colors of your digital intent.</p>
+</div>
+</div>
+<div class="flex gap-base items-start p-lg bg-surface-container-high/50 backdrop-blur-sm rounded-xl border-l-4 border-secondary group hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-secondary text-3xl">magic_button</span>
+<div>
+<h4 class="font-headline-lg-mobile text-on-surface">Spellbound Security</h4>
+<p class="text-on-surface-variant mt-xs">Ancient encryption methods translated into modern-day sorcery for the ultimate sanctuary.</p>
+</div>
+</div>
+<button class="mt-xl glint-effect bg-primary text-on-primary-fixed w-full py-lg rounded-full font-bold text-headline-lg-mobile shadow-lg shadow-primary/20">
+                            Claim Your Chamber
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- The Legend (Horizontal Scrolling Feel) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto overflow-hidden" id="legend">
+<h2 class="font-display-xl text-center text-primary mb-xl">The Legend</h2>
+<div class="flex flex-col gap-xl">
+<!-- Legend Step 1 -->
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="w-full md:w-1/3 h-64 storybook-border rounded-2xl overflow-hidden">
+<img alt="Mountain Peak" class="w-full h-full object-cover" data-alt="A snowy mountain peak under a vibrant purple and orange sunrise. The air is crisp and filled with frozen magical glints. The lighting is dramatic, highlighting the jagged crystalline textures of the rocks. Cinematic landscape photography with a fairy-tale twist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJC9gnXrTkCyxi8QDp2g2ftwuk_d-PAcFgcoPe3xEpIaZbWGKUm9U04kbowWT0nTc5zJMPEK5N1ZccY5OlAzVNpBYKXR1rXmeSM_ZL8_-9lH6U2FIY0rDV69t1O_bzqwTQYcECdIVN0w5AkAvb-yS2qeYJyHYwJXRETTt2u_w5G-zRmVkxRcbiiLlMwuLicv8m4r48wW9V8DP3-6SU57kYaaWSRu65X1KtN41fA1VFrAqtfhX9xcwzg1ZvuHTajhlJC0rmOEEYIFso"/>
+</div>
+<div class="w-full md:w-2/3">
+<div class="flex items-center gap-base mb-base">
+<span class="w-12 h-1 bg-tertiary"></span>
+<span class="font-label-sm text-tertiary uppercase tracking-widest">Chapter I</span>
+</div>
+<h3 class="font-headline-lg text-on-surface mb-base">The Gathering of Spirits</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">It began at the edge of the known, where the mountains touch the heavens. The first storytellers gathered their echoes and forged them into the heart of the engine.</p>
+</div>
+</div>
+<!-- Legend Step 2 -->
+<div class="flex flex-col md:flex-row-reverse gap-lg items-center">
+<div class="w-full md:w-1/3 h-64 storybook-border rounded-2xl overflow-hidden">
+<img alt="Starry Sky" class="w-full h-full object-cover" data-alt="A dense nebula in deep space shaped like a mythical creature. Swirling clouds of pink, violet, and gold cosmic dust. Stars glitter intensely throughout the frame. A sense of cosmic wonder and infinite possibilities. High resolution astrophotography aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ6TAAoOYgXB5ZiAbuUweLR9FeZSljDXHzCtQKuhpJHh6BIPQ1c4-lcqkG0P3tNjibA3QLV8wWAcUdnOgT5xIdlwQX_shtjLqU11KuefNLNh66dZiKyUOnb7Pm4z5LaEZ_lGgwrM21FnrPWm-1M_8xZVOT3GV1QqWvlgt71hKGEa5QlEYFO2uG4KU9zLWCYTAy75PbpRzgwxjY3qVHv70FZ8pWDeabBABDxHz5bxHAimUf3nMXy8Py-rzCaXUbxZIj9GQBPPAJGn0V"/>
+</div>
+<div class="w-full md:w-2/3 md:text-right">
+<div class="flex items-center gap-base mb-base md:justify-end">
+<span class="font-label-sm text-tertiary uppercase tracking-widest">Chapter II</span>
+<span class="w-12 h-1 bg-tertiary"></span>
+</div>
+<h3 class="font-headline-lg text-on-surface mb-base">The Celestial Blueprint</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">By tracing the constellations, we found the patterns that govern all tales. These star-charts became the algorithms that now power your immersive experiences.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Feature -->
+<section class="py-xl px-gutter mb-xl">
+<div class="max-w-container-max mx-auto bg-surface-container-high rounded-3xl p-xl md:p-scale-xl text-center relative overflow-hidden border-2 border-primary/20">
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-tertiary/10 blur-[100px] rounded-full"></div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-md text-primary">Ready to Write Your Fate?</h2>
+<p class="font-body-md text-on-surface-variant mb-xl max-w-2xl mx-auto">The quill is dipped in stardust. The parchment is woven from dreams. All that remains is for you to begin.</p>
+<div class="flex flex-wrap justify-center gap-md">
+<button class="glint-effect bg-tertiary text-on-tertiary-container px-xl py-lg rounded-xl font-bold text-headline-lg-mobile shadow-xl">
+                        Inscribe Your Tale
+                    </button>
+<button class="bg-surface-container-highest text-primary border-2 border-primary/20 px-xl py-lg rounded-xl font-bold hover:bg-surface-container-low transition-all">
+                        Consult the Oracle
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex items-center gap-sm">
+<img alt="Logo Small" class="h-10 w-10 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ymBI47Ktng0nxfsKJZ-leM40JvRms09FCyhWxfmwn9X2YXKugCvHCcZtenp4V9XHEoVWU7nhCY5MQxbecnkijNShLWPh17n2ivsBiLClChabO6jjyLRmq6C3iVb6eAdwOizM-AjSQCf9F75rR8VXBtFDGI1p_SurkxwjwCsdDPI-M4wHO1E0BnWEDj6tpI9d52pq_QHAfcDjiHXMrMx4RXG89RBit81iVeQqwhdcYFaP-k9tU-t7c29-WG2aVa9uAiXq4RTMhAAN"/>
+<span class="font-headline-lg text-headline-lg text-on-surface">Thematic Engine</span>
+</div>
+<div class="flex gap-lg">
+<a class="text-on-surface-variant font-body-md text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant font-body-md text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant font-body-md text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="text-on-surface-variant font-body-md text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<p class="font-body-md text-label-sm text-on-surface-variant">© 2024 Thematic Engine. Built for digital storytellers.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.hero-image');
+            if(heroImage) {
+                heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Hover sparkles interaction
+        const interactiveElements = document.querySelectorAll('.storybook-border, button');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                if (Math.random() > 0.9) {
+                    createSparkle(e.pageX, e.pageY);
+                }
+            });
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✦';
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.color = '#e7c365';
+            sparkle.style.fontSize = Math.random() * 15 + 5 + 'px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '999';
+            sparkle.style.transition = 'all 1s ease-out';
+            sparkle.style.opacity = '1';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.style.transform = `translate(${(Math.random() - 0.5) * 50}px, ${(Math.random() - 0.5) * 50}px) scale(0)`;
+                sparkle.style.opacity = '0';
+            }, 50);
+
+            setTimeout(() => {
+                document.body.removeChild(sparkle);
+            }, 1000);
+        }
+    </script>
+</body></html>

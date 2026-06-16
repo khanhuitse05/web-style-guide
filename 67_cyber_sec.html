@@ -1,36 +1,414 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>67. Cyber Sec - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_OS // CYBER_SEC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(57, 255, 20, 0.02) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .glitch-text {
+            text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+        }
+        .hex-scroll {
+            mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+        }
+        .bracket-box {
+            position: relative;
+            border-left: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
+        .bracket-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 8px; height: 2px;
+            background: currentColor;
+        }
+        .bracket-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0; width: 8px; height: 2px;
+            background: currentColor;
+        }
+        .lockdown-active {
+            background-color: #93000a !important;
+            color: #ffdad6 !important;
+            box-shadow: 0 0 30px rgba(147, 0, 10, 0.6);
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            cursor: crosshair;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffffff",
+                        "outline": "#85967c",
+                        "secondary-fixed": "#00fbfb",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-container": "#39ff14",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#baccb0",
+                        "inverse-primary": "#106e00",
+                        "surface-bright": "#393939",
+                        "tertiary": "#fff8f7",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary-fixed-variant": "#095300",
+                        "on-tertiary-fixed-variant": "#930100",
+                        "primary": "#efffe3",
+                        "outline-variant": "#3c4b35",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed": "#410000",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdad4",
+                        "surface-container-highest": "#353535",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "tertiary-container": "#ffd3cc",
+                        "secondary-fixed-dim": "#00dddd",
+                        "primary-fixed": "#79ff5b",
+                        "on-secondary-container": "#007070",
+                        "on-error": "#690005",
+                        "surface-variant": "#353535",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary": "#053900",
+                        "surface-tint": "#2ae500",
+                        "secondary-container": "#00fbfb",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#107100",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#022100",
+                        "surface-container": "#20201f",
+                        "on-tertiary-container": "#c50100",
+                        "primary-fixed-dim": "#2ae500",
+                        "on-tertiary": "#690100",
+                        "on-secondary": "#003737"
+                    },
+                    "fontFamily": {
+                        "display-sm": ["Space Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Space Grotesk"],
+                        "body-md": ["JetBrains Mono"],
+                        "body-lg": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">67. Cyber Sec</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Red/Black warning colors, secure locks, and hex dumps.</p>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<div class="scanline-overlay"></div>
+<!-- Navigation Shell -->
+<header class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50 backdrop-blur-md bg-background border-b-2 border-outline-variant shadow-[inset_0px_0px_10px_rgba(57,255,20,0.1)]">
+<div class="flex items-center gap-4">
+<span class="font-display-sm text-display-sm font-bold tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(57,255,20,0.4)]">NEURAL_OS_v1.0.4</span>
+<div class="hidden md:flex gap-6 items-center ml-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">NODE_SYS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">QUANTUM_CORE</a>
+<a class="font-label-caps text-label-caps text-primary-container border-b-2 border-primary-container pb-1" href="#">CYBER_SEC</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">MECHA_IND</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 bg-surface-container-highest border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-primary-container" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-code-sm text-code-sm text-outline">SYS_QUERY: READY</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150 p-2 active:scale-95 cursor-crosshair">sensors</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest transition-all duration-150 p-2 active:scale-95 cursor-crosshair">notifications</button>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container font-label-caps text-label-caps font-bold hover:bg-primary transition-all active:scale-95 cursor-crosshair">SYSTEM_LOGIN</button>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section: Security Breach Alert -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center border-b-4 border-error-container bg-[radial-gradient(circle_at_center,_rgba(147,0,10,0.15)_0%,_transparent_70%)]">
+<div class="absolute inset-0 z-0 opacity-20 hex-scroll overflow-hidden pointer-events-none">
+<div class="font-code-sm text-error leading-tight whitespace-pre p-8 select-none" id="hex-dump"></div>
+</div>
+<div class="z-10 container mx-auto px-gutter text-center">
+<div class="inline-flex items-center gap-2 px-4 py-2 mb-6 border-2 border-error text-error animate-pulse bg-error-container/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase">Critical Security Breach Detected</span>
+</div>
+<h1 class="font-display-lg text-display-lg md:text-[80px] mb-8 leading-none tracking-tighter text-on-background">
+                    DEFEND THE <br/> <span class="text-error glitch-text">NEURAL_CORE</span>
+</h1>
+<div class="max-w-3xl mx-auto mb-12">
+<p class="font-body-lg text-body-lg text-on-surface-variant border-l-2 border-error pl-6 text-left italic">
+                        The integrity of our quantum-encrypted neural networks has been compromised. Perimeter defenses are at 14%. Immediate manual intervention is required to isolate affected sectors and initiate the global lockdown protocol.
+                    </p>
+</div>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button class="group relative px-12 py-6 bg-error-container border-2 border-error text-on-error-container font-display-sm text-display-sm font-bold flex items-center gap-4 transition-all hover:scale-105 active:scale-95" id="lockdown-btn">
+<span class="material-symbols-outlined text-[32px]">lock_reset</span>
+                        SYSTEM LOCKDOWN
+                        <div class="absolute -top-2 -right-2 bg-error text-on-error text-[10px] px-2 py-0.5 font-code-sm">PRIORITY_0</div>
+</button>
+<button class="px-8 py-4 border border-outline text-outline font-label-caps text-label-caps hover:bg-surface-container-high hover:text-primary-container transition-all">
+                        VIEW_THREAT_MAP
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats -->
+<div class="absolute bottom-0 w-full grid grid-cols-2 md:grid-cols-4 border-t-2 border-outline-variant bg-surface-container-lowest">
+<div class="p-6 border-r-2 border-outline-variant flex flex-col gap-1">
+<span class="font-code-sm text-code-sm text-outline">ENCRYPTION_STRENGTH</span>
+<span class="font-display-sm text-display-sm text-primary-container">99.9%</span>
+<div class="w-full bg-surface-variant h-1 mt-2">
+<div class="bg-primary-container h-full w-[99.9%]"></div>
+</div>
+</div>
+<div class="p-6 border-r-2 border-outline-variant flex flex-col gap-1">
+<span class="font-code-sm text-code-sm text-outline">ACTIVE_BREACHES</span>
+<span class="font-display-sm text-display-sm text-error">03_SECTORS</span>
+<div class="flex gap-1 mt-2">
+<div class="w-3 h-3 bg-error animate-ping"></div>
+<div class="w-3 h-3 bg-error animate-ping" style="animation-delay: 0.2s"></div>
+<div class="w-3 h-3 bg-error animate-ping" style="animation-delay: 0.4s"></div>
+</div>
+</div>
+<div class="p-6 border-r-2 border-outline-variant flex flex-col gap-1">
+<span class="font-code-sm text-code-sm text-outline">THREAT_LEVEL</span>
+<span class="font-display-sm text-display-sm text-tertiary-fixed-dim">MAX_OMEGA</span>
+</div>
+<div class="p-6 flex flex-col gap-1">
+<span class="font-code-sm text-code-sm text-outline">NETWORK_LATENCY</span>
+<span class="font-display-sm text-display-sm text-secondary-fixed">0.002_MS</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Security Modules -->
+<section class="py-margin container mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group border-2 border-outline-variant p-8 relative overflow-hidden bg-surface-container-low hover:border-primary-container transition-colors">
+<div class="absolute top-0 right-0 p-2 font-code-sm text-[10px] text-outline">MOD_ID: Q_SHIELD_01</div>
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary-container mb-2">QUANTUM FIREWALL</h3>
+<p class="text-on-surface-variant font-body-md max-w-md">Our proprietary Q-Shield technology uses entangled photons to detect eavesdropping at the physical layer, ensuring zero-compromise data transit across global nodes.</p>
+</div>
+<span class="material-symbols-outlined text-[48px] text-primary-container" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div class="flex gap-4">
+<div class="bracket-box px-4 py-2 font-code-sm text-primary-container">STATUS: ACTIVE</div>
+<div class="bracket-box px-4 py-2 font-code-sm text-secondary-fixed">INTEGRITY: 100%</div>
+</div>
+<!-- Decorative Graphic -->
+<div class="absolute -bottom-10 -right-10 opacity-10 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-[240px]">security</span>
+</div>
+</div>
+<!-- Small Vertical Card -->
+<div class="md:col-span-4 border-2 border-error p-8 bg-error-container/10 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">gpp_bad</span>
+<h3 class="font-headline-sm text-headline-sm text-error">INTRUSION DETECT</h3>
+</div>
+<div class="space-y-4">
+<div class="border-b border-error/30 pb-2">
+<p class="text-[10px] text-error font-code-sm">EVENT_LOG: 14:02:31</p>
+<p class="text-on-background font-code-sm">UNAUTHORIZED_ACCESS_ROOT</p>
+</div>
+<div class="border-b border-error/30 pb-2">
+<p class="text-[10px] text-error font-code-sm">EVENT_LOG: 14:01:55</p>
+<p class="text-on-background font-code-sm">PACKET_SNIFF_REJECTED</p>
+</div>
+<div class="border-b border-error/30 pb-2">
+<p class="text-[10px] text-error font-code-sm">EVENT_LOG: 13:59:02</p>
+<p class="text-on-background font-code-sm">BRUTE_FORCE_ATTEMPT_L3</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-error text-on-error font-label-caps text-label-caps font-bold active:scale-95">PURGE_LOGS</button>
+</div>
+<!-- Three Small Horizontal Cards -->
+<div class="md:col-span-4 border-2 border-outline-variant p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-secondary-fixed mb-4">vpn_key</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">KEY_MGMT</h4>
+<p class="text-on-surface-variant text-body-md">Autonomous key rotation every 300ms across all decentralized clusters.</p>
+</div>
+<div class="md:col-span-4 border-2 border-outline-variant p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary-container mb-4">router</span>
+<div class="flex items-center gap-2 mb-2">
+<h4 class="font-headline-sm text-headline-sm">EDGE_SEC</h4>
+<span class="text-[10px] px-1 border border-primary-container text-primary-container">PRO</span>
+</div>
+<p class="text-on-surface-variant text-body-md">Hardened endpoint protection for IoT and edge computing hardware.</p>
+</div>
+<div class="md:col-span-4 border-2 border-outline-variant p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mb-4">terminal</span>
+<h4 class="font-headline-sm text-headline-sm mb-2">AUDIT_LOG</h4>
+<p class="text-on-surface-variant text-body-md">Immutable blockchain-backed event logging for regulatory compliance.</p>
+</div>
+</div>
+</section>
+<!-- Asymmetric Detail Section -->
+<section class="py-24 bg-surface-container-lowest border-y-2 border-outline-variant relative overflow-hidden">
+<div class="container mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 text-[120px] font-bold text-outline opacity-10 select-none">0101</div>
+<div class="relative z-10 border-4 border-primary-container p-4 bg-background">
+<img alt="Cyber Security Hub" class="w-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="A highly detailed and complex server room visualization featuring rows of sleek, matte black server racks pulsing with vibrant neon green status lights. The room is enveloped in a dense, dark atmosphere, illuminated only by the rhythmic glow of the electronic components and a single holographic interface displaying real-time security data and hex code streams. The aesthetic is industrial and futuristic, emphasizing high-security and high-performance technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuJti9J6MBC4DijRYqo0N9pKaKaMRvKbO1OeW6jtyxRJieT6Bm-t67EVO5zoIRlt7immNBoVW4jq0t1F8t2iy2tLrFVjocfyzCrfoneFFHeFcp0pN9rMRYCzPKr5jnR1uav4M-E-U_cB0LDcsO7xq_Vgncqm3g2TfthXURA-OBWAo0lqJWRDGjiTmEXRvL_C8IKv5gvrduOVZXXRBepuTScOhq6d1EKkTOWtoRaqAGJOhv5mcuJB_jMzPVwNZ09EFvRWEBqEEqNlS9"/>
+<div class="absolute bottom-0 right-0 bg-primary-container text-on-primary-container px-6 py-2 font-code-sm font-bold">
+                            LOCATION: UNDISCLOSED_SITE_4
+                        </div>
+</div>
+</div>
+<div>
+<h2 class="font-display-sm text-display-sm text-on-background mb-8 flex items-center gap-4">
+<span class="w-12 h-0.5 bg-primary-container"></span>
+                        INFRASTRUCTURE_HARDENING
+                    </h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="text-primary-container font-display-sm">01</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">ZERO_TRUST_ARCHITECTURE</h4>
+<p class="text-on-surface-variant">Never trust, always verify. Every request is authenticated, authorized, and continuously validated before granting access to critical assets.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="text-primary-container font-display-sm">02</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">DECENTRALIZED_IDENTITY</h4>
+<p class="text-on-surface-variant">Self-sovereign identity protocols ensure that user data remains private and resistant to centralized honeypot attacks.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="text-primary-container font-display-sm">03</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-background mb-2">AI_THREAT_HUNTING</h4>
+<p class="text-on-surface-variant">Autonomous neural agents scan the global web in real-time, predicting and neutralizing zero-day threats before they reach your network.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Call to Action -->
+<section class="py-32 container mx-auto px-gutter text-center">
+<div class="max-w-4xl mx-auto border-2 border-outline-variant p-12 bg-[linear-gradient(45deg,_rgba(57,255,20,0.05)_0%,_transparent_100%)] relative">
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary-container -translate-x-1 -translate-y-1"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary-container translate-x-1 translate-y-1"></div>
+<h2 class="font-display-lg text-display-lg text-on-background mb-6">READY TO SECURE YOUR <span class="text-primary-container">DATASPHERE?</span></h2>
+<p class="text-on-surface-variant font-body-lg mb-10 max-w-2xl mx-auto">Join the 1,400+ global enterprises that rely on NEURAL_OS for unbreachable security and quantum-level encryption.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<div class="w-full md:w-auto">
+<input class="w-full md:w-80 bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary-container text-primary-container font-code-sm p-4 outline-none transition-colors mb-4 md:mb-0" placeholder="OPERATOR_EMAIL@DOMAIN.SYS" type="email"/>
+</div>
+<button class="px-10 py-4 bg-primary-container text-on-primary-container font-label-caps text-label-caps font-bold hover:bg-primary hover:shadow-[0_0_20px_rgba(57,255,20,0.5)] transition-all">INITIATE_ONBOARDING</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 mt-auto border-t-2 border-outline-variant bg-background">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-primary-container">NEURAL_NET_GLOBAL</span>
+<span class="font-code-sm text-code-sm text-outline">©202X NEURAL_NET_GLOBAL // ALL_RIGHTS_RESERVED</span>
+</div>
+<div class="flex gap-8">
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">DECRYPT_DATA</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">ENCRYPTION_LOGS</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">TERMINAL_API</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">CORE_DUMP</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="text-[10px] font-code-sm text-primary-container">SYS_STABLE</span>
+</div>
+</div>
+</footer>
+<script>
+        // Generate Scrolling Hex Code
+        const hexContainer = document.getElementById('hex-dump');
+        function generateHexLine() {
+            const chars = '0123456789ABCDEF';
+            let line = '';
+            for(let i = 0; i < 64; i++) {
+                if(i % 4 === 0 && i !== 0) line += ' ';
+                line += chars[Math.floor(Math.random() * 16)];
+            }
+            return line + '\n';
+        }
         
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+        let hexLines = '';
+        for(let i = 0; i < 50; i++) {
+            hexLines += generateHexLine();
+        }
+        hexContainer.textContent = hexLines;
+
+        setInterval(() => {
+            const lines = hexContainer.textContent.split('\n');
+            lines.shift();
+            lines.push(generateHexLine().trim());
+            hexContainer.textContent = lines.join('\n');
+        }, 100);
+
+        // System Lockdown Toggle Logic
+        const lockdownBtn = document.getElementById('lockdown-btn');
+        let lockdownMode = false;
+
+        lockdownBtn.addEventListener('click', () => {
+            lockdownMode = !lockdownMode;
+            if(lockdownMode) {
+                lockdownBtn.classList.add('lockdown-active');
+                lockdownBtn.innerHTML = `
+                    <span class="material-symbols-outlined text-[32px]">lock_open</span>
+                    TERMINATE LOCKDOWN
+                    <div class="absolute -top-2 -right-2 bg-error text-on-error text-[10px] px-2 py-0.5 font-code-sm">EMERGENCY_ON</div>
+                `;
+                document.body.style.filter = 'sepia(1) saturate(5) hue-rotate(-50deg)';
+                alert('CRITICAL: GLOBAL LOCKDOWN PROTOCOL INITIATED. ALL EXTERNAL PORTS DISCONNECTED.');
+            } else {
+                lockdownBtn.classList.remove('lockdown-active');
+                lockdownBtn.innerHTML = `
+                    <span class="material-symbols-outlined text-[32px]">lock_reset</span>
+                    SYSTEM LOCKDOWN
+                    <div class="absolute -top-2 -right-2 bg-error text-on-error text-[10px] px-2 py-0.5 font-code-sm">PRIORITY_0</div>
+                `;
+                document.body.style.filter = 'none';
+            }
+        });
+
+        // Interactive Cursor Shadow Effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth * 100;
+            const y = e.clientY / window.innerHeight * 100;
+            document.body.style.backgroundImage = `radial-gradient(circle at ${x}% ${y}%, rgba(57,255,20,0.05) 0%, transparent 40%)`;
+        });
+    </script>
+</body></html>

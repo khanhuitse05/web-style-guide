@@ -1,36 +1,370 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>71. Gothic - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Gothic Chronicles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Space+Grotesk:wght@300..700&amp;family=Work+Sans:wght@100..900&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --gold-glow: rgba(231, 195, 101, 0.4);
+            --deep-shadow: rgba(0, 0, 0, 0.8);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #1a1a1a;
+            background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+            color: #e6e0e9;
+            overflow-x: hidden;
+        }
+
+        /* Gold Filigree Pattern Overlay */
+        .filigree-bg {
+            background-image: radial-gradient(circle at 50% 50%, transparent 90%, rgba(201, 167, 77, 0.05) 100%),
+                              linear-gradient(45deg, transparent 48%, rgba(201, 167, 77, 0.1) 50%, transparent 52%);
+            background-size: 100px 100px;
+        }
+
+        .gothic-border {
+            border: 4px solid #c9a74d;
+            border-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm2 2v36h36V2H2zm4 4h28v28H6V6z' fill='%23c9a74d' fill-opacity='0.4'/%3E%3C/svg%3E") 10 stretch;
+            box-shadow: inset 0 0 20px var(--deep-shadow), 0 0 15px var(--gold-glow);
+        }
+
+        .blackletter-title {
+            font-family: 'EB Garamond', serif;
+            letter-spacing: -0.05em;
+            text-transform: none;
+        }
+
+        .glint-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glint-effect::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: glint 6s infinite;
+        }
+
+        @keyframes glint {
+            0% { left: -150%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        .ornate-separator {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a74d, transparent);
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .ornate-separator::before {
+            content: '❦';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #1a1a1a;
+            padding: 0 1rem;
+            color: #c9a74d;
+            font-size: 1.5rem;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#22005d",
+                      "surface-container-low": "#1d1b20",
+                      "surface": "#141218",
+                      "surface-container": "#211f24",
+                      "on-primary-container": "#e0d2ff",
+                      "inverse-primary": "#6750a4",
+                      "on-secondary-container": "#bfb2da",
+                      "tertiary-fixed": "#ffdf93",
+                      "secondary": "#cdc0e9",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#494551",
+                      "error": "#ffb4ab",
+                      "primary": "#cfbcff",
+                      "on-tertiary": "#3e2e00",
+                      "surface-container-lowest": "#0f0d13",
+                      "error-container": "#93000a",
+                      "background": "#141218",
+                      "surface-tint": "#cfbcff",
+                      "surface-container-highest": "#36343a",
+                      "inverse-on-surface": "#322f35",
+                      "surface-dim": "#141218",
+                      "outline": "#948e9c",
+                      "surface-container-high": "#2b292f",
+                      "on-tertiary-fixed": "#241a00",
+                      "secondary-fixed-dim": "#cdc0e9",
+                      "tertiary": "#e7c365",
+                      "surface-variant": "#36343a",
+                      "on-primary-fixed-variant": "#4f378a",
+                      "primary-fixed-dim": "#cfbcff",
+                      "tertiary-fixed-dim": "#e7c365",
+                      "on-surface": "#e6e0e9",
+                      "on-tertiary-container": "#503d00",
+                      "on-primary": "#381e72",
+                      "primary-fixed": "#e9ddff",
+                      "on-secondary-fixed": "#1f1635",
+                      "primary-container": "#6750a4",
+                      "on-background": "#e6e0e9",
+                      "surface-bright": "#3b383e",
+                      "on-surface-variant": "#cbc4d2",
+                      "on-tertiary-fixed-variant": "#594400",
+                      "tertiary-container": "#c9a74d",
+                      "secondary-container": "#4d4465",
+                      "secondary-fixed": "#e9ddff",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#4b4263",
+                      "on-secondary": "#342b4b",
+                      "inverse-surface": "#e6e0e9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "8px",
+                      "container-max": "1200px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "display-xl": ["ebGaramond"],
+                      "headline-lg": ["spaceGrotesk"],
+                      "headline-lg-mobile": ["spaceGrotesk"],
+                      "body-md": ["workSans"],
+                      "display-xl-mobile": ["ebGaramond"],
+                      "label-sm": ["spaceMono"]
+              },
+              "fontSize": {
+                      "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-xl-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                      "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">71. Gothic</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Dark, ornate, medieval themes with blackletter typography.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="filigree-bg min-h-screen flex flex-col font-body-md text-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface-container dark:bg-surface-container border-b-4 border-outline-variant dark:border-outline shadow-[0_0_15px_rgba(207,188,255,0.3)] dark:shadow-none transition-all duration-500">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="ThematicEngine Logo" class="h-12 w-12 object-contain filter drop-shadow-[0_0_5px_#c9a74d]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMdTjKtQWoUuHhEHplKZkuDXBSlCUL5DuOeUPbmgJ8oI1qRE85KcMpNwVKhMXKh2vKK2W_w9Uwcl1vd8eg0R8YG6e7yG5pRxCC4ATPtbyw5GZnpAYnz99Y6W0wniGO_Q1knI7VzpLltzfNh-azp7884hVyDB_j5p12YnLZA3EHRqaTlIuKMeUwaCLOd3-f2vL_f4OCl3aDV8ZgrwgXZeyHMj3KaSSoWaxyRGLMh17UN2XpHENHTq2MoF8dkUkI4bvbY7hu3g4RDCMa"/>
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary dark:text-primary tracking-tighter">ThematicEngine</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Artifacts</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="px-md py-sm bg-primary-container text-on-primary-container font-label-sm text-label-sm border border-tertiary rounded-none glint-effect hover:bg-tertiary-container transition-colors">
+                    Explore
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-gutter py-xl">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
+<img class="w-full h-full object-cover opacity-40 grayscale" data-alt="A cinematic wide shot of a towering gothic cathedral silhouetted against a dramatic midnight sky with heavy fog. The architecture is incredibly detailed with flying buttresses and pointed arches. The atmosphere is mysterious and grand, lit by faint golden light emanating from the stained glass windows. Dark charcoal and deep gold color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm5f3y3bCGdOBZ9uGl_gBC-FPDU4tEg5JMCeK3MnvcIJksNjxJLmP_J4kHecWzF3PrXMfuFoaYrnrH9zBgSJVVfJDGWN6fs3qOmbrTe-bI9aymCtbvuGSNUbR_Yqf_iK8TO5c2UQnpM24aliBhIBlZYQrs4i8QKMLPoPvgJRJ5uqcrUlK_hXEP6JiJyjLBuXQuXO3ajxVBndCj6C4sbma5LhJcYjnP9HfeYwvkYaaTz22LYDwuukisa9qPiE2X42dvHGqY9KuZbclS"/>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-gutter">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-primary mb-md blackletter-title drop-shadow-[0_5px_15px_rgba(0,0,0,0.9)]">
+                    Medieval Chronicles
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg max-w-2xl mx-auto italic">
+                    "Step through the threshold of time into an era of stained glass, cold stone, and whispered legends. Our archives preserve the shadows of the past for the digital storytellers of the future."
+                </p>
+<div class="flex flex-col md:flex-row gap-md justify-center items-center">
+<button class="px-xl py-base gothic-border bg-surface-container-highest text-tertiary font-headline-lg-mobile uppercase tracking-widest hover:bg-tertiary hover:text-on-tertiary transition-all duration-300 active:scale-95">
+                        Begin Journey
+                    </button>
+<button class="px-xl py-base border-2 border-outline text-on-surface font-label-sm tracking-widest hover:border-primary transition-all duration-300">
+                        Enter Archives
+                    </button>
+</div>
+</div>
+</section>
+<!-- The Order Section (Bento Grid) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-xl">
+<span class="font-label-sm text-tertiary tracking-[0.3em] uppercase">Eminent Fellowship</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg blackletter-title text-primary mt-2">The Order</h2>
+<div class="ornate-separator"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-base auto-rows-[300px]">
+<!-- Main Feature Card -->
+<div class="md:col-span-8 md:row-span-2 gothic-border bg-surface-container-low p-base group overflow-hidden relative">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700 grayscale" data-alt="Intricate golden chalice resting on a heavy oak table inside a candle-lit monastery. The lighting is low and dramatic, highlighting the ornate engravings of the gold. Rich textures of velvet and ancient wood fill the frame. Dark moody gothic atmosphere with selective golden glints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX4EEQKBBWNnDRnpKDXXHYjCxxpZEuThv_bp5eX9dIecX6A0bQgROOY2UZydjNt0qs_6YeWP5vr_7Mu-z6_5lkNoSSFN2C-3FsHaIR3cPaZJGJjp57zlQZjgTxox0v7hRc76XOx8GemWbvo7z2LCacnaXsmB2nUP4-IhYT-WDy6Dk764cAswwZBwD1evpj8V9OW7xqfLEUxKnTdUHbFBthEWnOfFRt1hw0Ku-73XijQ7i61r6JxgCI4km2ShZmLCxKrIyTAcQ_DmOs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-lg flex flex-col justify-end">
+<h3 class="font-headline-lg text-primary blackletter-title mb-2">Sacred Artifacts</h3>
+<p class="font-body-md text-on-surface-variant max-w-lg">The preservation of historical relics through meticulous digital reconstruction. Each pixel is an act of reverence.</p>
+<a class="text-tertiary mt-4 flex items-center gap-2 group-hover:translate-x-2 transition-transform" href="#">
+                            View Collection <span class="material-symbols-outlined">arrow_right_alt</span>
+</a>
+</div>
+</div>
+<!-- Secondary Card 1 -->
+<div class="md:col-span-4 gothic-border bg-surface-container-high p-lg flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<h4 class="font-headline-lg-mobile text-primary blackletter-title mb-2">Vellum Lore</h4>
+<p class="font-label-sm text-on-surface-variant">Digitized scripts from the 12th century Scriptorium.</p>
+</div>
+<!-- Secondary Card 2 -->
+<div class="md:col-span-4 gothic-border bg-surface-container-highest relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:rotate-3 transition-transform duration-500" data-alt="Close up of a weathered stone gargoyle perched atop a cathedral roof, looking out over a foggy medieval city. The stone texture is rough and mossy. High contrast black and white style with deep shadows. Gothic architecture detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_G3NPwH7gZJAMLB1687eXVJGSr8Ik22TFifr0kVDfjYn6o9djmY_Vg2l3poF8RBw9atQAhVEE0FlZSv3i365B1YBViYZfYm0YgI2ko4RncxMnBmP2gx4iyeEsFwcSp6eP9ymOigyemNYNanZXcdri9FeAGWbYgJwGrAYouar4gkHq1qi7jVzfDL6t6iL-rjHXSdrJ5g9LWssXha8k8vR-G-qpZSjtScJcg0IP8FccLkgB7ekcsYrFZFnuaMJufJ67xACDDQNMo4lw"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/10 transition-colors">
+<h4 class="text-primary font-display-xl-mobile blackletter-title drop-shadow-lg">Watchers</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Dark Arts Section -->
+<section class="bg-surface-container-lowest py-xl">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row gap-xl items-center">
+<div class="w-full md:w-1/2">
+<div class="relative">
+<div class="absolute -inset-4 border-2 border-tertiary/20 animate-pulse"></div>
+<div class="gothic-border p-2 bg-black">
+<img class="w-full aspect-[4/5] object-cover grayscale brightness-75" data-alt="An ancient alchemy laboratory filled with bubbling glass retorts, thick dusty books, and celestial globes. Shafts of pale moonlight cut through the darkness, illuminating swirling vapors. The scene is rich with medieval scientific detail and a mysterious, magical mood. Deep blacks and cold silver tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOsG5lCkOAeMfx7UkKjuZq6yDsC9kvvKyhahhn8nCCxuHnyqOWL4SAEg3rYBaQGwMEkNL378WljIV5a59t4kbU_Eg6xqFEPhD_pqodl8XvF-XOPKr2q4B6XG6Fah-wkWVLE9EchcqtuetJXtrgBRCx91yJHV7qa85TRGPVJzFKzIbAgygZNGulq0sSDKidQ2MFQhbisuxuNlGIcaebRUzjepPCHxEfQlfYSYfeiWM_E1G0vRUFrOrbFGTvyCjxLSsC4XiDZCnOGcLx"/>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-md">
+<span class="font-label-sm text-tertiary tracking-[0.5em] uppercase">Forbidden Knowledge</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg blackletter-title text-primary">Dark Arts</h2>
+<p class="text-on-surface-variant italic leading-relaxed">
+                            "In the intersection of shadows and light, we find the most profound truths. Our Dark Arts collection explores the visual aesthetics of medieval mysticism, alchemy, and the occult architectures of the mind."
+                        </p>
+<ul class="space-y-base font-label-sm text-on-surface">
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-tertiary">star_half</span> Alchemy &amp; Transmutation
+                            </li>
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-tertiary">star_half</span> Cryptic Calligraphy
+                            </li>
+<li class="flex items-center gap-base">
+<span class="material-symbols-outlined text-tertiary">star_half</span> Nocturnal Architecture
+                            </li>
+</ul>
+<button class="mt-base px-lg py-sm gothic-border bg-primary-container text-on-primary-container font-label-sm hover:scale-105 transition-transform active:scale-95">
+                            Access Forbidden Vaults
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Artifact Gallery (Asymmetric Layout) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="md:mt-xl">
+<div class="gothic-border p-base bg-surface rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+<img class="w-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="Detail of a stained glass window depicting a knight in prayer. The colors are deep reds and blues, framed by heavy lead lines. The sunlight creates a glowing effect. High contrast gothic religious art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTd0mfj0G7gQAx12vjhVRZakSCGlx7IL1ypsv2tS7cQNH3KEIefHqaZtlNofUSZOXj2cnWcYoH4cSYKF0LyJ3u91IkRpfxR2Ih_Uksmx958B8hq7T1uOoTFhMYLQQN9Y9o1qjFVuxZ7fq_ZA5QPOHbYoDsrUcmBtd7dr6vidQ63qSBnIyxbY7cYiBxJKfGhQix0FLDq3sNHuCz-9J7hJ-P9v7g9utcvbKURLueVyHyHWSny5fplafEIS6b4M6fWkanddUEFnOTcMeW"/>
+<p class="mt-base font-label-sm text-center text-tertiary">Fragment No. 42: The Vigil</p>
+</div>
+</div>
+<div>
+<div class="gothic-border p-base bg-surface rotate-[3deg] hover:rotate-0 transition-transform duration-500">
+<img class="w-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close up of a heavy iron key with an ornate bow, lying on an ancient leather bound book. The lighting is dramatic, casting long shadows across the textured paper. Dark medieval aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpzShPkZwMk11UBTb23VRjv9AOxsIN2-c8qtdiQ2Usr5pv407qRoFdYJBkHs04ekn_9GbJXHfDWm8TpGyRs8f6X5pJOzcMm6vYIG3BaTENN8clGWQ4x-THhKnyKSYEUnprV6tGQVeebNhnjLEHB5nK_j1Hk3VZ5GVjpjTqMGTDJVvMVYTpMIy_RKX8EDHEVjZ6DYcfhuh64GgPXno85w0T-50jatWwxfL6d9OdTiUtBZMwu89OIExfUQdITiTsrCxkjT_9o6ho0mt1"/>
+<p class="mt-base font-label-sm text-center text-tertiary">Fragment No. 19: The Sealer</p>
+</div>
+</div>
+<div class="md:mt-lg">
+<div class="gothic-border p-base bg-surface rotate-[-1deg] hover:rotate-0 transition-transform duration-500">
+<img class="w-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="A macro shot of a wax seal on a weathered scroll. The crest on the seal is a complex shield. Red wax against cream parchment. Moody shadows and sharp detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYvikQ8KMzXPiGOo7hdeNhqdGyrWML3CqjtdURTYdkN8vsYmwY3fGrnTT3lVqp1j_hogxGoDJTWePC772ONjyR3hC_rEALlBxjyJuArAYVsdTAhMzHGnglCKC7iIbcmcSPTfU_b1OPtRRU-Xqov3uYUv8xCASPfQrPi0w6tAAQhpv4GhkNLg0_jsV9EicMt0zjNy5sjJ3mzkeKI2VKw7oG62Mg3fb1BUYKvpycR0UfoFEXXHPPeXjS-ZJvpni1HzndDHnTrPBLo_Fv"/>
+<p class="mt-base font-label-sm text-center text-tertiary">Fragment No. 88: The Decree</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-lg text-headline-lg text-on-surface blackletter-title tracking-tighter">Thematic Engine</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">© 2024 Thematic Engine. Built for digital storytellers.</p>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</nav>
+<div class="flex gap-base">
+<div class="h-8 w-8 rounded-full border border-outline flex items-center justify-center hover:border-tertiary cursor-pointer">
+<span class="material-symbols-outlined text-sm">castle</span>
+</div>
+<div class="h-8 w-8 rounded-full border border-outline flex items-center justify-center hover:border-tertiary cursor-pointer">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for the gothic theme
+        document.addEventListener('mousemove', (e) => {
+            const glows = document.querySelectorAll('.gothic-border');
+            glows.forEach(glow => {
+                const rect = glow.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    glow.style.boxShadow = `inset 0 0 20px rgba(0,0,0,0.8), 0 0 25px rgba(201, 167, 77, 0.6)`;
+                } else {
+                    glow.style.boxShadow = `inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(201, 167, 77, 0.4)`;
+                }
+            });
+        });
+
+        // Simple scroll reveal for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

@@ -1,36 +1,408 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>83. Oriental/Wuxia - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jade Path Chronicles | Wuxia RPG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        
+        .ink-bleed {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        .brush-border-bottom {
+            position: relative;
+        }
+        .brush-border-bottom::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e9c349, transparent);
+            filter: blur(1px);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 20px -5px rgba(233, 195, 73, 0.2);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .paper-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            background-repeat: repeat;
+        }
+
+        .mist-overlay {
+            backdrop-filter: blur(30px);
+            background: rgba(19, 19, 19, 0.5);
+        }
+
+        .stagger-in {
+            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#165132",
+                      "outline": "#a88a87",
+                      "on-surface-variant": "#e1bfbb",
+                      "outline-variant": "#59413f",
+                      "on-primary": "#680008",
+                      "surface-dim": "#131313",
+                      "inverse-surface": "#e5e2e1",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#8e1217",
+                      "primary-fixed-dim": "#ffb3ad",
+                      "error": "#ffb4ab",
+                      "on-primary-container": "#ffd1cd",
+                      "secondary-fixed": "#ffe088",
+                      "tertiary-container": "#336b4a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container-highest": "#353535",
+                      "secondary-container": "#af8d11",
+                      "on-error-container": "#ffdad6",
+                      "surface-container": "#20201f",
+                      "tertiary-fixed-dim": "#98d4ac",
+                      "secondary": "#e9c349",
+                      "on-primary-fixed": "#410003",
+                      "on-secondary-container": "#342800",
+                      "on-error": "#690005",
+                      "on-tertiary-container": "#ade9c0",
+                      "inverse-on-surface": "#313030",
+                      "surface-variant": "#353535",
+                      "surface-bright": "#393939",
+                      "surface": "#131313",
+                      "background": "#131313",
+                      "inverse-primary": "#b02d2b",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary": "#3c2f00",
+                      "tertiary-fixed": "#b4f0c7",
+                      "primary": "#ffb3ad",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-container": "#b32f2d",
+                      "surface-container-low": "#1c1b1b",
+                      "on-background": "#e5e2e1",
+                      "on-secondary-fixed-variant": "#574500",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-secondary-fixed": "#241a00",
+                      "on-tertiary-fixed": "#002110",
+                      "surface-tint": "#ffb3ad",
+                      "primary-fixed": "#ffdad6",
+                      "tertiary": "#98d4ac",
+                      "on-tertiary": "#00391f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "container-max": "1200px",
+                      "unit": "8px",
+                      "margin-mobile": "20px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["EB Garamond"],
+                      "headline-lg": ["EB Garamond"],
+                      "title-md": ["Noto Serif"],
+                      "body-md": ["Noto Serif"],
+                      "body-lg": ["Noto Serif"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["EB Garamond"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                      "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "500"}],
+                      "title-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
+<body class="font-body-md text-on-background bg-background selection:bg-secondary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop py-6 max-w-container-max mx-auto bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="font-display-lg text-headline-lg text-primary dark:text-primary tracking-tighter">Jade Path</div>
+<div class="hidden md:flex gap-12">
+<a class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-secondary dark:text-secondary border-b-2 border-secondary pb-1 hover:text-secondary transition-colors duration-300" href="#">Chronicles</a>
+<a class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface/70 dark:text-on-surface/70 hover:text-secondary transition-colors duration-300" href="#">Techniques</a>
+<a class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface/70 dark:text-on-surface/70 hover:text-secondary transition-colors duration-300" href="#">Sects</a>
+<a class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-on-surface/70 dark:text-on-surface/70 hover:text-secondary transition-colors duration-300" href="#">Marketplace</a>
+</div>
+<button class="px-8 py-2 bg-primary-container text-on-primary-container font-label-sm tracking-widest uppercase hover:bg-secondary hover:text-on-secondary transition-all duration-500 border border-secondary/20">
+            Join Order
+        </button>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 ink-bleed" data-alt="A cinematic wide landscape of ancient misty mountains in the style of traditional Chinese ink-wash painting. Deep charcoal peaks emerge from ethereal white clouds, with a single ancient pagoda perched precariously on a jagged cliff. The lighting is soft and atmospheric, with subtle golden rays of sunlight breaking through the mist, creating a mystical and serene Wuxia atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARiYMXLN-BShZ1QGrPt4RxeumLdCPFAjqxmHj5lsYk9RKpZAwSQzCUyUGPySNNzGAuOJhb7PYoThsECI8gI-2sG8_PCON2ivQrc8rdCWSFe4XrWKYPJtVIa6K_8lj3XqXiKy42W-v3NIg3xflhvkWQXsCKE6wf2rgO2_EhwG1PRlyl7zIxl15JkgReII0rrrIcEGx7jE3dp5H-KL8pInZLBydU__bWlp7bqEosQADuce2H5NCUza5gJ66ufG5k3H26fxpUMTahpwrC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl stagger-in">
+<span class="font-label-sm text-secondary tracking-[0.4em] uppercase mb-6 block">Ascend Beyond Mortality</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-8 leading-tight">
+                    The Heavens Tremble <br/>
+<span class="italic text-primary">Your Path Awaits</span>
+</h1>
+<p class="font-body-lg text-body-lg text-outline mb-12 max-w-2xl mx-auto leading-relaxed">
+                    A cinematic RPG experience where every brush stroke dictates your fate. Master the forbidden arts, lead your sect, and carve your name into the Jade Chronicles.
+                </p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button class="px-12 py-4 bg-primary-container text-on-primary-container font-title-md hover:scale-105 transition-transform gold-glow relative group overflow-hidden">
+<span class="relative z-10">Begin Your Pilgrimage</span>
+<div class="absolute inset-0 bg-secondary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+<button class="px-12 py-4 border border-secondary/50 text-secondary font-title-md hover:bg-secondary/10 transition-colors">
+                        Observe the Way
+                    </button>
+</div>
+</div>
+<!-- Vertical Stamp Ornament -->
+<div class="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4">
+<div class="w-[1px] h-32 bg-gradient-to-b from-transparent via-outline-variant to-transparent"></div>
+<div class="bg-primary-container p-3 flex items-center justify-center border border-on-primary/20">
+<span class="vertical-text font-headline-lg text-on-primary-container text-2xl tracking-[0.2em]">翡翠之途</span>
+</div>
+<div class="w-[1px] h-32 bg-gradient-to-t from-transparent via-outline-variant to-transparent"></div>
+</div>
+</section>
+<!-- Bento Features Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Feature -->
+<div class="md:col-span-8 bg-surface-container border-l border-t border-outline-variant/30 p-12 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 text-outline-variant/20">
+<span class="material-symbols-outlined text-9xl">brush</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-6 text-primary">Ink-Stained Combat</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                        Our proprietary 'Caligraphy-Engine' translates your movement into fluid, poetic strikes. Experience combat that feels like a dance across a living scroll.
+                    </p>
+<img class="w-full h-64 object-cover mt-4 grayscale hover:grayscale-0 transition-all duration-700 opacity-60" data-alt="A close-up shot of a stylized Wuxia duel between two warriors on a moonlit lake. The action is captured with motion blur that resembles thick black ink splashes. The warriors wear flowing traditional silk robes, one in deep crimson and the other in midnight black. The lighting is dramatic and high-contrast, focusing on the flash of a golden-hued jade sword." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQzPfumCyjrNsST_RzmANkwrnvBRPt5-o6e-M4K7y-fQbpnE1wESTTTKNOmIG7AhF4fWtTwXcTNMul_5nNxPO5_kPGoF_-2g6CNJgFVu4_6L9FYFbysSyVKyczeVUdn8EInFGGEu0Lm0gsZI0j-GqZ-kFEHoTK5ZAZkwmHSiBaOmG9aMjybAJNMoZuEBUxFSPiGSEiRLHLom4qTdnT6gWSk9NaS-Pa9a7xnh_EbFRKCaTgYQCI9xqzwYGM1cuUsKmKVKJ0shg0AeX2"/>
+</div>
+<!-- Secondary Feature -->
+<div class="md:col-span-4 bg-surface-container-high border-t border-r border-outline-variant/30 p-8 flex flex-col justify-between group">
+<div>
+<span class="material-symbols-outlined text-secondary mb-4 text-4xl">landscape</span>
+<h4 class="font-title-md text-title-md text-secondary mb-4">Floating Realms</h4>
+<p class="font-body-md text-body-md text-outline">Traverse nine mythical layers of the mortal and immortal planes.</p>
+</div>
+<div class="mt-8 border-t border-outline-variant/30 pt-4 flex justify-between items-center group-hover:text-secondary transition-colors">
+<span class="font-label-sm uppercase tracking-widest">Explore Cartography</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+<!-- Small Feature 1 -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant/20 p-8 hover:bg-surface-container transition-colors duration-500">
+<div class="bg-primary-container/10 w-12 h-12 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+</div>
+<h5 class="font-title-md text-lg text-on-surface mb-2">Cultivation Arts</h5>
+<p class="font-body-md text-sm text-outline">Refine your Qi through meditation and ancient alchemical scrolls.</p>
+</div>
+<!-- Small Feature 2 -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant/20 p-8 hover:bg-surface-container transition-colors duration-500">
+<div class="bg-secondary/10 w-12 h-12 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary">groups</span>
+</div>
+<h5 class="font-title-md text-lg text-on-surface mb-2">Sect Dynamics</h5>
+<p class="font-body-md text-sm text-outline">Build your legacy, recruit disciples, and wage war for honor.</p>
+</div>
+<!-- Small Feature 3 -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant/20 p-8 hover:bg-surface-container transition-colors duration-500">
+<div class="bg-tertiary-container/10 w-12 h-12 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary">auto_stories</span>
+</div>
+<h5 class="font-title-md text-lg text-on-surface mb-2">Epic Narrative</h5>
+<p class="font-body-md text-sm text-outline">A branching story written by master novelists of the genre.</p>
+</div>
+</div>
+</section>
+<!-- Artistic Divider -->
+<div class="w-full flex justify-center py-20">
+<div class="w-1/2 h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+</div>
+<!-- Techniques Section -->
+<section class="py-24 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-4">The Forbidden Scrolls</h2>
+<p class="font-body-lg text-body-lg text-outline">Rare techniques passed down through generations. Which path will you master?</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:border-secondary hover:text-secondary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-outline-variant flex items-center justify-center hover:border-secondary hover:text-secondary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-12 snap-x no-scrollbar">
+<!-- Technique Card 1 -->
+<div class="min-w-[320px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-[500px] overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="A stylized illustration of a monk performing a martial arts stance atop a narrow stone pillar above a sea of clouds. The style is heavily inspired by sumi-e painting with expressive brushstrokes and minimal color, emphasizing deep blacks and a wash of golden yellow in the background. The mood is one of intense focus and spiritual elevation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsxBpdm3MsQuHlKS3DdjIp-c7IMczkuwqjw00nuzI1IKmhbPN9DGD21tzcjNqdVhQDln3tlABjX9QHFoSZMt6CefBSNv99JJKbud4vFKybV6HkHzv2a2785idD3Dc8GDR5hqTKzt0lfuBGdH1GR2-yrfAFTz0jnfpwamUXmehydCFlu4rQIBF77OegC2UgWUmfPDFO32WALnSkZxbfF-dWV4U3J5EEKBAnslWrOu8w7KHpodPevk38koKtFdUNcCLmj-vIzHlcmjSR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 text-xs font-label-sm uppercase tracking-tighter mb-2 inline-block">Legendary</span>
+<h4 class="font-title-md text-2xl text-white">Ghost Shadow Step</h4>
+</div>
+</div>
+</div>
+<!-- Technique Card 2 -->
+<div class="min-w-[320px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-[500px] overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="Intricate traditional red cinnabar seal stamps and vertical calligraphy on aged, textured yellow rice paper. The lighting is low and warm, highlighting the physical depth of the paper's fiber. The composition is artistic and minimalist, representing ancient scrolls and secret knowledge in a high-end Wuxia design context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD24ceRPaMo1F6Xk5qjpr0bhR-FVtFHW6VrhooqZQd1xTKVO8t7jLEReRXjSnXWR7ApF71-prXQOqLPyt1ZCXk1Vxs-2cqtCJK5vqMn8TCce0ua_fRCBwO2-0om9rTLnMikpdLLIXPfDP4Klbt7Q2kQ6v0piaidG29zvAEvzKK39jx7dbG_bN-XRFP_ZKv2R_JUDJJbj9NLuKlWg6bKSNp2GdpEQSMvxiPfVRsg73WuZ7q4xhuF1WUcE67CMEiFp-iMvpsz1dlMgSZn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 text-xs font-label-sm uppercase tracking-tighter mb-2 inline-block">Rare</span>
+<h4 class="font-title-md text-2xl text-white">Dragon Breath Palm</h4>
+</div>
+</div>
+</div>
+<!-- Technique Card 3 -->
+<div class="min-w-[320px] md:min-w-[400px] snap-start group cursor-pointer">
+<div class="relative h-[500px] overflow-hidden mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="A serene landscape showing a hidden waterfall deep within a bamboo forest. The visual style is ethereal with a thick atmosphere of mist and glowing fireflies. Cool green and blue tones are contrasted by a small, bright golden spark of energy at the base of the falls where a silhouette is meditating. Cinematic and atmospheric lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMZSxUZJPlQ0jXGYKwbXDfmajnpiHQjuUSwso5XBYrUuwSJx8MeeaE5e9AzL6Y0PDfnrTlQ_z2Mz7KqxMJFxDQkT6NYa65Zwb0TDTUfHIpgrC4UxQ1LS0KqGQJ51ArUUdNsHcV9Bexl0qZnSM1z0jcSL6FxUXTm-6QusmzGge6I_UnHl9sjG0rC2kIY1GQX5NoeO4-TXQE2xhamaBJ5o46haa5xGOm1Xjem-RVmrSOo_h56lVj0bpxzYFxpkvxFhsH-n9RpbmwzIAV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-xs font-label-sm uppercase tracking-tighter mb-2 inline-block">Epic</span>
+<h4 class="font-title-md text-2xl text-white">Jade Heart Pulse</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 relative overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 opacity-10">
+<div class="paper-texture w-full h-full"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="inline-block p-4 border border-outline-variant mb-12">
+<div class="border border-outline-variant px-8 py-10">
+<h2 class="font-display-lg text-headline-lg text-secondary mb-6">Forge Your Legend</h2>
+<p class="font-body-lg text-outline mb-10 max-w-xl mx-auto">
+                            The ink is still wet on the pages of history. Will you be the one to complete the poem?
+                        </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<div class="relative group">
+<input class="bg-transparent border-b-2 border-outline-variant focus:border-secondary focus:ring-0 text-on-surface font-body-md w-64 transition-all pb-2" placeholder="Your Spirit's Name" type="email"/>
+</div>
+<button class="px-10 py-3 bg-primary-container text-on-primary-container font-label-sm tracking-widest uppercase hover:bg-secondary hover:text-on-secondary transition-all duration-300">
+                                Enter the Gate
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-20 flex flex-col items-center gap-8 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="font-headline-lg text-headline-lg text-primary">Jade Path</div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-body-md text-outline hover:text-primary transition-all" href="#">The Way</a>
+<a class="font-body-md text-outline hover:text-primary transition-all" href="#">Code of Conduct</a>
+<a class="font-body-md text-outline hover:text-primary transition-all" href="#">Envoys</a>
+<a class="font-body-md text-outline hover:text-primary transition-all" href="#">Scrolls</a>
+</div>
+<div class="mt-8 text-outline-variant text-sm font-label-sm tracking-widest text-center">
+            © 1274 Jade Path Chronicles. All honor reserved.
         </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">83. Oriental/Wuxia</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Brush strokes, red and gold accents, ink wash textures.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<!-- Social Icons -->
+<div class="flex gap-6 mt-4">
+<a class="text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">forum</span>
+</a>
+<a class="text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">videocam</span>
+</a>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('stagger-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div, .grid > div').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Horizontal scroll button logic
+        const scrollContainer = document.querySelector('.snap-x');
+        const nextBtn = document.querySelector('button:has(.material-symbols-outlined:contains("chevron_right"))');
+        const prevBtn = document.querySelector('button:has(.material-symbols-outlined:contains("chevron_left"))');
+
+        // Custom selector replacement for modern browsers
+        const buttons = document.querySelectorAll('button');
+        let next, prev;
+        buttons.forEach(btn => {
+            if (btn.innerText.includes('chevron_right')) next = btn;
+            if (btn.innerText.includes('chevron_left')) prev = btn;
+        });
+
+        if (next && scrollContainer) {
+            next.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+        if (prev && scrollContainer) {
+            prev.addEventListener('click', () => {
+                scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body></html>

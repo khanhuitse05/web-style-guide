@@ -1,36 +1,349 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>76. Stained Glass - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Stained Glass Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&amp;family=Space+Grotesk:wght@300;600&amp;family=Work+Sans:wght@400;500&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --glass-border: 4px solid #000000;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #141218;
+            color: #e6e0e9;
+            overflow-x: hidden;
+        }
+        .stained-glass-card {
+            border: var(--glass-border);
+            box-shadow: 8px 8px 0px #000000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stained-glass-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px #000000;
+        }
+        .lead-line {
+            background: #000000;
+        }
+        .jewel-gradient-red {
+            background: linear-gradient(135deg, #93000a 0%, #ff5449 100%);
+        }
+        .jewel-gradient-blue {
+            background: linear-gradient(135deg, #003366 0%, #4d94ff 100%);
+        }
+        .jewel-gradient-purple {
+            background: linear-gradient(135deg, #381e72 0%, #cfbcff 100%);
+        }
+        .jewel-gradient-gold {
+            background: linear-gradient(135deg, #594400 0%, #e7c365 100%);
+        }
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Glint Animation */
+        .glint {
+            position: relative;
+            overflow: hidden;
+        }
+        .glint::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: glint-move 4s infinite;
+        }
+        @keyframes glint-move {
+            0% { transform: translateX(-150%) rotate(45deg); }
+            20% { transform: translateX(150%) rotate(45deg); }
+            100% { transform: translateX(150%) rotate(45deg); }
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005d",
+                        "surface-container-low": "#1d1b20",
+                        "surface": "#141218",
+                        "surface-container": "#211f24",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-primary": "#6750a4",
+                        "on-secondary-container": "#bfb2da",
+                        "tertiary-fixed": "#ffdf93",
+                        "secondary": "#cdc0e9",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#494551",
+                        "error": "#ffb4ab",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "surface-container-lowest": "#0f0d13",
+                        "error-container": "#93000a",
+                        "background": "#141218",
+                        "surface-tint": "#cfbcff",
+                        "surface-container-highest": "#36343a",
+                        "inverse-on-surface": "#322f35",
+                        "surface-dim": "#141218",
+                        "outline": "#948e9c",
+                        "surface-container-high": "#2b292f",
+                        "on-tertiary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "tertiary": "#e7c365",
+                        "surface-variant": "#36343a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary-container": "#503d00",
+                        "on-primary": "#381e72",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#1f1635",
+                        "primary-container": "#6750a4",
+                        "on-background": "#e6e0e9",
+                        "surface-bright": "#3b383e",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "secondary-container": "#4d4465",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-secondary": "#342b4b",
+                        "inverse-surface": "#e6e0e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1200px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["EB Garamond", "serif"],
+                        "headline-lg": ["Space Grotesk", "sans-serif"],
+                        "headline-lg-mobile": ["Space Grotesk", "sans-serif"],
+                        "body-md": ["Work Sans", "sans-serif"],
+                        "display-xl-mobile": ["EB Garamond", "serif"],
+                        "label-sm": ["Space Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">76. Stained Glass</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Colorful fragmented segments with heavy black leading.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-surface-container border-b-4 border-outline-variant shadow-md">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="ThematicEngine Logo" class="w-12 h-12 border-2 border-black" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrgPE1moo5Z4OHjy-Wt843bZBbCDHcjNdJycU7hTKUwWfsBb7cWG59R-usOuOGtEFIYB_ASKLbbwXn4MRIFzL6DeNAUwsQl8ac3BQETIgTFirBhdWMxLa5BRgq0abYu5MJ9jN2vh3yQaq3so0OItgbWI6eoyXRjH5miOa0qygqgETxyzg-5m0U1Ygur2a34JnSPVv1lsKc8-C-5XFRjyedEypj-jSgR3Jz2MrNSVTp2Mdj2Htb2ova1IMQZOA08k4NeOfgqXpCrAak"/>
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary tracking-tighter">ThematicEngine</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm hover:text-tertiary transition-colors duration-300" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-tertiary transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-tertiary transition-colors duration-300" href="#">Artifacts</a>
+</nav>
+<button class="active:scale-95 transition-transform bg-primary text-on-primary font-headline-lg text-[18px] px-6 py-2 border-2 border-black font-bold shadow-[4px_4px_0px_#000000] glint">
+                Explore
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section: The Prism Light -->
+<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-xl px-gutter">
+<div class="absolute inset-0 z-0 opacity-40">
+<div class="grid grid-cols-4 md:grid-cols-8 h-full w-full">
+<div class="jewel-gradient-red border-r-4 border-black"></div>
+<div class="jewel-gradient-blue border-r-4 border-black"></div>
+<div class="jewel-gradient-purple border-r-4 border-black"></div>
+<div class="jewel-gradient-gold border-r-4 border-black"></div>
+<div class="jewel-gradient-red border-r-4 border-black"></div>
+<div class="jewel-gradient-blue border-r-4 border-black"></div>
+<div class="jewel-gradient-purple border-r-4 border-black"></div>
+<div class="jewel-gradient-gold"></div>
+</div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto text-center">
+<div class="inline-block p-8 bg-surface-container border-[6px] border-black shadow-[12px_12px_0px_#000000] mb-8">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-primary leading-none mb-4">
+                        Prism <span class="text-tertiary">Light</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                        Experience the digital sublime through our fragmented lens. Every pixel is a shard, every layout a cathedral of vibrant illumination and structured shadow.
+                    </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-tertiary text-on-tertiary-fixed font-bold py-4 px-10 border-4 border-black shadow-[6px_6px_0px_#000000] active:translate-y-1 active:shadow-none transition-all glint">
+                        Enter The Cathedral
+                    </button>
+<button class="bg-surface-container text-primary font-bold py-4 px-10 border-4 border-black shadow-[6px_6px_0px_#000000] active:translate-y-1 active:shadow-none transition-all">
+                        View Gallery
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section: Luminous Art (Bento Grid) -->
+<section class="py-20 px-gutter max-w-container-max mx-auto" id="luminous-art">
+<div class="mb-12 flex items-center gap-4">
+<div class="h-[4px] flex-grow lead-line"></div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-secondary">Luminous Art</h2>
+<div class="h-[4px] w-24 lead-line"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Large Feature -->
+<div class="md:col-span-8 md:row-span-2 stained-glass-card bg-surface-container-high p-8 flex flex-col justify-end relative overflow-hidden group">
+<div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of highly detailed stained glass window fragments with intense jewel tones like sapphire, ruby, and emerald. The light filters through the textured glass creating a soft chromatic glow. Thick black lead lines criss-cross the frame in a chaotic yet beautiful mosaic pattern, emphasizing the structural brutality and colorful elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSZ5qBbPcDAJ8dx2y6qNaSFRSA5PnitYpsboqFEXWaWRRta6DDovnym6l9rPFHrKxInk2l1IiId8wArnFagzGWl7R1XEE5j2NO5an7jBoRYehyLo4hu2lkCorwITgGFRFWga87pAbmgGF5iOycY03zFom2g3e5LGCkIESKhc2cUlewzf-nsCSDroVIN7cpXz7ORDOyi4DmjnmBSutau9aOWVaXkQBWiWfOTlFU7QEW3u09evyADC6eI3GFsHXQlpJmXctRvML2MREm"/>
+</div>
+<div class="relative z-10 bg-surface-container/80 p-6 border-l-4 border-primary">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-2">Masterpiece</span>
+<h3 class="font-display-xl text-3xl mb-4">The Great Rose Array</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A generative masterpiece that calculates light diffraction across 4,000 unique glass vertices in real-time.</p>
+</div>
+</div>
+<!-- Side Card 1 -->
+<div class="md:col-span-4 stained-glass-card jewel-gradient-purple p-6 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<h4 class="font-headline-lg text-2xl mb-2 text-on-primary-fixed">Facet Geometry</h4>
+<p class="font-label-sm text-label-sm text-on-primary-fixed opacity-80">Mathematical precision in every fragment.</p>
+</div>
+<!-- Side Card 2 -->
+<div class="md:col-span-4 stained-glass-card bg-surface-container-highest p-6 border-t-[12px] border-tertiary">
+<h4 class="font-headline-lg text-xl mb-4 text-tertiary">Refraction Engine</h4>
+<div class="space-y-3">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm">Luminosity</span>
+<span class="font-label-sm text-label-sm text-primary">98%</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm">Diffusion</span>
+<span class="font-label-sm text-label-sm text-primary">Soft</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="font-label-sm text-label-sm">Saturation</span>
+<span class="font-label-sm text-label-sm text-primary">Vibrant</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: The Cathedral -->
+<section class="bg-surface-container-lowest py-24 relative overflow-hidden" id="the-cathedral">
+<div class="absolute top-0 left-0 w-full h-1 lead-line"></div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-full h-full border-4 border-primary"></div>
+<div class="relative stained-glass-card aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A grand interior view of a dark, gothic cathedral hall where massive stained glass windows cast long, colorful geometric shadows onto the stone floor. The lighting is dramatic and moody, with dust motes dancing in the visible beams of colored light. The overall aesthetic is dark and opulent, focusing on the contrast between the cold stone and the vibrant, luminous glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVSJtPFTO4TBi0kCXcIV0W7ELJPSDQBN_mbgdBd0BlXsL-6J450PEJuDKb38-l4iZhe69KoO5fjdrFeA6tAmbDDZtSreIQsegNiLM1SrJ1gboxsdPe4yPmyFKXXDxAJWPFotV306HIHpmG-VRpcNcVbSTxs-0lqNZXyrpJMEq_udMVkAh2Ov-a457vfpTesl7YZDi3_p7Q0fqp45mXBsyF1q3YOCAdA_ujbX42iOfc7_zJMJnPsivLsro9rk0tKunYAYhC8NlTPLHr"/>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<div class="inline-block px-4 py-1 bg-secondary text-on-secondary-fixed font-label-sm text-label-sm font-bold">ARCHITECTURAL VOID</div>
+<h2 class="font-display-xl text-display-xl-mobile md:text-5xl text-on-surface">The Cathedral of Code</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Our structural framework mimics the heavy masonry of ancient basilicas, providing a rigid skeleton for the ethereal dance of light and color. By combining Brutalist grid systems with the fluidity of glass, we create interfaces that feel both grounded and celestial.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container border-2 border-black group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-black">architecture</span>
+</div>
+<span class="font-headline-lg text-xl">Structural Integrity</span>
+</li>
+<li class="flex items-center gap-4 group">
+<div class="w-10 h-10 flex items-center justify-center bg-surface-container border-2 border-black group-hover:bg-tertiary transition-colors">
+<span class="material-symbols-outlined text-tertiary group-hover:text-black">flare</span>
+</div>
+<span class="font-headline-lg text-xl">Chromatic Depth</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 lead-line"></div>
+</section>
+<!-- Section: Prism Light (Interactive Elements) -->
+<section class="py-24 px-gutter max-w-container-max mx-auto text-center" id="prism-light">
+<h2 class="font-display-xl text-4xl mb-12">Select Your Palette</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="group cursor-pointer">
+<div class="w-full aspect-square stained-glass-card jewel-gradient-red mb-4 flex items-center justify-center group-hover:rotate-3 transition-transform">
+<span class="font-display-xl text-white text-6xl opacity-20">R</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Ruby Sanctum</p>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full aspect-square stained-glass-card jewel-gradient-blue mb-4 flex items-center justify-center group-hover:-rotate-3 transition-transform">
+<span class="font-display-xl text-white text-6xl opacity-20">B</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Sapphire Vault</p>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full aspect-square stained-glass-card jewel-gradient-gold mb-4 flex items-center justify-center group-hover:rotate-3 transition-transform">
+<span class="font-display-xl text-white text-6xl opacity-20">G</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Amber Glint</p>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full aspect-square stained-glass-card jewel-gradient-purple mb-4 flex items-center justify-center group-hover:-rotate-3 transition-transform">
+<span class="font-display-xl text-white text-6xl opacity-20">V</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Violet Veil</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest border-t-4 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-2">
+<img alt="Logo" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrgPE1moo5Z4OHjy-Wt843bZBbCDHcjNdJycU7hTKUwWfsBb7cWG59R-usOuOGtEFIYB_ASKLbbwXn4MRIFzL6DeNAUwsQl8ac3BQETIgTFirBhdWMxLa5BRgq0abYu5MJ9jN2vh3yQaq3so0OItgbWI6eoyXRjH5miOa0qygqgETxyzg-5m0U1Ygur2a34JnSPVv1lsKc8-C-5XFRjyedEypj-jSgR3Jz2MrNSVTp2Mdj2Htb2ova1IMQZOA08k4NeOfgqXpCrAak"/>
+<span class="font-bold">Thematic Engine</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant max-w-xs text-center md:text-left">
+                    © 2024 Thematic Engine. Built for digital storytellers.
+                </p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- FAB Suppression: Contextual Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="w-16 h-16 bg-primary text-on-primary border-4 border-black shadow-[6px_6px_0px_#000000] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center glint">
+<span class="material-symbols-outlined text-3xl">brush</span>
+</button>
+</div>
+<script>
+        // Micro-interaction for shard hovering
+        document.querySelectorAll('.stained-glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle interaction logic if needed
+            });
+        });
+    </script>
+</body></html>

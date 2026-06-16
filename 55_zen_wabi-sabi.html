@@ -1,36 +1,367 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>55. Zen/Wabi-Sabi - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aetheris Gallery | Zen &amp; Wabi-Sabi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --zen-grain: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
+            background-color: #111415;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        .grain-overlay {
+            background-image: var(--zen-grain);
+            pointer-events: none;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stone-float {
+            animation: floating 6s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .mask-gradient {
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#23501e",
+                      "tertiary-fixed": "#d7e2ff",
+                      "inverse-on-surface": "#2e3132",
+                      "tertiary-container": "#a2b3d7",
+                      "on-surface": "#e1e3e4",
+                      "surface-dim": "#111415",
+                      "primary": "#f2ca50",
+                      "on-secondary-container": "#90c283",
+                      "surface-container-highest": "#323536",
+                      "surface-container-high": "#282a2b",
+                      "on-tertiary-container": "#354563",
+                      "on-background": "#e1e3e4",
+                      "on-primary": "#3c2f00",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#735c00",
+                      "secondary": "#a1d494",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e1e3e4",
+                      "tertiary-fixed-dim": "#b6c7eb",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#d0c5af",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary-fixed": "#ffe088",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary-container": "#d4af37",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#99907c",
+                      "background": "#111415",
+                      "secondary-fixed": "#bcf0ae",
+                      "secondary-container": "#23501e",
+                      "tertiary": "#becef3",
+                      "surface-bright": "#373a3b",
+                      "surface-container": "#1d2021",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed": "#002201",
+                      "surface-variant": "#323536",
+                      "on-tertiary-fixed": "#081b38",
+                      "on-secondary": "#0a3909",
+                      "surface-container-low": "#191c1d",
+                      "primary-fixed-dim": "#e9c349",
+                      "secondary-fixed-dim": "#a1d494",
+                      "on-tertiary-fixed-variant": "#374765",
+                      "outline-variant": "#4d4635",
+                      "on-tertiary": "#20304e",
+                      "surface-tint": "#e9c349",
+                      "surface": "#111415",
+                      "on-primary-container": "#554300"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "unit": "8px",
+                      "section-gap": "160px",
+                      "margin-mobile": "24px",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "margin-tablet": "40px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Montserrat"],
+                      "body-lg": ["Montserrat"],
+                      "label-sm": ["Geist"],
+                      "headline-lg": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">55. Zen/Wabi-Sabi</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Imperfect, natural, calm, with expansive negative space.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<div class="grain-overlay fixed inset-0 z-50"></div>
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-40 bg-surface/40 backdrop-blur-xl dark:bg-surface-dim/40 transition-all duration-500">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary tracking-tighter cursor-pointer active:scale-95">
+                Aetheris Gallery
+            </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md text-primary font-bold border-b border-primary pb-1 cursor-pointer active:scale-95" href="#">Archetypes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Artifacts</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Design Tokens</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95" href="#">Curators</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95">search</button>
+<button class="bg-primary/10 border border-primary/20 px-6 py-2 rounded-full font-label-sm text-label-sm text-primary uppercase tracking-widest hover:bg-primary/20 transition-all cursor-pointer active:scale-95">
+                    Inquire
+                </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+
+<div class="px-margin-desktop w-full max-w-container-max mx-auto grid grid-cols-12 relative z-10">
+<div class="col-span-12 md:col-span-7 flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-primary tracking-[0.3em] mb-6 reveal-up">THE ZEN ARCHETYPE</span>
+<h1 class="font-display-lg text-display-lg mb-8 reveal-up leading-tight">
+                        The beauty of <br><span class="italic text-on-surface-variant">imperfection.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-12 reveal-up">
+                        Exploring the resonance of Wabi-Sabi. A digital sanctuary dedicated to the tactile, the weathered, and the transient.
+                    </p>
+<div class="flex items-center gap-8 reveal-up">
+<div class="group cursor-pointer">
+<span class="font-label-sm text-label-sm border-b border-on-surface pb-1 group-hover:text-primary group-hover:border-primary transition-all">DISCOVER THE VOID</span>
+</div>
+</div>
+</div>
+<div class="hidden md:block col-span-5 relative">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full aspect-[3/4] reveal-up">
+<img class="w-full h-full object-cover rounded-sm grayscale-[40%] contrast-[1.1]" data-alt="A singular, handcrafted ceramic bowl with visible cracks repaired with gold leaf, Kintsugi style, sitting on a weathered dark wood surface. The lighting is soft and directional, coming from the side to emphasize the rough texture of the clay and the smoothness of the gold. Muted tones of ash, charcoal, and ochre dominate the scene, creating a sense of quietude and serene beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_XE4Wa8HKpN5hk5-7twuSRmrLnYdeb_SwA4APRe4_AT78luhpP6E9HUvoBaXF7KaVx8IJy8AXCiBRXSLwHexr79RFJ9uGLBJZxkMsCh9IkShHHArLu43cDTm0Wa7GTbgdKg8DdKCDDWdPYjyTwIOPxqH-Zc85UeHG-CJDSufjQAnnFtlIJSxBVzjrRny63RI0wffljaE0fywHNNsbNeCZslfDNo9Y0wVySqkd7ljeSsdpxeHSTtVsoKxgmM9dPIeJUjkSGJjjkavT">
+<div class="absolute -bottom-8 -left-8 bg-surface-container-high p-8 backdrop-blur-md border-t border-l border-white/5">
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed italic max-w-[160px]">
+                                "Nothing lasts, nothing is finished, and nothing is perfect."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Philosophy Section (Bentoish) -->
+<section class="py-section-gap px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-4 mb-20 md:mb-0 reveal-up">
+<h2 class="font-headline-lg text-headline-lg mb-12">Natural <br>Symmetry.</h2>
+<div class="space-y-12">
+<div class="border-t border-outline-variant pt-6">
+<span class="font-label-sm text-label-sm text-primary block mb-2">01. KANSO</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Simplicity through the elimination of clutter. Each element serves a sensory purpose.</p>
+</div>
+<div class="border-t border-outline-variant pt-6">
+<span class="font-label-sm text-label-sm text-primary block mb-2">02. SHIBUMI</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Beauty in the understated. A focus on raw textures like clay, linen, and ash.</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-12 gap-gutter reveal-up">
+<div class="col-span-7 h-[600px] bg-surface-container-low overflow-hidden group">
+<img class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-105" data-alt="A minimalist zen rock garden with meticulously raked sand in circular patterns around a single, dark jagged stone. The scene is captured in high-fidelity with soft morning mist, creating a serene, monochromatic aesthetic in shades of light gray and charcoal. The composition is asymmetrical, emphasizing the vast negative space and the tranquility of the garden." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJEztJGx0VboP272DMJrigUzk-xq5o6on_eNBLvOHaR_V4GAaOMzXc7V_t57nWLbMs6ZjbBdvgkJSKKH5ULTYcqamTGR65MYCexW0wbYySGjD7Lcqm6NlQC-s8mC-HDKMWqz_CPrYR3x61Bs7LXKvJ1KVFjK6icaHte2_BCLhUws3OOgyIAuLbO_sH6jVmeKYHmnSTPCcwRpAQvU_4TVx8k9s7k5BBtFOZR1jQByvEMIgydbsG0_FEvSSdrRnxER6lfgclzcVmWrk">
+</div>
+<div class="col-span-5 h-[400px] mt-24 bg-surface-container-high overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A close-up shot of raw, weathered wood grain with deep textures and knots. A single beam of soft light highlights the silver-gray fibers of the timber. The visual style is tactile and minimalist, focusing on the organic beauty of aged materials. Colors are muted earth tones, reinforcing the Wabi-Sabi philosophy of appreciating the passage of time." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBSi-9mDjbJbadiBxVD30K5Oa0-6penaQkqA4earRiZHELvjijqI2g9yyhL0RCUuA9_DRKBwVfYs8pOlE1FV3oJscfFpqs8yxiyH5WV0n_hJeqKBrRqEHtR3F_cYx3m7YDzH8GTWiIJlIH2edN8MngaryouEk4AsUDiozHMa0jEfRW15ODQLbCb4l_Kc2Icxg5TroD6oWd6-CUVJ6y8gmgj0nXG-R20P1Zz_ApCC9QHkuZwUAlOaEOxPt78T5tX5HjxihmE_c_3lvU">
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Artifact Section -->
+<section class="py-section-gap relative overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<div class="px-margin-desktop w-full max-w-container-max mx-auto flex flex-col items-center">
+<div class="max-w-3xl text-center mb-24 reveal-up">
+<h2 class="font-display-lg text-display-lg mb-8">Artifact 003: <br>The Weathered Vessel</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Hand-coiled clay fired in an anagama kiln for seven days. The ash deposits create a unique glaze that cannot be replicated.
+                    </p>
+</div>
+<div class="w-full grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-6 flex justify-center reveal-up">
+<div class="relative w-80 h-96 group">
+<div class="absolute inset-0 bg-primary/5 blur-3xl rounded-full scale-150"></div>
+<img class="relative z-10 w-full h-full object-contain stone-float" data-alt="An exquisite piece of dark, rough-textured pottery with an irregular rim and natural ash glaze drips. The object is isolated against a pitch-black background, lit by a single dramatic spotlight that creates strong shadows and highlights the coarse surface. The style is ultra-minimalist and moody, capturing the essence of 'Digital Serenity' and luxury craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV2-ICsle9IfqHZpAYBt7u_2rV5Hm2pjHrJIZjej7fzNULubTGEiCBNPEk99p1BQOaG0habcnw2bgQ1gkRxSE6HvVLu_-f_GYo_1Hj4XmfemXE4IWIEU-qMTTMdHWFfoLBKd1GObBnnHxBEVO8UZnf9s3iOOsFwe7vtI26wsvWcEglYxC6dJCLYiB4hmD-GSA6CZjxSv4zPDKt82XFR715uE5i2q9y8QLGa6UKNrjwOI9mfYuEN_Bqz529ZnGvc4dBkiQBCbkqwjWU">
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 reveal-up">
+<div class="grid grid-cols-2 gap-8">
+<div class="p-8 border border-outline/10 bg-surface/30 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary block mb-4 uppercase">Material</span>
+<span class="font-headline-md text-headline-md">Black Clay</span>
+</div>
+<div class="p-8 border border-outline/10 bg-surface/30 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary block mb-4 uppercase">Process</span>
+<span class="font-headline-md text-headline-md">Wood Fired</span>
+</div>
+<div class="p-8 border border-outline/10 bg-surface/30 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary block mb-4 uppercase">Origin</span>
+<span class="font-headline-md text-headline-md">Shigaraki</span>
+</div>
+<div class="p-8 border border-outline/10 bg-surface/30 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary block mb-4 uppercase">Year</span>
+<span class="font-headline-md text-headline-md">2024</span>
+</div>
+</div>
+<button class="mt-12 w-full py-6 border border-on-surface text-on-surface font-label-sm text-label-sm uppercase tracking-[0.4em] hover:bg-on-surface hover:text-surface transition-all active:scale-[0.98]">
+                            ACQUIRE PIECE
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-section-gap px-margin-desktop">
+<div class="w-full max-w-4xl mx-auto text-center reveal-up">
+<span class="material-symbols-outlined text-primary text-4xl mb-12">park</span>
+<blockquote class="font-display-lg text-display-lg italic text-on-surface-variant leading-tight">
+                    "Find the infinite in the <span class="text-on-surface not-italic">singular pebble.</span>"
+                </blockquote>
+</div>
+</section>
+<!-- Collection Grid -->
+<section class="py-section-gap px-margin-desktop w-full max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16 reveal-up">
+<div>
+<span class="font-label-sm text-label-sm text-primary tracking-widest block mb-4">THE ARCHIVE</span>
+<h2 class="font-headline-lg text-headline-lg">Curated Collections</h2>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="p-4 border border-outline-variant hover:border-primary transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-4 border border-outline-variant hover:border-primary transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="reveal-up delay-100 group cursor-pointer">
+<div class="aspect-square bg-surface-container-high overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene indoor zen space with a low wooden platform, a single tatami mat, and a large circular window framing a view of a single bonsai tree in the rain. The interior is dimly lit, with soft textures of linen and rice paper screens. The color palette is composed of muted browns, beiges, and soft greens, creating a deep atmospheric mood of wabi-sabi and quiet contemplation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyK-L-xNFlK20VugOxBPsqGoGkllIWVpYaOJ5az1XlqNQImTYxd4Ln7NMJLanrY3GwNL55425H-zvP9SLkrZZqSb8nPXgAj4Fuv2RDecIoX9sajz_2RViqOssJonV9jMHDWrAwpmU7mClUrPktTUQTrvtnL6LgXOhuK0pQ5IqhAz3uBOSFhs0YjhYupKYsDEYNO7q3rZZJgfn8OinsazFAJTLDZJpodANDcelf_Yj5RTwebbMbyn3AKoCu7atLIQ0RU-hJFXclpQ8z">
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">01 / ARCHITECTURE</span>
+<h3 class="font-headline-md text-headline-md mt-2">The Empty Room</h3>
+</div>
+<!-- Card 2 -->
+<div class="reveal-up delay-200 group cursor-pointer mt-12 md:mt-24">
+<div class="aspect-square bg-surface-container-high overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Macro photography of linen fabric with a rough, natural weave. A single piece of handmade pottery sits in the corner of the frame, partially obscured. The focus is on the thread texture and the soft, neutral tones of oatmeal and sand. The lighting is diffused, mimicking the soft glow of a cloudy day. The image feels airy, organic, and tactile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjuyrBAtQdCI8UqjOUWHSMQYf7Ky-4slfQWjTvoQe8SUITDheoIwrcHzHdUmMJREblV2m4HqSBd6chC-3tdU-XNa7Gijw4KiqxLGZGGEJDSZpCv8pDn9bt2IdPj1vNgwl0Py3ZmFpOcWA6ZVBMRKrDFLy1-zDJjKt8ppi64vmecJvJTROTnq2rZMeD9xc981TaNSBT-MTZLqzplg2yjAozYQ82lRoZz2SqxuZVcy3QKg8JJaKcouQ-3CyfA_UyLC9W5fNe1_vuY2TL">
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">02 / TEXTILES</span>
+<h3 class="font-headline-md text-headline-md mt-2">Woven Breath</h3>
+</div>
+<!-- Card 3 -->
+<div class="reveal-up delay-300 group cursor-pointer">
+<div class="aspect-square bg-surface-container-high overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A collection of five irregular river stones stacked precariously on top of each other. The stones have different textures—some smooth, some rough with moss. They are set against a background of dark, weathered wood. The lighting is dramatic, high-contrast, casting long shadows. The overall feel is one of balance, fragility, and grounded terrestrial energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSl6oH1fYzt4yMASVLktDI8a2TBaCjcBwZX-SiVOqps7RKX4MGyNFM5ZloFmQtDyGONaYvxeyTHPSq4Y4lLpFgy3XliAx-CHFD6nZXOLP7s8doM8LEUHqYM2kewj6B3omw3jiU6P1iA5Z1_-yaSVuquT2w4QmBM4QNgUOPAEOvtZO93zh5XAOWEGKFWVdb2an4whW5q7rRb0v344IPjCsMMIbie5E3fP0q-kB9o5FvdCr6Uf-2zkfsfVhrOoefbtODRhZN04Ma_8mk">
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">03 / FORM</span>
+<h3 class="font-headline-md text-headline-md mt-2">Equilibrium</h3>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-20 mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface-variant">
+                Aetheris
+            </div>
+<div class="flex flex-wrap justify-center gap-10">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Environmental Impact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant opacity-60">
+                © 2024 Aetheris Natural Skeuomorphism Lab. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Smooth Scrolling logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic Header Transparency
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-4');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.add('py-6');
+                header.classList.remove('py-4');
+            }
+        });
+    </script>
+</body></html>

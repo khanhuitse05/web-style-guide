@@ -1,36 +1,403 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>77. Arcade - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ThematicEngine | Arcade Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;500&amp;family=EB+Garamond:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --neon-green: #cfbcff; /* Mapping to primary from config */
+            --neon-magenta: #e7c365; /* Mapping to tertiary from config */
+            --crt-scanline: rgba(18, 16, 16, 0.1);
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #0f0d13;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Scanline Effect Overlay */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg, 
+                rgba(255, 0, 0, 0.06), 
+                rgba(0, 255, 0, 0.02), 
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.3;
+        }
+
+        /* Dot Matrix Pattern */
+        .dot-matrix {
+            background-image: radial-gradient(circle, #494551 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* CRT Flicker */
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.93; }
+            20% { opacity: 0.98; }
+            25% { opacity: 0.95; }
+            30% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        .crt-screen {
+            animation: flicker 0.15s infinite;
+        }
+
+        /* Arcade "Squishy" Button Effect */
+        .arcade-button {
+            box-shadow: 0 6px 0 0 #4d4465;
+            transition: all 0.1s ease;
+            position: relative;
+            top: 0;
+        }
+        .arcade-button:active {
+            top: 4px;
+            box-shadow: 0 2px 0 0 #4d4465;
+        }
+
+        /* Neon Glows */
+        .glow-primary {
+            text-shadow: 0 0 10px rgba(207, 188, 255, 0.8), 0 0 20px rgba(207, 188, 255, 0.5);
+        }
+        .glow-tertiary {
+            text-shadow: 0 0 10px rgba(231, 195, 101, 0.8), 0 0 20px rgba(231, 195, 101, 0.5);
+        }
+
+        /* Glint Animation */
+        @keyframes glint {
+            0% { left: -150%; }
+            100% { left: 150%; }
+        }
+        .glint-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg);
+            animation: glint 4s infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#22005d",
+                        "surface-container-low": "#1d1b20",
+                        "surface": "#141218",
+                        "surface-container": "#211f24",
+                        "on-primary-container": "#e0d2ff",
+                        "inverse-primary": "#6750a4",
+                        "on-secondary-container": "#bfb2da",
+                        "tertiary-fixed": "#ffdf93",
+                        "secondary": "#cdc0e9",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#494551",
+                        "error": "#ffb4ab",
+                        "primary": "#cfbcff",
+                        "on-tertiary": "#3e2e00",
+                        "surface-container-lowest": "#0f0d13",
+                        "error-container": "#93000a",
+                        "background": "#141218",
+                        "surface-tint": "#cfbcff",
+                        "surface-container-highest": "#36343a",
+                        "inverse-on-surface": "#322f35",
+                        "surface-dim": "#141218",
+                        "outline": "#948e9c",
+                        "surface-container-high": "#2b292f",
+                        "on-tertiary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "tertiary": "#e7c365",
+                        "surface-variant": "#36343a",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary-container": "#503d00",
+                        "on-primary": "#381e72",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#1f1635",
+                        "primary-container": "#6750a4",
+                        "on-background": "#e6e0e9",
+                        "surface-bright": "#3b383e",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "tertiary-container": "#c9a74d",
+                        "secondary-container": "#4d4465",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "on-secondary": "#342b4b",
+                        "inverse-surface": "#e6e0e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1200px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["ebGaramond"],
+                        "headline-lg": ["spaceGrotesk"],
+                        "headline-lg-mobile": ["spaceGrotesk"],
+                        "body-md": ["workSans"],
+                        "display-xl-mobile": ["ebGaramond"],
+                        "label-sm": ["spaceMono"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "1", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">77. Arcade</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Coin-op aesthetics, pixel fonts, and bright LED dot-matrix styles.</p>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<div class="scanlines"></div>
+<!-- Header / TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-container border-b-4 border-outline-variant shadow-[0_0_15px_rgba(207,188,255,0.3)]">
+<div class="flex justify-between items-center px-gutter py-base max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Logo" class="w-12 h-12 pixelated border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2O4aVrg1aM8BtqY1-JduVt1qQBAtyaKFl8OV6Eij7aF8b-If6FkMaUiigAyM2l23vhG9DzICs1aEvp1MT33uYlOabfHW8zUVywUdBTa7arjGTM6gDYhq0sfcNV88-Tg5zUi5YOK84yfYy6vfFD3sFJ7QAP1KOX21lItgK1sOUXjUq82rlbe-RhtSWlKcUbhRGG41DWA9aKnpf4ldLxAsD5QrEhZspOfHsHLzXCft4N4jxIWDYgbKVlWdnhACuFSxR-29yjpja6ZYO"/>
+<span class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary tracking-tighter glow-primary">ThematicEngine</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm active:scale-95 transition-transform" href="#">Styles</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Gallery</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-tertiary transition-colors duration-300 active:scale-95 transition-transform" href="#">Artifacts</a>
+</nav>
+<button class="arcade-button bg-tertiary text-on-tertiary px-md py-sm font-label-sm text-label-sm font-bold uppercase tracking-widest glint-effect overflow-hidden">
+                Explore
+            </button>
+</div>
+</header>
+<main class="relative z-10">
+<!-- Hero: Insert Coin Section -->
+<section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-gutter overflow-hidden dot-matrix">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-surface-container-lowest to-background opacity-80"></div>
+<div class="relative z-10 crt-screen">
+<div class="inline-block border-4 border-primary p-4 mb-xl bg-surface-container-lowest shadow-[0_0_30px_rgba(207,188,255,0.4)]">
+<h1 class="font-display-xl text-display-xl-mobile md:text-display-xl font-bold text-primary uppercase tracking-widest glow-primary mb-4">
+                        INSERT COIN
+                    </h1>
+<p class="font-label-sm text-label-sm text-tertiary uppercase tracking-[0.3em] glow-tertiary animate-pulse">
+                        Level 01: Start Your Journey
+                    </p>
+</div>
+<div class="max-w-2xl mx-auto mb-xl">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Experience the raw energy of the 80s arcade. A digital playground built for storytellers who crave pixels, scanlines, and high-stakes design.
+                    </p>
+</div>
+<div class="flex flex-col md:flex-row gap-md justify-center items-center">
+<button class="arcade-button bg-primary text-on-primary font-label-sm text-label-sm font-bold px-xl py-md uppercase tracking-tighter w-full md:w-auto">
+                        New Game
+                    </button>
+<button class="arcade-button border-4 border-tertiary text-tertiary font-label-sm text-label-sm font-bold px-xl py-md uppercase tracking-tighter w-full md:w-auto hover:bg-tertiary hover:text-on-tertiary transition-colors">
+                        Load Save
+                    </button>
+</div>
+</div>
+<!-- Floating Decorative Pixels -->
+<div class="absolute top-1/4 left-10 w-8 h-8 bg-primary opacity-20 animate-bounce"></div>
+<div class="absolute bottom-1/4 right-10 w-12 h-12 bg-tertiary opacity-20 animate-pulse"></div>
+</section>
+<!-- Top Scores: High Fidelity Stats (Bento Grid) -->
+<section class="py-xl px-gutter max-w-container-max mx-auto">
+<div class="flex items-center gap-4 mb-xl">
+<span class="material-symbols-outlined text-tertiary text-4xl glow-tertiary" data-icon="trophy">trophy</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold uppercase tracking-tight">Top Scores</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-base md:grid-rows-2 h-auto md:h-[600px]">
+<!-- Lead Score -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container border-2 border-primary p-lg flex flex-col justify-between shadow-[inset_0_0_20px_rgba(207,188,255,0.1)] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 font-label-sm text-label-sm text-primary opacity-30">RANK: 01</div>
+<div>
+<h3 class="font-display-xl text-display-xl-mobile md:text-display-xl text-primary glow-primary mb-base">9,999,999</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Player: ARCHITECT_X</p>
+</div>
+<div class="bg-surface-container-highest p-base border-l-4 border-primary">
+<p class="font-body-md text-body-md italic text-on-surface">"The engine doesn't just render images; it births entire realities in 8-bit glory."</p>
+</div>
+</div>
+<!-- Secondary Score -->
+<div class="md:col-span-2 bg-surface-container border-2 border-outline-variant p-lg flex justify-between items-center group hover:border-tertiary transition-colors">
+<div>
+<p class="font-label-sm text-label-sm text-tertiary uppercase mb-xs">Rank: 02</p>
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">5,430,120</h4>
+</div>
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-tertiary transition-colors" data-icon="leaderboard">leaderboard</span>
+</div>
+<!-- Small Score Card -->
+<div class="bg-surface-container border-2 border-outline-variant p-md flex flex-col justify-center text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Rank 03</p>
+<p class="font-headline-lg-mobile md:text-headline-lg-mobile font-bold text-on-surface">3.2M</p>
+</div>
+<!-- Small Score Card -->
+<div class="bg-surface-container border-2 border-outline-variant p-md flex flex-col justify-center text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Rank 04</p>
+<p class="font-headline-lg-mobile md:text-headline-lg-mobile font-bold text-on-surface">2.8M</p>
+</div>
+</div>
+</section>
+<!-- Classic Cabinets: Featured Artifacts -->
+<section class="py-xl bg-surface-container-lowest dot-matrix">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold uppercase mb-base glow-primary">Classic Cabinets</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                            Each theme in our engine is housed in a virtual cabinet, preserved for eternity. Pick your style and start the simulation.
+                        </p>
+</div>
+<div class="flex gap-sm">
+<button class="p-base bg-surface-container border-2 border-outline hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="p-base bg-surface-container border-2 border-outline hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Cabinet 1 -->
+<div class="group relative bg-surface border-4 border-outline-variant hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
+<div class="h-64 bg-surface-container-highest relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A vintage arcade cabinet glowing in a dark room, featuring neon magenta and green accents, CRT screen curves, and 8-bit joystick hardware. The mood is nostalgic and atmospheric, with subtle lens flare effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWgcc3jvz_5vFR8iGndxo9JQ-XPBtAbVTm_patqHmmjeSMmfK2gqVjdx1rLc3VJQfdmL2qZ6Lqx7eXFOtAHMnGpmihbBlMQ5eufjmH1RD1HoUUfPrEZboB-N4Q5oOsBq_0XT7tplkMY8G14LW9H4S3PnMbchGVLG0Se30DY5Xh3Yy9OacsSIO_Q3sLvRcSYiIKmhCSmT9-h_y7xHJZ6OgAW9AJBlvRaci5wEFL3TLx9ytetnXXcQPhDZaWQH-VOtocBzQULVnWd39u"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="p-lg">
+<span class="font-label-sm text-label-sm text-tertiary bg-on-tertiary-fixed-variant px-sm py-xs mb-md inline-block uppercase tracking-widest">Action</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-primary transition-colors">Neon Nights</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">A high-speed synthwave journey through a digital cityscape.</p>
+<button class="flex items-center gap-base text-primary font-bold font-label-sm text-label-sm uppercase hover:gap-md transition-all">
+                                Launch Program <span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Cabinet 2 -->
+<div class="group relative bg-surface border-4 border-outline-variant hover:border-tertiary transition-all duration-300 transform hover:-translate-y-2">
+<div class="h-64 bg-surface-container-highest relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Close up of a backlit arcade game controller with glowing buttons and an 8-way joystick. The lighting is intense blue and hot pink, creating a high-contrast gamer aesthetic. Sharp focus and high-tech detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUhJ5jj0pD1wihqtvBnC6XanTYcP0LIJEcKjiTZCzZvHECn8tiEtmllHG6w3An_czAArH3DfhWxZ5dxSjiwecfGqTY_A-mhEa5sPJvsLpLhaUa2PgNHE3JgMatxjuA9tH5gOafaVAV-EsUbU6_Mww32ArTaSPkALZg3CrpE0lWnRqJ5uJjSEEKr73lX5ohHsR58pDoqmSjOPLnqOx1dUc0JwccMlcP9jVgFyOEEgvC2YIR0wfBlDFgauCfAFbX_y9_y8_hEkusqKf7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="p-lg">
+<span class="font-label-sm text-label-sm text-primary bg-on-primary-fixed-variant px-sm py-xs mb-md inline-block uppercase tracking-widest">Puzzle</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-tertiary transition-colors">Logic Gate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Deconstruct the hardware to solve the ultimate riddle.</p>
+<button class="flex items-center gap-base text-tertiary font-bold font-label-sm text-label-sm uppercase hover:gap-md transition-all">
+                                Launch Program <span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Cabinet 3 -->
+<div class="group relative bg-surface border-4 border-outline-variant hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
+<div class="h-64 bg-surface-container-highest relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="An expansive digital arena with grid lines stretching to the horizon under a dark sky filled with geometric constellations. Glowing pathways connect various nodes, representing a networked virtual world. The style is futuristic and cybernetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASOi9nmGLZoJ3whba2ASP9Ebl28ELCyMfleH0HB7SwqXBWZ31cyvDD3jN3uz4yNHrPiX3YWF8R5YZm4de8pp2l1N8XHuHZTGUdfN2oM6peOfYmzc2BdA5WVuSlSwcmlpGmZcHgmplUugCtxX0KLD4ky6Wo3uk0kSbucj6nc5R6GRBCdRAqkHjB3yrd6bjuizOK-eRRwsx0G4zziDtsr1oBE3KCQ2Z4qHqEHR8jE641iUO8AAIu9NrXy8Wns-aOr5GnGq1SoCyoU7xk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="p-lg">
+<span class="font-label-sm text-label-sm text-tertiary bg-on-tertiary-fixed-variant px-sm py-xs mb-md inline-block uppercase tracking-widest">Strategy</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-primary transition-colors">Bit-Wars</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Lead your cluster of pixels to total system dominance.</p>
+<button class="flex items-center gap-base text-primary font-bold font-label-sm text-label-sm uppercase hover:gap-md transition-all">
+                                Launch Program <span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg mt-auto bg-surface-container-lowest border-t-2 border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-md max-w-container-max mx-auto">
+<div class="flex items-center gap-base">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tighter glow-primary">Thematic Engine</span>
+<span class="px-xs py-0.5 border border-primary text-[10px] text-primary">v2.0.4</span>
+</div>
+<p class="text-secondary font-body-md text-body-md font-label-sm text-label-sm opacity-80">
+                © 2024 Thematic Engine. Built for digital storytellers.
+            </p>
+<nav class="flex gap-md">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">License</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-opacity opacity-80 hover:opacity-100" href="#">Contact</a>
+</nav>
+</div>
+</footer>
+<!-- Interactive Layer: Coin Counter -->
+<div class="fixed bottom-gutter right-gutter z-50 flex items-center gap-base bg-surface-container border-2 border-primary p-base shadow-lg crt-screen">
+<span class="material-symbols-outlined text-tertiary" data-icon="monetization_on">monetization_on</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase leading-none">Credits</span>
+<span class="font-label-sm text-label-sm text-primary font-bold" id="coin-counter">00</span>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for the coin counter
+        let credits = 0;
+        const counterEl = document.getElementById('coin-counter');
         
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+        // Add credits on any arcade button click
+        document.querySelectorAll('.arcade-button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                credits++;
+                counterEl.textContent = credits.toString().padStart(2, '0');
+                
+                // Sound effect placeholder visual feedback
+                counterEl.classList.add('glow-primary');
+                setTimeout(() => counterEl.classList.remove('glow-primary'), 300);
+            });
+        });
+
+        // Matrix background movement
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.body.style.backgroundPosition = `0 ${scrolled * 0.1}px`;
+        });
+    </script>
+</body></html>

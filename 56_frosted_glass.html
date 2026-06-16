@@ -1,36 +1,430 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>56. Frosted Glass - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aetheris Gallery | Frosted Glass Archetype</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&amp;family=Montserrat:wght@400;500;600&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --ice-glint: rgba(255, 255, 255, 0.5);
+        }
+        
+        .glass-card {
+            backdrop-filter: blur(24px) saturate(120%);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
+        }
+
+        .ice-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .glint-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        
+        .glint-effect:hover::after {
+            left: 100%;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(0) rotate(0deg); }
+            to { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .floating-element {
+            animation: drift 6s ease-in-out infinite alternate;
+        }
+
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            backdrop-filter: invert(0.1);
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#23501e",
+                      "tertiary-fixed": "#d7e2ff",
+                      "inverse-on-surface": "#2e3132",
+                      "tertiary-container": "#a2b3d7",
+                      "on-surface": "#e1e3e4",
+                      "surface-dim": "#111415",
+                      "primary": "#f2ca50",
+                      "on-secondary-container": "#90c283",
+                      "surface-container-highest": "#323536",
+                      "surface-container-high": "#282a2b",
+                      "on-tertiary-container": "#354563",
+                      "on-background": "#e1e3e4",
+                      "on-primary": "#3c2f00",
+                      "error": "#ffb4ab",
+                      "inverse-primary": "#735c00",
+                      "secondary": "#a1d494",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e1e3e4",
+                      "tertiary-fixed-dim": "#b6c7eb",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#d0c5af",
+                      "on-primary-fixed-variant": "#574500",
+                      "primary-fixed": "#ffe088",
+                      "surface-container-lowest": "#0c0f10",
+                      "primary-container": "#d4af37",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#99907c",
+                      "background": "#111415",
+                      "secondary-fixed": "#bcf0ae",
+                      "secondary-container": "#23501e",
+                      "tertiary": "#becef3",
+                      "surface-bright": "#373a3b",
+                      "surface-container": "#1d2021",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed": "#002201",
+                      "surface-variant": "#323536",
+                      "on-tertiary-fixed": "#081b38",
+                      "on-secondary": "#0a3909",
+                      "surface-container-low": "#191c1d",
+                      "primary-fixed-dim": "#e9c349",
+                      "secondary-fixed-dim": "#a1d494",
+                      "on-tertiary-fixed-variant": "#374765",
+                      "outline-variant": "#4d4635",
+                      "on-tertiary": "#20304e",
+                      "surface-tint": "#e9c349",
+                      "surface": "#111415",
+                      "on-primary-container": "#554300"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "unit": "8px",
+                      "section-gap": "160px",
+                      "margin-mobile": "24px",
+                      "margin-desktop": "80px",
+                      "gutter": "32px",
+                      "margin-tablet": "40px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "display-lg": ["Playfair Display"],
+                      "body-md": ["Montserrat"],
+                      "body-lg": ["Montserrat"],
+                      "label-sm": ["Geist"],
+                      "headline-lg": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">56. Frosted Glass</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Wintery, crisp, icy translucency with cool tones.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-surface font-body-md selection:bg-tertiary-container selection:text-on-tertiary-container overflow-x-hidden">
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<!-- Background Layer -->
+<div class="fixed inset-0 z-[-1] overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-br from-surface-dim via-background to-surface-container-low"></div>
+<div class="ice-texture absolute inset-0"></div>
+</div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 backdrop-blur-xl transition-all duration-500 border-b border-white/5">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface tracking-tighter cursor-pointer flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed">ac_unit</span>
+                Aetheris Gallery
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface font-bold border-b border-on-surface pb-1 font-body-md text-body-md" href="#">Archetypes</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95 font-body-md text-body-md" href="#">Artifacts</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95 font-body-md text-body-md" href="#">Design Tokens</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95 font-body-md text-body-md" href="#">Curators</a>
+</div>
+<button class="bg-on-surface text-background px-8 py-2 font-label-sm text-label-sm uppercase tracking-widest hover:bg-tertiary-fixed transition-all duration-300">
+                Inquire
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center px-margin-desktop pt-32 overflow-hidden">
+<div class="grid grid-cols-12 gap-gutter w-full max-w-container-max mx-auto items-center">
+<div class="col-span-12 lg:col-span-7 z-10">
+<span class="font-label-sm text-label-sm text-tertiary-fixed mb-6 block tracking-[0.4em] uppercase">Atmospheric Archetype</span>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight mb-8">
+                        The Sublimity of <br>
+<span class="italic text-white">Frosted Glass</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                        Explore the intersection of structural rigidity and ephemeral translucency. Our Icy Archetype simulates the crystalline growth of winter through high-fidelity glassmorphic interfaces.
+                    </p>
+<div class="flex gap-6">
+<button class="glass-card px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest glint-effect relative overflow-hidden group">
+<span class="relative z-10">Enter the Void</span>
+</button>
+<button class="flex items-center gap-4 text-on-surface hover:text-tertiary-fixed transition-colors group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Experience Technicals</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 relative mt-20 lg:mt-0">
+<div class="relative w-full aspect-[4/5] glass-card overflow-hidden floating-element">
+<img alt="Frosted Window" class="w-full h-full object-cover opacity-80" data-alt="A mesmerizing macro photograph of frost crystal patterns spreading across a pane of dark glass during a deep winter night. The crystals are sharp, geometric, and catch the faint cool silver moonlight, creating a high-contrast wintery atmosphere. The visual style is crisp and editorial, focusing on the intricate skeletal structure of the ice against a deep, cold blue-black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNQ47G27CjcXEUJitoi-qCnfvDsq_a9cktiSIhj7nb1tqtbeHtRJTZ9F_znNxOWFAWo2soXsSm1J2B4fzLFWTmC0i9hs6GJucXrctOURkxvMe8jvi6kHV8VEgxDWycmbbvos7hYLaEs9I4ioBM6S6QRw5P6VGU2BSHoklGGj7m3BnxxNUNBIQBVxn-E6JBJY0McCC2OvLssmYT0un0swpfv9gxWJ6QlZYbCbm7x-KjvHIBgUs1kUpROMjAd_Q_c17-GLOhqh2Q61cd">
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+<!-- Decorative Floating Shards -->
+<div class="absolute -top-12 -right-12 w-32 h-32 glass-card backdrop-blur-md opacity-40 -rotate-12"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 glass-card backdrop-blur-lg opacity-20 rotate-12"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feature Section -->
+<section class="px-margin-desktop py-section-gap">
+<div class="max-w-container-max mx-auto">
+<div class="mb-20 flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Crystalline Elements</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Precision-engineered design tokens that mimic the organic growth of ice crystals.</p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-headline-md text-tertiary-fixed opacity-10">01 / 10</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="md:col-span-2 glass-card p-10 flex flex-col justify-between min-h-[400px] group cursor-pointer hover:border-white/40 transition-colors">
+<div>
+<span class="material-symbols-outlined text-4xl text-tertiary-fixed mb-6" style="font-variation-settings: 'FILL' 1;">blur_on</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Adaptive Translucency</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Surfaces that react to content light, creating a depth that feels infinite yet structured.</p>
+</div>
+<div class="flex justify-between items-center mt-8">
+<span class="font-label-sm text-label-sm uppercase tracking-tighter opacity-50">Refraction Level: 0.85</span>
+<div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-10 flex flex-col justify-between min-h-[400px] relative overflow-hidden group">
+<div class="absolute inset-0 z-0 opacity-40 grayscale group-hover:scale-110 transition-transform duration-700">
+<img class="w-full h-full object-cover" data-alt="Macro view of individual snowflakes resting on a cold surface, showing perfect hexagonal symmetry and delicate ice bridges. The lighting is cold and ethereal, with pale blue and silver highlights. The depth of field is shallow, creating a soft, dreamy bokeh effect in the background while keeping the foreground crystal in sharp, crystalline focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDISkaV0M2SMCFejFqTC37xDli10n70WjWdU4iAclGhFZJ8aAq8tiX4MTwaBpahqKvJSHzGTbnes_BcZtrLgNrmXaW-z8zmZfMhkSIcvHiLsbMUgcXB-eS0e0trH0YaRJVdWWAvwoyeyQiJ2m9oez8_a1Urj0aPOk9gEq9Ap58838OJCtj05O5sPoaOJZpDg6JYHXHg2eJJ62SlhR5dKBi2x072HwooUZ19zcwcyr1hTZoi0eDgUn0Z-tlCnR49e4NCSAWAscTcOPWq">
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-white mb-4">Tactile Cold</h3>
+</div>
+<div class="relative z-10">
+<p class="font-body-md text-body-md text-white/70 mb-6">Interfaces that evoke sensory memory through sharp edges and high-key palettes.</p>
+<button class="w-full py-4 border border-white/20 hover:bg-white/5 transition-colors font-label-sm text-label-sm uppercase tracking-widest">Details</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-10 min-h-[300px] flex flex-col group">
+<div class="mb-auto">
+<span class="material-symbols-outlined text-tertiary-fixed mb-4">ac_unit</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Geometric Frost</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sharp corners and 45-degree angle clips defining the container ecosystem.</p>
+</div>
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent my-8"></div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full border border-white/20 bg-white/5"></div>
+<div class="w-8 h-8 rounded-full border border-white/20 bg-tertiary-fixed/20"></div>
+<div class="w-8 h-8 rounded-full border border-white/20 bg-surface-bright"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-2 glass-card p-0 overflow-hidden relative min-h-[300px]">
+<div class="absolute inset-0 flex">
+<div class="w-1/2 h-full bg-surface-container-high/40 p-10 flex flex-col justify-center">
+<h3 class="font-headline-md text-headline-md text-white mb-4">Atmospheric Depth</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Multi-layered blur systems mimicking thick sheets of glacier ice.</p>
+</div>
+<div class="w-1/2 h-full relative">
+<img class="w-full h-full object-cover" data-alt="An expansive aerial view of an arctic ice field where massive cracks reveal deep, luminous turquoise water beneath the white snow crust. The light is soft and diffused, characteristic of a polar winter morning. The color palette is dominated by pure whites, frosty silvers, and intense glacier blues, creating a feeling of immense scale and serene isolation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELIyyUQQjUznSomKEhO-wr_rQPJUvDwOXWKm_MbOnpBTFSXrqADekoewQskjz61qcdqhbxdAmCC7ibz5iDy3bIw_w-vt67vBV-eoAnlhMS2mB9w1mYKk42otmcN8xWUxUcnbT2zWL4gZsH9zOIHfaGsmnyTZ4Hytmvy84Nk32AUNp9wEJ2_y1XE68BNJ4jljtAZESM0GUV5Yld_NksP2OaxQjpJpouxHUYc1rvSuRPHr9q82f_Cd5jCSV2p8K0xrx5KZo2w5B3kIX">
+<div class="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specification Section -->
+<section class="bg-surface-container-lowest/50 py-section-gap px-margin-desktop border-y border-white/5">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-8">
+<div class="p-8 glass-card">
+<h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase mb-4 tracking-widest">Opacity</h4>
+<div class="text-4xl font-headline-md text-white mb-2">0.05</div>
+<div class="w-full h-1 bg-white/10 overflow-hidden">
+<div class="w-[5%] h-full bg-tertiary-fixed"></div>
+</div>
+</div>
+<div class="p-8 glass-card">
+<h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase mb-4 tracking-widest">Blur Radius</h4>
+<div class="text-4xl font-headline-md text-white mb-2">40px</div>
+<div class="w-full h-1 bg-white/10 overflow-hidden">
+<div class="w-[80%] h-full bg-tertiary-fixed"></div>
+</div>
+</div>
+<div class="p-8 glass-card">
+<h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase mb-4 tracking-widest">Refraction</h4>
+<div class="text-4xl font-headline-md text-white mb-2">1.31</div>
+<div class="w-full h-1 bg-white/10 overflow-hidden">
+<div class="w-[60%] h-full bg-tertiary-fixed"></div>
+</div>
+</div>
+<div class="p-8 glass-card">
+<h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase mb-4 tracking-widest">Tint</h4>
+<div class="text-4xl font-headline-md text-white mb-2">#E1F5FE</div>
+<div class="w-full h-1 bg-white/10 overflow-hidden">
+<div class="w-[30%] h-full bg-tertiary-fixed"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<span class="font-label-sm text-label-sm text-tertiary-fixed mb-6 block tracking-widest">SYSTEM CORE</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Materiality Beyond <br>the Screen</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                        Our Frosted Glass style isn't just a filter; it's a simulation of physics. By calculating real-world refraction indices, we bring the sensory cold of a winter morning to your digital collection.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<span class="font-body-md text-body-md">Dynamic Light Catching Strokes</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<span class="font-body-md text-body-md">Skeletal Asymmetric Grid System</span>
+</li>
+<li class="flex items-center gap-4 text-on-surface">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<span class="font-body-md text-body-md">Sub-zero Color Palette Integration</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-section-gap px-margin-desktop text-center overflow-hidden relative">
+
+<div class="max-w-4xl mx-auto relative z-10">
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-12">Capture the <span class="italic font-light">Freeze</span>.</h2>
+<div class="glass-card inline-flex p-2 items-center">
+<input class="bg-transparent border-none focus:ring-0 text-white px-8 py-4 w-64 md:w-80 font-body-md placeholder:text-white/30" placeholder="Curate your inbox" type="email">
+<button class="bg-white text-background px-10 py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-tertiary-fixed transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest py-20 w-full border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface-variant">Aetheris</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 Aetheris Natural Skeuomorphism Lab. All rights reserved.</p>
+</div>
+<div class="flex gap-10">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Environmental Impact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">hub</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">filter_vintage</span>
+</div>
+</div>
+</footer>
+<script>
+        // Custom cursor logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.transform = `translate(-50%, -50%)`;
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = `translate(-50%, -50%) scale(2)`;
+                cursor.style.backgroundColor = 'rgba(255,255,255,0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = `translate(-50%, -50%) scale(1)`;
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+
+        // Scroll animations for glass cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(card);
+        });
+
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const amount = 20;
+            const x = (e.clientX - window.innerWidth / 2) / amount;
+            const y = (e.clientY - window.innerHeight / 2) / amount;
+            
+            document.querySelectorAll('.floating-element').forEach(el => {
+                el.style.transform = `translate(${x}px, ${y}px) rotate(${x/10}deg)`;
+            });
+        });
+    </script>
+</body></html>

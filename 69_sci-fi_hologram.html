@@ -1,36 +1,404 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>69. Sci-Fi Hologram - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_OS // HOLOGRAPHIC_INTERFACE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.92; }
+            10% { opacity: 0.98; }
+            15% { opacity: 0.94; }
+            20% { opacity: 0.99; }
+            100% { opacity: 1; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.4)); }
+            50% { filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.8)); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .scanline-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .flicker-effect {
+            animation: flicker 0.15s infinite;
+        }
+        .hologram-gradient {
+            background: linear-gradient(180deg, rgba(57, 255, 20, 0.05) 0%, rgba(57, 255, 20, 0.01) 100%);
+        }
+        .glitch-border {
+            border-image: linear-gradient(to bottom, #39ff14, transparent) 1;
+        }
+        .pixel-grid {
+            background-image: radial-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            cursor: crosshair;
+            overflow-x: hidden;
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffffff",
+                        "outline": "#85967c",
+                        "secondary-fixed": "#00fbfb",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-container": "#39ff14",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#baccb0",
+                        "inverse-primary": "#106e00",
+                        "surface-bright": "#393939",
+                        "tertiary": "#fff8f7",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary-fixed-variant": "#095300",
+                        "on-tertiary-fixed-variant": "#930100",
+                        "primary": "#efffe3",
+                        "outline-variant": "#3c4b35",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed": "#410000",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdad4",
+                        "surface-container-highest": "#353535",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "tertiary-container": "#ffd3cc",
+                        "secondary-fixed-dim": "#00dddd",
+                        "primary-fixed": "#79ff5b",
+                        "on-secondary-container": "#007070",
+                        "on-error": "#690005",
+                        "surface-variant": "#353535",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary": "#053900",
+                        "surface-tint": "#2ae500",
+                        "secondary-container": "#00fbfb",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#107100",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#022100",
+                        "surface-container": "#20201f",
+                        "on-tertiary-container": "#c50100",
+                        "primary-fixed-dim": "#2ae500",
+                        "on-tertiary": "#690100",
+                        "on-secondary": "#003737"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-max": "1440px",
+                        "margin": "24px"
+                    },
+                    "fontFamily": {
+                        "display-sm": ["Space Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Space Grotesk"],
+                        "body-md": ["JetBrains Mono"],
+                        "body-lg": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-sm": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "code-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">69. Sci-Fi Hologram</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Blue/Cyan translucent projections with scanlines.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="dark font-body-md text-on-surface">
+<!-- Global FX -->
+<div class="scanline-overlay"></div>
+<div class="fixed inset-0 pixel-grid pointer-events-none opacity-20"></div>
+<!-- Navigation Shell -->
+<nav class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50 backdrop-blur-md border-b-2 border-outline-variant bg-background shadow-[inset_0px_0px_10px_rgba(57,255,20,0.1)]">
+<div class="flex items-center gap-4">
+<span class="font-display-sm text-display-sm font-bold tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(57,255,20,0.4)]">NEURAL_OS_v1.0.4</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary-container border-b-2 border-primary-container pb-1 font-label-caps text-label-caps" href="#">NODE_SYS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps" href="#">QUANTUM_CORE</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps" href="#">CYBER_SEC</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-caps text-label-caps" href="#">MECHA_IND</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container cursor-crosshair">sensors</span>
+<span class="material-symbols-outlined text-primary-container cursor-crosshair">terminal</span>
+<button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-4 py-2 hover:bg-surface-container-highest transition-all duration-150 active:scale-95">SYSTEM_LOGIN</button>
+</div>
+</nav>
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r-2 border-outline-variant bg-surface-container-lowest z-40 hidden lg:flex flex-col">
+<div class="p-6 border-b border-outline-variant">
+<div class="text-primary-container font-display-sm text-display-sm">OP_SEC_01</div>
+<div class="text-outline font-code-sm text-code-sm tracking-widest mt-1">STATUS: ENCRYPTED</div>
+</div>
+<div class="flex-grow py-4">
+<div class="bg-primary-container text-on-primary-container font-bold border-l-4 border-on-primary-container p-4 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined">code</span>
+<span class="font-code-sm text-code-sm">TERMINAL</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-code-sm text-code-sm">HUD_GRID</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined">polyline</span>
+<span class="font-code-sm text-code-sm">WIRE_FRAME</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined">speed</span>
+<span class="font-code-sm text-code-sm">OUTRUN</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary-container p-4 flex items-center gap-3 cursor-pointer transition-all">
+<span class="material-symbols-outlined">electrical_services</span>
+<span class="font-code-sm text-code-sm">GLITCH</span>
+</div>
+</div>
+<div class="p-6 border-t border-outline-variant mt-auto">
+<button class="w-full bg-transparent border-2 border-primary-container text-primary-container py-3 font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary transition-all duration-300">INITIATE_BREACH</button>
+</div>
+</aside>
+<main class="lg:ml-64 relative min-h-screen">
+<!-- Hero Section -->
+<section class="relative h-[870px] flex flex-col items-center justify-center overflow-hidden border-b-2 border-outline-variant">
+<!-- Background WebGL/Shader Placeholder -->
+
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<div class="mb-2 flex justify-center">
+<span class="inline-block px-3 py-1 bg-primary-container/10 border border-primary-container text-primary-container font-code-sm text-code-sm uppercase tracking-widest flicker-effect">
+                        [ SYSTEM_LINK_ESTABLISHED ]
+                    </span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary-container leading-tight mb-6 drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">
+                    NEXT-GEN HOLOGRAPHIC <br/> NEURAL INTERFACE
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Direct neural link protocol 0.4. Navigate multi-dimensional data arrays with zero-latency visual telemetry. Designed for the operators of the next era.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-container text-on-primary text-label-caps font-label-caps px-8 py-4 border-2 border-primary-container hover:shadow-[0_0_20px_rgba(57,255,20,0.4)] transition-all">INITIALIZE_CORE</button>
+<button class="bg-transparent border-2 border-outline text-outline text-label-caps font-label-caps px-8 py-4 hover:border-primary-container hover:text-primary-container transition-all">VIEW_TELEMETRY</button>
+</div>
+</div>
+<!-- The Projector Beam Effect -->
+<div class="absolute bottom-0 w-full flex justify-center">
+<div class="relative h-64 w-96">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-8 bg-primary-container blur-2xl opacity-40"></div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-t from-primary-container to-transparent opacity-20"></div>
+<!-- Central Hologram Object -->
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-64 animate-[float_4s_easeInOut_infinite]">
+<img alt="Neural Core Processor" class="w-full h-full object-contain filter grayscale invert brightness-150 sepia(100%) hue-rotate(80deg) saturate(300%) drop-shadow-[0_0_10px_rgba(57,255,20,0.8)]" data-alt="A futuristic, intricate 3D chip or neural processor glowing with vibrant green energy, floating in a dark, atmospheric void. The object is rendered with sharp, high-tech details, surrounded by light-refracting glass shards and faint data streams. The lighting is focused and cinematic, creating a holographic projection effect with visible scanlines and a soft neon bloom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWRZQ5qQKIxLFlPkpg9J9QVfluEUOS6fJzhke7FrTVwe8T1wXw6AmjT8aMLqrMUE_FtXE3DZG7Ecd0VSmfK0AJAUqhQr1-sGMoZz3T5saG7GMdpExJEs47ZO0ZBFG7ENJqcSP7Lod_woylCZoklM5JjdYJGNAfPLekSc4ywggrF-D9XjNswKDO2_wbV13yel76u2s6VXzxDGjywo0QmUR908SMXXqIto6u919PIo7LRV6Flgwfi85QJCZbcNLy40TzDpRbVMIo0LK2"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="p-gutter grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group border-2 border-outline-variant bg-surface-container-lowest p-8 relative overflow-hidden transition-all hover:border-primary-container/50">
+<div class="absolute top-2 right-2 font-code-sm text-code-sm text-outline/40">REF_ID: //_BENTO_01</div>
+<div class="flex flex-col h-full">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4">monitoring</span>
+<h3 class="font-headline-lg text-headline-lg text-primary-container mb-4 uppercase">REAL-TIME DATA HARVESTING</h3>
+<p class="text-on-surface-variant font-body-md mb-8 max-w-md">Aggregate multi-threaded streams into a single, cohesive neural landscape. Our proprietary algorithm reduces latency by 94% across all nodes.</p>
+<div class="mt-auto grid grid-cols-3 gap-4">
+<div class="border border-outline-variant p-4">
+<div class="text-primary-container font-display-sm">1.2ms</div>
+<div class="text-outline text-[10px] font-label-caps">LATENCY</div>
+</div>
+<div class="border border-outline-variant p-4">
+<div class="text-primary-container font-display-sm">99.9%</div>
+<div class="text-outline text-[10px] font-label-caps">UPTIME</div>
+</div>
+<div class="border border-outline-variant p-4">
+<div class="text-primary-container font-display-sm">12TB/s</div>
+<div class="text-outline text-[10px] font-label-caps">THROUGHPUT</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical Action Card -->
+<div class="md:col-span-4 border-2 border-outline-variant bg-surface-container-lowest p-8 flex flex-col justify-between group transition-all hover:border-primary-container/50">
+<div class="absolute top-2 right-2 font-code-sm text-code-sm text-outline/40">X01</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary-container mb-2">OPERATOR_HUD</h3>
+<p class="text-outline text-body-md">Customizable holographic display arrays for peak focus.</p>
+</div>
+<div class="py-8">
+
+</div>
+<button class="w-full text-left font-label-caps text-label-caps text-primary-container flex items-center justify-between border-t border-outline-variant pt-4 group-hover:pl-2 transition-all">
+                    CONFIGURE_HUD <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Triple Small Cards -->
+<div class="md:col-span-4 border-2 border-outline-variant p-6 relative overflow-hidden group">
+<div class="h-1 w-full bg-primary-container absolute top-0 left-0"></div>
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container">shield</span>
+<span class="font-label-caps text-label-caps">SECURITY_LEVEL_A</span>
+</div>
+<p class="text-outline text-body-md">Quantum-resistant encryption on every data packet.</p>
+</div>
+<div class="md:col-span-4 border-2 border-outline-variant p-6 group bg-primary-container/5">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container">hub</span>
+<span class="font-label-caps text-label-caps">MESH_NETWORK</span>
+</div>
+<p class="text-outline text-body-md">Decentralized node distribution ensures zero single-point failure.</p>
+</div>
+<div class="md:col-span-4 border-2 border-outline-variant p-6 group">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-container">bolt</span>
+<span class="font-label-caps text-label-caps">INSTANT_SYNC</span>
+</div>
+<p class="text-outline text-body-md">Global state synchronization in under 15ms.</p>
+</div>
+</section>
+<!-- Technical Readout Section -->
+<section class="p-gutter mt-12 mb-24">
+<div class="border-2 border-outline-variant p-1 relative">
+<div class="border border-outline-variant p-8 bg-surface-container-low">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+<div>
+<h2 class="font-display-sm text-display-sm text-primary-container uppercase">System_Diagnostics</h2>
+<p class="text-outline font-code-sm uppercase tracking-tighter">Running // Core_v0.4_Stable</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-outline font-label-caps">CPU_LOAD</span>
+<div class="w-32 h-2 bg-surface-container-highest mt-1">
+<div class="h-full bg-primary-container w-[42%]"></div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-outline font-label-caps">MEM_USAGE</span>
+<div class="w-32 h-2 bg-surface-container-highest mt-1">
+<div class="h-full bg-primary-container w-[78%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-3">
+<span class="text-on-surface font-code-sm">CORE_TEMP</span>
+<span class="text-primary-container font-code-sm">34.2°C</span>
+</div>
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-3">
+<span class="text-on-surface font-code-sm">UPLINK_STRENGTH</span>
+<span class="text-primary-container font-code-sm">98.4%</span>
+</div>
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-3">
+<span class="text-on-surface font-code-sm">ENCRYPTION_KEY</span>
+<span class="text-primary-container font-code-sm">AES-512-NEURAL</span>
+</div>
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-3">
+<span class="text-on-surface font-code-sm">ACTIVE_SESSIONS</span>
+<span class="text-primary-container font-code-sm">12,049</span>
+</div>
+</div>
+<div class="bg-black/40 border border-primary-container/20 p-4 font-code-sm text-[10px] leading-relaxed text-primary-container/70 h-48 overflow-y-auto custom-scrollbar">
+<p class="mb-1">&gt; INITIALIZING SYSTEM_CHECK...</p>
+<p class="mb-1 text-on-surface">&gt; LOADING ASSETS [||||||||||] 100%</p>
+<p class="mb-1">&gt; CONNECTING TO NODE_B512...</p>
+<p class="mb-1">&gt; HANDSHAKE SUCCESSFUL.</p>
+<p class="mb-1">&gt; DECRYPTING DATA_BUFFER_01...</p>
+<p class="mb-1">&gt; [WARNING]: BUFFER OVERFLOW MITIGATED.</p>
+<p class="mb-1">&gt; STATUS: ALL SYSTEMS NOMINAL.</p>
+<p class="mb-1">&gt; LISTENING FOR OPERATOR INPUT...</p>
+<p class="animate-pulse">_</p>
+</div>
+</div>
+</div>
+<!-- Decorative Corner Brackets -->
+<div class="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-right-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -left-1 w-6 h-6 border-bottom-2 border-l-2 border-primary-container"></div>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 border-bottom-2 border-right-2 border-primary-container"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 border-t-2 border-outline-variant bg-background mt-auto relative z-50">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-label-caps text-label-caps text-primary-container mb-2">NEURAL_NET_GLOBAL</span>
+<p class="text-outline font-code-sm text-code-sm">©202X NEURAL_NET_GLOBAL // ALL_RIGHTS_RESERVED</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-colors cursor-wait" href="#">DECRYPT_DATA</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-colors cursor-wait" href="#">ENCRYPTION_LOGS</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-colors cursor-wait" href="#">TERMINAL_API</a>
+<a class="text-outline hover:text-primary-container font-code-sm text-code-sm transition-colors cursor-wait" href="#">CORE_DUMP</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary-container cursor-pointer transition-colors">hub</span>
+<span class="material-symbols-outlined text-outline hover:text-primary-container cursor-pointer transition-colors">public</span>
+</div>
+</footer>
+<script>
+        // Micro-interactions for terminal-like behavior
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                document.body.classList.add('brightness-125');
+                setTimeout(() => document.body.classList.remove('brightness-125'), 50);
+            });
+        });
+
+        // Background noise simulation or lightweight interactive elements
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.body.style.setProperty('--mouse-x', x);
+            document.body.style.setProperty('--mouse-y', y);
+        });
+    </script>
+</body></html>

@@ -1,36 +1,350 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>38. Grunge - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
-        }
-    </style>
-</head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">38. Grunge</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Distressed textures, torn paper edges, and chaotic typography.</p>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EPOCH ARCHIVE | GRUNGE DEMO</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Special+Elite&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        /* Custom font overrides for Grunge Aesthetic */
+        .font-distressed { font-family: 'Special Elite', cursive; }
         
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+
+        /* Distressed Textures & Overlays */
+        .grunge-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.08;
+            background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        .paper-tear-bottom {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 95% 85%, 90% 95%, 85% 88%, 80% 92%, 75% 85%, 70% 95%, 65% 88%, 60% 92%, 55% 85%, 50% 95%, 45% 88%, 40% 92%, 35% 85%, 30% 95%, 25% 88%, 20% 92%, 15% 85%, 10% 95%, 5% 88%, 0% 92%);
+        }
+
+        .paper-tear-top {
+            clip-path: polygon(0% 10%, 5% 12%, 10% 5%, 15% 15%, 20% 8%, 25% 12%, 30% 5%, 35% 15%, 40% 8%, 45% 12%, 50% 5%, 55% 15%, 60% 8%, 65% 12%, 70% 5%, 75% 15%, 80% 8%, 85% 12%, 90% 5%, 95% 15%, 100% 10%, 100% 100%, 0% 100%);
+        }
+
+        .coffee-stain {
+            background: radial-gradient(circle, rgba(139, 94, 60, 0.2) 0%, rgba(139, 94, 60, 0) 70%);
+            filter: blur(8px);
+        }
+
+        .analog-noise {
+            animation: noise-move 0.2s infinite alternate;
+        }
+
+        @keyframes noise-move {
+            0% { transform: translate(0,0); }
+            100% { transform: translate(2px, 1px); }
+        }
+
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff; }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1c1b1b; }
+        ::-webkit-scrollbar-thumb { background: #564052; border-radius: 0; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#00dddd",
+                        "surface-tint": "#ffabf3",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#ffffff",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#510051",
+                        "surface-container": "#20201f",
+                        "inverse-on-surface": "#313030",
+                        "outline-variant": "#564052",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#a900a9",
+                        "outline": "#a4899d",
+                        "on-primary-fixed-variant": "#810081",
+                        "tertiary-container": "#c8a900",
+                        "surface-variant": "#353535",
+                        "secondary-container": "#00fbfb",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#ffabf3",
+                        "on-secondary": "#003737",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353535",
+                        "surface-bright": "#393939",
+                        "primary-fixed": "#ffd7f5",
+                        "on-primary": "#5b005b",
+                        "on-primary-fixed": "#380038",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#3a3000",
+                        "tertiary": "#e9c400",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#ffabf3",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f4f",
+                        "tertiary-fixed": "#ffe16d",
+                        "on-tertiary-fixed-variant": "#544600",
+                        "primary-container": "#ff00ff",
+                        "on-surface-variant": "#dcbed4",
+                        "on-secondary-fixed": "#002020",
+                        "on-secondary-container": "#007070",
+                        "on-tertiary-container": "#4b3e00",
+                        "secondary-fixed": "#00fbfb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin": "32px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-md": ["Sora"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Sora"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background selection:bg-primary selection:text-on-primary">
+<div class="grunge-overlay"></div>
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant shadow-md dark:shadow-[0_0_15px_rgba(255,171,243,0.3)] docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center w-full px-margin h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary dark:text-primary">
+                EPOCH ARCHIVE
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-md text-label-md uppercase" href="#">Eras</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md uppercase hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Artifacts</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md uppercase hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Curators</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium font-label-md text-label-md uppercase hover:text-primary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#">Timeline</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container border-outline-variant text-on-surface font-label-md text-label-sm pl-10 pr-4 py-2 focus:ring-1 focus:ring-primary outline-none" placeholder="ARCHIVE SCAN..." type="text">
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main class="relative">
+<!-- Hero Section: Asymmetric Collage -->
+<section class="relative min-h-[921px] flex flex-col justify-center px-margin py-20 overflow-hidden">
+<div class="absolute inset-0 z-0 coffee-stain w-96 h-96 -top-20 -left-20 rotate-12"></div>
+<div class="absolute inset-0 z-0 coffee-stain w-64 h-64 bottom-20 -right-10 opacity-50"></div>
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter relative z-10">
+<!-- Distressed Hero Image 1 -->
+<div class="md:col-span-5 relative group">
+<div class="absolute -inset-2 bg-outline-variant opacity-20 -rotate-2 z-0"></div>
+<div class="relative bg-surface-container-high p-2 paper-tear-bottom rotate-1 shadow-2xl">
+<img class="w-full grayscale contrast-125 opacity-80 mix-blend-screen" data-alt="A gritty, high-contrast monochrome photograph of a decaying industrial warehouse interior. Dust particles dance in shafts of harsh, cold sunlight filtering through shattered windows. The walls are covered in peeling layers of old posters and rusted metal pipes. The atmosphere is heavy with silence and a sense of forgotten history, reflecting a raw grunge aesthetic with deep blacks and sharp highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDisM1ePzgAXJPwehnXp_eZP0jm0YpwDCgy_Hl9qHtJ64fmCY4eh3xpE5Rs4gNnnG-mMtaM41_BY22AQc7cK0ayeN7W1C0i6-DxnvHwyHnqZAKGnlKIxNd-a0HOvQpvUcsZ4nSIIqTr1h2C76XBqG7S8Iei7yjIlZcrJFBNU6yAaNlOHVrZnOdOpawUjCmb7rsimcYDW4rLMWjJrfIHhpTQ68njcaIvblb2QmsstV5fxa5hVhc3wtZYVKohUzuDmFA9qofL_s9jR53v">
+</div>
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-tertiary p-4 rotate-6 hidden md:block">
+<p class="font-distressed text-on-tertiary text-label-sm uppercase leading-tight">Artifact Serial No. 9842-X<br>Origin: Unknown<br>Status: Decaying</p>
+</div>
+</div>
+<!-- Hero Content -->
+<div class="md:col-span-7 flex flex-col justify-center items-start md:pl-12 mt-12 md:mt-0">
+<span class="bg-primary text-on-primary font-distressed px-3 py-1 mb-6 -rotate-2 inline-block">RAW ARCHIVE RECOVERY</span>
+<h1 class="font-headline-xl text-headline-xl text-primary-fixed-dim leading-[0.9] mb-8 uppercase tracking-tighter">
+                        THE <span class="block italic text-white -mt-4 mix-blend-difference">UNPOLISHED</span> TRUTH.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 font-distressed">
+                        Step away from the clean lines. This is the digital history they tried to scrub. Dirty, loud, and unapologetically analog. Browse the fragments of a lost era.
+                    </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-secondary text-on-secondary font-headline-md text-headline-md px-10 py-4 hover:-rotate-2 transition-transform glitch-hover uppercase">
+                            Enter Void
+                        </button>
+<button class="border-4 border-outline text-on-surface font-label-md text-label-md px-10 py-4 uppercase hover:bg-outline-variant transition-colors">
+                            Request Access
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section: Artifacts -->
+<section class="bg-surface-container-low py-24 relative">
+<div class="absolute top-0 left-0 w-full h-12 bg-background paper-tear-bottom z-20"></div>
+<div class="max-w-container-max mx-auto px-margin">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-tertiary uppercase tracking-widest leading-none">Scattered<br>Fragments</h2>
+</div>
+<div class="max-w-sm">
+<p class="font-body-md text-body-md text-on-surface-variant border-l-4 border-primary pl-6">
+                            Archived documents from the 1990s web-boom. Recovered from damaged magnetic tapes and corrupt hard drives.
+                        </p>
+</div>
+</div>
+<!-- Bento Collage Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 min-h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-highest p-6 relative overflow-hidden group border border-outline-variant">
+<div class="absolute top-4 right-4 bg-error text-on-error font-label-md text-label-sm px-2 py-1 rotate-12 z-20">CORRUPT</div>
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 mix-blend-overlay group-hover:scale-110 transition-transform duration-700" data-alt="A gritty close-up portrait of an old CRT television set in a dark room. The screen shows static and distorted lines, glowing with a faint, sickly green light. Dust covers the plastic casing, and the environment is filled with wires and blurred technological debris. The lighting is low-key, moody, and dramatic, emphasizing the textures of the aged hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhEshHZIcBWveAi5poFmtck--ke8OmVGJ4M_ufIq6zLdUSB4Pri0D5ZKC0Ss_-Nh6S4hkleTMCfkGQwAhhq27HumsjW2xjfg9r11uQ_NPXvfkJx0uykcCcSJGa_7XgLSrbCDnm8OWLHNLRck91ENq9gdnNCH0Uo_hPcb6Msrcdihm6zlnPXbraWJVxIeRjuhZLJtJT2qDPkKOa0V5_F6OYzjytMO3BSpLg8ZzFG6J4Rbi9Sq1-uQWaKSEA-13mkWTA0-mFPZ0gMeAD">
+<div class="relative z-10 h-full flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-md text-white uppercase mb-2">Signal Loss</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 max-w-sm">The last broadcast of the central node before the blackout of '98.</p>
+<a class="text-primary font-label-md text-label-md underline underline-offset-8" href="#">DECRYPT SIGNAL</a>
+</div>
+</div>
+<!-- Medium Card -->
+<div class="md:col-span-2 bg-surface-container p-6 relative group border-t-8 border-tertiary paper-tear-top">
+<div class="flex items-start gap-6">
+<div class="w-32 h-32 bg-background flex-shrink-0 relative">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A macro shot of a weathered circuit board with visible dust and scratches. The green and copper traces are worn, and some components are missing or bent. The image is captured with a shallow depth of field, focusing on a single rusted capacitor. The overall vibe is industrial, decaying, and tech-noir." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJvCtGt4j3hm0KhYR-zp1g1mgs61vKwWNJ6KzC_mSh0_bcVHySIguZq1LMc7qdv0W2LYsjDT50PwL1IHNk46jLoTj8hdh-_KMaQShDdBCSGg_GDIAsHQyDuDfYwMopDS8pHQ4uO_XjN-ONthPyA99QbD7beKL9fo5mD_pERewJZ4Dlq7lRUoGqezYiPjtv1D5Tr6BXKQE3eawt2zAlbBSA5qMMhud_VgidxzZhtkyjCYqO8xFFm6vMm9zS19qJuVZPlp8chIN-RM0">
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase mb-2">Hardware Fragment B-4</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-distressed">A piece of the original mainframe discovered in the sediment of the North Valley. Still holding 12KB of data.</p>
+</div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="bg-surface p-6 border border-outline-variant flex flex-col justify-between relative hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="terminal">terminal</span>
+<h4 class="font-label-md text-label-md text-white uppercase">Root Access</h4>
+<div class="mt-4 bg-surface-container-high h-1 w-full overflow-hidden">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="bg-outline-variant p-6 flex flex-col justify-between relative hover:rotate-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-on-surface-variant text-4xl mb-4" data-icon="folder_zip">folder_zip</span>
+<h4 class="font-label-md text-label-md text-on-surface uppercase">Manifesto.txt</h4>
+<p class="font-label-sm text-label-sm text-on-surface opacity-60">Locked behind 256-bit encryption.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-32 bg-background relative overflow-hidden">
+<div class="absolute inset-0 coffee-stain w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+<div class="max-w-3xl mx-auto px-margin text-center relative z-10">
+<div class="mb-12 inline-block">
+<span class="material-symbols-outlined text-6xl text-primary animate-pulse" data-icon="leak_add">leak_add</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-6 uppercase italic">Join the Underground</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 font-distressed">
+                    Get weekly leak reports and rare artifact coordinates delivered to your terminal. No spam. Only the raw feed.
+                </p>
+<form class="flex flex-col sm:flex-row gap-0 border-4 border-outline-variant">
+<input class="flex-grow bg-surface-container-low text-on-surface p-6 outline-none font-distressed focus:bg-surface-container" placeholder="YOUR_EMAIL@DARKNET.NOD" type="email">
+<button class="bg-primary text-on-primary font-headline-md text-headline-md px-12 py-6 uppercase hover:bg-white hover:text-black transition-colors">
+                        SUBSCRIBE
+                    </button>
+</form>
+<p class="mt-6 font-label-sm text-label-sm text-on-surface-variant uppercase opacity-40 tracking-widest">
+                    Transmitting via secure channel protocol 77-B
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline-variant py-12">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin max-w-container-max mx-auto gap-gutter">
+<div class="text-left">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-2">DIGITAL HISTORY MUSEUM</div>
+<div class="font-label-md text-label-md uppercase tracking-widest text-tertiary dark:text-tertiary-fixed">
+                    © 1984-2024 EPOCH ARCHIVE. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md uppercase hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md uppercase hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md uppercase hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200" href="#">Archive API</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md uppercase hover:text-primary dark:hover:text-primary-fixed underline underline-offset-4 transition-all duration-200" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="rss_feed">rss_feed</span>
+</div>
+<div class="w-8 h-8 bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="code">code</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive micro-effects script -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const stains = document.querySelectorAll('.coffee-stain');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            stains.forEach((stain, index) => {
+                const speed = (index + 1) * 20;
+                stain.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${index * 15}deg)`;
+            });
+        });
+
+        // Simulating analog flicker on certain elements
+        const flickerElements = document.querySelectorAll('.text-primary, .bg-primary');
+        setInterval(() => {
+            flickerElements.forEach(el => {
+                if (Math.random() > 0.98) {
+                    el.style.opacity = '0.7';
+                    setTimeout(() => el.style.opacity = '1', 50);
+                }
+            });
+        }, 100);
+    </script>
+</body></html>

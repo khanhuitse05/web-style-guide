@@ -1,36 +1,284 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>45. Kinetic Typography - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ART-MORPH | Kinetic Typography</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Bricolage+Grotesque&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "secondary": "#b90538",
+                        "surface-container": "#e6eeff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#ffdadb",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#0053db",
+                        "on-surface": "#121c2a",
+                        "outline": "#737686",
+                        "inverse-surface": "#27313f",
+                        "on-secondary-fixed-variant": "#92002a",
+                        "primary-container": "#2563eb",
+                        "surface-variant": "#d9e3f6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "primary": "#004ac6",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "surface-container-high": "#dee9fc",
+                        "on-secondary-fixed": "#40000d",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-highest": "#d9e3f6",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#00174b",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-background": "#121c2a",
+                        "tertiary-container": "#007d55",
+                        "secondary-container": "#dc2c4f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#bdffdb",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary": "#006242",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "outline-variant": "#c3c6d7",
+                        "secondary-fixed-dim": "#ffb2b7",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d0dbed",
+                        "on-surface-variant": "#434655",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "40px",
+                        "unit": "4px",
+                        "gutter-fluid": "32px",
+                        "gutter-brutalist": "0px",
+                        "isometric-step": "30deg"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["beVietnamPro"],
+                        "display-xl": ["syne"],
+                        "display-lg": ["syne"],
+                        "handwritten-md": ["bricolageGrotesque"],
+                        "headline-md": ["syne"],
+                        "label-mono": ["jetbrainsMono"],
+                        "body-md": ["beVietnamPro"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "handwritten-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+        .animate-marquee-reverse {
+            animation: marquee 25s linear infinite reverse;
+        }
+        .kinetic-hover:hover {
+            transform: skew(-10deg) scale(1.05);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .text-outline {
+            -webkit-text-stroke: 2px currentColor;
+            color: transparent;
+        }
+        .brutalist-card {
+            border: 4px solid #121c2a;
+            box-shadow: 12px 12px 0px 0px #121c2a;
+        }
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 16px 16px 0px 0px #b90538;
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">45. Kinetic Typography</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Moving, animated text functioning as the primary design element.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md font-display-lg text-display-lg-mobile md:text-display-lg docked full-width top-0 sticky z-50 border-b-4 border-on-surface shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-margin-page py-6 max-w-full mx-auto">
+<div class="font-display-xl text-display-xl-mobile md:text-display-xl tracking-tighter text-on-surface">ART-MORPH</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-secondary underline decoration-4 underline-offset-8 font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Gallery</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Exhibits</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Studio</a>
+<a class="text-on-surface font-medium hover:scale-110 hover:rotate-2 transition-transform duration-300 ease-in-out" href="#">Archive</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary px-8 py-2 font-display-lg text-headline-md brutalist-card hover:skew-x-6 scale-95 transition-all duration-150">
+                Inquire
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section: Massive Typography -->
+<section class="relative min-h-[921px] flex flex-col justify-center items-start px-margin-page py-24 overflow-hidden border-b-8 border-on-surface">
+<div class="z-10 w-full">
+<h1 class="font-display-xl text-[12vw] leading-[0.85] tracking-tighter uppercase break-words kinetic-hover cursor-default">
+                    Kinetic<br>
+<span class="text-outline">Energy</span><br>
+                    Defined.
+                </h1>
+<div class="mt-12 flex flex-wrap gap-8 items-end">
+<p class="font-body-lg text-body-lg max-w-md">
+                        We push the boundaries of digital expression through rhythmic motion and aggressive typographic layouts. Where content meets chaos.
+                    </p>
+<div class="font-label-mono text-label-mono bg-on-surface text-surface px-4 py-2 rotate-[-2deg]">
+                        VERSION 2.0.24 // ALPHA
+                    </div>
+</div>
+</div>
+<!-- Background Decorative Text -->
+<div class="absolute right-[-5%] top-1/2 -translate-y-1/2 opacity-5 pointer-events-none select-none">
+<span class="font-display-xl text-[40vw] rotate-90 inline-block leading-none">MORPH</span>
+</div>
+</section>
+<!-- Marquee Row 1 -->
+<section class="bg-secondary text-on-secondary py-6 border-b-4 border-on-surface overflow-hidden whitespace-nowrap">
+<div class="flex animate-marquee">
+<span class="font-display-lg text-display-lg uppercase mx-4">Design is Action • Create Without Fear • Break the Grid •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4">Design is Action • Create Without Fear • Break the Grid •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4">Design is Action • Create Without Fear • Break the Grid •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4">Design is Action • Create Without Fear • Break the Grid •</span>
+</div>
+</section>
+<!-- Bento Grid Typography Features -->
+<section class="px-margin-page py-24 grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 brutalist-card p-12 bg-surface-container-lowest flex flex-col justify-between min-h-[400px]">
+<div class="font-label-mono text-label-mono mb-4">[ FEATURE_01 ]</div>
+<h2 class="font-display-xl text-display-lg md:text-[5rem] leading-none mb-8 kinetic-hover">RHYTHMIC<br>SYSTEMS</h2>
+<p class="font-body-lg text-body-lg max-w-lg">Our typography doesn't just sit there—it pulses. We use variable font axes to create living, breathing interfaces that respond to user intent.</p>
+</div>
+<div class="md:col-span-4 bg-primary text-on-primary brutalist-card p-8 flex flex-col items-center justify-center text-center group">
+<span class="material-symbols-outlined text-[80px] mb-6 group-hover:rotate-180 transition-transform duration-500" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-display-lg text-display-lg leading-tight">100%<br>EXPRESSIVE</h3>
+</div>
+<div class="md:col-span-4 brutalist-card overflow-hidden bg-on-surface h-[300px] relative">
+<img alt="Abstract geometric art" class="w-full h-full object-cover grayscale contrast-125 opacity-70 hover:opacity-100 transition-opacity" data-alt="A highly contrasted black and white abstract digital artwork featuring sharp geometric shapes and deep shadows. The composition is brutalist and minimalist, echoing an avant-garde studio aesthetic. Hard edges and monochromatic tones create a powerful, high-energy visual that matches a kinetic typography design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2xuGmKLqG6M4wSZeTCobacumWo6-EDAbg_jIRDVk9R1rU61ijwZB3yehLllrzaTuaQdXNeYjH_wcGf_lAalZS6_zI2DdLO6EPbGcNNxrEuSnQqZdBvO9xseIR67-mT8b1J0JzEdh2VT-ZWOaSI9v212bsR0P4ZoHPaOXmdtT-uAQdbWV6RtD8qhcw6jXCqEsmQRVrGpJN1Rf9wJ8nm0gDWwZ-MroZSJiXvBzuIQwBeKfqQE4dq0xj50801VhTc2x4e1phh15QE_sw">
+<div class="absolute bottom-4 left-4 font-label-mono text-surface bg-on-surface/80 px-2">IMG_REF_092</div>
+</div>
+<div class="md:col-span-8 brutalist-card p-12 bg-surface-container flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<h3 class="font-display-lg text-display-lg leading-none mb-4">BOLDNESS IS UTILITY</h3>
+<p class="font-body-md text-body-md">In a world of noise, clarity comes from contrast. We prioritize readability through massive scale.</p>
+</div>
+<div class="w-full md:w-48 h-48 bg-secondary rounded-full flex items-center justify-center animate-pulse">
+<span class="font-display-xl text-on-secondary">!</span>
+</div>
+</div>
+</section>
+<!-- Marquee Row 2 (Reverse) -->
+<section class="bg-on-surface text-surface py-6 border-y-4 border-on-surface overflow-hidden whitespace-nowrap">
+<div class="flex animate-marquee-reverse">
+<span class="font-display-lg text-display-lg uppercase mx-4 text-outline">Pushing Boundaries • Moving Fast • Breaking Rules •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4 text-outline">Pushing Boundaries • Moving Fast • Breaking Rules •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4 text-outline">Pushing Boundaries • Moving Fast • Breaking Rules •</span>
+<span class="font-display-lg text-display-lg uppercase mx-4 text-outline">Pushing Boundaries • Moving Fast • Breaking Rules •</span>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="px-margin-page py-32 flex flex-col items-center text-center">
+<h2 class="font-display-xl text-[10vw] md:text-[8vw] leading-[0.8] mb-12 kinetic-hover">START THE<br>EVOLUTION</h2>
+<div class="flex flex-col md:flex-row gap-6">
+<button class="bg-on-surface text-surface px-12 py-6 font-display-lg text-headline-md brutalist-card flex items-center gap-4 group">
+                    JOIN THE STUDIO
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-transparent text-on-surface border-4 border-on-surface px-12 py-6 font-display-lg text-headline-md hover:bg-on-surface hover:text-surface transition-colors">
+                    VIEW ARCHIVE
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest font-body-md text-body-md w-full mt-auto bg-surface-container-highest border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center w-full px-margin-page py-12 gap-gutter-fluid">
+<div class="flex flex-col gap-2">
+<div class="font-headline-md text-headline-md text-on-surface">ART-MORPH</div>
+<p class="text-on-surface-variant max-w-xs">© 2024 Art-Morph Studio. All rights reserved. Built for creators.</p>
+</div>
+<div class="flex gap-12 items-center">
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant font-bold hover:text-secondary hover:underline hover:translate-y-[-2px] transition-transform" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline hover:translate-y-[-2px] transition-transform" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-secondary hover:underline hover:translate-y-[-2px] transition-transform" href="#">Ethics</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline hover:translate-y-[-2px] transition-transform" href="#">Contact</a>
+</div>
+</div>
+<div class="flex gap-6">
+<a class="bg-on-surface text-surface w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="bg-on-surface text-surface w-12 h-12 flex items-center justify-center hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions for kinetic typography
+        document.querySelectorAll('.kinetic-hover').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xPercent = (x / rect.width - 0.5) * 20;
+                const yPercent = (y / rect.height - 0.5) * 20;
+                
+                el.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) scale(1.02)`;
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+        });
+
+        // Simple scroll observer for entrance effects
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.brutalist-card').forEach(card => {
+            card.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

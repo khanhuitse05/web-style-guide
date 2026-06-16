@@ -1,36 +1,367 @@
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>37. Pop Art - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EPOCH ARCHIVE | Pop Art Edition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#00dddd",
+                    "surface-tint": "#ffabf3",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#ffffff",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#510051",
+                    "surface-container": "#20201f",
+                    "inverse-on-surface": "#313030",
+                    "outline-variant": "#564052",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#a900a9",
+                    "outline": "#a4899d",
+                    "on-primary-fixed-variant": "#810081",
+                    "tertiary-container": "#c8a900",
+                    "surface-variant": "#353535",
+                    "secondary-container": "#00fbfb",
+                    "background": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "primary": "#ffabf3",
+                    "on-secondary": "#003737",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-highest": "#353535",
+                    "surface-bright": "#393939",
+                    "primary-fixed": "#ffd7f5",
+                    "on-primary": "#5b005b",
+                    "on-primary-fixed": "#380038",
+                    "tertiary-fixed-dim": "#e9c400",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary": "#3a3000",
+                    "tertiary": "#e9c400",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#ffabf3",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#004f4f",
+                    "tertiary-fixed": "#ffe16d",
+                    "on-tertiary-fixed-variant": "#544600",
+                    "primary-container": "#ff00ff",
+                    "on-surface-variant": "#dcbed4",
+                    "on-secondary-fixed": "#002020",
+                    "on-secondary-container": "#007070",
+                    "on-tertiary-container": "#4b3e00",
+                    "secondary-fixed": "#00fbfb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin": "32px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-md": ["Sora"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-xl": ["Sora"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            background-image: radial-gradient(#353535 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .pop-card {
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .pop-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #000;
+        }
+
+        .pop-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .halftone-bg {
+            background-image: radial-gradient(#ff00ff 15%, transparent 16%), radial-gradient(#ff00ff 15%, transparent 16%);
+            background-size: 10px 10px;
+            background-position: 0 0, 5px 5px;
+            opacity: 0.1;
+        }
+
+        .speech-bubble {
+            position: relative;
+            background: #ffffff;
+            border: 3px solid #000;
+        }
+
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-top-color: #000;
+            border-bottom: 0;
+            border-left: 0;
+            margin-left: -10px;
+            margin-bottom: -20px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 300px);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
         }
     </style>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">37. Pop Art</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Comic book halftone patterns, bold black outlines, and vibrant solid colors.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-surface h-20 border-b border-outline-variant shadow-md">
+<div class="flex justify-between items-center w-full px-margin h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-black tracking-tighter text-primary">EPOCH ARCHIVE</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-headline-md text-headline-md tracking-tight text-primary border-b-2 border-primary pb-1 active:scale-95 transition-transform" href="#">Eras</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Artifacts</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Curators</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Timeline</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-2 border-black focus:ring-0 focus:border-primary-container font-label-md" placeholder="Search the vault..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 border-2 border-black font-headline-md font-bold hover:bg-primary-container active:scale-95 transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin py-12">
+<!-- Hero Section -->
+<section class="relative mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative z-10 order-2 lg:order-1">
+<div class="mb-6 inline-block bg-secondary-container text-on-secondary-container px-4 py-1 border-2 border-black font-label-md rotate-[-2deg]">
+                        NEW EXHIBIT OPENED
+                    </div>
+<h1 class="font-headline-xl text-headline-xl mb-6 text-white uppercase leading-none">
+                        History, <span class="text-primary italic">Re-Inked</span> and <span class="text-tertiary">Loud</span>.
+                    </h1>
+<p class="font-body-lg text-body-lg mb-8 max-w-xl text-on-surface-variant">
+                        Witness the transformation of historical data into high-contrast digital artifacts. We don't just archive history; we amplify it through the lens of Pop Culture.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-8 py-4 border-4 border-black font-headline-md font-black uppercase hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[8px_8px_0px_#000]">
+                            Explore Eras
+                        </button>
+<button class="bg-white text-black px-8 py-4 border-4 border-black font-headline-md font-black uppercase hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[8px_8px_0px_#000]">
+                            The Archives
+                        </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 h-[400px] lg:h-[600px] w-full">
+<div class="absolute inset-0 halftone-bg rounded-full"></div>
+<div class="pop-card absolute top-10 right-10 w-4/5 h-4/5 overflow-hidden rotate-[3deg] z-10">
+<img class="w-full h-full object-cover grayscale-0 brightness-110" data-alt="A vibrant pop art masterpiece in the style of Roy Lichtenstein featuring a woman with blonde hair looking into the distance with an expression of wonder. The image uses heavy black outlines and prominent cyan and magenta halftone dot patterns throughout the skin and background. The primary colors are bold and saturated, set against a high-contrast dark background with yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYb0kr2L09IV2Wiggi1NR-D3e4VtUa-Kbx2CIWzbmIhrLzzAhX7hStDJs5kjdzSPpJkyXQ2AGIYlSMPUOE0lI8ucQ2CHYVVcKZXFW1YkwMSsdDAo8ygdHHL3Me3k9_Jc8XkSii0yZl0FLZ2-D8Te8bFU_IOpFHoPu9AnNYb7JfmL_IEaA1lF4J5Kod59abS2jZvTS9GP6MCitRSvhxj1WJeeE-lBdTZZ7-ueavP7Pqei67b7fU1epfDENK3hXp6y46TJx6fzu_QyUU">
+</div>
+<div class="absolute -bottom-4 -left-4 pop-card bg-tertiary p-6 z-20 max-w-[250px] rotate-[-5deg]">
+<p class="font-headline-md text-headline-md text-black leading-tight">POW! 1964 Vibe Detected.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary-fixed">Featured Artifacts</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">The most vibrant slices of time, curated for the modern retina.</p>
+</div>
+<div class="hidden md:block">
+<button class="font-label-md text-label-md text-primary underline underline-offset-8 decoration-2 uppercase">View All 1,984 Items</button>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Large Feature Card -->
+<div class="col-span-2 row-span-2 pop-card relative overflow-hidden bg-surface-container-high group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="Abstract pop art composition featuring explosive splashes of neon yellow and hot pink paint against a deep black background. Bold black graphic lines divide the canvas into dynamic sectors, while large cyan halftone dot patterns create texture in the corners. The mood is chaotic and high-energy, reminiscent of mid-century comic book action panels." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp3s2WIqw1Xwqq-WlE9SBqGqx3LoW95lk7WXOvBYXElaxErPJPrnvaPse8ZSLo7MzPPLV-Cm14T6BlOav_cOUpRRGSacsr--5_UQF9Yy9xlegZNOmvIvKCYEeA6v-tUDoOTqGuQg6F4o9lY2BoDPBGqV3LEM1MOGe-C1qaQt5dZzDSMNN-d3BcbOdmKznjPpuZl93Dxmnh-czeQH9mLh0I9LK2qMRymtEw99NzGz7RQKfyUFX4f3Miv_j4q-9MvlhE07eXdw3fqKEk">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="bg-primary text-on-primary px-3 py-1 font-label-sm inline-block mb-4 border-2 border-black">ERA: NEO-POP</div>
+<h3 class="font-headline-lg text-headline-lg text-white uppercase mb-2">The Digital Splash</h3>
+<p class="text-on-surface font-body-md max-w-md">The 2024 collection focusing on algorithmic splatter and neon saturation.</p>
+</div>
+</div>
+<!-- Medium Card -->
+<div class="col-span-2 row-span-1 pop-card bg-secondary-container p-8 flex flex-col justify-center relative overflow-hidden">
+<div class="halftone-bg absolute inset-0 opacity-20 pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md text-on-secondary-container uppercase mb-2 z-10">Curator's Choice</h3>
+<p class="text-on-secondary-container font-body-md mb-4 z-10">Andy's ghost would definitely approve of this digital silk-screen series.</p>
+<div class="flex gap-2 z-10">
+<div class="w-12 h-12 bg-primary border-2 border-black rounded-full"></div>
+<div class="w-12 h-12 bg-tertiary border-2 border-black rounded-full"></div>
+<div class="w-12 h-12 bg-secondary border-2 border-black rounded-full"></div>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="col-span-1 row-span-1 pop-card bg-surface-container flex flex-col items-center justify-center p-6 text-center">
+<span class="material-symbols-outlined text-[64px] text-primary mb-4" data-icon="auto_awesome">auto_awesome</span>
+<h4 class="font-headline-md text-headline-md uppercase text-white">Daily Spark</h4>
+</div>
+<!-- Small Card 2 -->
+<div class="col-span-1 row-span-1 pop-card bg-tertiary p-6 flex items-center justify-center text-center group">
+<div class="group-hover:rotate-12 transition-transform duration-300">
+<span class="font-headline-lg text-headline-lg font-black text-black leading-none">JOIN<br>US!</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Speech Bubble -->
+<section class="mb-24 py-12 px-8 bg-primary-container border-4 border-black relative overflow-hidden">
+<div class="halftone-bg absolute inset-0 opacity-30"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-primary-container uppercase leading-tight mb-4">Don't Miss The Next Bang!</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">Get historical drops delivered directly to your inbox. No spam, just high-contrast history.</p>
+</div>
+<div class="w-full md:w-auto">
+<div class="flex flex-col sm:flex-row gap-0">
+<input class="px-6 py-4 bg-white border-4 border-black font-label-md text-black focus:ring-0 w-full sm:w-80" placeholder="Your Email" type="email">
+<button class="bg-black text-white px-8 py-4 border-4 border-black font-headline-md font-bold uppercase hover:bg-surface-container-high transition-colors">
+                            Subscribe
+                        </button>
+</div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-20 -top-20 opacity-20">
+<span class="material-symbols-outlined text-[300px] text-black" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</section>
+<!-- Dynamic Content Grid -->
+<section class="mb-24 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="pop-card bg-surface p-1 relative pt-12 overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-8 bg-primary border-b-2 border-black flex items-center px-4">
+<span class="font-label-sm text-on-primary uppercase">File Archive: 001</span>
+</div>
+<div class="p-6">
+<img class="w-full h-48 object-cover mb-4 border-2 border-black" data-alt="A stylized portrait of a classical bust sculpture, rendered in a bold pop art palette of neon green, magenta, and electric blue. The face is divided into distinct color zones with thick black comic-style contour lines. The background is a dense grid of black and white dots, creating a stark high-contrast visual that blends ancient history with 1960s graphic design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUJEGgGZ7_YJGGdAbkS-vmJqdkDOV4o77fF4oLz148v38kjk0VPbbU6ehL1oRqLcCvwKOvdqpWpt7rFATjurZnn1NC9XAfcl9d_ciirQhIj7GZfcnI6YSvRNrjKS8M5NfFBjd9DauCzKPJcD0w3mWFIlR9GkiqJk0MhW8uYwzBgBNyEuNce0efvz5zBXXwIYT783uvkexq30RnyPwqZEpKEwjfs0lKNTEWDqRefNkEPuQzsGSQDo5tfibpHTl_rcGq3XnWbWn28T9P">
+<h4 class="font-headline-md text-headline-md text-white mb-2 uppercase">The Statuesque</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Classic aesthetics meeting the ink-press revolution.</p>
+<a class="font-label-md text-primary hover:underline" href="#">Read Manifest -&gt;</a>
+</div>
+</div>
+<div class="pop-card bg-surface p-1 relative pt-12 overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-8 bg-secondary-container border-b-2 border-black flex items-center px-4">
+<span class="font-label-sm text-on-secondary-container uppercase">File Archive: 002</span>
+</div>
+<div class="p-6">
+<img class="w-full h-48 object-cover mb-4 border-2 border-black" data-alt="Vibrant digital artwork featuring a classic mid-century television set rendered in bright yellow and cyan. The screen displays a colorful glitch pattern with magenta halftone dots. The overall image has a grainy texture and thick black outlines, set against a background of repetitive pop art patterns and graphic bursts. The style is energetic, retro-modern, and colorful." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKDW_tiB1XQqVxc1Ej40RrC72YuMlPFFCcrlVCf2gTOv3qeHhEC-MCxBc-eYvo5tqHmsU4xKPuWO9I0yr9tSsX8gcK5_3i79xXO7IiIjo96IIcoB5F-3kXPhx_b3AeIBOl0C4aUVmyPefZRTG1cMdN9gIQ6rq_eRMcaonHwt4Ym30X4041bt0ciStDrhbfnvcZI6WQNw5GJwna_yVyYgTtn7uooC6X6_WMZp6XTs6FSNGEHNzIeWRwAQdaX-ueez4Xm97cSkbXSlHA">
+<h4 class="font-headline-md text-headline-md text-white mb-2 uppercase">Broadcast Era</h4>
+<p class="font-body-md text-on-surface-variant mb-4">When signals were analog but the vibes were digital.</p>
+<a class="font-label-md text-secondary-fixed hover:underline" href="#">Read Manifest -&gt;</a>
+</div>
+</div>
+<div class="pop-card bg-surface p-1 relative pt-12 overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-8 bg-tertiary border-b-2 border-black flex items-center px-4">
+<span class="font-label-sm text-black uppercase">File Archive: 003</span>
+</div>
+<div class="p-6">
+<img class="w-full h-48 object-cover mb-4 border-2 border-black" data-alt="Minimalist pop art illustration of a classic telephone handset in bold magenta, floating against a bright cyan background. The image is framed by a thick black border and features a small white speech bubble with the word 'RING!' written in a chunky comic book font. Subtle halftone dots are applied to the shadows of the phone, giving it a 2D graphic feel with high visual impact." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCECGk7-2eq8emJ9mHbsFaD8VWFFrtK3msfZOn-u8pu-GKHUmTQAtAAOLxMqKcN83iBctSpGSS0a2eJXmieXXSmq5GmH5KCwhgWEEYJ0tSVAlSDvuFFjZcURZiuRDSoXKEfyE7u_Q82M1UqOrDVW_Fv79Yc23SMhFaBjuZmF3MzK3mGDfJPab7SgQ7oAOvJ5T0mHLWminHG8iEXx_8s8Y4fvojvFAYnOMPBPdql4JdRHla0HAuBbq2yf7rv7KsyNei-RfjsK4BBVYZT">
+<h4 class="font-headline-md text-headline-md text-white mb-2 uppercase">Direct Dial</h4>
+<p class="font-body-md text-on-surface-variant mb-4">Communicating across the epochs in high-fidelity ink.</p>
+<a class="font-label-md text-tertiary hover:underline" href="#">Read Manifest -&gt;</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin py-12 max-w-container-max mx-auto gap-gutter">
+<div class="mb-8 md:mb-0">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">EPOCH ARCHIVE</span>
+<p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant mt-2">© 1984-2024 DIGITAL HISTORY MUSEUM.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Privacy</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Terms</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Archive API</a>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all duration-200" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 border-2 border-black flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</button>
+<button class="w-10 h-10 border-2 border-black flex items-center justify-center hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-sm">mail</span>
+</button>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-16 h-16 bg-primary rounded-full border-4 border-black shadow-[4px_4px_0px_#000] flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-black text-3xl font-bold group-hover:rotate-12 transition-transform" data-icon="add">add</span>
+</button>
+</div>
+<script>
+        // Subtle micro-interaction: rotate elements on scroll
+        window.addEventListener('scroll', () => {
+            const scrolls = window.pageYOffset;
+            const floaters = document.querySelectorAll('.pop-card');
+            floaters.forEach((el, index) => {
+                const rotation = (index % 2 === 0 ? 1 : -1) * (scrolls * 0.01);
+                // el.style.transform = `rotate(${rotation}deg)`;
+            });
+        });
+    </script>
+</body></html>

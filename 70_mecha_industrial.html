@@ -1,36 +1,442 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>70. Mecha/Industrial - Style Guide</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEURAL_OS_v1.0.4 // MECHA_IND</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --scanline-color: rgba(57, 255, 20, 0.03);
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #081425;
-            -webkit-font-smoothing: antialiased;
+            background-color: #131313;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                var(--scanline-color) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .caution-stripes {
+            background: repeating-linear-gradient(
+                45deg,
+                #39ff14,
+                #39ff14 10px,
+                #131313 10px,
+                #131313 20px
+            );
+        }
+        .caution-stripes-yellow {
+            background: repeating-linear-gradient(
+                45deg,
+                #facc15,
+                #facc15 10px,
+                #131313 10px,
+                #131313 20px
+            );
+        }
+        .mecha-border {
+            clip-path: polygon(
+                0% 0%, 
+                calc(100% - 20px) 0%, 100% 20px, 
+                100% 100%, 
+                20px 100%, 0% calc(100% - 20px)
+            );
+        }
+        .glitch-text:hover {
+            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        .bolt {
+            width: 8px;
+            height: 8px;
+            background: #3c4b35;
+            border-radius: 2px;
+            position: absolute;
+            box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
         }
     </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#ffffff",
+                      "outline": "#85967c",
+                      "secondary-fixed": "#00fbfb",
+                      "background": "#131313",
+                      "surface-container-high": "#2a2a2a",
+                      "primary-container": "#39ff14",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#baccb0",
+                      "inverse-primary": "#106e00",
+                      "surface-bright": "#393939",
+                      "tertiary": "#fff8f7",
+                      "on-secondary-fixed-variant": "#004f4f",
+                      "error-container": "#93000a",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed": "#002020",
+                      "on-primary-fixed-variant": "#095300",
+                      "on-tertiary-fixed-variant": "#930100",
+                      "primary": "#efffe3",
+                      "outline-variant": "#3c4b35",
+                      "surface": "#131313",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary-fixed": "#410000",
+                      "surface-container-low": "#1c1b1b",
+                      "tertiary-fixed": "#ffdad4",
+                      "surface-container-highest": "#353535",
+                      "tertiary-fixed-dim": "#ffb4a8",
+                      "tertiary-container": "#ffd3cc",
+                      "secondary-fixed-dim": "#00dddd",
+                      "primary-fixed": "#79ff5b",
+                      "on-secondary-container": "#007070",
+                      "on-error": "#690005",
+                      "surface-variant": "#353535",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary": "#053900",
+                      "surface-tint": "#2ae500",
+                      "secondary-container": "#00fbfb",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-container": "#107100",
+                      "inverse-on-surface": "#313030",
+                      "on-primary-fixed": "#022100",
+                      "surface-container": "#20201f",
+                      "on-tertiary-container": "#c50100",
+                      "primary-fixed-dim": "#2ae500",
+                      "on-tertiary": "#690100",
+                      "on-secondary": "#003737"
+              },
+              "fontFamily": {
+                      "display-sm": ["Space Grotesk"],
+                      "label-caps": ["JetBrains Mono"],
+                      "display-lg": ["Space Grotesk"],
+                      "headline-lg": ["Space Grotesk"],
+                      "code-sm": ["JetBrains Mono"],
+                      "headline-sm": ["Space Grotesk"],
+                      "body-md": ["JetBrains Mono"],
+                      "body-lg": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-sm": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "code-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body class="bg-[#081425] text-white min-h-screen flex flex-col items-center justify-center p-8">
-    <a href="index.html" class="absolute top-8 left-8 flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-        <span class="material-symbols-outlined">arrow_back</span> Back to Catalog
-    </a>
-    
-    <div class="text-center max-w-2xl">
-        <div class="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-white/5 border border-white/10 mb-8 shadow-2xl">
-            <span class="text-4xl opacity-50">🎨</span>
-        </div>
-        <h1 class="text-5xl font-bold mb-6 tracking-tight text-white">70. Mecha/Industrial</h1>
-        <p class="text-xl text-slate-400 mb-12 leading-relaxed">Heavy metal panels, yellow warning stripes, and mechanical details.</p>
-        
-        <div class="p-12 border border-white/10 rounded-3xl bg-white/5 border-dashed relative overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]"></div>
-            <p class="text-slate-500 font-mono text-sm uppercase tracking-widest relative z-10">Implementation Pending</p>
-        </div>
-    </div>
-</body>
-</html>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container font-body-md">
+<div class="scanlines"></div>
+<!-- TopNavBar -->
+<nav class="flex justify-between items-center w-full px-gutter h-16 sticky top-0 z-50 backdrop-blur-md bg-background border-b-2 border-outline-variant shadow-[inset_0px_0px_10px_rgba(57,255,20,0.1)]">
+<div class="flex items-center gap-4">
+<span class="font-display-sm text-display-sm font-bold tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(57,255,20,0.4)]">NEURAL_OS_v1.0.4</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-crosshair" href="#">NODE_SYS</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-crosshair" href="#">QUANTUM_CORE</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-crosshair" href="#">CYBER_SEC</a>
+<a class="font-label-caps text-label-caps text-primary-container border-b-2 border-primary-container pb-1 cursor-crosshair" href="#">MECHA_IND</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container cursor-wait" data-icon="sensors">sensors</span>
+<span class="material-symbols-outlined text-primary-container cursor-wait" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-primary-container cursor-wait" data-icon="notifications">notifications</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 font-label-caps text-label-caps active:scale-95 transition-all cursor-crosshair">
+                SYSTEM_LOGIN
+            </button>
+</div>
+</nav>
+<main class="min-h-screen relative">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex flex-col justify-center items-center px-gutter overflow-hidden border-b-2 border-outline-variant">
+<!-- Background WebGL Shader Placeholder -->
+
+<!-- Hero Content -->
+<div class="relative z-10 max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 border-l-4 border-primary-container px-4 py-1 bg-surface-container-low">
+<span class="font-code-sm text-code-sm text-primary-container">SEC_LEVEL: ALPHA</span>
+</div>
+<h1 class="font-display-lg text-display-lg uppercase tracking-tight leading-none text-primary">
+                        ADVANCED <span class="text-primary-container">MECHA</span> SYSTEMS
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Propulsion diagnostics, hydraulic stability, and neural interface protocols for the next generation of industrial heavy-lift exoskeletons.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-on-primary-container font-bold px-8 py-4 font-label-caps text-label-caps border-2 border-primary-container hover:bg-transparent hover:text-primary-container transition-all">
+                            INITIALIZE_PROTOCOL
+                        </button>
+<button class="border-2 border-outline text-on-background px-8 py-4 font-label-caps text-label-caps hover:bg-outline-variant transition-all">
+                            VIEW_SCHEMATICS
+                        </button>
+</div>
+</div>
+<!-- Mecha Detail Card -->
+<div class="relative border-2 border-outline-variant p-6 bg-surface-container-lowest/50 backdrop-blur-sm mecha-border group">
+<div class="bolt top-2 left-2"></div>
+<div class="bolt top-2 right-2"></div>
+<div class="bolt bottom-2 left-2"></div>
+<div class="bolt bottom-2 right-2"></div>
+<div class="absolute top-0 right-10 px-3 py-1 bg-outline-variant font-code-sm text-code-sm text-primary-container">ID: MC-492-X</div>
+<div class="aspect-square relative overflow-hidden bg-black border border-outline-variant">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125 group-hover:scale-110 transition-transform duration-700" data-alt="A highly detailed close-up shot of a mechanical mecha component, featuring intricate gears, hydraulic pistons, and wiring. The scene is lit with a cold, industrial blue and steel-grey color palette, with sharp highlights glinting off metallic surfaces. The atmosphere is heavy and structural, emphasizing the massive scale and complex engineering of futuristic industrial machinery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9ZwVtG3p9hM33-l0J4-NN8Xvn_DFNg0UjtQiFQv0HAYRjlDUkX6ZrBdV2fN5ayK82WSO-FbDAg0GayZHp6Vydzji_iCSo04_Smr4TaWuySzXysfdd5FrJQYxZwkopPuwpnUcIA5eWOh3rFlBPVb6j_MsSrH5iqCP0aCqw_z-cCYJswfHticFJ9AtPjrLaSBDUwU088PTIkd_YRG1c1TjRSiP691wI8HQ8-sh5uxTjyExOJJ_QhGjrQNJtwnlp_dGCn7G1767Dd0hW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<!-- Decorative HUD Elements -->
+<div class="absolute inset-4 border border-primary-container/20 pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 font-code-sm text-code-sm text-primary-container animate-pulse">
+                            [ SCANNING_COMPONENT... ]
+                        </div>
+</div>
+<div class="mt-6 flex justify-between items-end">
+<div>
+<div class="text-[10px] font-label-caps text-outline uppercase">Sub-System</div>
+<div class="font-headline-sm text-headline-sm text-primary">CORE_ACTUATOR_V4</div>
+</div>
+<div class="caution-stripes h-4 w-24"></div>
+</div>
+</div>
+</div>
+<!-- Bottom decorative bar -->
+<div class="absolute bottom-0 left-0 w-full h-2 caution-stripes-yellow"></div>
+</section>
+<!-- Bento Grid Specs -->
+<section class="py-24 px-gutter max-w-container-max mx-auto">
+<div class="mb-12 flex items-center justify-between border-b-2 border-outline-variant pb-4">
+<div>
+<h2 class="font-display-sm text-display-sm text-primary uppercase">System_Specifications</h2>
+<p class="font-code-sm text-code-sm text-outline">HARDWARE_REVISION: 1.0.4.B</p>
+</div>
+<div class="material-symbols-outlined text-4xl text-primary-container" data-icon="grid_view">grid_view</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Large Card -->
+<div class="md:col-span-2 lg:col-span-3 border-2 border-outline-variant p-8 bg-surface-container-lowest relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-2 font-code-sm text-[10px] text-outline">01_CORE</div>
+<div class="space-y-4 relative z-10">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="bolt">bolt</span>
+<h3 class="font-headline-lg text-headline-lg text-primary">POWER_CELL_ARRAY</h3>
+<p class="text-on-surface-variant font-body-md">High-density plasma containment units providing continuous uptime for 720 hours under standard industrial load.</p>
+<div class="w-full bg-outline-variant h-8 flex gap-1 p-1">
+<div class="bg-primary-container w-1/6"></div>
+<div class="bg-primary-container w-1/6"></div>
+<div class="bg-primary-container w-1/6"></div>
+<div class="bg-primary-container w-1/6 opacity-50"></div>
+<div class="bg-primary-container w-1/6 opacity-20"></div>
+<div class="bg-primary-container w-1/6 opacity-10"></div>
+</div>
+</div>
+<div class="absolute bottom-[-20%] right-[-10%] opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[200px]" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</div>
+<!-- Tall Card -->
+<div class="md:col-span-2 lg:col-span-2 row-span-2 border-2 border-outline-variant p-8 bg-surface-container-lowest flex flex-col justify-between relative">
+<div class="caution-stripes-yellow absolute top-0 left-0 w-full h-1"></div>
+<div class="space-y-6">
+<div class="text-[10px] font-label-caps text-outline">TELEMETRY_DATA</div>
+<h3 class="font-headline-lg text-headline-lg text-primary">HYDRAULIC_LOAD</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase">Max_Capacity</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">14,200 KG</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase">Response_Delay</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">1.2 MS</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant pb-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase">Coolant_Level</span>
+<span class="font-headline-sm text-headline-sm text-primary-container">98%</span>
+</div>
+</div>
+</div>
+<div class="mt-8 border border-outline-variant bg-black aspect-square p-4">
+<img class="w-full h-full object-cover grayscale" data-alt="A macro shot of a complex circuit board with glowing light traces, representing the neural interface of an industrial mecha. The colors are predominantly dark steel-grey and neon green. The lighting is low-key, emphasizing the intricate electrical pathways and high-tech components." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9DLzx7JES30d2S59GloF6hiNh6B3RLSHMWwWaJKawdoe8qUbgv2qO2u4RJiBFftM3p6vMvHrtF8NLkz94qW0nplD-CbARjSHNBlURs62zBlEf6eY3_rxkc98PpkUnQX3xCHlClRIF1dOcV5g36OJAAHP8xQONUM6b-AfHo57JuLoAbQtNLStWevAhzl9165IiYhib_HETGcAl2m6vHwjkggrQdCpqOKeQBSTsBH_E6sCmiR1WpXW5bbbMYz_h8ZuKbC6O4_huGyON"/>
+</div>
+</div>
+<!-- Small Detail Card -->
+<div class="md:col-span-2 lg:col-span-1 border-2 border-outline-variant p-6 bg-surface-container-lowest flex flex-col items-center justify-center text-center gap-4">
+<span class="material-symbols-outlined text-error text-5xl" data-icon="warning">warning</span>
+<div class="font-label-caps text-label-caps text-error">HAZARD_DETECTED</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant">PRESSURE_SPIKE_DETECTED_LEG_ACTUATOR_R2</p>
+</div>
+<!-- Technical Graph Card -->
+<div class="md:col-span-4 lg:col-span-4 border-2 border-outline-variant bg-surface-container-lowest p-8 flex flex-col md:flex-row gap-8 relative overflow-hidden">
+<div class="md:w-1/3 space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-primary">SYNC_RATIO</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Measuring the alignment between pilot neural patterns and exoskeleton feedback loops.</p>
+<div class="font-display-lg text-display-lg text-primary-container tabular-nums">94.2<span class="text-display-sm">%</span></div>
+</div>
+<div class="flex-grow bg-black/40 border border-outline-variant relative flex items-end h-48 md:h-auto overflow-hidden">
+<!-- Simulated Graph -->
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<span class="material-symbols-outlined text-9xl text-primary-container" data-icon="query_stats">query_stats</span>
+</div>
+<div class="w-full h-full flex items-end gap-1 px-4 pb-4">
+<div class="bg-primary-container/20 w-full h-[60%]"></div>
+<div class="bg-primary-container/30 w-full h-[65%]"></div>
+<div class="bg-primary-container/40 w-full h-[55%]"></div>
+<div class="bg-primary-container/50 w-full h-[70%]"></div>
+<div class="bg-primary-container/60 w-full h-[85%] border-t-2 border-primary-container"></div>
+<div class="bg-primary-container/70 w-full h-[80%]"></div>
+<div class="bg-primary-container/80 w-full h-[90%] border-t-2 border-primary-container"></div>
+<div class="bg-primary-container/60 w-full h-[75%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mechanical Detail Shot -->
+<section class="bg-surface-container-lowest border-y-2 border-outline-variant">
+<div class="grid md:grid-cols-2">
+<div class="p-12 md:p-24 flex flex-col justify-center space-y-8">
+<div class="inline-block px-4 py-1 bg-primary-container text-on-primary-container font-label-caps text-label-caps w-fit">
+                        MODULE_Z-88
+                    </div>
+<h2 class="font-display-lg text-display-lg text-primary leading-tight">PRECISION <br/>REINFORCEMENT</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Every bolt is torqued to aerospace standards. Every hydraulic line is quadruple-insulated against thermal bleed. Our components are built for environments where failure is not an option.
+                    </p>
+<ul class="space-y-4 font-code-sm text-code-sm">
+<li class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            TITANIUM_CHROMOLY_CHASSIS
+                        </li>
+<li class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            AUTONOMOUS_FAILSAFE_CORE
+                        </li>
+<li class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                            HAPTIC_FEEDBACK_SYNAPSE
+                        </li>
+</ul>
+</div>
+<div class="relative min-h-[500px]">
+<img class="absolute inset-0 w-full h-full object-cover grayscale" data-alt="A close-up industrial photograph of a massive mecha joint assembly. Heavy rusted orange and steel grey metal panels are held together by oversized bolts. Yellow caution stripes wrap around the structural support beams. Deep shadows and high-contrast lighting highlight the raw, gritty texture of the mechanical components in a dark workshop setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrgoKENXA5qE5KRbEgaRpIkNlHMo6BOUtMuRXFKm7Oa2eK-jVaMTAhjPGll5V8H4BhyhFcsO5SHhDhABSE5Bd2qzuorwQCnh3Lmpp1R-RGzZe14UzNm0nSoHCPUJgYW6bdTcCS5hU5gdX4zib1bD9NlM-HMM4fNn3ChHUMWEAX4eaa11QwLHxeGoZDvMuSCbyd2MP61B9iUUj-j-5vLRxThmGSks9ED3DW3yutSvKBgL7DwlDbdXqRunSJ-szeHXdlu1YA9HEm8i71"/>
+<div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-l from-transparent to-surface-container-lowest md:from-surface-container-lowest/0"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- SideNavBar (Hidden on small, used as navigation shell check) -->
+<aside class="fixed left-0 top-0 h-full hidden lg:flex flex-col z-40 bg-surface-container-lowest dark:bg-surface-container-lowest h-screen w-16 border-r-2 border-outline-variant hover:w-64 transition-all duration-300 group">
+<div class="p-4 flex items-center gap-4 overflow-hidden">
+<div class="w-8 h-8 bg-primary-container flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="terminal">terminal</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+<div class="font-display-sm text-primary-container text-headline-sm">OP_SEC_01</div>
+<div class="text-[10px] text-outline">STATUS: ENCRYPTED</div>
+</div>
+</div>
+<nav class="mt-8 flex flex-col flex-grow">
+<a class="bg-primary-container text-on-primary-container font-bold border-l-4 border-on-primary-container p-4 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">TERMINAL</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high p-4 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">HUD_GRID</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high p-4 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="polyline">polyline</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">WIRE_FRAME</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high p-4 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">OUTRUN</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:bg-surface-container-high p-4 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="electrical_services">electrical_services</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">GLITCH</span>
+</a>
+</nav>
+<div class="mt-auto p-4 space-y-2">
+<button class="w-full bg-primary-container/20 text-primary-container p-2 font-code-sm hover:bg-primary-container hover:text-on-primary-container transition-all overflow-hidden flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity">INITIATE_BREACH</span>
+</button>
+<div class="border-t border-outline-variant pt-4 flex flex-col gap-2">
+<a class="text-outline hover:text-primary p-2 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">SETTINGS</span>
+</a>
+<a class="text-outline hover:text-primary p-2 flex items-center gap-4 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="power_settings_new">power_settings_new</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity font-code-sm">LOGOUT</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="w-full py-margin px-gutter flex flex-col md:flex-row justify-between items-center gap-4 mt-auto border-t-2 border-outline-variant bg-background relative z-10">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-primary-container tracking-widest">NEURAL_NET_GLOBAL</span>
+<span class="font-code-sm text-code-sm text-outline">©202X NEURAL_NET_GLOBAL // ALL_RIGHTS_RESERVED</span>
+</div>
+<div class="flex gap-8">
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">DECRYPT_DATA</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">ENCRYPTION_LOGS</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">TERMINAL_API</a>
+<a class="font-code-sm text-code-sm text-outline hover:text-primary-container transition-opacity cursor-wait" href="#">CORE_DUMP</a>
+</div>
+<div class="caution-stripes-yellow h-8 w-32 flex items-center justify-center">
+<span class="bg-black px-2 font-label-caps text-[10px] text-primary-container">SYSTEM_OK</span>
+</div>
+</footer>
+<!-- Micro-interaction Script -->
+<script>
+        // Blinking cursor effect for input/active elements
+        const activeActions = document.querySelectorAll('button, a');
+        activeActions.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.textShadow = '0 0 8px rgba(57, 255, 20, 0.6)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.textShadow = 'none';
+            });
+        });
+
+        // Simple parallax for the background grid
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.scanlines').style.backgroundPosition = `${moveX}px ${moveY}px`;
+        });
+    </script>
+</body></html>
