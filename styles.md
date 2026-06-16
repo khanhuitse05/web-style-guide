@@ -1,6 +1,5 @@
 # The Complete Style Guide (100 Styles)
 
-
 ### 💼 Clean & Corporate
 **1. Minimal:** Pure functional simplicity through negative space.
 **2. Modern SaaS:** Clean, high-readability interface for digital products.
