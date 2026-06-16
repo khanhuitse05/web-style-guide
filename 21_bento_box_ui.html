@@ -1,0 +1,364 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GalleryOS — Designed for You</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeedf3",
+                        "surface-bright": "#faf9fe",
+                        "surface-variant": "#e3e2e7",
+                        "on-secondary-fixed": "#0c006a",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-container-low": "#f4f3f8",
+                        "on-secondary": "#ffffff",
+                        "outline": "#717786",
+                        "on-error-container": "#93000a",
+                        "background": "#faf9fe",
+                        "secondary-fixed": "#e2dfff",
+                        "tertiary": "#9e3d00",
+                        "secondary-container": "#6664e4",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "surface-tint": "#005bc1",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c1c6d7",
+                        "on-primary-container": "#fefcff",
+                        "surface": "#faf9fe",
+                        "primary-fixed-dim": "#adc6ff",
+                        "secondary-fixed-dim": "#c2c1ff",
+                        "surface-container-highest": "#e3e2e7",
+                        "on-secondary-container": "#fffbff",
+                        "on-background": "#1a1b1f",
+                        "surface-container-high": "#e9e7ed",
+                        "on-tertiary-container": "#fffbff",
+                        "secondary": "#4c4aca",
+                        "inverse-primary": "#adc6ff",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3631b4",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-surface": "#1a1b1f",
+                        "inverse-on-surface": "#f1f0f5",
+                        "tertiary-container": "#c64f00",
+                        "primary": "#0058bc",
+                        "surface-dim": "#dad9df",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#0070eb",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "inverse-surface": "#2f3034",
+                        "on-primary-fixed": "#001a41",
+                        "on-surface-variant": "#414755",
+                        "on-primary-fixed-variant": "#004493"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.25rem",
+                        "3xl": "1.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "1.5rem",
+                        "grid-gutter": "1.5rem",
+                        "stack-gap": "0.75rem",
+                        "grid-margin": "2rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9fe;
+            color: #1a1b1f;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E5E5EA;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease;
+        }
+        .bento-card:hover {
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.04);
+        }
+        .well {
+            background: #F9F9FB;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface-bright/80 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex justify-between items-center px-grid-margin py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">GalleryOS</span>
+<div class="hidden md:flex gap-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-sm text-body-sm" href="#">Showcase</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Styles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Designers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="well px-3 py-1.5 rounded-full flex items-center gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-[18px] text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm p-0 w-32 md:w-48" placeholder="Search components..." type="text">
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-semibold font-body-sm text-body-sm active:scale-95 transition-transform">Sign In</button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-grid-margin py-12">
+<!-- Hero Header -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-widest mb-2 block">System Version 4.0</span>
+<h1 class="font-display-lg text-display-lg text-on-background leading-tight">Designed for <br><span class="text-primary">Human Interaction.</span></h1>
+</div>
+<div class="max-w-md">
+<p class="text-on-surface-variant font-body-lg mb-6">A modular design language built on the principles of Bento Box minimalism. Clean, intentional, and high-performance.</p>
+<div class="flex gap-3">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+                            Explore Systems <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter">
+<!-- Main Showcase Card -->
+<div class="md:col-span-8 bento-card rounded-3xl p-card-padding flex flex-col justify-between min-h-[440px] overflow-hidden relative group">
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background">Precision Canvas</h2>
+<p class="text-on-surface-variant mt-1">High-density visual exploration environment.</p>
+</div>
+<span class="font-label-mono text-label-mono bg-surface-container-high px-3 py-1 rounded-full uppercase">Active Stage</span>
+</div>
+<div class="mt-8 rounded-2xl overflow-hidden flex-1 relative border border-outline-variant/20 shadow-inner">
+<img alt="Product Showcase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A clean, high-angle shot of a minimalist workstation with a sleek silver laptop and a mechanical keyboard on a white desk. The lighting is bright and even, creating a professional and organized atmosphere. The color palette is dominated by whites, light greys, and subtle metallic tones, reflecting a modern tech-focused lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXO4QqjcN2GAFj9A3pwPSDKbTRlhjEESsuGYXV_V8Otw3q-ZHZlAujGAoMkinr_ahCk-0rRL8F4CcMHsqChXG9uLh4R0jfq3FYLnn7n_DSP_upp0_90OlbHiGqxVjP_fs8iA6aEgUiWEnPHUk_-xULwzK-ndyt5kybwnzxkPizvAsoio2VQv30DbP26GF0U6zBml9xi6zVnXZp6oBGtz8GfkhtyTIZT-h2gyQ4iGwrWwn3D6Y-CRcoi5QYsBKBabIhPqIiWDNHEh1Y">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<div class="mt-6 flex items-center justify-between relative z-10">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center bg-primary text-[10px] text-white font-bold">+12</div>
+</div>
+<button class="text-primary font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                        View Project <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Widget: Performance -->
+<div class="md:col-span-4 bento-card rounded-3xl p-card-padding flex flex-col gap-stack-gap">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-xl">monitoring</span>
+<span class="font-label-mono text-label-mono text-outline">Real-time</span>
+</div>
+<h3 class="font-headline-md text-headline-md mt-2">Efficiency</h3>
+<div class="well p-4 rounded-2xl flex-1 flex flex-col justify-center">
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-4xl font-bold text-on-background">98.4</span>
+<span class="text-secondary font-semibold font-body-sm">%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 98.4%"></div>
+</div>
+<p class="text-on-surface-variant font-body-sm mt-3">Up 4.2% from last deployment cycle.</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="well p-3 rounded-xl border border-outline-variant/10">
+<p class="text-outline font-label-mono text-[10px] uppercase">Latency</p>
+<p class="font-bold text-on-background">12ms</p>
+</div>
+<div class="well p-3 rounded-xl border border-outline-variant/10">
+<p class="text-outline font-label-mono text-[10px] uppercase">Uptime</p>
+<p class="font-bold text-on-background">99.9%</p>
+</div>
+</div>
+</div>
+<!-- Segmented Control Card -->
+<div class="md:col-span-4 bento-card rounded-3xl p-6 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md">Interface</h3>
+<button class="w-8 h-8 rounded-full well flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-1 rounded-2xl flex gap-1 mb-6">
+<button class="flex-1 py-2 bg-white rounded-xl shadow-sm font-semibold text-body-sm">Visual</button>
+<button class="flex-1 py-2 text-on-surface-variant font-medium text-body-sm hover:bg-white/50 rounded-xl transition-all">Code</button>
+<button class="flex-1 py-2 text-on-surface-variant font-medium text-body-sm hover:bg-white/50 rounded-xl transition-all">Assets</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl well flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<div>
+<p class="font-bold text-on-background">Color Tokens</p>
+<p class="text-body-sm text-outline">24 semantic variables</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl well flex items-center justify-center text-secondary group-hover:bg-secondary-container group-hover:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined">text_fields</span>
+</div>
+<div>
+<p class="font-bold text-on-background">Typography</p>
+<p class="text-body-sm text-outline">Fluid scale system</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl well flex items-center justify-center text-tertiary group-hover:bg-tertiary-container group-hover:text-on-tertiary-container transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<div>
+<p class="font-bold text-on-background">Grid Config</p>
+<p class="text-body-sm text-outline">Bento 12-col layout</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Image / Brand Card -->
+<div class="md:col-span-5 bento-card rounded-3xl overflow-hidden relative group">
+<img alt="Creative Space" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A clean top-down view of a designer's workspace featuring a tablet with digital wireframes, a cup of specialty coffee, and minimalist stationery. The scene is lit by soft, natural morning light coming from a nearby window, emphasizing a calm and focused atmosphere. The color scheme is a sophisticated blend of muted earth tones and soft whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaEvP5ht9T-7qvBTMVtNSMh72YDFzcpKzE1mAK-7IvTRm_q5kDZ2AxZgH_S8p_O48GvQbrzfUemUdftE1lyrshuWXBn1arHqOasbEPC2nO973VvxjK35LqL4Kkd0a6Ny-2DA5zW-p95S0Hq-uninFo3IuzgsSfWjn_XLnZIDFoMbL--8ZChWXxG02HCncqXsBspdlmZ6IFKLm4YqeR3tgcaAiauCFXd_kD9bHT8-S6K7ftwZOpx3knFbDI2X1WE_IpameXyqf5I3HU">
+<div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-8 text-white">
+<h3 class="text-2xl font-bold mb-2">Refined Aesthetics</h3>
+<p class="text-white/80 font-body-sm max-w-xs">Crafting experiences that balance density with breathing room.</p>
+</div>
+</div>
+<!-- Designer Spotlight Widget -->
+<div class="md:col-span-3 bento-card rounded-3xl p-6 flex flex-col bg-primary-container text-on-primary-container border-none shadow-xl shadow-primary/10">
+<div class="flex justify-between items-start mb-auto">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white/50">
+<img alt="Designer" class="w-full h-full object-cover" data-alt="A professional portrait of a male designer with a kind expression, wearing a minimalist black turtleneck. The background is a soft, out-of-focus studio setting with neutral grey tones. The lighting is soft and flattering, highlighting the contours of his face and creating an approachable yet professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp0zyjJ4gd4jAUZgSCjwLVxcykCH-5gpcwAcMkiBzjTEgdygUh3hTNk5SRuksQEaoTHx4zct_RHcw12YeWPo4W9ekJAI1iNH1haBMZ7vgbCFV1Cx61h-MF6Dd-0hnQ08g4-CJrZKKi3kjw9_PUYFJa5dedZVil69A3m0WSozmyLXzCqrGFQLddGld3dZ7ZAAnuaVJp0KpeYHkWv8m0vDdeAs6fD20my40aEFSj4Fe3tt94RETfOIf65iwK9-x2p20rrkSslnNG4B38">
+</div>
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="mt-8">
+<h4 class="font-headline-md text-headline-md mb-1 leading-tight">Designers of the Month</h4>
+<p class="text-on-primary-container/80 text-body-sm">Join a community of 4,000+ creators sharing assets daily.</p>
+<button class="mt-6 w-full py-3 bg-white text-primary font-bold rounded-2xl hover:bg-surface-bright transition-colors active:scale-95 transition-transform">View All Profiles</button>
+</div>
+</div>
+<!-- Stats/Row Card -->
+<div class="md:col-span-12 bento-card rounded-3xl p-card-padding grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-outline uppercase">Active Users</span>
+<span class="text-3xl font-bold">142.8k</span>
+<span class="text-secondary text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +12%</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-outline uppercase">Assets Delivered</span>
+<span class="text-3xl font-bold">2.4M</span>
+<span class="text-secondary text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +0.8%</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-outline uppercase">Response Time</span>
+<span class="text-3xl font-bold">48ms</span>
+<span class="text-error text-xs font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_down</span> -2ms</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-mono text-label-mono text-outline uppercase">System Health</span>
+<span class="text-3xl font-bold">Stable</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-4 bg-primary rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary rounded-full"></div>
+<div class="w-1.5 h-4 bg-primary-fixed rounded-full opacity-30"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: 'Designed for You' -->
+<section class="mt-24 mb-12">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg mb-4">Tailored to your workflow.</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto font-body-lg">We've spent thousands of hours perfecting the small details so you don't have to. Every pixel has a purpose.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-grid-gutter">
+<div class="bento-card rounded-3xl p-8 flex flex-col text-center items-center">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">auto_awesome</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-3">AI Assisted Layouts</h4>
+<p class="text-on-surface-variant text-body-sm leading-relaxed">GalleryOS intelligently suggests card arrangements based on your content density and hierarchy.</p>
+</div>
+<div class="bento-card rounded-3xl p-8 flex flex-col text-center items-center">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low flex items-center justify-center text-secondary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">cloud_sync</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-3">Global Sync</h4>
+<p class="text-on-surface-variant text-body-sm leading-relaxed">Update a token once and watch it propagate through your entire ecosystem in milliseconds.</p>
+</div>
+<div class="bento-card rounded-3xl p-8 flex flex-col text-center items-center">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low flex items-center justify-center text-tertiary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">security</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-3">Enterprise Security</h4>
+<p class="text-on-surface-variant text-body-sm leading-relaxed">Bank-grade encryption for all your design assets and proprietary documentation.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-grid-margin gap-stack-gap max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">GalleryOS</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">© 2024 GalleryOS Design Systems. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant/70 hover:text-on-surface font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4 transition-all duration-300" href="#">Cookie Settings</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface font-body-sm text-body-sm hover:underline decoration-primary underline-offset-4 transition-all duration-300" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = 'scale(1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GalleryOS | Flat Design 2.0</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeedf3",
+                    "surface-bright": "#faf9fe",
+                    "surface-variant": "#e3e2e7",
+                    "on-secondary-fixed": "#0c006a",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-container-low": "#f4f3f8",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717786",
+                    "on-error-container": "#93000a",
+                    "background": "#faf9fe",
+                    "secondary-fixed": "#e2dfff",
+                    "tertiary": "#9e3d00",
+                    "secondary-container": "#6664e4",
+                    "on-tertiary-fixed-variant": "#7c2e00",
+                    "surface-tint": "#005bc1",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "on-primary-container": "#fefcff",
+                    "surface": "#faf9fe",
+                    "primary-fixed-dim": "#adc6ff",
+                    "secondary-fixed-dim": "#c2c1ff",
+                    "surface-container-highest": "#e3e2e7",
+                    "on-secondary-container": "#fffbff",
+                    "on-background": "#1a1b1f",
+                    "surface-container-high": "#e9e7ed",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary": "#4c4aca",
+                    "inverse-primary": "#adc6ff",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3631b4",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-surface": "#1a1b1f",
+                    "inverse-on-surface": "#f1f0f5",
+                    "tertiary-container": "#c64f00",
+                    "primary": "#0058bc",
+                    "surface-dim": "#dad9df",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#0070eb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb595",
+                    "inverse-surface": "#2f3034",
+                    "on-primary-fixed": "#001a41",
+                    "on-surface-variant": "#414755",
+                    "on-primary-fixed-variant": "#004493"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "1.5rem",
+                    "grid-gutter": "1.5rem",
+                    "stack-gap": "0.75rem",
+                    "grid-margin": "2rem"
+            },
+            "fontFamily": {
+                    "headline-md-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .bento-shadow {
+        box-shadow: 0px 2px 4px rgba(0,0,0,0.02);
+      }
+      body {
+        background-color: #faf9fe;
+        color: #1a1b1f;
+      }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-surface-bright/80 backdrop-blur-md border-b border-outline-variant transition-all duration-200">
+<div class="flex justify-between items-center px-grid-margin py-4 max-w-screen-2xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">GalleryOS</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-body-sm text-body-sm transition-all" href="#">Showcase</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Styles</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Designers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-all duration-200">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-body-sm text-body-sm font-semibold active:scale-95 transition-all duration-150">Sign In</button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-grid-margin py-12">
+<!-- Hero Section: Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter mb-20">
+<!-- Main Hero Card -->
+<div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding bento-shadow flex flex-col justify-center min-h-[400px] relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label-mono text-label-mono bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full uppercase mb-6 inline-block">Release v2.0</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 max-w-2xl leading-tight">Design Systems for the Modern Aesthetic.</h1>
+<p class="text-on-surface-variant max-w-lg mb-8 font-body-lg text-body-lg">Clean vector lines meet subtle tonal depth. Experience an interface designed for clarity and rapid interaction.</p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-semibold hover:bg-primary transition-all active:scale-95">Explore Components</button>
+<button class="bg-surface-container-high text-on-surface px-8 py-3 rounded-full font-semibold hover:bg-surface-variant transition-all active:scale-95">View Documentation</button>
+</div>
+</div>
+<!-- Abstract Vector Shape Decoration -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute right-10 top-10 w-32 h-32 bg-secondary/5 rounded-full border border-secondary/10"></div>
+</div>
+<!-- Side Feature Card -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-card-padding bento-shadow flex flex-col justify-between overflow-hidden relative">
+<div class="font-label-mono text-label-mono text-on-primary/80 uppercase">Featured</div>
+<div class="my-8">
+<h2 class="font-headline-md text-headline-md mb-2">Bento Grid Minimalism</h2>
+<p class="text-on-primary/70 font-body-sm text-body-sm leading-relaxed">Ordered complexity through structured layouts and atmospheric spacing.</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-primary" data-alt="A professional headshot of a female UI designer with a creative and modern style. She is smiling in a bright studio environment with soft, high-key lighting. The overall aesthetic is minimalist and clean, reflecting the modern flat design style of the brand with a palette of whites and soft neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQUlpfRDkBIGNM-LUxVonLLYxraWrOyEWN0-mNnhnoUbCrM1UPwE15cnwQCzkqa6EfwzWMWgSrtCi4Y3kW0aWLA4ChixHKSC3MzTYzgB-pK5IhygIfkHjHcpgsOMG4Q294kvrsRGUcniLObWNcbgFOH4BhKCRukKE9v8U_F3SBy9S7yR_8QzczGl9ep0JlT62TuVk5zk_fjuyebXg0f5cnH6JyPkUb2EFHI-tEfMyrgy5d9Q_WKeHdRF7fCQ6sjXSKo8ENpoVEPzYs">
+<img class="w-8 h-8 rounded-full border-2 border-primary" data-alt="A close-up portrait of a male product designer with a friendly expression. He is wearing a simple, modern dark grey t-shirt in a clean workspace setting. The lighting is soft and natural, emphasizing a premium and intentional brand personality. The image is crisp and clear, following a high-legibility minimalist art direction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhBR4j5ObjnzEJkCwN62ydbw1uMs988yCcw6N3IaFAysTDidKMPeKmoNJs8nMW9jD5NlZLrWmoYsE0ISCzLs2DDRxvD840I3LBCzX6tkqizZiDh1d-fWUZ7oEOAWjqCcwcirLSZj1mz1XIQgs-40tfu0MP2DnGKn8lXcYak7btN_lYRA63aFiNV4TLipj7xln9bcmNLAOHYCn0AdjbQXbduhl-Ku8Ps_P7T0za5bDWVsIJXb08pj8GJLYT17YXjRO_LB0iiCNEXPRx">
+</div>
+<span class="material-symbols-outlined text-3xl">arrow_right_alt</span>
+</div>
+</div>
+</section>
+<!-- Feature Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-grid-gutter mb-20">
+<!-- Typography Card -->
+<div class="md:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding bento-shadow group hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-12">
+<div class="bg-tertiary-fixed p-3 rounded-xl">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-2xl">format_size</span>
+</div>
+<span class="font-label-mono text-label-mono text-outline">TOKEN_TYPE: TYPE</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Premium Typography</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-6">Using Hanken Grotesk for high impact headers and Inter for crisp, legible body copy.</p>
+<div class="bg-surface-container-low rounded-lg p-4 font-label-mono text-label-mono text-on-surface-variant flex items-center gap-4">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                    Aa Bb Cc Dd 123
+                </div>
+</div>
+<!-- Color Palette Card -->
+<div class="md:col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding bento-shadow">
+<div class="flex justify-between items-start mb-8">
+<div class="bg-secondary-fixed p-3 rounded-xl">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl">palette</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Tonal Palette</h3>
+<div class="grid grid-cols-2 gap-2 mt-4">
+<div class="h-10 rounded-lg bg-primary"></div>
+<div class="h-10 rounded-lg bg-secondary"></div>
+<div class="h-10 rounded-lg bg-tertiary"></div>
+<div class="h-10 rounded-lg bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Interaction Card -->
+<div class="md:col-span-1 bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding bento-shadow flex flex-col justify-between">
+<div>
+<div class="bg-error-container p-3 rounded-xl w-fit mb-8">
+<span class="material-symbols-outlined text-on-error-container text-2xl">touch_app</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Micro-states</h3>
+</div>
+<button class="w-full bg-surface-container-high py-2 rounded-lg font-body-sm text-body-sm text-on-surface-variant border border-outline-variant/30 hover:bg-surface-variant active:scale-95 transition-all">Click to Test</button>
+</div>
+</section>
+<!-- Product Display Section -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-2xl overflow-hidden mb-20 bento-shadow">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-12 flex flex-col justify-center">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-4 tracking-widest">Case Study</span>
+<h2 class="font-display-lg text-display-lg mb-6">Designed for Focus.</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg mb-8 leading-relaxed">We eliminated the noise. GalleryOS uses whitespace as a structural element to guide the eye and reduce cognitive load during complex tasks.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Optimized for high-density information
+                        </li>
+<li class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Subtle tonal layering over heavy shadows
+                        </li>
+<li class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Consistent 12px stack-gap rhythm
+                        </li>
+</ul>
+</div>
+<div class="bg-surface-container-low p-8 flex items-center justify-center relative">
+<img alt="Dashboard Preview" class="rounded-xl shadow-xl border border-outline-variant" data-alt="A clean, minimalist user interface dashboard displayed on a high-resolution screen. The design features a bento-box grid with various data modules, crisp typography, and a bright, modern color palette of white, light grey, and primary blue. The mood is professional, organized, and technologically advanced, emphasizing efficient information density in a flat design 2.0 style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGAWOqJ6issrAGqUa10C3Q0yTf2SZ5HtL9lgHj4tqVn7QKhzcbeczNlSMx58pJL43TAmwSSiY7POBu-8DUO6WigL54YG6NnewI-yEN9m1y1UpQzAB-9XW8IIoVedAGMFtny9LEZH-vgh5rbRJbwsyYxpuB7J4Py0pRmjkeitT3yAnKeL1r3nt5POxwOi0wPzs3xD7E3A5W5K4YOcaNnB-cLxx7UecUPUTZrB4f_kS40UX06ls2h6HgPaPXPqGC3trbJMAke2L_bE0B">
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter mb-20">
+<div class="md:col-span-12 bg-secondary-container text-on-secondary-container rounded-2xl p-12 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg mb-4">Ready to ship better products?</h2>
+<p class="text-on-secondary-container/80 mb-10 max-w-2xl mx-auto">Join 5,000+ designers and developers building with GalleryOS components.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Success!');">
+<input class="flex-grow rounded-full px-6 py-4 bg-surface-container-lowest text-on-surface border-none focus:ring-4 focus:ring-primary/20 font-body-sm text-body-sm" placeholder="you@company.com" type="email">
+<button class="bg-on-secondary-container text-secondary-container px-10 py-4 rounded-full font-bold hover:bg-secondary-fixed transition-all active:scale-95" type="submit">Get Started</button>
+</form>
+</div>
+<!-- Abstract BG SVG using save_content pattern -->
+<div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<circle cx="90" cy="10" fill="currentColor" r="30"></circle>
+<circle cx="10" cy="90" fill="currentColor" r="40"></circle>
+</svg>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+<div class="max-w-screen-2xl mx-auto px-grid-margin flex flex-col md:flex-row justify-between items-center gap-stack-gap">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">GalleryOS</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 text-center md:text-left">© 2024 GalleryOS Design Systems. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all duration-300 font-body-sm text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all duration-300 font-body-sm text-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all duration-300 font-body-sm text-body-sm" href="#">Cookie Settings</a>
+<a class="text-on-surface-variant/70 hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-all duration-300 font-body-sm text-body-sm" href="#">Support</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-lg">language</span>
+</button>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle interaction: Reveal effect for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.bento-shadow');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-4');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body></html>
