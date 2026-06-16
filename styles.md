@@ -1,9 +1,12 @@
 # The Complete Style Guide (100 Styles)
 
-### 💼 Clean & Corporate
+### 💼 Clean & Soft
 **1. Minimal:** Pure functional simplicity through negative space.
 **2. Modern SaaS:** Clean, high-readability interface for digital products.
 **3. Swiss:** Mathematical grid precision and bold typography.
+**10. Claymorphism:** Tactile, soft-shadowed 3D UI elements.
+**11. 3D Illustration:** Friendly, soft-shaded characters and depth.
+**12. Organic:** Earth-toned palettes and hand-drawn shapes.
 
 ### 🌌 Experimental & Immersive
 **4. Glassmorphism:** Layered translucency with vibrant color depth.
@@ -13,18 +16,11 @@
 **8. Futuristic 4D:** Immersive 3D depth and glowing spatial UI.
 **9. AI Native:** Generative patterns and intelligent node-based UI.
 
-### 🧸 Tactile & Soft
-**10. Claymorphism:** Tactile, soft-shadowed 3D UI elements.
-**11. 3D Illustration:** Friendly, soft-shaded characters and depth.
-**12. Organic:** Earth-toned palettes and hand-drawn shapes.
-
-### 💥 Bold & Expressive
+### 💥 Bold & Editorial
 **13. Neobrutalism:** Raw, high-contrast layouts with bold shadows.
 **14. Memphis:** Eclectic geometric shapes and playful patterns.
 **15. Y2K:** High-gloss chrome and retro-futuristic tech.
 **16. Playful:** Bouncy micro-interactions and expressive emojis.
-
-### 📰 Sophisticated & Editorial
 **17. Luxury Editorial:** Sophisticated serif typography and muted palettes.
 **18. Dark Luxury:** Refined gold accents on deep charcoal foundations.
 **19. Editorial:** Narrative-driven multi-column textual layouts.
