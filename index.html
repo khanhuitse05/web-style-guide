@@ -989,7 +989,8 @@
                         <div class="h-56 bg-white flex items-center justify-center">
                             <div
                                 class="w-32 h-16 border-2 border-black border-dashed rounded-[255px_15px_225px_15px/15px_225px_15px_255px] flex items-center justify-center">
-                                <span class="font-['Comic Sans MS',cursive] text-lg">Sketch</span></div>
+                                <span class="font-['Comic Sans MS',cursive] text-lg">Sketch</span>
+                            </div>
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">42. Hand-Drawn</h3>
@@ -1735,7 +1736,8 @@
                             class="h-56 bg-[#f5f5dc] flex items-center justify-center relative border-l-8 border-red-700">
                             <div
                                 class="w-16 h-16 bg-red-700 rounded-full absolute top-8 right-8 opacity-80 flex items-center justify-center mix-blend-multiply">
-                                <span class="text-white font-serif text-2xl">印</span></div>
+                                <span class="text-white font-serif text-2xl">印</span>
+                            </div>
                             <div class="text-black/80 font-serif text-6xl writing-vertical-rl">道</div>
                         </div>
                         <div class="p-6 flex-grow">
@@ -2099,7 +2101,7 @@
         const searchInput = document.getElementById('searchInput');
         const filterContainer = document.getElementById('filterContainer');
         const cards = document.querySelectorAll('.space-y-section-gap > section > .grid > div');
-        
+
         let currentFilter = 'All';
         const keywords = ['All', 'Minimal', 'Dark', 'Retro', 'Clean', 'Immersive', 'Bold', 'UI'];
 
@@ -2124,12 +2126,12 @@
             cards.forEach(card => {
                 const h3 = card.querySelector('h3');
                 const ul = card.querySelector('ul');
-                if (!h3 || !ul) return; 
+                if (!h3 || !ul) return;
                 const text = (h3.textContent + ' ' + ul.textContent).toLowerCase();
-                
+
                 const matchesSearch = text.includes(searchTerm);
                 const matchesFilter = currentFilter === 'All' || text.includes(currentFilter.toLowerCase());
-                
+
                 if (matchesSearch && matchesFilter) {
                     card.style.display = 'flex';
                 } else {

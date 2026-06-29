@@ -6,7 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Style Showcase</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -46,9 +47,22 @@
         }
 
         /* Device Sizes */
-        .device-desktop { width: 100% !important; height: 100% !important; }
-        .device-tablet { width: 768px !important; height: 1024px !important; max-height: 100%; }
-        .device-mobile { width: 375px !important; height: 812px !important; max-height: 100%; }
+        .device-desktop {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .device-tablet {
+            width: 768px !important;
+            height: 1024px !important;
+            max-height: 100%;
+        }
+
+        .device-mobile {
+            width: 375px !important;
+            height: 812px !important;
+            max-height: 100%;
+        }
 
         /* Code Snippet Panel */
         #code-panel {
@@ -64,9 +78,18 @@
             display: flex;
             flex-direction: column;
         }
-        #code-panel.open { right: 0; }
-        
-        pre { margin: 0; padding: 1rem; overflow-x: auto; font-size: 13px; color: #e2e2e2; }
+
+        #code-panel.open {
+            right: 0;
+        }
+
+        pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 13px;
+            color: #e2e2e2;
+        }
     </style>
 </head>
 
@@ -80,32 +103,44 @@
             </a>
             <div class="h-6 w-px bg-[#2a3548]"></div>
             <h1 id="style-title" class="font-semibold text-lg text-white">Loading...</h1>
-            <span id="a11y-badge" class="ml-2 text-xs px-2 py-0.5 rounded-full bg-[#1f2a3c] text-[#a9bad3] border border-[#3a4a5f] hidden"></span>
+            <span id="a11y-badge"
+                class="ml-2 text-xs px-2 py-0.5 rounded-full bg-[#1f2a3c] text-[#a9bad3] border border-[#3a4a5f] hidden"></span>
         </div>
 
         <!-- Device Toggles -->
         <div class="flex items-center bg-[#152031] rounded-lg p-1 border border-[#2a3548]">
-            <button class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors active" data-device="device-desktop" title="Desktop">
+            <button
+                class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors active"
+                data-device="device-desktop" title="Desktop">
                 <span class="material-symbols-outlined text-[20px]">desktop_windows</span>
             </button>
-            <button class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors" data-device="device-tablet" title="Tablet">
+            <button
+                class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors"
+                data-device="device-tablet" title="Tablet">
                 <span class="material-symbols-outlined text-[20px]">tablet_mac</span>
             </button>
-            <button class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors" data-device="device-mobile" title="Mobile">
+            <button
+                class="device-btn p-1.5 rounded-md text-[#8e9192] hover:text-white hover:bg-[#2a3548] transition-colors"
+                data-device="device-mobile" title="Mobile">
                 <span class="material-symbols-outlined text-[20px]">smartphone</span>
             </button>
         </div>
 
         <div class="flex items-center gap-3">
-            <button id="toggle-code" class="flex items-center gap-2 px-3 py-1.5 bg-[#1f2a3c] hover:bg-[#2a3548] text-white rounded-lg border border-[#3a4a5f] transition-colors text-sm font-medium">
+            <button id="toggle-code"
+                class="flex items-center gap-2 px-3 py-1.5 bg-[#1f2a3c] hover:bg-[#2a3548] text-white rounded-lg border border-[#3a4a5f] transition-colors text-sm font-medium">
                 <span class="material-symbols-outlined text-[18px]">code</span>
                 View Code
             </button>
             <div class="flex items-center gap-1">
-                <button id="btn-prev" class="p-1.5 bg-[#152031] hover:bg-[#2a3548] text-[#8e9192] hover:text-white rounded-lg border border-[#2a3548] transition-colors" title="Previous Style">
+                <button id="btn-prev"
+                    class="p-1.5 bg-[#152031] hover:bg-[#2a3548] text-[#8e9192] hover:text-white rounded-lg border border-[#2a3548] transition-colors"
+                    title="Previous Style">
                     <span class="material-symbols-outlined">chevron_left</span>
                 </button>
-                <button id="btn-next" class="p-1.5 bg-[#152031] hover:bg-[#2a3548] text-[#8e9192] hover:text-white rounded-lg border border-[#2a3548] transition-colors" title="Next Style">
+                <button id="btn-next"
+                    class="p-1.5 bg-[#152031] hover:bg-[#2a3548] text-[#8e9192] hover:text-white rounded-lg border border-[#2a3548] transition-colors"
+                    title="Next Style">
                     <span class="material-symbols-outlined">chevron_right</span>
                 </button>
             </div>
@@ -122,7 +157,8 @@
         <div class="h-14 border-b border-[#2a3548] flex items-center justify-between px-4 shrink-0 bg-[#040e1f]">
             <h2 class="text-sm font-semibold text-white">Source Code</h2>
             <div class="flex gap-2">
-                <button id="copy-code" class="flex items-center gap-1 text-xs text-[#8e9192] hover:text-white bg-[#152031] px-2 py-1 rounded border border-[#2a3548] transition-colors">
+                <button id="copy-code"
+                    class="flex items-center gap-1 text-xs text-[#8e9192] hover:text-white bg-[#152031] px-2 py-1 rounded border border-[#2a3548] transition-colors">
                     <span class="material-symbols-outlined text-[14px]">content_copy</span> Copy
                 </button>
                 <button id="close-code" class="text-[#8e9192] hover:text-white transition-colors">
@@ -130,7 +166,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div id="playground-controls" class="border-b border-[#2a3548] p-4 hidden bg-[#152031]">
             <h3 class="text-xs font-semibold text-[#a9bad3] uppercase tracking-wider mb-3">Playground</h3>
             <div id="slider-container" class="space-y-3"></div>
@@ -169,7 +205,7 @@
         // URL Parsing
         const urlParams = new URLSearchParams(window.location.search);
         let requestedPath = urlParams.get('style');
-        
+
         // Find current style index
         let currentIndex = stylesData.findIndex(s => s.path === requestedPath);
         if (currentIndex === -1) {
@@ -190,7 +226,7 @@
             const badge = document.getElementById('a11y-badge');
             badge.textContent = currentStyle.a11y;
             badge.style.display = 'inline-block';
-            if(currentStyle.a11y.includes('Warning')) {
+            if (currentStyle.a11y.includes('Warning')) {
                 badge.className = "ml-2 text-xs px-2 py-0.5 rounded-full bg-[#3d2c12] text-[#f2b84b] border border-[#5c421b]";
             }
         }
@@ -206,10 +242,10 @@
                 window.location.href = `showcase.html?style=${stylesData[currentIndex + 1].path}`;
             }
         });
-        
+
         // Disable Prev/Next if at boundaries
-        if(currentIndex === 0) document.getElementById('btn-prev').style.opacity = '0.5';
-        if(currentIndex === stylesData.length - 1) document.getElementById('btn-next').style.opacity = '0.5';
+        if (currentIndex === 0) document.getElementById('btn-prev').style.opacity = '0.5';
+        if (currentIndex === stylesData.length - 1) document.getElementById('btn-next').style.opacity = '0.5';
 
         // Device Toggles
         const deviceBtns = document.querySelectorAll('.device-btn');
@@ -230,7 +266,7 @@
         // Attempt fetch first (works on servers), fallback to iframe reading (might work on some file://), then error out.
         fetch(requestedPath)
             .then(response => {
-                if(!response.ok) throw new Error("Network response was not ok");
+                if (!response.ok) throw new Error("Network response was not ok");
                 return response.text();
             })
             .then(html => {
@@ -242,15 +278,15 @@
                     try {
                         const html = frame.contentDocument.documentElement.outerHTML;
                         document.getElementById('code-block').textContent = '<!DOCTYPE html>\n' + html;
-                    } catch(e) {
+                    } catch (e) {
                         document.getElementById('code-block').textContent = '// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.';
                     }
                 });
-                
+
                 // Set a timeout in case iframe doesn't trigger load or fails
                 setTimeout(() => {
-                    if(document.getElementById('code-block').textContent === 'Loading...') {
-                         document.getElementById('code-block').textContent = '// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.';
+                    if (document.getElementById('code-block').textContent === 'Loading...') {
+                        document.getElementById('code-block').textContent = '// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.';
                     }
                 }, 1000);
             });
@@ -270,7 +306,7 @@
         if (currentStyle.playground && currentStyle.playground.length > 0) {
             pgContainer.style.display = 'block';
             const sliderContainer = document.getElementById('slider-container');
-            
+
             currentStyle.playground.forEach(control => {
                 const wrapper = document.createElement('div');
                 wrapper.innerHTML = `
@@ -282,19 +318,20 @@
                 `;
                 const input = wrapper.querySelector('input');
                 const valDisplay = wrapper.querySelector(`span#val-${control.var}`);
-                
+
                 input.addEventListener('input', (e) => {
                     const val = e.target.value;
                     valDisplay.textContent = `${val}${control.unit}`;
                     // Inject CSS var into iframe
                     try {
                         frame.contentWindow.document.documentElement.style.setProperty(control.var, `${val}${control.unit}`);
-                    } catch(e) {}
+                    } catch (e) { }
                 });
-                
+
                 sliderContainer.appendChild(wrapper);
             });
         }
     </script>
 </body>
+
 </html>
