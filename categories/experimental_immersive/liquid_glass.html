@@ -354,48 +354,4 @@
             document.body.style.setProperty('--mouse-y', `${y}%`);
         });
     </script>
-
-    <!-- INJECTED FLOATING TOOLBAR -->
-    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 99999; display: flex; gap: 10px; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
-        <a href="../../index.html" style="color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'" title="Back to Catalog">
-            <span class="material-symbols-outlined">grid_view</span>
-        </a>
-        <button id="fab-copy-code" style="background: white; border: none; color: black; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 20px; border-radius: 24px; font-weight: 600; font-family: sans-serif; font-size: 14px; transition: transform 0.1s;" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'" title="Copy Source Code">
-            <span class="material-symbols-outlined" style="margin-right: 6px; font-size: 18px;">content_copy</span> Copy
-        </button>
-    </div>
-
-    <script>
-        // Copy Code Logic
-        document.getElementById('fab-copy-code').addEventListener('click', () => {
-            // Clone to remove the injected toolbar before copying
-            const htmlCopy = document.documentElement.cloneNode(true);
-            const toolbarElements = htmlCopy.querySelectorAll('div[style*="z-index: 99999"]');
-            toolbarElements.forEach(el => el.remove());
-            
-            // Also remove the injected script block for the fab and SEO tags to keep the copy clean
-            const injectedScripts = htmlCopy.querySelectorAll('script');
-            // Remove the last script which is this one
-            if (injectedScripts.length > 0) {
-                injectedScripts[injectedScripts.length - 1].remove();
-            }
-            
-            const code = "<!DOCTYPE html>\n<html" + (htmlCopy.className ? ' class="' + htmlCopy.className + '"' : '') + " lang=\"en\">\n" + htmlCopy.innerHTML + "\n</html>";
-            
-            navigator.clipboard.writeText(code).then(() => {
-                const btn = document.getElementById('fab-copy-code');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<span class="material-symbols-outlined" style="margin-right: 6px; font-size: 18px;">check</span> Copied!';
-                btn.style.background = '#4CAF50';
-                btn.style.color = 'white';
-                setTimeout(() => { 
-                    btn.innerHTML = originalText; 
-                    btn.style.background = 'white';
-                    btn.style.color = 'black';
-                }, 2000);
-            });
-        });
-
-    </script>
-    <!-- END INJECTED -->
 </body></html>
