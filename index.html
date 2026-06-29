@@ -18,6 +18,11 @@
             src: url('https://cdn.jsdelivr.net/npm/geist-font@1.1.0/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #081425;
@@ -186,13 +191,23 @@
             </div>
             <div
                 class="flex items-center gap-8 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
-                <a class="hover:text-primary transition-colors" href="#">Catalog</a>
-                <a class="hover:text-primary transition-colors" href="#">Trends</a>
-                <a class="hover:text-primary transition-colors" href="#">Resources</a>
+                <div class="relative" id="catalogDropdownContainer">
+                    <button id="catalogToggle"
+                        class="hover:text-primary transition-colors flex items-center gap-1 cursor-pointer">CATALOG
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span></button>
+                    <div id="catalogMenu"
+                        class="absolute top-full left-0 mt-4 w-56 bg-surface-container-low border border-outline-variant rounded-lg shadow-xl opacity-0 invisible transition-all duration-200 flex flex-col py-2 z-50">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
                 <div class="w-px h-6 bg-outline-variant/50"></div>
-                <button class="active:scale-95 transition-transform duration-200 cursor-pointer">
-                    <span class="material-symbols-outlined text-primary">search</span>
-                </button>
+                <div class="relative flex items-center">
+                    <span
+                        class="material-symbols-outlined text-primary absolute left-3 pointer-events-none text-[20px]">search</span>
+                    <input type="text" id="searchInput" placeholder="Search styles..."
+                        class="bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 text-on-surface text-sm focus:outline-none focus:border-primary transition-colors w-48 lg:w-64">
+                </div>
+
             </div>
         </nav>
     </header>
@@ -277,7 +292,7 @@
                             </ul>
                         </div>
                     </div>
-                
+
                     <div onclick="window.location.href='categories/clean_soft/ai_native.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div
@@ -420,8 +435,7 @@
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div
                             class="h-56 bg-black relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
-                            <div
-                                class="absolute inset-0 opacity-20 bg-[url('assets/index/image_002.jpg')]">
+                            <div class="absolute inset-0 opacity-20 bg-[url('assets/index/image_002.jpg')]">
                             </div>
                             <div class="border-2 border-[#00ffff] p-4 relative">
                                 <div class="absolute -top-1 -left-1 w-3 h-3 bg-[#ff00ff]"></div>
@@ -456,7 +470,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- 💥 Bold & Editorial -->
             <section>
                 <h3 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-4">💥
@@ -548,7 +562,7 @@
                             </ul>
                         </div>
                     </div>
-                
+
                     <div onclick="window.location.href='categories/bold_editorial/retro_futurism.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div
@@ -628,7 +642,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- 🎛️ Modern UI & Interactions -->
             <section>
                 <h3 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-4">🎛️
@@ -637,7 +651,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/bento_box_ui.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_21_bento_box_1781607163273.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 21">
+                            <img src="./assets/index/style_21_bento_box_1781607163273.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 21">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">21. Bento Box UI</h3>
@@ -649,7 +665,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/skeuomorphism.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_22_skeuomorphism_1781607175608.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 22">
+                            <img src="./assets/index/style_22_skeuomorphism_1781607175608.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 22">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">22. Skeuomorphism</h3>
@@ -661,7 +679,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/neumorphism.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_23_neumorphism_1781607185626.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 23">
+                            <img src="./assets/index/style_23_neumorphism_1781607185626.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 23">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">23. Neumorphism</h3>
@@ -673,7 +693,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/material_you_(md3).html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_24_material_you_1781607200796.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 24">
+                            <img src="./assets/index/style_24_material_you_1781607200796.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 24">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">24. Material You (MD3)</h3>
@@ -686,7 +708,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/fluent_design.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_25_fluent_design_1781607213083.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 25">
+                            <img src="./assets/index/style_25_fluent_design_1781607213083.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 25">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">25. Fluent Design</h3>
@@ -698,7 +722,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/pure_dark_mode.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_26_pure_dark_mode_1781607224160.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 26">
+                            <img src="./assets/index/style_26_pure_dark_mode_1781607224160.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 26">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">26. Pure Dark Mode</h3>
@@ -710,7 +736,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/monochrome.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_27_monochrome_1781607240070.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 27">
+                            <img src="./assets/index/style_27_monochrome_1781607240070.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 27">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">27. Monochrome</h3>
@@ -723,7 +751,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/frutiger_aero.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_28_frutiger_aero_1781607253588.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 28">
+                            <img src="./assets/index/style_28_frutiger_aero_1781607253588.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 28">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">28. Frutiger Aero</h3>
@@ -736,7 +766,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/flat_design_2.0.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_29_flat_design_2_1781607265917.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 29">
+                            <img src="./assets/index/style_29_flat_design_2_1781607265917.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 29">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">29. Flat Design 2.0</h3>
@@ -748,7 +780,9 @@
                     <div onclick="window.location.href='categories/modern_ui_interactions/holographic_ui.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
                         <div class="h-56 w-full relative overflow-hidden bg-surface-container-low">
-                            <img src="./assets/index/style_30_holographic_ui_1781607279490.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Style 30">
+                            <img src="./assets/index/style_30_holographic_ui_1781607279490.jpg"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                alt="Style 30">
                         </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">30. Holographic UI</h3>
@@ -766,7 +800,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/retro_nostalgia/80s_synthwave.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-b from-[#2b00ff] to-[#e100ff] relative overflow-hidden flex items-center justify-center"><div class="absolute bottom-0 w-full h-1/2 bg-[linear-gradient(transparent_48%,_#00ffff_50%)] bg-[length:100%_20px] perspective-[100px] rotate-x-[60deg]"></div><div class="w-24 h-24 rounded-full bg-gradient-to-b from-[#ffea00] to-[#ff00a0] mb-8 shadow-[0_0_40px_#ff00a0]"></div></div>
+                        <div
+                            class="h-56 bg-gradient-to-b from-[#2b00ff] to-[#e100ff] relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute bottom-0 w-full h-1/2 bg-[linear-gradient(transparent_48%,_#00ffff_50%)] bg-[length:100%_20px] perspective-[100px] rotate-x-[60deg]">
+                            </div>
+                            <div
+                                class="w-24 h-24 rounded-full bg-gradient-to-b from-[#ffea00] to-[#ff00a0] mb-8 shadow-[0_0_40px_#ff00a0]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">31. 80s Synthwave</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -776,7 +818,12 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/90s_web.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#c0c0c0] border-t-4 border-l-4 border-white border-b-4 border-r-4 border-gray-600 flex flex-col items-center justify-center p-4"><div class="bg-blue-800 text-white w-full text-center font-bold font-serif mb-4">Welcome!</div><div class="text-blue-600 underline font-serif">Click Here</div></div>
+                        <div
+                            class="h-56 bg-[#c0c0c0] border-t-4 border-l-4 border-white border-b-4 border-r-4 border-gray-600 flex flex-col items-center justify-center p-4">
+                            <div class="bg-blue-800 text-white w-full text-center font-bold font-serif mb-4">Welcome!
+                            </div>
+                            <div class="text-blue-600 underline font-serif">Click Here</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">32. 90s Web</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -786,7 +833,13 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/vaporwave.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-tr from-[#ff71ce] via-[#01cdfe] to-[#b967ff] relative flex items-center justify-center"><div class="text-white text-4xl tracking-[1em] opacity-80 mix-blend-overlay">AESTHETIC</div><div class="absolute bottom-4 right-4 bg-[#c0c0c0] border-2 border-white/50 px-4 py-1 text-xs">OK</div></div>
+                        <div
+                            class="h-56 bg-gradient-to-tr from-[#ff71ce] via-[#01cdfe] to-[#b967ff] relative flex items-center justify-center">
+                            <div class="text-white text-4xl tracking-[1em] opacity-80 mix-blend-overlay">AESTHETIC</div>
+                            <div
+                                class="absolute bottom-4 right-4 bg-[#c0c0c0] border-2 border-white/50 px-4 py-1 text-xs">
+                                OK</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">33. Vaporwave</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -797,7 +850,11 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/pixel_art.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black flex items-center justify-center"><div class="w-16 h-16 bg-green-500 shadow-[8px_0_0_0_#22c55e,-8px_0_0_0_#22c55e,0_8px_0_0_#22c55e,0_-8px_0_0_#22c55e]"></div></div>
+                        <div class="h-56 bg-black flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 bg-green-500 shadow-[8px_0_0_0_#22c55e,-8px_0_0_0_#22c55e,0_8px_0_0_#22c55e,0_-8px_0_0_#22c55e]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">34. Pixel Art</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -807,7 +864,11 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/bauhaus.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f0eade] flex items-center justify-center gap-2"><div class="w-16 h-16 bg-[#e3000f] rounded-full"></div><div class="w-16 h-16 bg-[#005a9b]"></div><div class="w-16 h-16 bg-[#ffcc00] rotate-45"></div></div>
+                        <div class="h-56 bg-[#f0eade] flex items-center justify-center gap-2">
+                            <div class="w-16 h-16 bg-[#e3000f] rounded-full"></div>
+                            <div class="w-16 h-16 bg-[#005a9b]"></div>
+                            <div class="w-16 h-16 bg-[#ffcc00] rotate-45"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">35. Bauhaus</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -818,7 +879,11 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/art_deco.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#1a1a1a] flex items-center justify-center"><div class="w-32 h-32 border-4 border-[#d4af37] rotate-45 flex items-center justify-center"><div class="w-24 h-24 border-2 border-[#d4af37]"></div></div></div>
+                        <div class="h-56 bg-[#1a1a1a] flex items-center justify-center">
+                            <div class="w-32 h-32 border-4 border-[#d4af37] rotate-45 flex items-center justify-center">
+                                <div class="w-24 h-24 border-2 border-[#d4af37]"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">36. Art Deco</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -828,7 +893,14 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/pop_art.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#00e5ff] flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 opacity-20 bg-[radial-gradient(#000_3px,transparent_4px)] bg-[length:15px_15px]"></div><div class="bg-yellow-400 border-4 border-black text-black font-black italic text-4xl p-2 -rotate-12 shadow-[8px_8px_0_#ff0055]">POW!</div></div>
+                        <div class="h-56 bg-[#00e5ff] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 opacity-20 bg-[radial-gradient(#000_3px,transparent_4px)] bg-[length:15px_15px]">
+                            </div>
+                            <div
+                                class="bg-yellow-400 border-4 border-black text-black font-black italic text-4xl p-2 -rotate-12 shadow-[8px_8px_0_#ff0055]">
+                                POW!</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">37. Pop Art</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -839,7 +911,14 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/grunge.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#2a2a2a] flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]"></div><h1 class="text-white font-black text-5xl uppercase tracking-tighter mix-blend-difference rotate-2">Riot</h1></div>
+                        <div class="h-56 bg-[#2a2a2a] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]">
+                            </div>
+                            <h1
+                                class="text-white font-black text-5xl uppercase tracking-tighter mix-blend-difference rotate-2">
+                                Riot</h1>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">38. Grunge</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -849,7 +928,14 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/steampunk.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#3e2723] flex items-center justify-center"><div class="w-24 h-24 rounded-full border-8 border-[#bcaaa4] border-dashed animate-[spin_10s_linear_infinite] flex items-center justify-center"><div class="w-12 h-12 rounded-full border-4 border-[#8d6e63] border-dashed animate-[spin_5s_linear_infinite_reverse]"></div></div></div>
+                        <div class="h-56 bg-[#3e2723] flex items-center justify-center">
+                            <div
+                                class="w-24 h-24 rounded-full border-8 border-[#bcaaa4] border-dashed animate-[spin_10s_linear_infinite] flex items-center justify-center">
+                                <div
+                                    class="w-12 h-12 rounded-full border-4 border-[#8d6e63] border-dashed animate-[spin_5s_linear_infinite_reverse]">
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">39. Steampunk</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -859,7 +945,10 @@
                     </div>
                     <div onclick="window.location.href='categories/retro_nostalgia/typewriter_print.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f4ebd0] flex flex-col items-start justify-center p-8"><p class="font-mono text-black/80 tracking-widest leading-loose">Dear User,<br>This is a test.<br>_</p></div>
+                        <div class="h-56 bg-[#f4ebd0] flex flex-col items-start justify-center p-8">
+                            <p class="font-mono text-black/80 tracking-widest leading-loose">Dear User,<br>This is a
+                                test.<br>_</p>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">40. Typewriter/Print</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -876,7 +965,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/artistic_expressive/watercolor.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white relative overflow-hidden flex items-center justify-center"><div class="absolute w-40 h-40 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 -translate-x-10"></div><div class="absolute w-40 h-40 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 translate-x-10 translate-y-10"></div><div class="absolute w-40 h-40 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 translate-x-10 -translate-y-10"></div></div>
+                        <div class="h-56 bg-white relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute w-40 h-40 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 -translate-x-10">
+                            </div>
+                            <div
+                                class="absolute w-40 h-40 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 translate-x-10 translate-y-10">
+                            </div>
+                            <div
+                                class="absolute w-40 h-40 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 translate-x-10 -translate-y-10">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">41. Watercolor</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -886,7 +985,11 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/hand-drawn.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white flex items-center justify-center"><div class="w-32 h-16 border-2 border-black border-dashed rounded-[255px_15px_225px_15px/15px_225px_15px_255px] flex items-center justify-center"><span class="font-['Comic Sans MS',cursive] text-lg">Sketch</span></div></div>
+                        <div class="h-56 bg-white flex items-center justify-center">
+                            <div
+                                class="w-32 h-16 border-2 border-black border-dashed rounded-[255px_15px_225px_15px/15px_225px_15px_255px] flex items-center justify-center">
+                                <span class="font-['Comic Sans MS',cursive] text-lg">Sketch</span></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">42. Hand-Drawn</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -896,7 +999,13 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/collage.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#e5e5e5] flex items-center justify-center relative"><div class="absolute w-24 h-24 bg-red-500 rotate-12 shadow-lg"></div><div class="absolute w-32 h-16 bg-blue-500 -rotate-6 shadow-lg mix-blend-multiply"></div><div class="bg-white px-2 py-1 rotate-3 font-mono font-bold border border-gray-300 shadow-sm z-10">CUT & PASTE</div></div>
+                        <div class="h-56 bg-[#e5e5e5] flex items-center justify-center relative">
+                            <div class="absolute w-24 h-24 bg-red-500 rotate-12 shadow-lg"></div>
+                            <div class="absolute w-32 h-16 bg-blue-500 -rotate-6 shadow-lg mix-blend-multiply"></div>
+                            <div
+                                class="bg-white px-2 py-1 rotate-3 font-mono font-bold border border-gray-300 shadow-sm z-10">
+                                CUT & PASTE</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">43. Collage</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -906,7 +1015,16 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/psychedelic.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-br from-yellow-400 via-red-500 to-purple-600 relative overflow-hidden flex items-center justify-center"><div class="w-[200%] h-[200%] absolute border-[20px] border-white/20 rounded-full animate-spin"></div><div class="w-[150%] h-[150%] absolute border-[20px] border-black/20 rounded-full animate-[spin_3s_reverse_infinite]"></div><span class="z-10 text-white font-black text-4xl drop-shadow-lg scale-150 rotate-[-10deg]">TRIP</span></div>
+                        <div
+                            class="h-56 bg-gradient-to-br from-yellow-400 via-red-500 to-purple-600 relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="w-[200%] h-[200%] absolute border-[20px] border-white/20 rounded-full animate-spin">
+                            </div>
+                            <div
+                                class="w-[150%] h-[150%] absolute border-[20px] border-black/20 rounded-full animate-[spin_3s_reverse_infinite]">
+                            </div><span
+                                class="z-10 text-white font-black text-4xl drop-shadow-lg scale-150 rotate-[-10deg]">TRIP</span>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">44. Psychedelic</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -916,7 +1034,22 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/kinetic_typography.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black flex items-center justify-center overflow-hidden whitespace-nowrap"><div class="text-white text-6xl font-black tracking-tighter animate-[marquee_2s_linear_infinite]">MOVE MOVE MOVE MOVE</div><style>@keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }</style></div>
+                        <div class="h-56 bg-black flex items-center justify-center overflow-hidden whitespace-nowrap">
+                            <div
+                                class="text-white text-6xl font-black tracking-tighter animate-[marquee_2s_linear_infinite]">
+                                MOVE MOVE MOVE MOVE</div>
+                            <style>
+                                @keyframes marquee {
+                                    0% {
+                                        transform: translateX(100%);
+                                    }
+
+                                    100% {
+                                        transform: translateX(-100%);
+                                    }
+                                }
+                            </style>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">45. Kinetic Typography</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -926,7 +1059,11 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/brutalist_web.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-blue-600 flex items-center justify-center border-8 border-black"><div class="bg-yellow-300 text-black font-mono font-bold text-4xl p-2 border-4 border-black hover:bg-white cursor-crosshair">CLICK</div></div>
+                        <div class="h-56 bg-blue-600 flex items-center justify-center border-8 border-black">
+                            <div
+                                class="bg-yellow-300 text-black font-mono font-bold text-4xl p-2 border-4 border-black hover:bg-white cursor-crosshair">
+                                CLICK</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">46. Brutalist Web</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -937,7 +1074,17 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/low_poly.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-slate-900 flex items-center justify-center relative overflow-hidden"><div class="w-0 h-0 border-l-[50px] border-l-transparent border-b-[80px] border-b-cyan-500 border-r-[50px] border-r-transparent absolute translate-x-[-20px] opacity-80"></div><div class="w-0 h-0 border-l-[60px] border-l-transparent border-t-[90px] border-t-blue-500 border-r-[60px] border-r-transparent absolute translate-x-[30px] translate-y-[10px] opacity-90"></div><div class="w-0 h-0 border-l-[40px] border-l-transparent border-b-[70px] border-b-purple-500 border-r-[40px] border-r-transparent absolute translate-y-[-30px] opacity-70"></div></div>
+                        <div class="h-56 bg-slate-900 flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="w-0 h-0 border-l-[50px] border-l-transparent border-b-[80px] border-b-cyan-500 border-r-[50px] border-r-transparent absolute translate-x-[-20px] opacity-80">
+                            </div>
+                            <div
+                                class="w-0 h-0 border-l-[60px] border-l-transparent border-t-[90px] border-t-blue-500 border-r-[60px] border-r-transparent absolute translate-x-[30px] translate-y-[10px] opacity-90">
+                            </div>
+                            <div
+                                class="w-0 h-0 border-l-[40px] border-l-transparent border-b-[70px] border-b-purple-500 border-r-[40px] border-r-transparent absolute translate-y-[-30px] opacity-70">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">47. Low Poly</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -947,7 +1094,13 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/papercraft.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f0f0f0] flex items-center justify-center"><div class="w-32 h-32 bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.2)] rounded-sm rotate-3 flex items-center justify-center"><div class="w-16 h-16 bg-[#ff6b6b] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.3)] -rotate-6"></div></div></div>
+                        <div class="h-56 bg-[#f0f0f0] flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 bg-white shadow-[0_20px_25px_-5px_rgba(0,0,0,0.2)] rounded-sm rotate-3 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-[#ff6b6b] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.3)] -rotate-6">
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">48. Papercraft</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -957,7 +1110,11 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/isometric.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f8f9fa] flex items-center justify-center"><div class="w-20 h-20 bg-blue-500 rotate-45 transform skew-x-[20deg] skew-y-[20deg] shadow-[20px_20px_0_#93c5fd]"></div></div>
+                        <div class="h-56 bg-[#f8f9fa] flex items-center justify-center">
+                            <div
+                                class="w-20 h-20 bg-blue-500 rotate-45 transform skew-x-[20deg] skew-y-[20deg] shadow-[20px_20px_0_#93c5fd]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">49. Isometric</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -967,7 +1124,11 @@
                     </div>
                     <div onclick="window.location.href='categories/artistic_expressive/line_art.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white flex items-center justify-center"><svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" stroke="black" stroke-width="2"><path d="M10,50 Q25,25 50,50 T90,50" /><circle cx="50" cy="50" r="20" /></svg></div>
+                        <div class="h-56 bg-white flex items-center justify-center"><svg class="w-24 h-24"
+                                viewBox="0 0 100 100" fill="none" stroke="black" stroke-width="2">
+                                <path d="M10,50 Q25,25 50,50 T90,50" />
+                                <circle cx="50" cy="50" r="20" />
+                            </svg></div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">50. Line Art</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -984,7 +1145,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/nature_elements/botanical.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#eef3ea] flex items-center justify-center"><div class="w-24 h-24 bg-[#4ade80] rounded-[0_100%_0_100%] shadow-lg shadow-green-200/50 -rotate-45"></div></div>
+                        <div class="h-56 bg-[#eef3ea] flex items-center justify-center">
+                            <div
+                                class="w-24 h-24 bg-[#4ade80] rounded-[0_100%_0_100%] shadow-lg shadow-green-200/50 -rotate-45">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">51. Botanical</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -994,7 +1159,15 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/oceanic.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-b from-[#0ea5e9] to-[#0369a1] relative overflow-hidden flex items-center justify-center"><div class="absolute bottom-0 w-[200%] h-20 bg-white/20 rounded-[100%] animate-[bounce_4s_infinite]"></div><div class="absolute bottom-[-10px] w-[200%] h-20 bg-white/10 rounded-[100%] animate-[bounce_3s_infinite_reverse]"></div></div>
+                        <div
+                            class="h-56 bg-gradient-to-b from-[#0ea5e9] to-[#0369a1] relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute bottom-0 w-[200%] h-20 bg-white/20 rounded-[100%] animate-[bounce_4s_infinite]">
+                            </div>
+                            <div
+                                class="absolute bottom-[-10px] w-[200%] h-20 bg-white/10 rounded-[100%] animate-[bounce_3s_infinite_reverse]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">52. Oceanic</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1004,7 +1177,10 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/earthy_desert.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#fdfbf7] flex items-center justify-center gap-4"><div class="w-16 h-32 bg-[#d97757] rounded-t-full"></div><div class="w-16 h-24 bg-[#e2a869] rounded-t-full mt-8"></div></div>
+                        <div class="h-56 bg-[#fdfbf7] flex items-center justify-center gap-4">
+                            <div class="w-16 h-32 bg-[#d97757] rounded-t-full"></div>
+                            <div class="w-16 h-24 bg-[#e2a869] rounded-t-full mt-8"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">53. Earthy/Desert</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1014,7 +1190,14 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/cosmic_space.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#0f172a] relative overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-[radial-gradient(circle_at_center,white_1px,transparent_1.5px)] bg-[length:20px_20px] opacity-30"></div><div class="w-20 h-20 bg-gradient-to-tr from-purple-600 to-blue-400 rounded-full shadow-[0_0_40px_rgba(168,85,247,0.6)]"></div></div>
+                        <div class="h-56 bg-[#0f172a] relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-[radial-gradient(circle_at_center,white_1px,transparent_1.5px)] bg-[length:20px_20px] opacity-30">
+                            </div>
+                            <div
+                                class="w-20 h-20 bg-gradient-to-tr from-purple-600 to-blue-400 rounded-full shadow-[0_0_40px_rgba(168,85,247,0.6)]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">54. Cosmic/Space</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1024,7 +1207,12 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/zen_wabi-sabi.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f5f5f5] flex items-center justify-center"><div class="w-24 h-24 rounded-full border border-gray-300 relative flex items-center justify-center"><div class="w-2 h-2 bg-gray-400 rounded-full absolute top-4"></div></div></div>
+                        <div class="h-56 bg-[#f5f5f5] flex items-center justify-center">
+                            <div
+                                class="w-24 h-24 rounded-full border border-gray-300 relative flex items-center justify-center">
+                                <div class="w-2 h-2 bg-gray-400 rounded-full absolute top-4"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">55. Zen/Wabi-Sabi</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1034,7 +1222,12 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/frosted_glass.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-br from-blue-100 to-blue-300 relative flex items-center justify-center"><div class="w-32 h-32 bg-white/30 backdrop-blur-md border border-white/50 rounded-2xl shadow-xl"></div></div>
+                        <div
+                            class="h-56 bg-gradient-to-br from-blue-100 to-blue-300 relative flex items-center justify-center">
+                            <div
+                                class="w-32 h-32 bg-white/30 backdrop-blur-md border border-white/50 rounded-2xl shadow-xl">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">56. Frosted Glass</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1044,7 +1237,12 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/tropical.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#ff6b6b] flex items-center justify-center overflow-hidden relative"><div class="w-40 h-40 bg-[#4ade80] rounded-[50%_50%_0_50%] absolute -bottom-10 -right-10"></div><div class="w-24 h-24 bg-[#facc15] rounded-full absolute top-8 left-8 mix-blend-screen"></div></div>
+                        <div class="h-56 bg-[#ff6b6b] flex items-center justify-center overflow-hidden relative">
+                            <div class="w-40 h-40 bg-[#4ade80] rounded-[50%_50%_0_50%] absolute -bottom-10 -right-10">
+                            </div>
+                            <div class="w-24 h-24 bg-[#facc15] rounded-full absolute top-8 left-8 mix-blend-screen">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">57. Tropical</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1054,7 +1252,11 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/ethereal_cloud.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f8fafc] relative overflow-hidden flex items-center justify-center"><div class="w-60 h-60 bg-white rounded-full blur-3xl absolute opacity-80"></div><div class="w-40 h-40 bg-blue-50 rounded-full blur-2xl absolute -translate-x-10 opacity-60"></div></div>
+                        <div class="h-56 bg-[#f8fafc] relative overflow-hidden flex items-center justify-center">
+                            <div class="w-60 h-60 bg-white rounded-full blur-3xl absolute opacity-80"></div>
+                            <div class="w-40 h-40 bg-blue-50 rounded-full blur-2xl absolute -translate-x-10 opacity-60">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">58. Ethereal Cloud</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1064,7 +1266,12 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/volcanic.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#18181b] flex items-center justify-center relative overflow-hidden"><div class="w-full h-1/2 bg-gradient-to-t from-[#ef4444] to-transparent absolute bottom-0 opacity-50 blur-xl"></div><div class="w-24 h-24 bg-[#f97316] rounded-sm rotate-45 mix-blend-overlay"></div></div>
+                        <div class="h-56 bg-[#18181b] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="w-full h-1/2 bg-gradient-to-t from-[#ef4444] to-transparent absolute bottom-0 opacity-50 blur-xl">
+                            </div>
+                            <div class="w-24 h-24 bg-[#f97316] rounded-sm rotate-45 mix-blend-overlay"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">59. Volcanic</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1074,7 +1281,11 @@
                     </div>
                     <div onclick="window.location.href='categories/nature_elements/biophilic.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f0fdf4] flex items-center justify-center gap-2"><div class="w-8 h-24 bg-[#86efac] rounded-full"></div><div class="w-8 h-32 bg-[#4ade80] rounded-full"></div><div class="w-8 h-20 bg-[#22c55e] rounded-full"></div></div>
+                        <div class="h-56 bg-[#f0fdf4] flex items-center justify-center gap-2">
+                            <div class="w-8 h-24 bg-[#86efac] rounded-full"></div>
+                            <div class="w-8 h-32 bg-[#4ade80] rounded-full"></div>
+                            <div class="w-8 h-20 bg-[#22c55e] rounded-full"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">60. Biophilic</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1092,7 +1303,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/tech_sci_fi/glitch_art.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black flex items-center justify-center relative group"><div class="text-white text-5xl font-black absolute translate-x-1 translate-y-1 text-red-500 opacity-70 group-hover:animate-pulse">ERROR</div><div class="text-white text-5xl font-black absolute -translate-x-1 -translate-y-1 text-blue-500 opacity-70 group-hover:animate-ping">ERROR</div><div class="text-white text-5xl font-black relative">ERROR</div></div>
+                        <div class="h-56 bg-black flex items-center justify-center relative group">
+                            <div
+                                class="text-white text-5xl font-black absolute translate-x-1 translate-y-1 text-red-500 opacity-70 group-hover:animate-pulse">
+                                ERROR</div>
+                            <div
+                                class="text-white text-5xl font-black absolute -translate-x-1 -translate-y-1 text-blue-500 opacity-70 group-hover:animate-ping">
+                                ERROR</div>
+                            <div class="text-white text-5xl font-black relative">ERROR</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">61. Glitch Art</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1102,7 +1321,12 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/terminal_cli.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black p-6 flex flex-col justify-start items-start font-mono"><p class="text-green-500 text-sm">root@system:~# ./start</p><p class="text-green-500 text-sm">Loading modules...</p><p class="text-green-500 text-sm flex"><span>Done_</span><span class="w-2 h-4 bg-green-500 animate-pulse ml-1"></span></p></div>
+                        <div class="h-56 bg-black p-6 flex flex-col justify-start items-start font-mono">
+                            <p class="text-green-500 text-sm">root@system:~# ./start</p>
+                            <p class="text-green-500 text-sm">Loading modules...</p>
+                            <p class="text-green-500 text-sm flex"><span>Done_</span><span
+                                    class="w-2 h-4 bg-green-500 animate-pulse ml-1"></span></p>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">62. Terminal/CLI</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1112,7 +1336,13 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/hud_military.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#022c22] flex items-center justify-center relative overflow-hidden"><div class="absolute inset-4 border border-[#34d399] opacity-30"></div><div class="w-32 h-32 border-2 border-[#10b981] rounded-full relative"><div class="absolute top-1/2 left-0 w-full h-[1px] bg-[#10b981]"></div><div class="absolute left-1/2 top-0 w-[1px] h-full bg-[#10b981]"></div></div></div>
+                        <div class="h-56 bg-[#022c22] flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-4 border border-[#34d399] opacity-30"></div>
+                            <div class="w-32 h-32 border-2 border-[#10b981] rounded-full relative">
+                                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-[#10b981]"></div>
+                                <div class="absolute left-1/2 top-0 w-[1px] h-full bg-[#10b981]"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">63. HUD/Military</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1122,7 +1352,18 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/wireframe_ui.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white flex items-center justify-center relative"><div class="absolute inset-4 border border-blue-200"></div><div class="absolute top-8 left-8 right-8 h-8 border border-blue-200 flex items-center justify-center text-xs text-blue-400 font-mono">HEADER</div><div class="absolute top-20 left-8 right-8 bottom-8 border border-blue-200 flex items-center justify-center text-xs text-blue-400 font-mono">CONTENT</div><div class="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px]"></div></div>
+                        <div class="h-56 bg-white flex items-center justify-center relative">
+                            <div class="absolute inset-4 border border-blue-200"></div>
+                            <div
+                                class="absolute top-8 left-8 right-8 h-8 border border-blue-200 flex items-center justify-center text-xs text-blue-400 font-mono">
+                                HEADER</div>
+                            <div
+                                class="absolute top-20 left-8 right-8 bottom-8 border border-blue-200 flex items-center justify-center text-xs text-blue-400 font-mono">
+                                CONTENT</div>
+                            <div
+                                class="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">64. Wireframe UI</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1133,7 +1374,14 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/outrun_cyber-grid.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#0f0c29] relative overflow-hidden flex flex-col items-center justify-end"><div class="absolute top-8 w-24 h-24 bg-gradient-to-t from-yellow-500 to-red-500 rounded-full shadow-[0_0_30px_red]"></div><div class="w-full h-1/2 bg-[linear-gradient(transparent_48%,_#ff00ff_50%),linear-gradient(90deg,transparent_48%,_#ff00ff_50%)] bg-[length:40px_20px] perspective-[200px] rotate-x-[60deg]"></div></div>
+                        <div class="h-56 bg-[#0f0c29] relative overflow-hidden flex flex-col items-center justify-end">
+                            <div
+                                class="absolute top-8 w-24 h-24 bg-gradient-to-t from-yellow-500 to-red-500 rounded-full shadow-[0_0_30px_red]">
+                            </div>
+                            <div
+                                class="w-full h-1/2 bg-[linear-gradient(transparent_48%,_#ff00ff_50%),linear-gradient(90deg,transparent_48%,_#ff00ff_50%)] bg-[length:40px_20px] perspective-[200px] rotate-x-[60deg]">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">65. Outrun/Cyber-Grid</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1143,7 +1391,19 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/quantum_tech.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#080b1a] flex items-center justify-center relative overflow-hidden"><div class="w-32 h-32 border border-cyan-500/30 rounded-full flex items-center justify-center animate-[spin_4s_linear_infinite]"><div class="w-4 h-4 bg-cyan-400 rounded-full absolute -top-2 shadow-[0_0_15px_cyan]"></div></div><div class="w-20 h-20 border border-purple-500/50 rounded-full absolute flex items-center justify-center animate-[spin_3s_linear_infinite_reverse]"><div class="w-3 h-3 bg-purple-400 rounded-full absolute -bottom-1 shadow-[0_0_15px_purple]"></div></div></div>
+                        <div class="h-56 bg-[#080b1a] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="w-32 h-32 border border-cyan-500/30 rounded-full flex items-center justify-center animate-[spin_4s_linear_infinite]">
+                                <div class="w-4 h-4 bg-cyan-400 rounded-full absolute -top-2 shadow-[0_0_15px_cyan]">
+                                </div>
+                            </div>
+                            <div
+                                class="w-20 h-20 border border-purple-500/50 rounded-full absolute flex items-center justify-center animate-[spin_3s_linear_infinite_reverse]">
+                                <div
+                                    class="w-3 h-3 bg-purple-400 rounded-full absolute -bottom-1 shadow-[0_0_15px_purple]">
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">66. Quantum Tech</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1153,7 +1413,16 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/cyber_sec.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#111] p-6 font-mono text-xs text-red-500 flex flex-col overflow-hidden"><p>ACCESS DENIED</p><p class="opacity-50 mt-2">0x00A1: FF E0 1A...</p><p class="opacity-50">0x00A2: 10 A4 5C...</p><p class="opacity-50">0x00A3: B7 00 11...</p><div class="absolute right-6 top-6 w-8 h-8 border-2 border-red-500 rounded flex items-center justify-center"><div class="w-2 h-3 bg-red-500"></div></div></div>
+                        <div class="h-56 bg-[#111] p-6 font-mono text-xs text-red-500 flex flex-col overflow-hidden">
+                            <p>ACCESS DENIED</p>
+                            <p class="opacity-50 mt-2">0x00A1: FF E0 1A...</p>
+                            <p class="opacity-50">0x00A2: 10 A4 5C...</p>
+                            <p class="opacity-50">0x00A3: B7 00 11...</p>
+                            <div
+                                class="absolute right-6 top-6 w-8 h-8 border-2 border-red-500 rounded flex items-center justify-center">
+                                <div class="w-2 h-3 bg-red-500"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">67. Cyber Sec</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1163,7 +1432,29 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/matrix_code.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black relative overflow-hidden font-mono text-green-500 text-sm flex justify-around pt-2"><div class="animate-[slide_3s_linear_infinite]">0<br>1<br>0<br>0</div><div class="animate-[slide_2s_linear_infinite_0.5s]">1<br>1<br>0<br>1</div><div class="animate-[slide_4s_linear_infinite_1s]">0<br>0<br>1<br>0</div><style>@keyframes slide { 0% { transform: translateY(-100%); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(100%); opacity: 0; } }</style></div>
+                        <div
+                            class="h-56 bg-black relative overflow-hidden font-mono text-green-500 text-sm flex justify-around pt-2">
+                            <div class="animate-[slide_3s_linear_infinite]">0<br>1<br>0<br>0</div>
+                            <div class="animate-[slide_2s_linear_infinite_0.5s]">1<br>1<br>0<br>1</div>
+                            <div class="animate-[slide_4s_linear_infinite_1s]">0<br>0<br>1<br>0</div>
+                            <style>
+                                @keyframes slide {
+                                    0% {
+                                        transform: translateY(-100%);
+                                        opacity: 0;
+                                    }
+
+                                    50% {
+                                        opacity: 1;
+                                    }
+
+                                    100% {
+                                        transform: translateY(100%);
+                                        opacity: 0;
+                                    }
+                                }
+                            </style>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">68. Matrix Code</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1173,7 +1464,21 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/sci-fi_hologram.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#001428] flex items-center justify-center relative overflow-hidden"><div class="w-32 h-32 bg-cyan-500/10 border border-cyan-400/50 rounded-full blur-sm"></div><div class="absolute w-full h-[2px] bg-cyan-400/50 animate-[scan_2s_linear_infinite]"></div><style>@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }</style></div>
+                        <div class="h-56 bg-[#001428] flex items-center justify-center relative overflow-hidden">
+                            <div class="w-32 h-32 bg-cyan-500/10 border border-cyan-400/50 rounded-full blur-sm"></div>
+                            <div class="absolute w-full h-[2px] bg-cyan-400/50 animate-[scan_2s_linear_infinite]"></div>
+                            <style>
+                                @keyframes scan {
+                                    0% {
+                                        top: 0;
+                                    }
+
+                                    100% {
+                                        top: 100%;
+                                    }
+                                }
+                            </style>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">69. Sci-Fi Hologram</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1183,7 +1488,16 @@
                     </div>
                     <div onclick="window.location.href='categories/tech_sci_fi/mecha_industrial.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#4b5563] border-8 border-[#374151] flex items-center justify-center relative"><div class="absolute left-0 top-0 w-full h-4 bg-[repeating-linear-gradient(45deg,#eab308,#eab308_10px,#1f2937_10px,#1f2937_20px)]"></div><div class="w-20 h-20 bg-[#1f2937] rounded-full border-4 border-[#9ca3af] flex items-center justify-center"><div class="w-8 h-8 bg-red-500 rounded-full shadow-[0_0_15px_red]"></div></div></div>
+                        <div
+                            class="h-56 bg-[#4b5563] border-8 border-[#374151] flex items-center justify-center relative">
+                            <div
+                                class="absolute left-0 top-0 w-full h-4 bg-[repeating-linear-gradient(45deg,#eab308,#eab308_10px,#1f2937_10px,#1f2937_20px)]">
+                            </div>
+                            <div
+                                class="w-20 h-20 bg-[#1f2937] rounded-full border-4 border-[#9ca3af] flex items-center justify-center">
+                                <div class="w-8 h-8 bg-red-500 rounded-full shadow-[0_0_15px_red]"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">70. Mecha/Industrial</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1200,7 +1514,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/thematic_niche/gothic.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#1a1c20] flex items-center justify-center relative border-x-[16px] border-black"><div class="w-24 h-32 border-2 border-gray-600 rounded-t-full flex items-center justify-center"><div class="w-16 h-24 border border-gray-700 rounded-t-full flex items-center justify-center"><div class="text-red-900 font-serif text-3xl">🕇</div></div></div></div>
+                        <div
+                            class="h-56 bg-[#1a1c20] flex items-center justify-center relative border-x-[16px] border-black">
+                            <div
+                                class="w-24 h-32 border-2 border-gray-600 rounded-t-full flex items-center justify-center">
+                                <div
+                                    class="w-16 h-24 border border-gray-700 rounded-t-full flex items-center justify-center">
+                                    <div class="text-red-900 font-serif text-3xl">🕇</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">71. Gothic</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1210,7 +1533,11 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/neon_signage.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#111] flex items-center justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')]"><div class="text-transparent font-['Damion',cursive] text-5xl bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500" style="text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899, 0 0 40px #a855f7;">OPEN</div></div>
+                        <div
+                            class="h-56 bg-[#111] flex items-center justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=')]">
+                            <div class="text-transparent font-['Damion',cursive] text-5xl bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500"
+                                style="text-shadow: 0 0 10px #ec4899, 0 0 20px #ec4899, 0 0 40px #a855f7;">OPEN</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">72. Neon Signage</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1220,7 +1547,15 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/chalkboard.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#2d3e3f] flex items-center justify-center border-8 border-[#5c4033] relative"><div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]"></div><div class="text-white/80 font-['Comic Sans MS',cursive] text-3xl transform -rotate-6 tracking-widest">Menu</div></div>
+                        <div
+                            class="h-56 bg-[#2d3e3f] flex items-center justify-center border-8 border-[#5c4033] relative">
+                            <div
+                                class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]">
+                            </div>
+                            <div
+                                class="text-white/80 font-['Comic Sans MS',cursive] text-3xl transform -rotate-6 tracking-widest">
+                                Menu</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">73. Chalkboard</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1230,7 +1565,15 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/blueprint.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#1e40af] relative overflow-hidden flex items-center justify-center"><div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:15px_15px]"></div><div class="w-32 h-20 border-2 border-white/80 absolute"><div class="absolute right-0 top-0 w-8 h-full border-l-2 border-white/80"></div></div><div class="absolute bottom-4 right-4 text-white/80 font-mono text-xs">SCALE 1:100</div></div>
+                        <div class="h-56 bg-[#1e40af] relative overflow-hidden flex items-center justify-center">
+                            <div
+                                class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:15px_15px]">
+                            </div>
+                            <div class="w-32 h-20 border-2 border-white/80 absolute">
+                                <div class="absolute right-0 top-0 w-8 h-full border-l-2 border-white/80"></div>
+                            </div>
+                            <div class="absolute bottom-4 right-4 text-white/80 font-mono text-xs">SCALE 1:100</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">74. Blueprint</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1240,7 +1583,15 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/scrapbook.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f3e5ab] flex items-center justify-center relative"><div class="w-24 h-24 bg-white p-2 shadow-md rotate-6 absolute left-8"><div class="w-full h-full bg-gray-200"></div></div><div class="w-16 h-4 bg-[#ffb6c1] absolute top-6 left-12 -rotate-12 opacity-80"></div><div class="w-20 h-20 bg-blue-100 p-2 shadow-md -rotate-12 absolute right-12"><p class="font-['Comic Sans MS',cursive] text-xs">Memories</p></div></div>
+                        <div class="h-56 bg-[#f3e5ab] flex items-center justify-center relative">
+                            <div class="w-24 h-24 bg-white p-2 shadow-md rotate-6 absolute left-8">
+                                <div class="w-full h-full bg-gray-200"></div>
+                            </div>
+                            <div class="w-16 h-4 bg-[#ffb6c1] absolute top-6 left-12 -rotate-12 opacity-80"></div>
+                            <div class="w-20 h-20 bg-blue-100 p-2 shadow-md -rotate-12 absolute right-12">
+                                <p class="font-['Comic Sans MS',cursive] text-xs">Memories</p>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">75. Scrapbook</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1250,7 +1601,12 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/stained_glass.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black flex flex-wrap"><div class="w-1/2 h-1/2 bg-blue-600 border-[3px] border-black"></div><div class="w-1/2 h-1/2 bg-red-600 border-[3px] border-black"></div><div class="w-1/3 h-1/2 bg-yellow-400 border-[3px] border-black"></div><div class="w-2/3 h-1/2 bg-green-500 border-[3px] border-black"></div></div>
+                        <div class="h-56 bg-black flex flex-wrap">
+                            <div class="w-1/2 h-1/2 bg-blue-600 border-[3px] border-black"></div>
+                            <div class="w-1/2 h-1/2 bg-red-600 border-[3px] border-black"></div>
+                            <div class="w-1/3 h-1/2 bg-yellow-400 border-[3px] border-black"></div>
+                            <div class="w-2/3 h-1/2 bg-green-500 border-[3px] border-black"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">76. Stained Glass</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1260,7 +1616,12 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/arcade.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#000080] flex flex-col items-center justify-center font-['Press Start 2P',monospace] text-white"><div class="text-3xl text-yellow-400 drop-shadow-[4px_4px_0_#ff0000]">INSERT</div><div class="text-3xl text-yellow-400 drop-shadow-[4px_4px_0_#ff0000] mt-2">COIN</div><div class="text-xs mt-6 animate-pulse">PRESS START</div></div>
+                        <div
+                            class="h-56 bg-[#000080] flex flex-col items-center justify-center font-['Press Start 2P',monospace] text-white">
+                            <div class="text-3xl text-yellow-400 drop-shadow-[4px_4px_0_#ff0000]">INSERT</div>
+                            <div class="text-3xl text-yellow-400 drop-shadow-[4px_4px_0_#ff0000] mt-2">COIN</div>
+                            <div class="text-xs mt-6 animate-pulse">PRESS START</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">77. Arcade</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1270,7 +1631,13 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/casino.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#7f1d1d] flex items-center justify-center border-8 border-yellow-500 border-dotted relative"><div class="w-32 h-32 rounded-full border-4 border-yellow-400 flex items-center justify-center bg-black/20"><div class="text-yellow-400 text-6xl">♠</div></div></div>
+                        <div
+                            class="h-56 bg-[#7f1d1d] flex items-center justify-center border-8 border-yellow-500 border-dotted relative">
+                            <div
+                                class="w-32 h-32 rounded-full border-4 border-yellow-400 flex items-center justify-center bg-black/20">
+                                <div class="text-yellow-400 text-6xl">♠</div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">78. Casino</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1280,7 +1647,20 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/newspaper.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f4f1ea] p-4 flex flex-col items-center"><div class="font-serif font-black text-4xl border-b-2 border-black w-full text-center pb-2 mb-2">THE DAILY</div><div class="flex gap-4 w-full h-full"><div class="w-1/2 flex flex-col gap-1"><div class="h-2 bg-black/80 w-full"></div><div class="h-2 bg-black/80 w-5/6"></div><div class="h-2 bg-black/80 w-full"></div><div class="h-2 bg-black/80 w-4/5"></div></div><div class="w-1/2 bg-gray-300 border border-black/20"></div></div></div>
+                        <div class="h-56 bg-[#f4f1ea] p-4 flex flex-col items-center">
+                            <div
+                                class="font-serif font-black text-4xl border-b-2 border-black w-full text-center pb-2 mb-2">
+                                THE DAILY</div>
+                            <div class="flex gap-4 w-full h-full">
+                                <div class="w-1/2 flex flex-col gap-1">
+                                    <div class="h-2 bg-black/80 w-full"></div>
+                                    <div class="h-2 bg-black/80 w-5/6"></div>
+                                    <div class="h-2 bg-black/80 w-full"></div>
+                                    <div class="h-2 bg-black/80 w-4/5"></div>
+                                </div>
+                                <div class="w-1/2 bg-gray-300 border border-black/20"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">79. Newspaper</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1290,7 +1670,16 @@
                     </div>
                     <div onclick="window.location.href='categories/thematic_niche/fairy_tale.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#fdf2f8] flex flex-col items-center justify-center relative overflow-hidden"><div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,192,203,0.3)_0,transparent_70%)]"></div><div class="text-pink-400 text-3xl font-serif italic z-10">Once upon</div><div class="text-pink-400 text-3xl font-serif italic z-10">a time...</div><div class="absolute top-4 left-4 text-yellow-300 animate-pulse">✦</div><div class="absolute bottom-6 right-8 text-yellow-300 animate-pulse text-xl">✧</div></div>
+                        <div
+                            class="h-56 bg-[#fdf2f8] flex flex-col items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,192,203,0.3)_0,transparent_70%)]">
+                            </div>
+                            <div class="text-pink-400 text-3xl font-serif italic z-10">Once upon</div>
+                            <div class="text-pink-400 text-3xl font-serif italic z-10">a time...</div>
+                            <div class="absolute top-4 left-4 text-yellow-300 animate-pulse">✦</div>
+                            <div class="absolute bottom-6 right-8 text-yellow-300 animate-pulse text-xl">✧</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">80. Fairy Tale</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1307,7 +1696,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/global_cultural/scandi-minimal.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#fcfcfc] flex items-center justify-center"><div class="w-24 h-32 bg-[#e6d5c3] rounded-t-full shadow-sm flex flex-col items-center justify-end pb-4"><div class="w-1 h-12 bg-gray-400"></div></div></div>
+                        <div class="h-56 bg-[#fcfcfc] flex items-center justify-center">
+                            <div
+                                class="w-24 h-32 bg-[#e6d5c3] rounded-t-full shadow-sm flex flex-col items-center justify-end pb-4">
+                                <div class="w-1 h-12 bg-gray-400"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">81. Scandi-Minimal</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1317,7 +1711,16 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/kawaii.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#ffb7b2] flex items-center justify-center relative overflow-hidden"><div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg"><div class="flex gap-4"><div class="w-3 h-4 bg-black rounded-full"></div><div class="w-3 h-4 bg-black rounded-full"></div></div><div class="absolute w-2 h-1 bg-pink-300 rounded-full top-[110px] left-[110px]"></div><div class="absolute w-2 h-1 bg-pink-300 rounded-full top-[110px] right-[110px]"></div></div></div>
+                        <div class="h-56 bg-[#ffb7b2] flex items-center justify-center relative overflow-hidden">
+                            <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <div class="flex gap-4">
+                                    <div class="w-3 h-4 bg-black rounded-full"></div>
+                                    <div class="w-3 h-4 bg-black rounded-full"></div>
+                                </div>
+                                <div class="absolute w-2 h-1 bg-pink-300 rounded-full top-[110px] left-[110px]"></div>
+                                <div class="absolute w-2 h-1 bg-pink-300 rounded-full top-[110px] right-[110px]"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">82. Kawaii</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1327,7 +1730,13 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/oriental_wuxia.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#f5f5dc] flex items-center justify-center relative border-l-8 border-red-700"><div class="w-16 h-16 bg-red-700 rounded-full absolute top-8 right-8 opacity-80 flex items-center justify-center mix-blend-multiply"><span class="text-white font-serif text-2xl">印</span></div><div class="text-black/80 font-serif text-6xl writing-vertical-rl">道</div></div>
+                        <div
+                            class="h-56 bg-[#f5f5dc] flex items-center justify-center relative border-l-8 border-red-700">
+                            <div
+                                class="w-16 h-16 bg-red-700 rounded-full absolute top-8 right-8 opacity-80 flex items-center justify-center mix-blend-multiply">
+                                <span class="text-white font-serif text-2xl">印</span></div>
+                            <div class="text-black/80 font-serif text-6xl writing-vertical-rl">道</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">83. Oriental/Wuxia</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1337,7 +1746,10 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/mediterranean.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#fdfbf7] flex items-center justify-center relative"><div class="w-full h-1/2 bg-[#0284c7] absolute bottom-0"></div><div class="w-32 h-32 bg-[#ea580c] rounded-full absolute bottom-4 shadow-lg"></div></div>
+                        <div class="h-56 bg-[#fdfbf7] flex items-center justify-center relative">
+                            <div class="w-full h-1/2 bg-[#0284c7] absolute bottom-0"></div>
+                            <div class="w-32 h-32 bg-[#ea580c] rounded-full absolute bottom-4 shadow-lg"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">84. Mediterranean</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1347,7 +1759,12 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/tribal_ethno.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#8b4513] flex items-center justify-center relative overflow-hidden"><div class="absolute w-full h-full bg-[linear-gradient(45deg,#d2691e_25%,transparent_25%,transparent_75%,#d2691e_75%,#d2691e),linear-gradient(45deg,#d2691e_25%,transparent_25%,transparent_75%,#d2691e_75%,#d2691e)] bg-[size:40px_40px] bg-[position:0_0,20px_20px] opacity-40"></div><div class="w-20 h-20 bg-[#f4a460] rotate-45 z-10 border-4 border-[#8b4513]"></div></div>
+                        <div class="h-56 bg-[#8b4513] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute w-full h-full bg-[linear-gradient(45deg,#d2691e_25%,transparent_25%,transparent_75%,#d2691e_75%,#d2691e),linear-gradient(45deg,#d2691e_25%,transparent_25%,transparent_75%,#d2691e_75%,#d2691e)] bg-[size:40px_40px] bg-[position:0_0,20px_20px] opacity-40">
+                            </div>
+                            <div class="w-20 h-20 bg-[#f4a460] rotate-45 z-10 border-4 border-[#8b4513]"></div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">85. Tribal/Ethno</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1357,7 +1774,15 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/bollywood.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#86198f] flex items-center justify-center border-4 border-yellow-400 relative overflow-hidden"><div class="w-32 h-32 bg-[#e11d48] rotate-45 border-8 border-yellow-400 shadow-[0_0_20px_#facc15]"></div><div class="absolute w-full h-full border-[12px] border-dotted border-yellow-400 opacity-50"></div></div>
+                        <div
+                            class="h-56 bg-[#86198f] flex items-center justify-center border-4 border-yellow-400 relative overflow-hidden">
+                            <div
+                                class="w-32 h-32 bg-[#e11d48] rotate-45 border-8 border-yellow-400 shadow-[0_0_20px_#facc15]">
+                            </div>
+                            <div
+                                class="absolute w-full h-full border-[12px] border-dotted border-yellow-400 opacity-50">
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">86. Bollywood</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1367,7 +1792,14 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/wild_west.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#d2b48c] border-[16px] border-[#8b4513] flex flex-col items-center p-4 relative"><div class="font-serif font-black text-4xl text-[#5c4033] tracking-widest mt-2">WANTED</div><div class="w-20 h-24 bg-[#deb887] border border-[#8b4513] mt-2 flex items-center justify-center"><div class="text-4xl">👤</div></div></div>
+                        <div
+                            class="h-56 bg-[#d2b48c] border-[16px] border-[#8b4513] flex flex-col items-center p-4 relative">
+                            <div class="font-serif font-black text-4xl text-[#5c4033] tracking-widest mt-2">WANTED</div>
+                            <div
+                                class="w-20 h-24 bg-[#deb887] border border-[#8b4513] mt-2 flex items-center justify-center">
+                                <div class="text-4xl">👤</div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">87. Wild West</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1377,7 +1809,15 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/victorian.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#2c1836] flex items-center justify-center relative overflow-hidden"><div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#1a0f2e_70%)]"></div><div class="w-32 h-40 border-2 border-[#d4af37] rounded-t-full flex items-center justify-center relative"><div class="w-24 h-32 border border-[#d4af37] rounded-t-full opacity-50"></div></div></div>
+                        <div class="h-56 bg-[#2c1836] flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#1a0f2e_70%)]">
+                            </div>
+                            <div
+                                class="w-32 h-40 border-2 border-[#d4af37] rounded-t-full flex items-center justify-center relative">
+                                <div class="w-24 h-32 border border-[#d4af37] rounded-t-full opacity-50"></div>
+                            </div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">88. Victorian</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1387,7 +1827,14 @@
                     </div>
                     <div onclick="window.location.href='categories/global_cultural/k-pop.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#111] flex items-center justify-center overflow-hidden relative"><div class="absolute w-full h-full bg-gradient-to-tr from-pink-500/20 via-transparent to-cyan-500/20"></div><div class="text-6xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-500 transform -skew-x-12 z-10 drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]">IDOL</div></div>
+                        <div class="h-56 bg-[#111] flex items-center justify-center overflow-hidden relative">
+                            <div
+                                class="absolute w-full h-full bg-gradient-to-tr from-pink-500/20 via-transparent to-cyan-500/20">
+                            </div>
+                            <div
+                                class="text-6xl font-black italic text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-cyan-500 transform -skew-x-12 z-10 drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]">
+                                IDOL</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">89. K-Pop</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1404,7 +1851,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/chatgpt_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#10a37f] flex flex-col items-center justify-center p-8"><div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"><div class="w-6 h-6 border-4 border-[#10a37f] rounded-sm rotate-45"></div></div><div class="w-40 h-10 bg-white rounded-md flex items-center justify-center font-semibold text-[#10a37f]">Download</div></div>
+                        <div class="h-56 bg-[#10a37f] flex flex-col items-center justify-center p-8">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
+                                <div class="w-6 h-6 border-4 border-[#10a37f] rounded-sm rotate-45"></div>
+                            </div>
+                            <div
+                                class="w-40 h-10 bg-white rounded-md flex items-center justify-center font-semibold text-[#10a37f]">
+                                Download</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">91. ChatGPT Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1415,8 +1869,10 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/arc_browser_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center relative overflow-hidden">
-                            <div class="w-32 h-32 bg-white/20 backdrop-blur-xl border border-white/40 rounded-2xl shadow-2xl flex items-center justify-center p-4">
+                        <div
+                            class="h-56 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center relative overflow-hidden">
+                            <div
+                                class="w-32 h-32 bg-white/20 backdrop-blur-xl border border-white/40 rounded-2xl shadow-2xl flex items-center justify-center p-4">
                                 <div class="w-full h-full border-2 border-white/30 rounded-xl"></div>
                             </div>
                         </div>
@@ -1431,7 +1887,17 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/spotify_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-black flex flex-col items-center justify-center p-8"><div class="w-12 h-12 bg-[#1db954] rounded-full flex flex-col items-center justify-center gap-1 mb-6"><div class="w-6 h-1 bg-black rounded-full"></div><div class="w-8 h-1 bg-black rounded-full"></div><div class="w-5 h-1 bg-black rounded-full"></div></div><div class="w-48 h-12 bg-[#1db954] rounded-full flex items-center justify-center font-bold text-black text-sm uppercase tracking-widest hover:scale-105 transition-transform">Download Free</div></div>
+                        <div class="h-56 bg-black flex flex-col items-center justify-center p-8">
+                            <div
+                                class="w-12 h-12 bg-[#1db954] rounded-full flex flex-col items-center justify-center gap-1 mb-6">
+                                <div class="w-6 h-1 bg-black rounded-full"></div>
+                                <div class="w-8 h-1 bg-black rounded-full"></div>
+                                <div class="w-5 h-1 bg-black rounded-full"></div>
+                            </div>
+                            <div
+                                class="w-48 h-12 bg-[#1db954] rounded-full flex items-center justify-center font-bold text-black text-sm uppercase tracking-widest hover:scale-105 transition-transform">
+                                Download Free</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">93. Spotify Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1442,7 +1908,15 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/notion_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white flex flex-col items-center justify-center p-8 border border-gray-200"><div class="w-12 h-12 border-2 border-black rounded-lg flex items-center justify-center mb-6 font-serif text-2xl font-black">N</div><div class="text-black font-semibold text-xl mb-4">Your wiki, docs, & projects.</div><div class="w-40 h-10 bg-black text-white rounded flex items-center justify-center font-medium">Download for Mac</div></div>
+                        <div class="h-56 bg-white flex flex-col items-center justify-center p-8 border border-gray-200">
+                            <div
+                                class="w-12 h-12 border-2 border-black rounded-lg flex items-center justify-center mb-6 font-serif text-2xl font-black">
+                                N</div>
+                            <div class="text-black font-semibold text-xl mb-4">Your wiki, docs, & projects.</div>
+                            <div
+                                class="w-40 h-10 bg-black text-white rounded flex items-center justify-center font-medium">
+                                Download for Mac</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">94. Notion Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1453,7 +1927,15 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/discord_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#5865F2] flex flex-col items-center justify-center p-8"><div class="w-16 h-12 bg-white rounded-full relative mb-6"><div class="absolute w-4 h-4 bg-[#5865F2] rounded-full top-3 left-3"></div><div class="absolute w-4 h-4 bg-[#5865F2] rounded-full top-3 right-3"></div></div><div class="w-56 h-12 bg-white text-[#23272a] rounded-full flex items-center justify-center font-bold text-lg hover:shadow-xl transition-shadow">Download for Mac</div></div>
+                        <div class="h-56 bg-[#5865F2] flex flex-col items-center justify-center p-8">
+                            <div class="w-16 h-12 bg-white rounded-full relative mb-6">
+                                <div class="absolute w-4 h-4 bg-[#5865F2] rounded-full top-3 left-3"></div>
+                                <div class="absolute w-4 h-4 bg-[#5865F2] rounded-full top-3 right-3"></div>
+                            </div>
+                            <div
+                                class="w-56 h-12 bg-white text-[#23272a] rounded-full flex items-center justify-center font-bold text-lg hover:shadow-xl transition-shadow">
+                                Download for Mac</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">95. Discord Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1464,7 +1946,17 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/slack_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#4A154B] flex flex-col items-center justify-center p-8"><div class="flex flex-wrap w-12 h-12 mb-6 gap-1"><div class="w-5 h-5 bg-[#36C5F0] rounded-tl-full rounded-bl-full rounded-tr-sm"></div><div class="w-5 h-5 bg-[#2EB67D] rounded-tr-full rounded-tl-sm rounded-br-full"></div><div class="w-5 h-5 bg-[#E01E5A] rounded-bl-full rounded-br-sm rounded-tl-full"></div><div class="w-5 h-5 bg-[#ECB22E] rounded-br-full rounded-tr-full rounded-bl-sm"></div></div><div class="w-48 h-12 bg-white text-[#4A154B] font-bold rounded flex items-center justify-center border border-gray-300">DOWNLOAD</div></div>
+                        <div class="h-56 bg-[#4A154B] flex flex-col items-center justify-center p-8">
+                            <div class="flex flex-wrap w-12 h-12 mb-6 gap-1">
+                                <div class="w-5 h-5 bg-[#36C5F0] rounded-tl-full rounded-bl-full rounded-tr-sm"></div>
+                                <div class="w-5 h-5 bg-[#2EB67D] rounded-tr-full rounded-tl-sm rounded-br-full"></div>
+                                <div class="w-5 h-5 bg-[#E01E5A] rounded-bl-full rounded-br-sm rounded-tl-full"></div>
+                                <div class="w-5 h-5 bg-[#ECB22E] rounded-br-full rounded-tr-full rounded-bl-sm"></div>
+                            </div>
+                            <div
+                                class="w-48 h-12 bg-white text-[#4A154B] font-bold rounded flex items-center justify-center border border-gray-300">
+                                DOWNLOAD</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">96. Slack Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1475,7 +1967,16 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/duolingo_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#58CC02] flex flex-col items-center justify-center p-8"><div class="w-16 h-16 bg-[#FFC800] rounded-[40%] mb-6 relative"><div class="absolute top-4 left-3 w-3 h-3 bg-white rounded-full"></div><div class="absolute top-4 right-3 w-3 h-3 bg-white rounded-full"></div><div class="absolute bottom-4 left-6 w-4 h-2 bg-[#FF9600] rounded-full"></div></div><div class="w-48 h-12 bg-white text-[#1CB0F6] font-bold uppercase rounded-xl flex items-center justify-center border-b-4 border-gray-200 active:border-b-0 active:translate-y-1">GET THE APP</div></div>
+                        <div class="h-56 bg-[#58CC02] flex flex-col items-center justify-center p-8">
+                            <div class="w-16 h-16 bg-[#FFC800] rounded-[40%] mb-6 relative">
+                                <div class="absolute top-4 left-3 w-3 h-3 bg-white rounded-full"></div>
+                                <div class="absolute top-4 right-3 w-3 h-3 bg-white rounded-full"></div>
+                                <div class="absolute bottom-4 left-6 w-4 h-2 bg-[#FF9600] rounded-full"></div>
+                            </div>
+                            <div
+                                class="w-48 h-12 bg-white text-[#1CB0F6] font-bold uppercase rounded-xl flex items-center justify-center border-b-4 border-gray-200 active:border-b-0 active:translate-y-1">
+                                GET THE APP</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">97. Duolingo Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1486,7 +1987,16 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/raycast_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#0E0E10] flex flex-col items-center justify-center p-8 border border-gray-800"><div class="w-12 h-12 bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-xl mb-6 shadow-lg shadow-purple-500/20"></div><div class="w-56 h-10 bg-[#FF6363] text-white rounded-lg flex items-center justify-center font-medium shadow-[0_0_15px_rgba(255,99,99,0.4)]">Download for macOS</div><div class="text-gray-500 text-xs mt-3 font-mono">brew install --cask raycast</div></div>
+                        <div
+                            class="h-56 bg-[#0E0E10] flex flex-col items-center justify-center p-8 border border-gray-800">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-red-500 via-purple-500 to-blue-500 rounded-xl mb-6 shadow-lg shadow-purple-500/20">
+                            </div>
+                            <div
+                                class="w-56 h-10 bg-[#FF6363] text-white rounded-lg flex items-center justify-center font-medium shadow-[0_0_15px_rgba(255,99,99,0.4)]">
+                                Download for macOS</div>
+                            <div class="text-gray-500 text-xs mt-3 font-mono">brew install --cask raycast</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">98. Raycast Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1497,7 +2007,16 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/robinhood_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-white flex flex-col items-center justify-center p-8"><div class="w-12 h-12 flex items-end mb-6 gap-1"><div class="w-3 h-8 bg-[#00C805] rounded-t"></div><div class="w-3 h-4 bg-[#00C805] rounded-t"></div><div class="w-3 h-12 bg-[#00C805] rounded-t"></div></div><div class="w-40 h-12 bg-[#00C805] text-white font-bold rounded-full flex items-center justify-center hover:bg-green-600">Sign Up to Download</div></div>
+                        <div class="h-56 bg-white flex flex-col items-center justify-center p-8">
+                            <div class="w-12 h-12 flex items-end mb-6 gap-1">
+                                <div class="w-3 h-8 bg-[#00C805] rounded-t"></div>
+                                <div class="w-3 h-4 bg-[#00C805] rounded-t"></div>
+                                <div class="w-3 h-12 bg-[#00C805] rounded-t"></div>
+                            </div>
+                            <div
+                                class="w-40 h-12 bg-[#00C805] text-white font-bold rounded-full flex items-center justify-center hover:bg-green-600">
+                                Sign Up to Download</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">99. Robinhood Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1508,7 +2027,18 @@
                     </div>
                     <div onclick="window.location.href='categories/download_app_famous_page_clones/linear_download.html'"
                         class="cursor-pointer bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden transition-all duration-300 hover:border-primary group flex flex-col">
-                        <div class="h-56 bg-[#161618] flex flex-col items-center justify-center p-8 border border-gray-800"><div class="w-12 h-12 bg-[#252528] rounded-xl border border-gray-700 flex items-center justify-center mb-6"><div class="w-6 h-6 border-2 border-[#5E6AD2] rounded-full relative"><div class="w-1 h-3 bg-[#5E6AD2] absolute top-1 left-2"></div></div></div><div class="w-48 h-10 bg-white text-black rounded-md flex items-center justify-center font-medium hover:bg-gray-200 transition-colors">Download Linear</div></div>
+                        <div
+                            class="h-56 bg-[#161618] flex flex-col items-center justify-center p-8 border border-gray-800">
+                            <div
+                                class="w-12 h-12 bg-[#252528] rounded-xl border border-gray-700 flex items-center justify-center mb-6">
+                                <div class="w-6 h-6 border-2 border-[#5E6AD2] rounded-full relative">
+                                    <div class="w-1 h-3 bg-[#5E6AD2] absolute top-1 left-2"></div>
+                                </div>
+                            </div>
+                            <div
+                                class="w-48 h-10 bg-white text-black rounded-md flex items-center justify-center font-medium hover:bg-gray-200 transition-colors">
+                                Download Linear</div>
+                        </div>
                         <div class="p-6 flex-grow">
                             <h3 class="font-headline-md text-headline-md text-primary mb-3">100. Linear Download</h3>
                             <ul class="font-mono-label text-mono-label text-on-surface-variant space-y-1.5 opacity-70">
@@ -1536,15 +2066,21 @@
                     class="grid grid-cols-2 md:grid-cols-3 gap-12 font-mono-label text-mono-label text-on-surface-variant">
                     <div class="flex flex-col gap-4">
                         <h5 class="text-primary font-bold uppercase tracking-widest text-[10px]">Reference</h5>
-                        <a class="hover:text-primary transition-colors" href="#">Design Manifesto</a>
-                        <a class="hover:text-primary transition-colors" href="#">Style API</a>
-                        <a class="hover:text-primary transition-colors" href="#">Color Tokens</a>
+                        <a class="hover:text-primary transition-colors cursor-default" href="javascript:void(0)">Design
+                            Manifesto</a>
+                        <a class="hover:text-primary transition-colors cursor-default" href="javascript:void(0)">Style
+                            API</a>
+                        <a class="hover:text-primary transition-colors cursor-default" href="javascript:void(0)">Color
+                            Tokens</a>
                     </div>
                     <div class="flex flex-col gap-4">
                         <h5 class="text-primary font-bold uppercase tracking-widest text-[10px]">Community</h5>
-                        <a class="hover:text-primary transition-colors" href="#">Contribution Guide</a>
-                        <a class="hover:text-primary transition-colors" href="#">Showcase</a>
-                        <a class="hover:text-primary transition-colors" href="#">Forum</a>
+                        <a class="hover:text-primary transition-colors cursor-default"
+                            href="javascript:void(0)">Contribution Guide</a>
+                        <a class="hover:text-primary transition-colors cursor-default"
+                            href="javascript:void(0)">Showcase</a>
+                        <a class="hover:text-primary transition-colors cursor-default"
+                            href="javascript:void(0)">Forum</a>
                     </div>
                     <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
                         <h5 class="text-primary font-bold uppercase tracking-widest text-[10px]">Legal</h5>
@@ -1557,8 +2093,58 @@
         </footer>
     </main>
     <script>
+
+        // Search Logic
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.space-y-section-gap > section > .grid > div');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const h3 = card.querySelector('h3');
+                if (!h3) return; // Skip if no h3 (just in case)
+                const title = h3.textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide empty category sections
+            const sections = document.querySelectorAll('.space-y-section-gap > section');
+            sections.forEach(section => {
+                const visibleCards = Array.from(section.querySelectorAll('.grid > div')).filter(c => c.style.display !== 'none');
+                section.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+        });
+
+        // Lazy Loading / Fade In
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
         // Custom interactions for style cards
-        document.querySelectorAll('.group').forEach(card => {
+        cards.forEach(card => {
+            // Setup initial state for animation
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease-out, border 0.3s, box-shadow 0.3s';
+
+            observer.observe(card);
+
             card.addEventListener('mouseenter', () => {
                 card.classList.add('shadow-2xl');
                 card.classList.add('shadow-primary/5');
@@ -1567,6 +2153,52 @@
                 card.classList.remove('shadow-2xl');
                 card.classList.remove('shadow-primary/5');
             });
+        });
+        // Catalog Dropdown Logic
+        const catalogToggle = document.getElementById('catalogToggle');
+        const catalogMenu = document.getElementById('catalogMenu');
+        const categorySections = document.querySelectorAll('.space-y-section-gap > section');
+
+        // Populate dropdown and assign IDs
+        categorySections.forEach(section => {
+            const header = section.querySelector('h3');
+            if (header) {
+                // Extract text without emojis
+                const rawText = header.textContent.replace(/[^\w\s&-]/gi, '').trim();
+                const slug = rawText.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                section.id = slug;
+
+                const menuItem = document.createElement('a');
+                menuItem.href = `#${slug}`;
+                menuItem.className = 'px-4 py-2 hover:bg-surface-container hover:text-primary transition-colors text-sm normal-case tracking-normal';
+                menuItem.textContent = rawText;
+                catalogMenu.appendChild(menuItem);
+
+                menuItem.addEventListener('click', () => {
+                    catalogMenu.classList.remove('opacity-100', 'visible');
+                    catalogMenu.classList.add('opacity-0', 'invisible');
+                });
+            }
+        });
+
+        // Toggle dropdown
+        catalogToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (catalogMenu.classList.contains('opacity-0')) {
+                catalogMenu.classList.remove('opacity-0', 'invisible');
+                catalogMenu.classList.add('opacity-100', 'visible');
+            } else {
+                catalogMenu.classList.remove('opacity-100', 'visible');
+                catalogMenu.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // Close dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!catalogToggle.contains(e.target) && !catalogMenu.contains(e.target)) {
+                catalogMenu.classList.remove('opacity-100', 'visible');
+                catalogMenu.classList.add('opacity-0', 'invisible');
+            }
         });
     </script>
 </body>
