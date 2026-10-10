@@ -178,12 +178,12 @@
     </aside>
 
     <script>
-        // Data derived from styles.md and index.html structure
+        // Data derived from styles.md and index.html structure (all 99 styles)
         const stylesData = [
             { id: 'minimal', path: 'categories/clean_soft/minimal.html', title: '1. Minimal', category: 'Clean & Soft', a11y: 'High Contrast' },
             { id: 'modern_saas', path: 'categories/clean_soft/modern_saas.html', title: '2. Modern SaaS', category: 'Clean & Soft', a11y: 'WCAG AAA' },
             { id: 'swiss', path: 'categories/clean_soft/swiss.html', title: '3. Swiss', category: 'Clean & Soft', a11y: 'Accessible' },
-            { id: 'glassmorphism', path: 'categories/experimental_immersive/glassmorphism.html', title: '4. Glassmorphism', category: 'Experimental & Immersive', a11y: 'Low Contrast Warning', playground: [{ name: 'Blur', var: '--glass-blur', min: 0, max: 100, val: 20, unit: 'px' }] },
+            { id: 'glassmorphism', path: 'categories/experimental_immersive/glassmorphism.html', title: '4. Glassmorphism', category: 'Experimental & Immersive', a11y: 'Low Contrast Warning', playground: [{"name": "Blur", "var": "--glass-blur", "min": 0, "max": 100, "val": 20, "unit": "px"}] },
             { id: 'liquid_glass', path: 'categories/experimental_immersive/liquid_glass.html', title: '5. Liquid Glass', category: 'Experimental & Immersive', a11y: 'Motion Warning' },
             { id: 'aurora', path: 'categories/experimental_immersive/aurora.html', title: '6. Aurora', category: 'Experimental & Immersive' },
             { id: 'cyberpunk', path: 'categories/experimental_immersive/cyberpunk.html', title: '7. Cyberpunk', category: 'Experimental & Immersive', a11y: 'High Saturation' },
@@ -192,60 +192,191 @@
             { id: 'claymorphism', path: 'categories/clean_soft/claymorphism.html', title: '10. Claymorphism', category: 'Clean & Soft' },
             { id: '3d_illustration', path: 'categories/clean_soft/3d_illustration.html', title: '11. 3D Illustration', category: 'Clean & Soft' },
             { id: 'organic', path: 'categories/clean_soft/organic.html', title: '12. Organic', category: 'Clean & Soft' },
-            { id: 'neobrutalism', path: 'categories/bold_editorial/neobrutalism.html', title: '13. Neobrutalism', category: 'Bold & Editorial', playground: [{ name: 'Shadow Offset', var: '--neo-shadow', min: 0, max: 20, val: 6, unit: 'px' }] },
+            { id: 'neobrutalism', path: 'categories/bold_editorial/neobrutalism.html', title: '13. Neobrutalism', category: 'Bold & Editorial', playground: [{"name": "Shadow Offset", "var": "--neo-shadow", "min": 0, "max": 20, "val": 6, "unit": "px"}] },
             { id: 'memphis', path: 'categories/bold_editorial/memphis.html', title: '14. Memphis', category: 'Bold & Editorial' },
             { id: 'y2k', path: 'categories/bold_editorial/y2k.html', title: '15. Y2K', category: 'Bold & Editorial' },
             { id: 'playful', path: 'categories/bold_editorial/playful.html', title: '16. Playful', category: 'Bold & Editorial' },
             { id: 'luxury_editorial', path: 'categories/bold_editorial/luxury_editorial.html', title: '17. Luxury Editorial', category: 'Bold & Editorial' },
             { id: 'dark_luxury', path: 'categories/bold_editorial/dark_luxury.html', title: '18. Dark Luxury', category: 'Bold & Editorial' },
             { id: 'editorial', path: 'categories/bold_editorial/editorial.html', title: '19. Editorial', category: 'Bold & Editorial' },
-            { id: 'retro_futurism', path: 'categories/bold_editorial/retro_futurism.html', title: '20. Retro Futurism', category: 'Bold & Editorial' }
+            { id: 'retro_futurism', path: 'categories/bold_editorial/retro_futurism.html', title: '20. Retro Futurism', category: 'Bold & Editorial' },
+            { id: 'bento_box_ui', path: 'categories/modern_ui_interactions/bento_box_ui.html', title: '21. Bento Box UI', category: 'Modern UI & Interactions' },
+            { id: 'skeuomorphism', path: 'categories/modern_ui_interactions/skeuomorphism.html', title: '22. Skeuomorphism', category: 'Modern UI & Interactions' },
+            { id: 'neumorphism', path: 'categories/modern_ui_interactions/neumorphism.html', title: '23. Neumorphism', category: 'Modern UI & Interactions', a11y: 'Low Contrast Warning' },
+            { id: 'material_you_(md3)', path: 'categories/modern_ui_interactions/material_you_(md3).html', title: '24. Material You (MD3)', category: 'Modern UI & Interactions' },
+            { id: 'fluent_design', path: 'categories/modern_ui_interactions/fluent_design.html', title: '25. Fluent Design', category: 'Modern UI & Interactions' },
+            { id: 'pure_dark_mode', path: 'categories/modern_ui_interactions/pure_dark_mode.html', title: '26. Pure Dark Mode', category: 'Modern UI & Interactions', a11y: 'OLED Black' },
+            { id: 'monochrome', path: 'categories/modern_ui_interactions/monochrome.html', title: '27. Monochrome', category: 'Modern UI & Interactions' },
+            { id: 'frutiger_aero', path: 'categories/modern_ui_interactions/frutiger_aero.html', title: '28. Frutiger Aero', category: 'Modern UI & Interactions' },
+            { id: 'flat_design_2.0', path: 'categories/modern_ui_interactions/flat_design_2.0.html', title: '29. Flat Design 2.0', category: 'Modern UI & Interactions' },
+            { id: 'holographic_ui', path: 'categories/modern_ui_interactions/holographic_ui.html', title: '30. Holographic UI', category: 'Modern UI & Interactions' },
+            { id: '80s_synthwave', path: 'categories/retro_nostalgia/80s_synthwave.html', title: '31. 80s Synthwave', category: 'Retro & Nostalgia' },
+            { id: '90s_web', path: 'categories/retro_nostalgia/90s_web.html', title: '32. 90s Web', category: 'Retro & Nostalgia' },
+            { id: 'vaporwave', path: 'categories/retro_nostalgia/vaporwave.html', title: '33. Vaporwave', category: 'Retro & Nostalgia' },
+            { id: 'pixel_art', path: 'categories/retro_nostalgia/pixel_art.html', title: '34. Pixel Art', category: 'Retro & Nostalgia' },
+            { id: 'bauhaus', path: 'categories/retro_nostalgia/bauhaus.html', title: '35. Bauhaus', category: 'Retro & Nostalgia' },
+            { id: 'art_deco', path: 'categories/retro_nostalgia/art_deco.html', title: '36. Art Deco', category: 'Retro & Nostalgia' },
+            { id: 'pop_art', path: 'categories/retro_nostalgia/pop_art.html', title: '37. Pop Art', category: 'Retro & Nostalgia' },
+            { id: 'grunge', path: 'categories/retro_nostalgia/grunge.html', title: '38. Grunge', category: 'Retro & Nostalgia' },
+            { id: 'steampunk', path: 'categories/retro_nostalgia/steampunk.html', title: '39. Steampunk', category: 'Retro & Nostalgia' },
+            { id: 'typewriter_print', path: 'categories/retro_nostalgia/typewriter_print.html', title: '40. Typewriter/Print', category: 'Retro & Nostalgia' },
+            { id: 'watercolor', path: 'categories/artistic_expressive/watercolor.html', title: '41. Watercolor', category: 'Artistic & Expressive' },
+            { id: 'hand-drawn', path: 'categories/artistic_expressive/hand-drawn.html', title: '42. Hand-Drawn', category: 'Artistic & Expressive' },
+            { id: 'collage', path: 'categories/artistic_expressive/collage.html', title: '43. Collage', category: 'Artistic & Expressive' },
+            { id: 'psychedelic', path: 'categories/artistic_expressive/psychedelic.html', title: '44. Psychedelic', category: 'Artistic & Expressive' },
+            { id: 'kinetic_typography', path: 'categories/artistic_expressive/kinetic_typography.html', title: '45. Kinetic Typography', category: 'Artistic & Expressive' },
+            { id: 'brutalist_web', path: 'categories/artistic_expressive/brutalist_web.html', title: '46. Brutalist Web', category: 'Artistic & Expressive', a11y: 'Semantic HTML' },
+            { id: 'low_poly', path: 'categories/artistic_expressive/low_poly.html', title: '47. Low Poly', category: 'Artistic & Expressive' },
+            { id: 'papercraft', path: 'categories/artistic_expressive/papercraft.html', title: '48. Papercraft', category: 'Artistic & Expressive' },
+            { id: 'isometric', path: 'categories/artistic_expressive/isometric.html', title: '49. Isometric', category: 'Artistic & Expressive' },
+            { id: 'line_art', path: 'categories/artistic_expressive/line_art.html', title: '50. Line Art', category: 'Artistic & Expressive' },
+            { id: 'botanical', path: 'categories/nature_elements/botanical.html', title: '51. Botanical', category: 'Nature & Elements' },
+            { id: 'oceanic', path: 'categories/nature_elements/oceanic.html', title: '52. Oceanic', category: 'Nature & Elements' },
+            { id: 'earthy_desert', path: 'categories/nature_elements/earthy_desert.html', title: '53. Earthy/Desert', category: 'Nature & Elements' },
+            { id: 'cosmic_space', path: 'categories/nature_elements/cosmic_space.html', title: '54. Cosmic/Space', category: 'Nature & Elements' },
+            { id: 'zen_wabi-sabi', path: 'categories/nature_elements/zen_wabi-sabi.html', title: '55. Zen/Wabi-Sabi', category: 'Nature & Elements' },
+            { id: 'frosted_glass', path: 'categories/nature_elements/frosted_glass.html', title: '56. Frosted Glass', category: 'Nature & Elements' },
+            { id: 'tropical', path: 'categories/nature_elements/tropical.html', title: '57. Tropical', category: 'Nature & Elements' },
+            { id: 'ethereal_cloud', path: 'categories/nature_elements/ethereal_cloud.html', title: '58. Ethereal Cloud', category: 'Nature & Elements' },
+            { id: 'volcanic', path: 'categories/nature_elements/volcanic.html', title: '59. Volcanic', category: 'Nature & Elements' },
+            { id: 'biophilic', path: 'categories/nature_elements/biophilic.html', title: '60. Biophilic', category: 'Nature & Elements' },
+            { id: 'glitch_art', path: 'categories/tech_sci_fi/glitch_art.html', title: '61. Glitch Art', category: 'Tech & Sci-Fi' },
+            { id: 'terminal_cli', path: 'categories/tech_sci_fi/terminal_cli.html', title: '62. Terminal/CLI', category: 'Tech & Sci-Fi', a11y: 'High Contrast' },
+            { id: 'hud_military', path: 'categories/tech_sci_fi/hud_military.html', title: '63. HUD/Military', category: 'Tech & Sci-Fi' },
+            { id: 'wireframe_ui', path: 'categories/tech_sci_fi/wireframe_ui.html', title: '64. Wireframe UI', category: 'Tech & Sci-Fi' },
+            { id: 'outrun_cyber-grid', path: 'categories/tech_sci_fi/outrun_cyber-grid.html', title: '65. Outrun/Cyber-Grid', category: 'Tech & Sci-Fi' },
+            { id: 'quantum_tech', path: 'categories/tech_sci_fi/quantum_tech.html', title: '66. Quantum Tech', category: 'Tech & Sci-Fi' },
+            { id: 'cyber_sec', path: 'categories/tech_sci_fi/cyber_sec.html', title: '67. Cyber Sec', category: 'Tech & Sci-Fi' },
+            { id: 'matrix_code', path: 'categories/tech_sci_fi/matrix_code.html', title: '68. Matrix Code', category: 'Tech & Sci-Fi', a11y: 'High Contrast' },
+            { id: 'sci-fi_hologram', path: 'categories/tech_sci_fi/sci-fi_hologram.html', title: '69. Sci-Fi Hologram', category: 'Tech & Sci-Fi' },
+            { id: 'mecha_industrial', path: 'categories/tech_sci_fi/mecha_industrial.html', title: '70. Mecha/Industrial', category: 'Tech & Sci-Fi' },
+            { id: 'gothic', path: 'categories/thematic_niche/gothic.html', title: '71. Gothic', category: 'Thematic & Niche' },
+            { id: 'neon_signage', path: 'categories/thematic_niche/neon_signage.html', title: '72. Neon Signage', category: 'Thematic & Niche' },
+            { id: 'chalkboard', path: 'categories/thematic_niche/chalkboard.html', title: '73. Chalkboard', category: 'Thematic & Niche' },
+            { id: 'blueprint', path: 'categories/thematic_niche/blueprint.html', title: '74. Blueprint', category: 'Thematic & Niche' },
+            { id: 'scrapbook', path: 'categories/thematic_niche/scrapbook.html', title: '75. Scrapbook', category: 'Thematic & Niche' },
+            { id: 'stained_glass', path: 'categories/thematic_niche/stained_glass.html', title: '76. Stained Glass', category: 'Thematic & Niche' },
+            { id: 'arcade', path: 'categories/thematic_niche/arcade.html', title: '77. Arcade', category: 'Thematic & Niche' },
+            { id: 'casino', path: 'categories/thematic_niche/casino.html', title: '78. Casino', category: 'Thematic & Niche' },
+            { id: 'newspaper', path: 'categories/thematic_niche/newspaper.html', title: '79. Newspaper', category: 'Thematic & Niche' },
+            { id: 'fairy_tale', path: 'categories/thematic_niche/fairy_tale.html', title: '80. Fairy Tale', category: 'Thematic & Niche' },
+            { id: 'scandi-minimal', path: 'categories/global_cultural/scandi-minimal.html', title: '81. Scandi-Minimal', category: 'Global & Cultural' },
+            { id: 'kawaii', path: 'categories/global_cultural/kawaii.html', title: '82. Kawaii', category: 'Global & Cultural' },
+            { id: 'oriental_wuxia', path: 'categories/global_cultural/oriental_wuxia.html', title: '83. Oriental/Wuxia', category: 'Global & Cultural' },
+            { id: 'mediterranean', path: 'categories/global_cultural/mediterranean.html', title: '84. Mediterranean', category: 'Global & Cultural' },
+            { id: 'tribal_ethno', path: 'categories/global_cultural/tribal_ethno.html', title: '85. Tribal/Ethno', category: 'Global & Cultural' },
+            { id: 'bollywood', path: 'categories/global_cultural/bollywood.html', title: '86. Bollywood', category: 'Global & Cultural' },
+            { id: 'wild_west', path: 'categories/global_cultural/wild_west.html', title: '87. Wild West', category: 'Global & Cultural' },
+            { id: 'victorian', path: 'categories/global_cultural/victorian.html', title: '88. Victorian', category: 'Global & Cultural' },
+            { id: 'k-pop', path: 'categories/global_cultural/k-pop.html', title: '89. K-Pop', category: 'Global & Cultural' },
+            { id: 'chatgpt_download', path: 'categories/download_app_famous_page_clones/chatgpt_download.html', title: '91. ChatGPT Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'arc_browser_download', path: 'categories/download_app_famous_page_clones/arc_browser_download.html', title: '92. Arc Browser Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'spotify_download', path: 'categories/download_app_famous_page_clones/spotify_download.html', title: '93. Spotify Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'notion_download', path: 'categories/download_app_famous_page_clones/notion_download.html', title: '94. Notion Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'discord_download', path: 'categories/download_app_famous_page_clones/discord_download.html', title: '95. Discord Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'slack_download', path: 'categories/download_app_famous_page_clones/slack_download.html', title: '96. Slack Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'duolingo_download', path: 'categories/download_app_famous_page_clones/duolingo_download.html', title: '97. Duolingo Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'raycast_download', path: 'categories/download_app_famous_page_clones/raycast_download.html', title: '98. Raycast Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'robinhood_download', path: 'categories/download_app_famous_page_clones/robinhood_download.html', title: '99. Robinhood Download', category: 'Download App (Famous Page Clones)' },
+            { id: 'linear_download', path: 'categories/download_app_famous_page_clones/linear_download.html', title: '100. Linear Download', category: 'Download App (Famous Page Clones)' }
         ];
 
         // URL Parsing
         const urlParams = new URLSearchParams(window.location.search);
-        let requestedPath = urlParams.get('style');
+        let rawStyleParam = (urlParams.get('style') || '').trim();
+        let normalizedPath = decodeURIComponent(rawStyleParam).replace(/^(\.\/|\/)/, '');
+        let requestedId = normalizedPath.split('/').pop().replace('.html', '');
 
         // Find current style index
-        let currentIndex = stylesData.findIndex(s => s.path === requestedPath);
-        if (currentIndex === -1) {
-            // Default to first if not found
-            currentIndex = 0;
-            requestedPath = stylesData[0].path;
+        let currentIndex = -1;
+        if (normalizedPath) {
+            currentIndex = stylesData.findIndex(s => 
+                s.path === normalizedPath || 
+                s.path === rawStyleParam || 
+                s.id === normalizedPath ||
+                s.id === requestedId ||
+                s.path.endsWith(normalizedPath)
+            );
         }
 
-        const currentStyle = stylesData[currentIndex];
+        let currentStyle;
+        let requestedPath;
+
+        if (currentIndex !== -1) {
+            currentStyle = stylesData[currentIndex];
+            requestedPath = currentStyle.path;
+        } else if (normalizedPath) {
+            // If requested style is not found in predefined list, still display the requested style!
+            const fallbackTitle = requestedId
+                .replace(/[_-]/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+            currentStyle = {
+                id: requestedId,
+                path: normalizedPath,
+                title: fallbackTitle,
+                category: 'Style Showcase'
+            };
+            requestedPath = normalizedPath;
+        } else {
+            currentIndex = 0;
+            currentStyle = stylesData[0];
+            requestedPath = currentStyle.path;
+        }
 
         // UI Updates
+        document.title = `${currentStyle.title} - Style Showcase`;
         document.getElementById('style-title').textContent = currentStyle.title;
         const frame = document.getElementById('preview-frame');
         frame.src = requestedPath;
 
         // a11y Badge
+        const badge = document.getElementById('a11y-badge');
         if (currentStyle.a11y) {
-            const badge = document.getElementById('a11y-badge');
             badge.textContent = currentStyle.a11y;
             badge.style.display = 'inline-block';
             if (currentStyle.a11y.includes('Warning')) {
                 badge.className = "ml-2 text-xs px-2 py-0.5 rounded-full bg-[#3d2c12] text-[#f2b84b] border border-[#5c421b]";
+            } else {
+                badge.className = "ml-2 text-xs px-2 py-0.5 rounded-full bg-[#1f2a3c] text-[#a9bad3] border border-[#3a4a5f]";
             }
+        } else {
+            badge.style.display = 'none';
         }
 
         // Navigation
-        document.getElementById('btn-prev').addEventListener('click', () => {
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        btnPrev.addEventListener('click', () => {
             if (currentIndex > 0) {
                 window.location.href = `showcase.html?style=${stylesData[currentIndex - 1].path}`;
             }
         });
-        document.getElementById('btn-next').addEventListener('click', () => {
-            if (currentIndex < stylesData.length - 1) {
+        btnNext.addEventListener('click', () => {
+            if (currentIndex >= 0 && currentIndex < stylesData.length - 1) {
                 window.location.href = `showcase.html?style=${stylesData[currentIndex + 1].path}`;
             }
         });
 
-        // Disable Prev/Next if at boundaries
-        if (currentIndex === 0) document.getElementById('btn-prev').style.opacity = '0.5';
-        if (currentIndex === stylesData.length - 1) document.getElementById('btn-next').style.opacity = '0.5';
+        // Disable Prev/Next if at boundaries or invalid index
+        if (currentIndex <= 0) {
+            btnPrev.style.opacity = '0.5';
+            btnPrev.style.cursor = 'not-allowed';
+        }
+        if (currentIndex === -1 || currentIndex >= stylesData.length - 1) {
+            btnNext.style.opacity = '0.5';
+            btnNext.style.cursor = 'not-allowed';
+        }
+
+        // Keyboard navigation (Left / Right arrow keys)
+        window.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                window.location.href = `showcase.html?style=${stylesData[currentIndex - 1].path}`;
+            } else if (e.key === 'ArrowRight' && currentIndex >= 0 && currentIndex < stylesData.length - 1) {
+                window.location.href = `showcase.html?style=${stylesData[currentIndex + 1].path}`;
+            }
+        });
 
         // Device Toggles
         const deviceBtns = document.querySelectorAll('.device-btn');
@@ -264,31 +395,48 @@
 
         // Load Source Code
         // Attempt fetch first (works on servers), fallback to iframe reading (might work on some file://), then error out.
+        const setSourceCode = (code) => {
+            document.getElementById('code-block').textContent = code;
+        };
+
+        const tryReadFromFrame = () => {
+            try {
+                if (frame.contentDocument && frame.contentDocument.documentElement) {
+                    const html = frame.contentDocument.documentElement.outerHTML;
+                    if (html && html.trim().length > 0) {
+                        setSourceCode('<!DOCTYPE html>\n' + html);
+                        return true;
+                    }
+                }
+            } catch (e) { }
+            return false;
+        };
+
+        frame.addEventListener('load', () => {
+            if (document.getElementById('code-block').textContent === 'Loading...') {
+                tryReadFromFrame();
+            }
+        });
+
         fetch(requestedPath)
             .then(response => {
                 if (!response.ok) throw new Error("Network response was not ok");
                 return response.text();
             })
             .then(html => {
-                document.getElementById('code-block').textContent = html;
+                setSourceCode(html);
             })
             .catch(err => {
                 // If fetch fails (likely due to CORS on file:// protocol), try reading from the loaded iframe
-                frame.addEventListener('load', () => {
-                    try {
-                        const html = frame.contentDocument.documentElement.outerHTML;
-                        document.getElementById('code-block').textContent = '<!DOCTYPE html>\n' + html;
-                    } catch (e) {
-                        document.getElementById('code-block').textContent = '// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.';
-                    }
-                });
-
-                // Set a timeout in case iframe doesn't trigger load or fails
-                setTimeout(() => {
-                    if (document.getElementById('code-block').textContent === 'Loading...') {
-                        document.getElementById('code-block').textContent = '// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.';
-                    }
-                }, 1000);
+                if (!tryReadFromFrame()) {
+                    setTimeout(() => {
+                        if (document.getElementById('code-block').textContent === 'Loading...') {
+                            if (!tryReadFromFrame()) {
+                                setSourceCode('// Failed to load source code.\n// This is likely because you are opening the file directly (file:// protocol) which blocks local file reading for security.\n// Please run a local development server (e.g., using VSCode Live Server or running `npx serve` in the terminal) to view the source code.');
+                            }
+                        }
+                    }, 500);
+                }
             });
 
         // Copy Code
